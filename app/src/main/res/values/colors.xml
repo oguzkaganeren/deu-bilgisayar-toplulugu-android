@@ -8,4 +8,6 @@
     <color name="colorTabNormal">#FAFAFA</color>
     <color name="colorTabSelected">#FFF</color>
     <color name="colorRed">#B71C1C</color>
+    <color name="viewBg">#f1f5f8</color>
+    <color name="card_title">#4c4c4c</color>
 </resources>
