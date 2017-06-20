@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">D.E.U Bilgisayar Topluluğu</string>
+    <!-- Navigation Drawer menu labels -->
+    <string name="nav_start">Başlangıç</string>
+    <string name="nav_login">Uye Girişi</string>
+    <string name="nav_account">Hesap</string>
+    <string name="nav_event">Geçmiş Etkinlikler</string>
+    <string name="nav_person">Kişiler</string>
+    <string name="nav_notice">Duyurular</string>
+    <string name="nav_settings">Ayarlar</string>
+    <string name="nav_about_us">Hakkımızda</string>
+    <string name="openDrawer">open_drawer</string>
+    <string name="closeDrawer">close_drawer</string>
+    <!-- Toolbar titles when navigation menu item is selected -->
+    <string-array name="nav_item_activity_titles">
+        <item>D.E.U Bilgisayar Topluluğu</item>
+        <item>Üye Girişi</item>
+        <item>Hesap</item>
+        <item>Geçmiş Etkinlikler</item>
+        <item>Duyurular</item>
+        <item>Kişiler</item>
+    </string-array>
+
+    <string name="activity_title_about_us">About Us</string>
+    <string name="activity_title_privacy_policy">Privacy Policy</string>
+    <string name="action_clear_all">Clear All</string>
+    <string name="action_logout">Logout</string>
+    <string name="action_mark_all_read">Mark All as Read</string>
+    <string name="privacy_policy">Gizlilik Politikası</string>
+
+    <!-- Tabs -->
+    <string name="tabOne">İçerik</string>
+    <string name="tabTwo">Duyuru</string>
+    <string name="tabThree">Etkinlik</string>
+    <string name="tabFour">Toplantı</string>
+</resources>
