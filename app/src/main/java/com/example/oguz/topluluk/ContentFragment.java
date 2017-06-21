@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 
 
 
-public class ContentFragment extends Fragment{
+public class ContentFragment extends Fragment {
 
     public ContentFragment() {
         // Required empty public constructor
