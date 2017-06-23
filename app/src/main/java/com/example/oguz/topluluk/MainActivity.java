@@ -19,6 +19,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.CardView;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.view.Gravity;
 import android.view.LayoutInflater;
@@ -35,7 +38,9 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.bumptech.glide.load.model.StringLoader;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
@@ -72,6 +77,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_user);//bu kısımı bir kontrol et
+
+
         setSupportActionBar(toolbar);
         //----------------------------
         mHandler = new Handler() {
@@ -144,6 +151,18 @@ public class MainActivity extends AppCompatActivity {
 
             }
         });
+    }
+    private List<WebDataInfo> createContent(){
+        List<WebDataInfo> ls=new ArrayList<WebDataInfo>();
+        WebDataInfo wb=new WebDataInfo();
+        wb.title="Deneme";
+        wb.link="link";
+        wb.description="desp";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
+        String currentDateandTime = sdf.format(new Date());
+        wb.date=currentDateandTime;
+        ls.add(wb);
+        return ls;
     }
     //pageleri ekler (tablar)
     private void setupViewPager(ViewPager viewPager) {

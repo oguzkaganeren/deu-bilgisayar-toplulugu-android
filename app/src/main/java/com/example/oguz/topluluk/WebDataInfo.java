@@ -10,7 +10,7 @@ public class WebDataInfo {
     protected String title;
     protected String link;
     protected String description;
-    protected Date date;
+    protected String date;
     protected String imgSrc;
 
 }

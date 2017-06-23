@@ -3,15 +3,18 @@ package com.example.oguz.topluluk;
 /**
  * Created by Oguz on 21-Jun-17.
  */
+import android.media.Image;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.util.Date;
 import java.util.List;
 
-public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContactViewHolder> {
+public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentViewHolder> {
 
     private List<WebDataInfo> dataList;
 
@@ -26,36 +29,35 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContactV
     }
 
     @Override
-    public void onBindViewHolder(ContactViewHolder contactViewHolder, int i) {
-        WebDataInfo ci = dataList.get(i);
-       // contactViewHolder.vName.setText(ci.name);
-       // contactViewHolder.vSurname.setText(ci.surname);
-       // contactViewHolder.vEmail.setText(ci.email);
-       // contactViewHolder.vTitle.setText(ci.name + " " + ci.surname);
+    public void onBindViewHolder(ContentViewHolder contentViewHolder, int i) {
+        WebDataInfo wb = dataList.get(i);
+        contentViewHolder.title.setText(wb.title);
+        contentViewHolder.description.setText(wb.description);
+        contentViewHolder.imgSrc.setBackgroundResource(Integer.parseInt(wb.imgSrc));
+        contentViewHolder.date.setText(wb.date);
     }
 
     @Override
-    public ContactViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+    public ContentViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.fragment_content, viewGroup, false);
 
-        return new ContactViewHolder(itemView);
+        return new ContentViewHolder(itemView);
     }
 
-    public static class ContactViewHolder extends RecyclerView.ViewHolder {
+    public static class ContentViewHolder extends RecyclerView.ViewHolder {
+        protected TextView title;
+        protected TextView description;
+        protected TextView date;
+        protected ImageView imgSrc;
 
-        protected TextView vName;
-        protected TextView vSurname;
-        protected TextView vEmail;
-        protected TextView vTitle;
-
-        public ContactViewHolder(View v) {
+        public ContentViewHolder(View v) {
             super(v);
-            /*vName =  (TextView) v.findViewById(R.id.txtName);
-            vSurname = (TextView)  v.findViewById(R.id.txtSurname);
-            vEmail = (TextView)  v.findViewById(R.id.txtEmail);
-            vTitle = (TextView) v.findViewById(R.id.title);*/
+            title =  (TextView) v.findViewById(R.id.title);
+            description = (TextView)  v.findViewById(R.id.descript);
+            date = (TextView) v.findViewById(R.id.date);
+            imgSrc=(ImageView)v.findViewById(R.id.thumbnail);
         }
     }
 }
