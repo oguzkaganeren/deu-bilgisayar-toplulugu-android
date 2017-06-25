@@ -152,18 +152,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-    private List<WebDataInfo> createContent(){
-        List<WebDataInfo> ls=new ArrayList<WebDataInfo>();
-        WebDataInfo wb=new WebDataInfo();
-        wb.title="Deneme";
-        wb.link="link";
-        wb.description="desp";
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-        String currentDateandTime = sdf.format(new Date());
-        wb.date=currentDateandTime;
-        ls.add(wb);
-        return ls;
-    }
     //pageleri ekler (tablar)
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());

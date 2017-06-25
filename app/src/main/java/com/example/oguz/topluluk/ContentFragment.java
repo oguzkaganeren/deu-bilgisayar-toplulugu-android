@@ -19,7 +19,9 @@ import java.util.List;
 
 
 public class ContentFragment extends Fragment {
-
+    private RecyclerView mRecyclerView;
+    private LinearLayoutManager mLinearLayoutManager;
+    WebDataAdapter myAdap;
     public ContentFragment() {
         // Required empty public constructor
     }
@@ -27,14 +29,26 @@ public class ContentFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        View v = getLayoutInflater(savedInstanceState).inflate(R.layout.fragment_content, null , false);
-        RecyclerView myRc=(RecyclerView)v.findViewById(R.id.rcview);
-        myRc.setHasFixedSize(true);
-        LinearLayoutManager llm=new LinearLayoutManager(getActivity());
-        llm.setOrientation(LinearLayoutManager.VERTICAL);
-        myRc.setLayoutManager(llm);
-        WebDataAdapter myAdap=new WebDataAdapter(createContent());
-        myRc.setAdapter(myAdap);
+
+        myAdap=new WebDataAdapter(createContent());
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
+        //bu kısım fragmenlere özel
+        View v = inflater.inflate(R.layout.fragment_content, parent, false);
+
+        // 2.
+        mLinearLayoutManager = new LinearLayoutManager(getActivity());
+        mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+
+        // 3.
+        mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview);
+        mRecyclerView.setHasFixedSize(true);
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        mRecyclerView.setAdapter(myAdap);
+
+        return v;
     }
     private List<WebDataInfo> createContent(){
         List<WebDataInfo> ls=new ArrayList<WebDataInfo>();
@@ -43,7 +57,8 @@ public class ContentFragment extends Fragment {
             WebDataInfo wb=new WebDataInfo();
             wb.title="Deneme";
             wb.link="link";
-            wb.description="desp";
+            wb.imgSrc=R.drawable.about_24dp;
+            wb.description="Sometimes, the easiest way to get inspired is to see how others generate content.  Here are some resources that are full of examples to get the juices flowing.";
             SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
             String currentDateandTime = sdf.format(new Date());
             wb.date=currentDateandTime;
@@ -51,12 +66,6 @@ public class ContentFragment extends Fragment {
         }
 
         return ls;
-    }
-    @Override
-    public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                             Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_content, container, false);
     }
 
 }

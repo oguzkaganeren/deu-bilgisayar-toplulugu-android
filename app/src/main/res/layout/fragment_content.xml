@@ -9,14 +9,17 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_margin="@dimen/card_margin"
         android:elevation="3dp"
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent">
-
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rcview"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
             <ImageView
                 android:id="@+id/thumbnail"
                 android:layout_width="match_parent"
@@ -33,17 +36,18 @@
                 android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
+                android:textStyle="bold"
                 android:textColor="@color/card_title"
                 android:textSize="@dimen/album_title" />
 
             <TextView
                 android:id="@+id/date"
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/title"
-                android:paddingBottom="@dimen/songs_count_padding_bottom"
-                android:paddingLeft="@dimen/album_title_padding"
                 android:paddingRight="@dimen/album_title_padding"
+                android:textStyle="italic"
+                android:layout_alignParentRight="true"
                 android:textSize="@dimen/songs_count" />
 
             <TextView
@@ -51,6 +55,9 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/date"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
                 android:textSize="@dimen/songs_count"
                  />
 
@@ -62,11 +69,7 @@
                 android:layout_below="@id/thumbnail"
                 android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
                 android:scaleType="centerCrop" />
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/rcview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                />
+
         </RelativeLayout>
 
     </android.support.v7.widget.CardView>

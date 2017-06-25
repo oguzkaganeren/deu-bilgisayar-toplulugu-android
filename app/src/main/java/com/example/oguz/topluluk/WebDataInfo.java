@@ -1,5 +1,7 @@
 package com.example.oguz.topluluk;
 
+import android.widget.ImageView;
+
 import java.util.Date;
 
 /**
@@ -11,6 +13,6 @@ public class WebDataInfo {
     protected String link;
     protected String description;
     protected String date;
-    protected String imgSrc;
+    protected int imgSrc;
 
 }
