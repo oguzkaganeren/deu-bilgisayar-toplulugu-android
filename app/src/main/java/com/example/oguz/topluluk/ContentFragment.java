@@ -4,11 +4,13 @@ package com.example.oguz.topluluk;
  * Created by Oguz on 08-Jun-17.
  */
 
+import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.Html;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -37,13 +39,19 @@ public class ContentFragment extends Fragment {
 
     WebDataInfo wb;
     WebDataAdapter myAdap;
-    class ParseXMLTask extends AsyncTask<String, Integer, Object> {
+    public ContentFragment() {
+        // Required empty public constructor
+    }
+
+    class ParseXMLTask extends AsyncTask<String, Void, Void> {
         ArrayList<WebDataInfo> ls=new ArrayList<WebDataInfo>();
         @Override
-        protected Object doInBackground(String... params) {
+        protected Void doInBackground(String... params) {
             try {
                 URL urlTo = new URL("http://feeds.pcworld.com/pcworld/latestnews");
-
+                //https://servis.chip.com.tr/chiponline.xml
+                //http://www.techrepublic.com/rssfeeds/articles/latest/
+                //https://www.cnet.com/rss/news/
                 XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
                 factory.setNamespaceAware(false);
                 XmlPullParser xpp = factory.newPullParser();
@@ -59,38 +67,58 @@ public class ContentFragment extends Fragment {
          *
          * In order to achieve this, we will make use of a boolean variable.
          */
-                boolean insideItem = false;
+               boolean insideItem = false;
 
                 // Returns the type of current event: START_TAG, END_TAG, etc..
                 int eventType = xpp.getEventType();
-
+                wb = new WebDataInfo();
                 while (eventType != XmlPullParser.END_DOCUMENT) {
                     if (eventType == XmlPullParser.START_TAG) {
 
                         if (xpp.getName().equalsIgnoreCase("item")) {
                             insideItem = true;
+
                         } else if (xpp.getName().equalsIgnoreCase("title")) {
                             if (insideItem) {
-                                wb = new WebDataInfo();
                                 wb.title = xpp.nextText();
-                                ls.add(wb);
+                            }
+                        }else if (xpp.getName().equalsIgnoreCase("enclosure")) {
+                            if (insideItem) {
+                                wb.imgSrc = LoadImageFromWebOperations(xpp.getAttributeValue(null,"url"));
+
+                            }
+                        }
+                        else if (xpp.getName().equalsIgnoreCase("media:content")) {
+                            if (insideItem) {
+                                wb.imgSrc = LoadImageFromWebOperations(xpp.getAttributeValue(null,"url"));
+
+                            }
+                        }
+                        else if (xpp.getName().equalsIgnoreCase("media:thumbnail")) {
+                            if (insideItem) {
+                                wb.imgSrc = LoadImageFromWebOperations(xpp.getAttributeValue(null,"url"));
+
+                            }
+                        }
+                        else if (xpp.getName().equalsIgnoreCase("description")) {
+                            if (insideItem) {
+                                wb.description = stripHtml(xpp.nextText());
                             }
                         }else if (xpp.getName().equalsIgnoreCase("pubDate")) {
                             if (insideItem) {
-                                wb = new WebDataInfo();
                                 wb.date = xpp.nextText();
-                                ls.add(wb);
                             }
                         }
                         else if (xpp.getName().equalsIgnoreCase("link")) {
                             if (insideItem) {
-                                wb = new WebDataInfo();
                                 wb.link = xpp.nextText();
-                               ls.add(wb);
+
                             }
                         }
                     }else if(eventType==XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")){
                         insideItem=false;
+                        ls.add(wb);
+                        wb = new WebDataInfo();
                     }
 
                     eventType = xpp.next(); //move to next element
@@ -103,31 +131,26 @@ public class ContentFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
-            return ls;
+            return null;
+        }
+
+        @Override
+        protected void onPostExecute(Void result) {
+            super.onPostExecute(result);
+            //do something after parsing is done
+            myAdap=new WebDataAdapter(ls);
+            mRecyclerView.setAdapter(myAdap);
         }
         public ArrayList<WebDataInfo> getMyLs()
         {
             return ls;
         }
-        @Override
-        protected void onProgressUpdate(Integer... values) {
-            super.onProgressUpdate(values);
-        }
-
     }
-    public ContentFragment() {
-        // Required empty public constructor
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ParseXMLTask pars=new ParseXMLTask();
         pars.execute();
-       ArrayList<WebDataInfo> myList= pars.getMyLs();
-
-        myAdap=new WebDataAdapter(myList);
-      //  mRecyclerView.setAdapter(myAdap);
     }
 
     @Override
@@ -143,7 +166,6 @@ public class ContentFragment extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-       mRecyclerView.setAdapter(myAdap);
 
         return v;
     }
@@ -153,7 +175,6 @@ public class ContentFragment extends Fragment {
         // Initializing instance variables
         headlines = new ArrayList();
         links = new ArrayList();
-
         try {
             URL url = new URL("http://feeds.pcworld.com/pcworld/latestnews");
 
@@ -221,6 +242,22 @@ public class ContentFragment extends Fragment {
         }*/
 
         return ls;
+    }
+    public String stripHtml(String html) {
+        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
+            return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY).toString();
+        } else {
+            return Html.fromHtml(html).toString();
+        }
+    }
+    public static Drawable LoadImageFromWebOperations(String url) {
+        try {
+            InputStream is = (InputStream) new URL(url).getContent();
+            Drawable d = Drawable.createFromStream(is, "src name");
+            return d;
+        } catch (Exception e) {
+            return null;
+        }
     }
     public InputStream getInputStream(URL url) {
         try {

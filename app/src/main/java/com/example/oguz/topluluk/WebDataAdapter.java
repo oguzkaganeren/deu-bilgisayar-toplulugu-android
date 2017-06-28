@@ -33,7 +33,7 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         WebDataInfo wb = dataList.get(i);
         contentViewHolder.title.setText(wb.title);
         contentViewHolder.description.setText(wb.description);
-        contentViewHolder.imgSrc.setImageResource(wb.imgSrc);
+        contentViewHolder.imgSrc.setImageDrawable(wb.imgSrc);
         contentViewHolder.date.setText(wb.date);
     }
 

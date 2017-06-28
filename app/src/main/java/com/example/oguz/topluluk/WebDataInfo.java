@@ -1,5 +1,6 @@
 package com.example.oguz.topluluk;
 
+import android.graphics.drawable.Drawable;
 import android.widget.ImageView;
 
 import java.util.Date;
@@ -13,7 +14,7 @@ public class WebDataInfo {
     protected String link;
     protected String description;
     protected String date;
-    protected int imgSrc;
+    protected Drawable imgSrc;
     public String getTitle(){
         return title;
     }
