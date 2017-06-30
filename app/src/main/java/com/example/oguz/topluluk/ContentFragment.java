@@ -4,6 +4,8 @@ package com.example.oguz.topluluk;
  * Created by Oguz on 08-Jun-17.
  */
 
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -16,6 +18,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
+import android.widget.ImageView;
+
+import com.squareup.picasso.Picasso;
+import com.squareup.picasso.Target;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -29,13 +35,12 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-
-
 public class ContentFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private List headlines;
     private List links;
+    ImageView imageView;
 
     WebDataInfo wb;
     WebDataAdapter myAdap;
@@ -48,16 +53,17 @@ public class ContentFragment extends Fragment {
         @Override
         protected Void doInBackground(String... params) {
             try {
-                URL urlTo = new URL("http://feeds.pcworld.com/pcworld/latestnews");
-                //https://servis.chip.com.tr/chiponline.xml
-                //http://www.techrepublic.com/rssfeeds/articles/latest/
-                //https://www.cnet.com/rss/news/
-                XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                factory.setNamespaceAware(false);
-                XmlPullParser xpp = factory.newPullParser();
+                    URL urlTo = new URL(params[0]);
+                    //https://servis.chip.com.tr/chiponline.xml
+                    //http://www.techrepublic.com/rssfeeds/articles/latest/
+                    //https://www.cnet.com/rss/news/
+                    //http://feeds.pcworld.com/pcworld/latestnews
+                    XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
+                    factory.setNamespaceAware(false);
+                    XmlPullParser xpp = factory.newPullParser();
 
-                // We will get the XML from an input stream
-                xpp.setInput(getInputStream(urlTo), "UTF_8");
+                    // We will get the XML from an input stream
+                    xpp.setInput(getInputStream(urlTo), "UTF_8");
 
         /* We will parse the XML content looking for the "<title>" tag which appears inside the "<item>" tag.
          * However, we should take in consideration that the rss feed name also is enclosed in a "<title>" tag.
@@ -67,63 +73,57 @@ public class ContentFragment extends Fragment {
          *
          * In order to achieve this, we will make use of a boolean variable.
          */
-               boolean insideItem = false;
+                    boolean insideItem = false;
+                    // Returns the type of current event: START_TAG, END_TAG, etc..
+                    int eventType = xpp.getEventType();
+                    wb = new WebDataInfo();
+                    while (eventType != XmlPullParser.END_DOCUMENT) {
+                        if (eventType == XmlPullParser.START_TAG) {
 
-                // Returns the type of current event: START_TAG, END_TAG, etc..
-                int eventType = xpp.getEventType();
-                wb = new WebDataInfo();
-                while (eventType != XmlPullParser.END_DOCUMENT) {
-                    if (eventType == XmlPullParser.START_TAG) {
+                            if (xpp.getName().equalsIgnoreCase("item")) {
+                                insideItem = true;
 
-                        if (xpp.getName().equalsIgnoreCase("item")) {
-                            insideItem = true;
+                            } else if (xpp.getName().equalsIgnoreCase("title")) {
+                                if (insideItem) {
+                                    wb.title = xpp.nextText();
+                                }
+                            } else if (xpp.getName().equalsIgnoreCase("enclosure")) {
+                                if (insideItem) {
+                                    wb.imgSrc = xpp.getAttributeValue(null, "url");
 
-                        } else if (xpp.getName().equalsIgnoreCase("title")) {
-                            if (insideItem) {
-                                wb.title = xpp.nextText();
+                                }
+                            } else if (xpp.getName().equalsIgnoreCase("media:content")) {
+                                if (insideItem) {
+                                    wb.imgSrc = xpp.getAttributeValue(null, "url");
+
+                                }
+                            } else if (xpp.getName().equalsIgnoreCase("media:thumbnail")) {
+                                if (insideItem) {
+                                    wb.imgSrc = xpp.getAttributeValue(null, "url");
+
+                                }
+                            } else if (xpp.getName().equalsIgnoreCase("description")) {
+                                if (insideItem) {
+                                    wb.description = stripHtml(xpp.nextText());
+                                }
+                            } else if (xpp.getName().equalsIgnoreCase("pubDate")) {
+                                if (insideItem) {
+                                    wb.date = xpp.nextText();
+                                }
+                            } else if (xpp.getName().equalsIgnoreCase("link")) {
+                                if (insideItem) {
+                                    wb.link = xpp.nextText();
+
+                                }
                             }
-                        }else if (xpp.getName().equalsIgnoreCase("enclosure")) {
-                            if (insideItem) {
-                                wb.imgSrc = LoadImageFromWebOperations(xpp.getAttributeValue(null,"url"));
-
-                            }
+                        } else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")) {
+                            insideItem = false;
+                            ls.add(wb);
+                            wb = new WebDataInfo();
                         }
-                        else if (xpp.getName().equalsIgnoreCase("media:content")) {
-                            if (insideItem) {
-                                wb.imgSrc = LoadImageFromWebOperations(xpp.getAttributeValue(null,"url"));
 
-                            }
-                        }
-                        else if (xpp.getName().equalsIgnoreCase("media:thumbnail")) {
-                            if (insideItem) {
-                                wb.imgSrc = LoadImageFromWebOperations(xpp.getAttributeValue(null,"url"));
-
-                            }
-                        }
-                        else if (xpp.getName().equalsIgnoreCase("description")) {
-                            if (insideItem) {
-                                wb.description = stripHtml(xpp.nextText());
-                            }
-                        }else if (xpp.getName().equalsIgnoreCase("pubDate")) {
-                            if (insideItem) {
-                                wb.date = xpp.nextText();
-                            }
-                        }
-                        else if (xpp.getName().equalsIgnoreCase("link")) {
-                            if (insideItem) {
-                                wb.link = xpp.nextText();
-
-                            }
-                        }
-                    }else if(eventType==XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")){
-                        insideItem=false;
-                        ls.add(wb);
-                        wb = new WebDataInfo();
+                        eventType = xpp.next(); //move to next element
                     }
-
-                    eventType = xpp.next(); //move to next element
-                }
-
             } catch (MalformedURLException e) {
                 e.printStackTrace();
             } catch (XmlPullParserException e) {
@@ -131,6 +131,7 @@ public class ContentFragment extends Fragment {
             } catch (IOException e) {
                 e.printStackTrace();
             }
+
             return null;
         }
 
@@ -138,7 +139,7 @@ public class ContentFragment extends Fragment {
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
             //do something after parsing is done
-            myAdap=new WebDataAdapter(ls);
+            myAdap=new WebDataAdapter(getActivity(),ls);
             mRecyclerView.setAdapter(myAdap);
         }
         public ArrayList<WebDataInfo> getMyLs()
@@ -150,14 +151,26 @@ public class ContentFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         ParseXMLTask pars=new ParseXMLTask();
-        pars.execute();
+        pars.execute("https://servis.chip.com.tr/chiponline.xml");
+        ParseXMLTask pars2=new ParseXMLTask();
+        pars2.execute("http://www.techrepublic.com/rssfeeds/articles/latest/");
+        ParseXMLTask pars3=new ParseXMLTask();
+        pars3.execute("https://www.cnet.com/rss/news/");
+        ParseXMLTask pars4=new ParseXMLTask();
+        pars4.execute("http://feeds.pcworld.com/pcworld/latestnews");
+        //https://servis.chip.com.tr/chiponline.xml
+        //http://www.techrepublic.com/rssfeeds/articles/latest/
+        //https://www.cnet.com/rss/news/
+        //http://feeds.pcworld.com/pcworld/latestnews
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup parent, Bundle savedInstanceState) {
         //bu kısım fragmenlere özel
-        View v = inflater.inflate(R.layout.fragment_content, parent, false);
 
+        View v = inflater.inflate(R.layout.fragment_content, parent, false);
+        v.findViewById(R.id.thumbnail).setDrawingCacheEnabled(true);
+        imageView=new ImageView(getActivity());
         // 2.
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -170,79 +183,7 @@ public class ContentFragment extends Fragment {
         return v;
     }
 
-    private List<WebDataInfo> createContent(){
-        List<WebDataInfo> ls=new ArrayList<WebDataInfo>();
-        // Initializing instance variables
-        headlines = new ArrayList();
-        links = new ArrayList();
-        try {
-            URL url = new URL("http://feeds.pcworld.com/pcworld/latestnews");
 
-            XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-            factory.setNamespaceAware(false);
-            XmlPullParser xpp = factory.newPullParser();
-            // We will get the XML from an input stream
-            xpp.setInput(getInputStream(url), "UTF_8");
-        /* We will parse the XML content looking for the "<title>" tag which appears inside the "<item>" tag.
-         * However, we should take in consideration that the rss feed name also is enclosed in a "<title>" tag.
-         * As we know, every feed begins with these lines: "<channel><title>Feed_Name</title>...."
-         * so we should skip the "<title>" tag which is a child of "<channel>" tag,
-         * and take in consideration only "<title>" tag which is a child of "<item>"
-         *
-         * In order to achieve this, we will make use of a boolean variable.
-         */
-           boolean insideItem = false;
-            // Returns the type of current event: START_TAG, END_TAG, etc..
-            int eventType = xpp.getEventType();
-            while (eventType != XmlPullParser.END_DOCUMENT) {
-                if (eventType == XmlPullParser.START_TAG) {
-                    if (xpp.getName().equalsIgnoreCase("item")) {
-                        insideItem = true;
-                    } else if (xpp.getName().equalsIgnoreCase("title")) {
-                        if (insideItem) {
-                            WebDataInfo wb=new WebDataInfo();
-                            wb.title=xpp.nextText();
-                            ls.add(wb);
-                            //headlines.add(xpp.nextText()); //extract the headline
-                        }
-                    } else if (xpp.getName().equalsIgnoreCase("link")) {
-                        if (insideItem)
-                        {
-                            WebDataInfo wb=new WebDataInfo();
-                            wb.link=xpp.nextText();
-                            ls.add(wb);
-                            //links.add(xpp.nextText()); //extract the link of article
-                        }
-
-                    }
-                }else if(eventType==XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")){
-                    insideItem=false;
-                }
-
-                eventType = xpp.next(); //move to next element
-            }
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (XmlPullParserException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        /*for (int i=0;i<10;i++)
-        {
-            WebDataInfo wb=new WebDataInfo();
-            wb.title="Deneme";
-            wb.link="link";
-            wb.imgSrc=R.drawable.about_24dp;
-            wb.description="Sometimes, the easiest way to get inspired is to see how others generate content.  Here are some resources that are full of examples to get the juices flowing.";
-            SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd_HHmmss");
-            String currentDateandTime = sdf.format(new Date());
-            wb.date=currentDateandTime;
-            ls.add(wb);
-        }*/
-
-        return ls;
-    }
     public String stripHtml(String html) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
             return Html.fromHtml(html, Html.FROM_HTML_MODE_LEGACY).toString();
@@ -250,15 +191,7 @@ public class ContentFragment extends Fragment {
             return Html.fromHtml(html).toString();
         }
     }
-    public static Drawable LoadImageFromWebOperations(String url) {
-        try {
-            InputStream is = (InputStream) new URL(url).getContent();
-            Drawable d = Drawable.createFromStream(is, "src name");
-            return d;
-        } catch (Exception e) {
-            return null;
-        }
-    }
+
     public InputStream getInputStream(URL url) {
         try {
             return url.openConnection().getInputStream();

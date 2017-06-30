@@ -14,7 +14,7 @@ public class WebDataInfo {
     protected String link;
     protected String description;
     protected String date;
-    protected Drawable imgSrc;
+    protected String imgSrc;
     public String getTitle(){
         return title;
     }
