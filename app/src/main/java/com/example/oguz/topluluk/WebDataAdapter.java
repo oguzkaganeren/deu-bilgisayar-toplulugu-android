@@ -3,10 +3,13 @@ package com.example.oguz.topluluk;
 /**
  * Created by Oguz on 21-Jun-17.
  */
+import android.content.ClipData;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.Drawable;
 import android.media.Image;
+import android.net.Uri;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -65,7 +68,6 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
             e.printStackTrace();
             contentViewHolder.date.setText(wb.date);
         }
-
     }
 
     @Override
@@ -82,13 +84,14 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         protected TextView description;
         protected TextView date;
         protected ImageView imgSrc;
-
         public ContentViewHolder(View v) {
             super(v);
             title =  (TextView) v.findViewById(R.id.title);
             description = (TextView)  v.findViewById(R.id.descript);
             date = (TextView) v.findViewById(R.id.date);
             imgSrc=(ImageView)v.findViewById(R.id.thumbnail);
+
         }
+
     }
 }

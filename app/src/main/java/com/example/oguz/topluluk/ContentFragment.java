@@ -41,19 +41,24 @@ public class ContentFragment extends Fragment {
     private List headlines;
     private List links;
     ImageView imageView;
-
+    ArrayList<WebDataInfo> ls;
     WebDataInfo wb;
+
     WebDataAdapter myAdap;
+    String[] myWebSource=new String[]{"http://www.techrepublic.com/rssfeeds/articles/latest/","https://www.wired.com/feed/rss","http://www.techradar.com/rss/news/software","https://www.cnet.com/rss/news/"};
+    int mySourceNumber=0;
     public ContentFragment() {
         // Required empty public constructor
     }
 
     class ParseXMLTask extends AsyncTask<String, Void, Void> {
-        ArrayList<WebDataInfo> ls=new ArrayList<WebDataInfo>();
+
         @Override
         protected Void doInBackground(String... params) {
             try {
-                    URL urlTo = new URL(params[0]);
+                    URL urlTo = new URL(myWebSource[mySourceNumber]);
+                if (mySourceNumber<myWebSource.length)
+                    mySourceNumber++;
                     //https://servis.chip.com.tr/chiponline.xml
                     //http://www.techrepublic.com/rssfeeds/articles/latest/
                     //https://www.cnet.com/rss/news/
@@ -140,7 +145,7 @@ public class ContentFragment extends Fragment {
             super.onPostExecute(result);
             //do something after parsing is done
             myAdap=new WebDataAdapter(getActivity(),ls);
-            mRecyclerView.setAdapter(myAdap);
+            mRecyclerView.swapAdapter(myAdap,false);
         }
         public ArrayList<WebDataInfo> getMyLs()
         {
@@ -150,14 +155,15 @@ public class ContentFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        ls=new ArrayList<WebDataInfo>();
         ParseXMLTask pars=new ParseXMLTask();
-        pars.execute("https://servis.chip.com.tr/chiponline.xml");
-        ParseXMLTask pars2=new ParseXMLTask();
+        pars.execute();
+      /*  ParseXMLTask pars2=new ParseXMLTask();
         pars2.execute("http://www.techrepublic.com/rssfeeds/articles/latest/");
         ParseXMLTask pars3=new ParseXMLTask();
         pars3.execute("https://www.cnet.com/rss/news/");
         ParseXMLTask pars4=new ParseXMLTask();
-        pars4.execute("http://feeds.pcworld.com/pcworld/latestnews");
+        pars4.execute("http://feeds.pcworld.com/pcworld/latestnews");*/
         //https://servis.chip.com.tr/chiponline.xml
         //http://www.techrepublic.com/rssfeeds/articles/latest/
         //https://www.cnet.com/rss/news/
@@ -179,7 +185,16 @@ public class ContentFragment extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-
+        mRecyclerView.setOnScrollListener(new EndlessRecyclerOnScrollListener(mLinearLayoutManager) {
+            @Override
+            //scroll yaptıkça verileri çekmesi gerekiyor bunun için aşağıdaki methodu kullanacağım
+            public void onLoadMore(int current_page) {
+                if (mySourceNumber<myWebSource.length) {
+                    ParseXMLTask pars = new ParseXMLTask();
+                    pars.execute();
+                }
+            }
+        });
         return v;
     }
 
