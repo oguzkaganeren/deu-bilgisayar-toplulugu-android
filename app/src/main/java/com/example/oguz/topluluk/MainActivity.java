@@ -45,11 +45,14 @@ import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
+import im.delight.android.webview.AdvancedWebView;
+
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
+    ViewPagerAdapter adapter;
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private View navHeader;
@@ -132,6 +135,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
                 tabLayout.setSelectedTabIndicatorColor(getResources().getColor(android.R.color.holo_orange_light));
+
             }
 
             @Override
@@ -140,7 +144,13 @@ public class MainActivity extends AppCompatActivity {
 
             @Override
             public void onTabReselected(TabLayout.Tab tab) {
-
+                Fragment f =  adapter.getItem(tab.getPosition());
+                if (f != null) {
+                    View fragmentView = f.getView();
+                    RecyclerView mRecyclerView = (RecyclerView) fragmentView.findViewById(R.id.rcview);//mine one is RecyclerView
+                    if (mRecyclerView != null)
+                        mRecyclerView.smoothScrollToPosition(0);
+                }
             }
         });
 
@@ -155,7 +165,7 @@ public class MainActivity extends AppCompatActivity {
     }
     //pageleri ekler (tablar)
     private void setupViewPager(ViewPager viewPager) {
-        ViewPagerAdapter adapter = new ViewPagerAdapter(getSupportFragmentManager());
+        adapter = new ViewPagerAdapter(getSupportFragmentManager());
         adapter.addFragment(new ContentFragment(), getString(R.string.tabOne));
         //kullanıcı giriş yaptıysa alt kısım gözükecek
         adapter.addFragment(new NoticeFragment(), getString(R.string.tabTwo));

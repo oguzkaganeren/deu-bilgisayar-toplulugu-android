@@ -11,10 +11,14 @@ import android.graphics.drawable.Drawable;
 import android.media.Image;
 import android.net.Uri;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentActivity;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebView;
+import android.webkit.WebViewClient;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -29,10 +33,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
+import im.delight.android.webview.AdvancedWebView;
+
 public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentViewHolder> {
     private Context context;
     private List<WebDataInfo> dataList;
-
     public WebDataAdapter(Context context, List<WebDataInfo> dataList) {
         this.context=context;
         this.dataList = dataList;
@@ -49,6 +54,8 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         WebDataInfo wb = dataList.get(i);
         contentViewHolder.title.setText(wb.title);
         contentViewHolder.description.setText(wb.description);
+        contentViewHolder.urlS=wb.link;
+        contentViewHolder.itemPos=i;
         Picasso.with(context)
                 .load(wb.imgSrc)
                 .placeholder(R.drawable.progress_animation)
@@ -68,6 +75,8 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
             e.printStackTrace();
             contentViewHolder.date.setText(wb.date);
         }
+
+
     }
 
     @Override
@@ -75,7 +84,6 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.fragment_content, viewGroup, false);
-
         return new ContentViewHolder(itemView);
     }
 
@@ -84,13 +92,24 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         protected TextView description;
         protected TextView date;
         protected ImageView imgSrc;
+        protected String urlS;
+        protected int itemPos;
+        AdvancedWebView vw;
         public ContentViewHolder(View v) {
             super(v);
             title =  (TextView) v.findViewById(R.id.title);
             description = (TextView)  v.findViewById(R.id.descript);
             date = (TextView) v.findViewById(R.id.date);
             imgSrc=(ImageView)v.findViewById(R.id.thumbnail);
+            v.setOnClickListener(new View.OnClickListener() {
+                @Override public void onClick(View v) {
+                   /* Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
+                    v.getContext().startActivity(myIntent);*/
 
+
+
+                }
+            });
         }
 
     }

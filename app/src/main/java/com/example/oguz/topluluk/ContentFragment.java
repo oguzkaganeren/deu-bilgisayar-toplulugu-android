@@ -44,7 +44,7 @@ public class ContentFragment extends Fragment {
     ArrayList<WebDataInfo> ls;
     WebDataInfo wb;
 
-    WebDataAdapter myAdap;
+   public WebDataAdapter myAdap;
     String[] myWebSource=new String[]{"http://www.techrepublic.com/rssfeeds/articles/latest/","https://www.wired.com/feed/rss","http://www.techradar.com/rss/news/software","https://www.cnet.com/rss/news/"};
     int mySourceNumber=0;
     public ContentFragment() {
