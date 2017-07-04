@@ -3,6 +3,7 @@ package com.example.oguz.topluluk;
 /**
  * Created by Oguz on 21-Jun-17.
  */
+import android.app.Activity;
 import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
@@ -33,7 +34,6 @@ import java.util.Date;
 import java.util.List;
 import java.util.Locale;
 
-import im.delight.android.webview.AdvancedWebView;
 
 public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentViewHolder> {
     private Context context;
@@ -94,7 +94,6 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         protected ImageView imgSrc;
         protected String urlS;
         protected int itemPos;
-        AdvancedWebView vw;
         public ContentViewHolder(View v) {
             super(v);
             title =  (TextView) v.findViewById(R.id.title);
@@ -103,9 +102,11 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
             imgSrc=(ImageView)v.findViewById(R.id.thumbnail);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
-                   /* Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(url));
-                    v.getContext().startActivity(myIntent);*/
-
+                   Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlS));
+                    v.getContext().startActivity(myIntent);
+                    //there is a problem
+                    /*mWebView =new WebView(v.getContext());
+                    mWebView.loadUrl("http://www.google.com");*/
 
 
                 }

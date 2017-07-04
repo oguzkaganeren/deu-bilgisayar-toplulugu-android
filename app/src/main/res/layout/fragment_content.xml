@@ -10,17 +10,20 @@
         android:layout_height="match_parent"
         android:layout_gravity="center"
         android:elevation="3dp"
+
         card_view:cardCornerRadius="@dimen/card_album_radius">
 
         <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
+
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcview"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 />
+
             <ImageView
                 android:id="@+id/thumbnail"
                 android:layout_width="match_parent"
@@ -59,8 +62,8 @@
                 android:paddingRight="@dimen/album_title_padding"
                 android:paddingTop="@dimen/album_title_padding"
                 android:textSize="@dimen/songs_count"
+                android:paddingBottom="10dp"
                  />
-
             <ImageView
                 android:id="@+id/overflow"
                 android:layout_width="@dimen/ic_album_overflow_width"

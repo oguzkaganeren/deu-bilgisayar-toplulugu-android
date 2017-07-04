@@ -4,24 +4,27 @@ package com.example.oguz.topluluk;
  * Created by Oguz on 08-Jun-17.
  */
 
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
+import android.content.Context;
+import android.content.SharedPreferences;
+import android.net.ConnectivityManager;
+import android.net.NetworkInfo;
 import android.os.AsyncTask;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
+import android.text.TextUtils;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
+import android.webkit.WebView;
 import android.widget.ImageView;
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 
 import org.xmlpull.v1.XmlPullParser;
 import org.xmlpull.v1.XmlPullParserException;
@@ -29,12 +32,16 @@ import org.xmlpull.v1.XmlPullParserFactory;
 
 import java.io.IOException;
 import java.io.InputStream;
+import java.lang.reflect.Array;
+import java.lang.reflect.Type;
 import java.net.MalformedURLException;
+import java.net.Proxy;
 import java.net.URL;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
+import java.util.Arrays;
 import java.util.List;
+
+
 public class ContentFragment extends Fragment {
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
@@ -43,7 +50,6 @@ public class ContentFragment extends Fragment {
     ImageView imageView;
     ArrayList<WebDataInfo> ls;
     WebDataInfo wb;
-
    public WebDataAdapter myAdap;
     String[] myWebSource=new String[]{"http://www.techrepublic.com/rssfeeds/articles/latest/","https://www.wired.com/feed/rss","http://www.techradar.com/rss/news/software","https://www.cnet.com/rss/news/"};
     int mySourceNumber=0;
@@ -155,9 +161,32 @@ public class ContentFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        ls=new ArrayList<WebDataInfo>();
-        ParseXMLTask pars=new ParseXMLTask();
-        pars.execute();
+
+        Type type = new TypeToken<ArrayList<WebDataInfo>>(){}.getType();
+        SharedPreferences appSharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getActivity().getApplicationContext());
+        Gson gson = new Gson();
+        String json = appSharedPrefs.getString("topluveri", "");
+        if (!haveInternet()){
+            ls=gson.fromJson(json,type);
+            myAdap=new WebDataAdapter(getActivity(),ls);
+            Log.e("internet","yoktur");
+        }else{
+            ls=new ArrayList<WebDataInfo>();
+            ParseXMLTask pars=new ParseXMLTask();
+            pars.execute();
+        }
+
+        //ls= gson.fromJson(json, type);
+
+       // Log.d("yuk",ls.toString());
+        /*if (!ls.isEmpty()){
+            myAdap=new WebDataAdapter(getActivity(),ls);
+            mRecyclerView.swapAdapter(myAdap,false);
+        }else{*/
+
+
+
       /*  ParseXMLTask pars2=new ParseXMLTask();
         pars2.execute("http://www.techrepublic.com/rssfeeds/articles/latest/");
         ParseXMLTask pars3=new ParseXMLTask();
@@ -177,6 +206,7 @@ public class ContentFragment extends Fragment {
         View v = inflater.inflate(R.layout.fragment_content, parent, false);
         v.findViewById(R.id.thumbnail).setDrawingCacheEnabled(true);
         imageView=new ImageView(getActivity());
+
         // 2.
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
@@ -185,6 +215,9 @@ public class ContentFragment extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        if (mRecyclerView.getAdapter()==null){
+            mRecyclerView.swapAdapter(myAdap,false);
+        }
         mRecyclerView.setOnScrollListener(new EndlessRecyclerOnScrollListener(mLinearLayoutManager) {
             @Override
             //scroll yaptıkça verileri çekmesi gerekiyor bunun için aşağıdaki methodu kullanacağım
@@ -197,7 +230,25 @@ public class ContentFragment extends Fragment {
         });
         return v;
     }
+    @Override
+    public void onStop() {
+        // call the superclass method first
+        super.onStop();
+        //uygulamadan çıkarken indirilen içerikleri telefona kayıt ediyoruz
+        //çünkü biz üyelerimizin internet kotalarını düşünürüz :)
+        if (ls!=null)
+        {
+            SharedPreferences appSharedPrefs = PreferenceManager
+                .getDefaultSharedPreferences(getActivity().getApplicationContext());
+            SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();
+            Gson gson = new Gson();
+            String json = gson.toJson(ls);
+            prefsEditor.putString("topluveri", json);
+            prefsEditor.commit();
+            Log.d("Kaydetti",json);
+        }
 
+    }
 
     public String stripHtml(String html) {
         if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
@@ -206,7 +257,18 @@ public class ContentFragment extends Fragment {
             return Html.fromHtml(html).toString();
         }
     }
-
+    public Boolean haveInternet(){
+        ConnectivityManager conMgr = (ConnectivityManager) getContext()
+                .getSystemService(Context.CONNECTIVITY_SERVICE);
+        NetworkInfo i = conMgr.getActiveNetworkInfo();
+        if (i == null)
+            return false;
+        if (!i.isConnected())
+            return false;
+        if (!i.isAvailable())
+            return false;
+        return true;
+    }
     public InputStream getInputStream(URL url) {
         try {
             return url.openConnection().getInputStream();

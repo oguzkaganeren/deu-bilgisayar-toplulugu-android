@@ -1,5 +1,6 @@
 package com.example.oguz.topluluk;
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.Typeface;
@@ -45,7 +46,6 @@ import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
-import im.delight.android.webview.AdvancedWebView;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -74,6 +74,9 @@ public class MainActivity extends AppCompatActivity {
     // kullanıcı geri tuşuna basınca bir önceki fragmente geçme meselesi
     private boolean shouldLoadHomeFragOnBackPress = true;
     private Handler mHandler;
+    public static Context getContext() {
+        return getContext();
+    }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
