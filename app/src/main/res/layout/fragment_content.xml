@@ -1,6 +1,7 @@
 
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/myContainerContent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
@@ -17,7 +18,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             >
-
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcview"
                 android:layout_width="match_parent"
@@ -64,6 +64,13 @@
                 android:textSize="@dimen/songs_count"
                 android:paddingBottom="10dp"
                  />
+            <TextView
+                android:id="@+id/source"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/descript"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:textSize="@dimen/songs_count" />
             <ImageView
                 android:id="@+id/overflow"
                 android:layout_width="@dimen/ic_album_overflow_width"

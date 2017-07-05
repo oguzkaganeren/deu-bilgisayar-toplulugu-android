@@ -20,7 +20,10 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.animation.AccelerateInterpolator;
+import android.view.animation.DecelerateInterpolator;
 import android.webkit.WebView;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 
 import com.google.gson.Gson;
@@ -51,7 +54,7 @@ public class ContentFragment extends Fragment {
     ArrayList<WebDataInfo> ls;
     WebDataInfo wb;
    public WebDataAdapter myAdap;
-    String[] myWebSource=new String[]{"http://www.techrepublic.com/rssfeeds/articles/latest/","https://www.wired.com/feed/rss","http://www.techradar.com/rss/news/software","https://www.cnet.com/rss/news/"};
+        String[] myWebSource=new String[]{"http://www.techrepublic.com/rssfeeds/articles/latest/","https://www.wired.com/feed/rss","http://www.techradar.com/rss/news/software","https://www.cnet.com/rss/news/"};
     int mySourceNumber=0;
     public ContentFragment() {
         // Required empty public constructor
@@ -88,6 +91,9 @@ public class ContentFragment extends Fragment {
                     // Returns the type of current event: START_TAG, END_TAG, etc..
                     int eventType = xpp.getEventType();
                     wb = new WebDataInfo();
+                    String source=urlTo.toString();
+
+                    String[] sourceWeb=source.split("\\.");
                     while (eventType != XmlPullParser.END_DOCUMENT) {
                         if (eventType == XmlPullParser.START_TAG) {
 
@@ -124,7 +130,7 @@ public class ContentFragment extends Fragment {
                             } else if (xpp.getName().equalsIgnoreCase("link")) {
                                 if (insideItem) {
                                     wb.link = xpp.nextText();
-
+                                    wb.source=sourceWeb[1];
                                 }
                             }
                         } else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")) {
@@ -177,26 +183,6 @@ public class ContentFragment extends Fragment {
             pars.execute();
         }
 
-        //ls= gson.fromJson(json, type);
-
-       // Log.d("yuk",ls.toString());
-        /*if (!ls.isEmpty()){
-            myAdap=new WebDataAdapter(getActivity(),ls);
-            mRecyclerView.swapAdapter(myAdap,false);
-        }else{*/
-
-
-
-      /*  ParseXMLTask pars2=new ParseXMLTask();
-        pars2.execute("http://www.techrepublic.com/rssfeeds/articles/latest/");
-        ParseXMLTask pars3=new ParseXMLTask();
-        pars3.execute("https://www.cnet.com/rss/news/");
-        ParseXMLTask pars4=new ParseXMLTask();
-        pars4.execute("http://feeds.pcworld.com/pcworld/latestnews");*/
-        //https://servis.chip.com.tr/chiponline.xml
-        //http://www.techrepublic.com/rssfeeds/articles/latest/
-        //https://www.cnet.com/rss/news/
-        //http://feeds.pcworld.com/pcworld/latestnews
     }
 
     @Override
@@ -215,6 +201,9 @@ public class ContentFragment extends Fragment {
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview);
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        final View myToolBar = getActivity().findViewById(R.id.toolbar);
+        final View myTabs = getActivity().findViewById(R.id.tabs);
+        final View myBarLa = getActivity().findViewById(R.id.myBarLayout);
         if (mRecyclerView.getAdapter()==null){
             mRecyclerView.swapAdapter(myAdap,false);
         }
@@ -227,7 +216,38 @@ public class ContentFragment extends Fragment {
                     pars.execute();
                 }
             }
+            private static final int HIDE_THRESHOLD = 20;
+            private int scrolledDistance = 0;
+            private boolean controlsVisible = true;
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                super.onScrolled(recyclerView, dx, dy);
+                if (scrolledDistance > HIDE_THRESHOLD && controlsVisible) {
+                    hideViews();
+                    controlsVisible = false;
+                    scrolledDistance = 0;
+                } else if (scrolledDistance < -HIDE_THRESHOLD && !controlsVisible) {
+                    showViews();
+                    controlsVisible = true;
+                    scrolledDistance = 0;
+                }
+
+                if((controlsVisible && dy>0) || (!controlsVisible && dy<0)) {
+                    scrolledDistance += dy;
+                }
+            }
+
+            private void hideViews() {
+                myToolBar.animate().translationY(-myToolBar.getHeight()).setInterpolator(new AccelerateInterpolator(3));
+                myTabs.animate().translationY(-myTabs.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+            }
+
+            private void showViews() {
+                myToolBar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(1));
+                myTabs.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+            }
         });
+
         return v;
     }
     @Override

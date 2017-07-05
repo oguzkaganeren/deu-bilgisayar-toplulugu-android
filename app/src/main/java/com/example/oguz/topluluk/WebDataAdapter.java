@@ -55,7 +55,7 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         contentViewHolder.title.setText(wb.title);
         contentViewHolder.description.setText(wb.description);
         contentViewHolder.urlS=wb.link;
-        contentViewHolder.itemPos=i;
+        contentViewHolder.source.setText("Source:"+wb.source);
         Picasso.with(context)
                 .load(wb.imgSrc)
                 .placeholder(R.drawable.progress_animation)
@@ -93,13 +93,14 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         protected TextView date;
         protected ImageView imgSrc;
         protected String urlS;
-        protected int itemPos;
+        protected TextView source;
         public ContentViewHolder(View v) {
             super(v);
             title =  (TextView) v.findViewById(R.id.title);
             description = (TextView)  v.findViewById(R.id.descript);
             date = (TextView) v.findViewById(R.id.date);
             imgSrc=(ImageView)v.findViewById(R.id.thumbnail);
+            source=(TextView)v.findViewById(R.id.source);
             v.setOnClickListener(new View.OnClickListener() {
                 @Override public void onClick(View v) {
                    Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlS));
