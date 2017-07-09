@@ -3,13 +3,10 @@ package com.example.oguz.topluluk;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.Typeface;
-import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
-import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -20,28 +17,18 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.CardView;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.view.Gravity;
-import android.view.LayoutInflater;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.andexert.library.RippleView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
-import com.bumptech.glide.load.model.StringLoader;
 
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
@@ -69,13 +56,15 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_NOTIFICATIONS = "notifications";
     private static final String TAG_SETTINGS = "settings";
     public static String CURRENT_TAG = TAG_HOME;
+    private static Context mContext;
+
     // Seçili olan menunun başlığı
     private String[] activityTitles;
     // kullanıcı geri tuşuna basınca bir önceki fragmente geçme meselesi
     private boolean shouldLoadHomeFragOnBackPress = true;
     private Handler mHandler;
     public static Context getContext() {
-        return getContext();
+        return mContext;
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -84,8 +73,10 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_user);//bu kısımı bir kontrol et
-
-
+        if (toolbar != null) {
+            setSupportActionBar(toolbar);
+        }
+        mContext=getApplicationContext();
         setSupportActionBar(toolbar);
         //----------------------------
         mHandler = new Handler() {
@@ -127,7 +118,7 @@ public class MainActivity extends AppCompatActivity {
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
-        setupViewPager(viewPager);
+       setupViewPager(viewPager);
 
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
@@ -276,9 +267,11 @@ public class MainActivity extends AppCompatActivity {
                 // home
                 MainActivity homeFragment = new MainActivity();
                 return null;
-            //üye girişi-çıkışı
+
             case 1:
-                // photos
+
+
+                // login
                 return null;
             case 2:
                 // movies fragment
@@ -301,6 +294,11 @@ public class MainActivity extends AppCompatActivity {
 
     private void selectNavMenu() {
         navigationView.getMenu().getItem(navItemIndex).setChecked(true);
+        if (navItemIndex==1){
+
+            Intent intent = new Intent(this, SignupActivity.class);
+            MainActivity.this.startActivity(intent);
+        }
     }
 
     private void setUpNavigationView() {
@@ -360,6 +358,7 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     menuItem.setChecked(true);
                 }
+
                 menuItem.setChecked(true);
 
                 loadHomeFragment();

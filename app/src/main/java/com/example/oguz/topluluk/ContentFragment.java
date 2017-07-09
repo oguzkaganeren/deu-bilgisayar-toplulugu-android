@@ -12,6 +12,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.v4.app.Fragment;
+import android.support.v7.app.ActionBarActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.Html;
@@ -202,8 +203,8 @@ public class ContentFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         final View myToolBar = getActivity().findViewById(R.id.toolbar);
-        final View myTabs = getActivity().findViewById(R.id.tabs);
-        final View myBarLa = getActivity().findViewById(R.id.myBarLayout);
+       // final View myTabs = getActivity().findViewById(R.id.tabs);
+       // final View myBarLa = getActivity().findViewById(R.id.myBarLayout);
         if (mRecyclerView.getAdapter()==null){
             mRecyclerView.swapAdapter(myAdap,false);
         }
@@ -238,13 +239,15 @@ public class ContentFragment extends Fragment {
             }
 
             private void hideViews() {
-                myToolBar.animate().translationY(-myToolBar.getHeight()).setInterpolator(new AccelerateInterpolator(3));
-                myTabs.animate().translationY(-myTabs.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+              // myToolBar.animate().translationY(-myToolBar.getHeight()).setInterpolator(new AccelerateInterpolator(3));
+               // myTabs.animate().translationY(-myTabs.getHeight()).setInterpolator(new AccelerateInterpolator(2));
+
+
             }
 
             private void showViews() {
-                myToolBar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(1));
-                myTabs.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
+               //myToolBar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(1));
+               // myTabs.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
             }
         });
 

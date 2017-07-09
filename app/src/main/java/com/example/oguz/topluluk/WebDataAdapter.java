@@ -106,8 +106,9 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
                    Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlS));
                     v.getContext().startActivity(myIntent);
                     //there is a problem
-                    /*mWebView =new WebView(v.getContext());
+                 /* WebView mWebView =new WebView(MainActivity.getContext());
                     mWebView.loadUrl("http://www.google.com");*/
+
 
 
                 }
