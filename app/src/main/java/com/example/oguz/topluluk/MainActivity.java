@@ -27,6 +27,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.FirebaseUser;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -63,14 +65,25 @@ public class MainActivity extends AppCompatActivity {
     // kullanıcı geri tuşuna basınca bir önceki fragmente geçme meselesi
     private boolean shouldLoadHomeFragOnBackPress = true;
     private Handler mHandler;
+    private FirebaseAuth mAuth;
+
     public static Context getContext() {
         return mContext;
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        // Check if user is signed in (non-null) and update UI accordingly.
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+
+
     }
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         setContentView(R.layout.activity_main);
+        mAuth = FirebaseAuth.getInstance();
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_user);//bu kısımı bir kontrol et
         if (toolbar != null) {
