@@ -86,6 +86,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         toolbar = (Toolbar) findViewById(R.id.toolbar);
         toolbar.setNavigationIcon(R.drawable.ic_user);//bu kısımı bir kontrol et
+
         if (toolbar != null) {
             setSupportActionBar(toolbar);
         }
@@ -117,7 +118,11 @@ public class MainActivity extends AppCompatActivity {
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
+        if (mAuth.getCurrentUser() != null) {
+            // User is logged in
+            navigationView.getMenu().getItem(1).setTitle("Çıkış yap");
 
+    }
         // load toolbar titles from string resources
         //string içerindeki başlıklardan değerleri çeker
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
@@ -308,9 +313,13 @@ public class MainActivity extends AppCompatActivity {
     private void selectNavMenu() {
         navigationView.getMenu().getItem(navItemIndex).setChecked(true);
         if (navItemIndex==1){
-
-            Intent intent = new Intent(this, SignupActivity.class);
-            MainActivity.this.startActivity(intent);
+            if (mAuth.getCurrentUser() != null) {
+                mAuth.signOut();
+                navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+            }else{
+                Intent intent = new Intent(this, LoginActivity.class);
+                MainActivity.this.startActivity(intent);
+            }
         }
     }
 

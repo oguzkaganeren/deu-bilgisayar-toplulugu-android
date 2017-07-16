@@ -18,6 +18,8 @@ import android.widget.ProgressBar;
 import android.widget.Toast;
 
 import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.Exclude;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -31,6 +33,14 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.IgnoreExtraProperties;
 import com.google.firebase.database.ValueEventListener;
 
+import java.security.Timestamp;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Locale;
+import java.util.Map;
+
 public class SignupActivity extends AppCompatActivity {
 
     private EditText inputEmail, inputPassword;
@@ -38,7 +48,6 @@ public class SignupActivity extends AppCompatActivity {
     private ProgressBar progressBar;
     private FirebaseAuth auth;
     private DatabaseReference mDatabase;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -58,7 +67,7 @@ public class SignupActivity extends AppCompatActivity {
         btnResetPassword.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(SignupActivity.this, null));
+                startActivity(new Intent(SignupActivity.this, ResetPassword.class));
             }
         });
 
@@ -94,9 +103,10 @@ public class SignupActivity extends AppCompatActivity {
                 }
 
                 progressBar.setVisibility(View.VISIBLE);
-                User user = new User(email, password,"normal");
+
+               /* User user = new User(email, password,"normal");
                 mDatabase.child("users").child(userId).setValue(user);
-                mDatabase.addListenerForSingleValueEvent(new ValueEventListener() {
+                mDatabase.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         startActivity(new Intent(SignupActivity.this, MainActivity.class));
                         finish();
@@ -105,10 +115,9 @@ public class SignupActivity extends AppCompatActivity {
                         Toast.makeText(SignupActivity.this, "Authentication failed.",
                                 Toast.LENGTH_SHORT).show();
                     }
-                });
-
+                });*/
                 //create user
-               /* auth.createUserWithEmailAndPassword(email, password)
+                auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {
                             @Override
                             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -125,7 +134,7 @@ public class SignupActivity extends AppCompatActivity {
                                     finish();
                                 }
                             }
-                        });*/
+                        });
 
             }
         });
@@ -136,12 +145,15 @@ public class SignupActivity extends AppCompatActivity {
         super.onResume();
         progressBar.setVisibility(View.GONE);
     }
+
 }
+
  class User {
 
     public String email;
     public String pass;
      public String role;
+     Object createdTimestamp;
 
     // Default constructor required for calls to
     // DataSnapshot.getValue(User.class)
@@ -152,5 +164,10 @@ public class SignupActivity extends AppCompatActivity {
         this.email = email;
         this.pass = pass;
         this.role=role;
+        createdTimestamp = ServerValue.TIMESTAMP;
     }
+     @Exclude
+     public long getCreatedTimestampLong(){
+         return (long)createdTimestamp;
+     }
 }
