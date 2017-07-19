@@ -122,8 +122,7 @@ public class MainActivity extends AppCompatActivity {
         if (mAuth.getCurrentUser() != null) {
             // User is logged in
             navigationView.getMenu().getItem(1).setTitle("Çıkış yap");
-
-    }
+        }
         // load toolbar titles from string resources
         //string içerindeki başlıklardan değerleri çeker
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
@@ -138,21 +137,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = (ViewPager) findViewById(R.id.viewpager);
        setupViewPager(viewPager);
-        mAuthListener = new FirebaseAuth.AuthStateListener() {
-            @Override
-            public void onAuthStateChanged(@NonNull FirebaseAuth firebaseAuth) {
-                FirebaseUser user = firebaseAuth.getCurrentUser();
-                if (user != null) {
-                    // User is signed in
-                    // NOTE: this Activity should get onpen only when the user is not signed in, otherwise
-                    // the user will receive another verification email.
-                    //sendVerificationEmail();
-                } else {
 
-                }
-                // ...
-            }
-        };
         tabLayout = (TabLayout) findViewById(R.id.tabs);
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF9800"));
@@ -280,8 +265,8 @@ public class MainActivity extends AppCompatActivity {
                 // update the main content by replacing fragments
                 Fragment fragment = getHomeFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.setCustomAnimations(android.R.anim.fade_in,
-                        android.R.anim.fade_out);
+                fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left,
+                        android.R.anim.slide_out_right);
                 fragmentTransaction.commitAllowingStateLoss();
             }
         };
@@ -329,8 +314,8 @@ public class MainActivity extends AppCompatActivity {
         navigationView.getMenu().getItem(navItemIndex).setChecked(true);
         if (navItemIndex==1){
             if (mAuth.getCurrentUser() != null) {
-                mAuth.signOut();
-                navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+                Intent intent = new Intent(this, ProfileActivity.class);
+                MainActivity.this.startActivity(intent);
             }else{
                 Intent intent = new Intent(this, LoginActivity.class);
                 MainActivity.this.startActivity(intent);
@@ -416,6 +401,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onDrawerOpened(View drawerView) {
                 // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
+                if (mAuth.getCurrentUser() != null) {
+                    // User is logged in
+                    navigationView.getMenu().getItem(1).setTitle("Profil");
+                }else {
+                    navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+                }
                 super.onDrawerOpened(drawerView);
             }
         };
