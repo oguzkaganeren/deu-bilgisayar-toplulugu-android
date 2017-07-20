@@ -2,7 +2,6 @@
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -10,66 +9,69 @@
         <ImageView
             android:id="@+id/header_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="100dp"
             android:scaleType="centerCrop"
             android:src="@drawable/specback" />
 
-        <ImageButton
-            android:id="@+id/user_profile_photo"
-            android:layout_width="120dp"
-            android:layout_height="120dp"
-            android:layout_below="@+id/header_cover_image"
-            android:layout_centerHorizontal="true"
-            android:layout_marginTop="-60dp"
-            android:background="@drawable/profile_circular"
-            android:elevation="5dp"
-            android:padding="20dp"
-            android:scaleType="centerCrop"
-            android:src="@drawable/ic_user" />
+
 
         <RelativeLayout
             android:id="@+id/profile_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/header_cover_image"
-            android:background="#ebca0707"
+            android:background="#2196F3"
             android:elevation="4dp"
             android:paddingBottom="24dp">
 
-
-            <ImageView
-                android:id="@+id/drop_down_option_menu"
-                android:layout_width="30dp"
-                android:layout_height="30dp"
-                android:layout_alignParentRight="true"
-                android:layout_marginLeft="16dp"
-                android:layout_marginTop="16dp"
-                android:src="@drawable/account_24dp" />
-
             <TextView
                 android:id="@+id/user_profile_name"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_centerHorizontal="true"
-                android:layout_marginTop="76dp"
-                android:text="Viral Android"
+                android:gravity="center"
+                android:layout_marginTop="30dp"
+                android:layout_marginLeft="30dp"
+                android:text="Name Surname"
                 android:textColor="#fff"
                 android:textSize="24sp"
                 android:textStyle="bold" />
 
             <TextView
                 android:id="@+id/user_profile_short_bio"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/user_profile_name"
-                android:layout_centerHorizontal="true"
+                android:gravity="center"
                 android:layout_marginTop="12dp"
-                android:text="Android free tutorials and example"
+                android:text="Your Status"
                 android:textColor="#fff"
                 android:textSize="14sp" />
         </RelativeLayout>
-
-
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/user_profile_photo"
+            android:layout_width="96dp"
+            android:layout_height="96dp"
+            android:src="@drawable/specback"
+            android:background="@drawable/profile_circular"
+            android:layout_marginTop="-40dp"
+            android:layout_below="@+id/header_cover_image"
+            android:layout_marginLeft="20dp"
+            android:elevation="5dp"
+            app:civ_border_color="#FF000000"/>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/header_cover_image"
+            android:clickable="true"
+            android:layout_marginTop="20dp"
+            android:padding="4dp"
+            android:scaleType="fitXY"
+            android:layout_marginLeft="30dp"
+            android:background="@drawable/editor_pencil"
+            android:src="@drawable/ic_edit_black_24dp"
+            android:elevation="5dp"
+            android:layout_alignRight="@id/user_profile_photo"/>
         <LinearLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
