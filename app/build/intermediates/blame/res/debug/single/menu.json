@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\menu\\activity_main_drawer.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\menu\\activity_main_drawer.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\menu\\notifications.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\menu\\notifications.xml"
+    }
+]
