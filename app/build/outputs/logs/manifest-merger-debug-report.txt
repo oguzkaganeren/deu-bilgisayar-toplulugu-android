@@ -142,6 +142,8 @@ MERGED from [com.google.firebase:firebase-database-connection:11.0.2] E:\android
 MERGED from [com.google.android.gms:play-services-gcm:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [de.hdodenhof:circleimageview:2.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\AndroidManifest.xml:5:5-7:41
+MERGED from [com.google.firebase:firebase-storage:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\11.0.2\AndroidManifest.xml:3:5-43
+MERGED from [com.google.firebase:firebase-storage-common:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\11.0.2\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-core:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-core\11.0.2\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\11.0.2\AndroidManifest.xml:17:5-43

@@ -3,123 +3,6 @@
 
     <item
         is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="daefe52c10249838f6513a27b7df9e60256e80ee">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.1_e59aef9c537d95499e8c3058370ea18a85c49600.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\11.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4262bcd49b19d558c241bf8c68470fcc6fa1ac84">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-connection-11.0.2_06c4eee10c7d44cd30e50d3596136dbb6a521e4a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_575fb1fc8a5f0f426ca7d8a56b54e9052e647700.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.3.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="95519720620b553f63afc789beba9ad582807f7c">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.3.1_1f5a8302b96ae7680cfb4eeab278b33c170f269c.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d3a27693b28b46af644df8ce765f4252b32c9e87">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-iid-11.0.2_c543a8a967ccfefb522093ee5baff794fe8f7f5a.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.1_cd47f3b3f3f7337b911ec53bca00ac1dcac78431.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.1_4097df4dd015aedcc6dadeaa49f45a055ab73157.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\11.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="4802b21cc23549f7eba5edb802241091ad998b35">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-11.0.2_9b31884a27a7fa153d04d11b28ee5e289d966cd4.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.1_282efe9a584a124281ff65e9da5e8ddfe183fd82.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\transition\25.3.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.3.1_0133ae7ef78ba58a16af64596923fcc9dea2fc8d.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\11.0.2\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="2737331564e0084fc0eb30ba500564a6dbe5e98f">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-11.0.2_e596ae5004e703aee5327a0b7a051bb05cfd003b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.1_e1406f748b5dc56ebe7445edd15a014a736c834c.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\11.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -147,6 +30,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="b51ff6a3dc61b5e11455fda1f71befd1c0959cb5">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -156,12 +48,66 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\11.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="dbbba1fc0f6c51382c3fa1f9223d1f6f9144f359">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-storage-11.0.2_2c3846818dc04911e179cdfc6f4abe54618a1f52.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="efb8cb62d47d157c29d1521daac7eefd4cb881ee">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-vector-drawable-25.3.1_e59aef9c537d95499e8c3058370ea18a85c49600.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-v4-25.3.1_d061feec5e35abf7780ff23b7fb1e1bd762d9925.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database-connection\11.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4262bcd49b19d558c241bf8c68470fcc6fa1ac84">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-connection-11.0.2_06c4eee10c7d44cd30e50d3596136dbb6a521e4a.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\11.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="86e2c2399cfd7f8271b535b0e7d8ec092d0c6335">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-storage-common-11.0.2_e93a7a3f4efc2b9b97f5fc5ff538c1c21586b190.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_575fb1fc8a5f0f426ca7d8a56b54e9052e647700.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="95519720620b553f63afc789beba9ad582807f7c">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-recyclerview-v7-25.3.1_1f5a8302b96ae7680cfb4eeab278b33c170f269c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -180,6 +126,15 @@
         revision="25.0.2"
         sha1="2c1d9fbe7d2f686b3dcdbc3f63a983a211401ca3">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-analytics-impl-11.0.2_3ec5f65cf655e6d40ff6241a1b35497306d2fcab.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d3a27693b28b46af644df8ce765f4252b32c9e87">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-iid-11.0.2_c543a8a967ccfefb522093ee5baff794fe8f7f5a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -219,6 +174,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-core-ui\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="052f5f840f21174a3ecf6544130194e2652cbb73">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-ui-25.3.1_cd47f3b3f3f7337b911ec53bca00ac1dcac78431.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\11.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -234,6 +198,33 @@
         revision="25.0.2"
         sha1="9e8c74e789b51b9da4070aeaed71bae36c3d244f">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-auth-11.0.2_1f259d40b48d6bc29f70d579cc14ab8b3231738e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\appcompat-v7\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="150252b33b00274cc868578ade018fda0d43a3eb">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-appcompat-v7-25.3.1_4097df4dd015aedcc6dadeaa49f45a055ab73157.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-database\11.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4802b21cc23549f7eba5edb802241091ad998b35">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-database-11.0.2_9b31884a27a7fa153d04d11b28ee5e289d966cd4.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="47635644d0d5c103c1dd8360549eb9ba3225c7d3">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-animated-vector-drawable-25.3.1_282efe9a584a124281ff65e9da5e8ddfe183fd82.jar" />
     </item>
     <item
         is-multidex="false"
@@ -268,7 +259,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ec6e8637ebd189da51697b6b6653854e62dabd3d">
+        sha1="12431c58153cef7a0112fde67572ba51e2e231f0">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222.jar" />
     </item>
     <item
@@ -279,6 +270,33 @@
         revision="25.0.2"
         sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.1_a1acd6b1a84ffe3f61645092bf6ea464c18ba40e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\transition\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d4cf6227dd6a2ceff0f7dcf0c324380b7abf2c28">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-transition-25.3.1_0133ae7ef78ba58a16af64596923fcc9dea2fc8d.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\11.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="2737331564e0084fc0eb30ba500564a6dbe5e98f">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-iid-11.0.2_e596ae5004e703aee5327a0b7a051bb05cfd003b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-core-utils\25.3.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="6ef31f1555bb4cc513ec8d52711365a8b89f3600">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-core-utils-25.3.1_e1406f748b5dc56ebe7445edd15a014a736c834c.jar" />
     </item>
     <item
         is-multidex="false"

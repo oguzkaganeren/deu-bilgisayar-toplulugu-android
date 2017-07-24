@@ -119,10 +119,8 @@ public class MainActivity extends AppCompatActivity {
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-        if (mAuth.getCurrentUser() != null) {
-            // User is logged in
-            navigationView.getMenu().getItem(1).setTitle("Çıkış yap");
-        }
+
+
         // load toolbar titles from string resources
         //string içerindeki başlıklardan değerleri çeker
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
@@ -142,7 +140,12 @@ public class MainActivity extends AppCompatActivity {
         tabLayout.setupWithViewPager(viewPager);
         tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF9800"));
         tabLayout.setTabTextColors(Color.parseColor("#E2E2E2"), Color.parseColor("#ffffff"));
-
+        if (mAuth.getCurrentUser() != null) {
+            // User is logged in
+            navigationView.getMenu().getItem(1).setTitle("Profil");
+        }else {
+            navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+        }
         tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
             @Override
             public void onTabSelected(TabLayout.Tab tab) {
