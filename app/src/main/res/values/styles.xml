@@ -15,4 +15,9 @@
         <item name="android:textSize">13sp</item>
         <item name="android:textAllCaps">true</item>
     </style>
+    <style name="TextAppearance.App.TextInputLayout" parent="@android:style/TextAppearance">
+        <item name="android:textColor">@color/colorPrimaryDark</item>
+        <item name="android:textSize">14sp</item>
+        <item name="colorAccent">@color/colorPrimaryDark</item>
+    </style>
 </resources>

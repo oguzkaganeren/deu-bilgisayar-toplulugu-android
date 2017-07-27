@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:2:1-29:12
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:2:1-30:12
 	package
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:3:5-40
 		INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml
@@ -38,7 +38,7 @@ ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:7:5-81
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:7:22-78
 application
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:8:5-27:19
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:8:5-28:19
 MERGED from [com.android.support:design:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:29:5-20
@@ -116,6 +116,12 @@ ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:26:9-85
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:26:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:26:52-83
+activity#com.example.oguz.topluluk.InnerActivity
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:27:9-83
+	android:label
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:27:19-51
+	android:name
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:27:52-81
 uses-sdk
 INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\AndroidManifest.xml:21:5-23:62

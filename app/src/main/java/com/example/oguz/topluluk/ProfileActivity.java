@@ -1,7 +1,9 @@
 package com.example.oguz.topluluk;
 
 import android.app.ProgressDialog;
+import android.content.Context;
 import android.content.Intent;
+import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
@@ -20,7 +22,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.squareup.picasso.Picasso;
 
+import java.io.File;
 import java.util.List;
 
 /**
@@ -59,8 +63,35 @@ public class ProfileActivity extends AppCompatActivity {
         websiteAdr=(ImageButton)findViewById(R.id.edit_website);
         signOut=(ImageButton)findViewById(R.id.signOut);
         userProfilePhoto=(ImageView)findViewById(R.id.user_profile_photo);
+        StorageReference image = storageRef.child("images/profiles/"+mAuth.getCurrentUser().getUid());
+        image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.with(ProfileActivity.this).load(uri).fit().centerCrop().into(userProfilePhoto);
+            }}).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Picasso.with(ProfileActivity.this).load(R.drawable.ic_user).fit().centerCrop().into(userProfilePhoto);
+            }
+        });
         pd = new ProgressDialog(this);
         pd.setMessage("Uploading...");
+        changePass.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+               Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
+                intent.putExtra("which","change");
+                                    startActivity(intent);
+            }
+        });
+        nameSurname.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
+                intent.putExtra("which","nameSurname");
+                startActivity(intent);
+            }
+        });
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,41 +118,61 @@ public class ProfileActivity extends AppCompatActivity {
 
         if (requestCode == 111 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             filePath = data.getData();
+            File file=new File(getRealPathFromURI(this,data.getData()));
+            long size=file.length();
+            //image boyutu 3 mb'dan az olmalı
+            if(file.length()<3 * 1024 * 1024) {
 
-            try {
-                //getting image from gallery
-                Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                //Setting image to ImageView
-                userProfilePhoto.setImageBitmap(bitmap);
+                try {
+                    //getting image from gallery
+                    Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
+                    //Setting image to ImageView
+                    userProfilePhoto.setImageBitmap(bitmap);
 
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-            if(filePath != null) {
-                pd.show();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                if (filePath != null) {
+                    pd.show();
 
-                StorageReference childRef = storageRef.child("images/profiles"+mAuth.getCurrentUser().getUid());
+                    StorageReference childRef = storageRef.child("images/profiles/" + mAuth.getCurrentUser().getUid());
 
-                //uploading the image
-                UploadTask uploadTask = childRef.putFile(filePath);
+                    //uploading the image
+                    UploadTask uploadTask = childRef.putFile(filePath);
 
-                uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                    @Override
-                    public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                        pd.dismiss();
-                        Toast.makeText(ProfileActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
-                    }
-                }).addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        pd.dismiss();
-                        Toast.makeText(ProfileActivity.this, "Upload Failed -> " + e+"/n Please try again", Toast.LENGTH_SHORT).show();
-                    }
-                });
-            }
-            else {
-                Toast.makeText(ProfileActivity.this, "Select an image", Toast.LENGTH_SHORT).show();
+                    uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                        @Override
+                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                            pd.dismiss();
+                            Toast.makeText(ProfileActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
+                        }
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            pd.dismiss();
+                            Toast.makeText(ProfileActivity.this, "Upload Failed -> " + e + "/n Please try again", Toast.LENGTH_SHORT).show();
+                        }
+                    });
+                } else {
+                    Toast.makeText(ProfileActivity.this, "Select an image or less than 3mb", Toast.LENGTH_SHORT).show();
+                }
+            }else{
+                Toast.makeText(ProfileActivity.this, "The image should be less than 3mb", Toast.LENGTH_SHORT).show();
             }
         }
         }
+    public String getRealPathFromURI(Context context, Uri contentUri) {
+        Cursor cursor = null;
+        try {
+            String[] proj = { MediaStore.Images.Media.DATA };
+            cursor = context.getContentResolver().query(contentUri,  proj, null, null, null);
+            int column_index = cursor.getColumnIndexOrThrow(MediaStore.Images.Media.DATA);
+            cursor.moveToFirst();
+            return cursor.getString(column_index);
+        } finally {
+            if (cursor != null) {
+                cursor.close();
+            }
+        }
+    }
     }

@@ -160,6 +160,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\11.0.2\\res\\drawable\\common_google_signin_btn_text_dark.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\custom_cursor.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\custom_cursor.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\progress_animation.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\progress_animation.xml"
     },
