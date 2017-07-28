@@ -92,6 +92,38 @@ public class ProfileActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+        status.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
+                intent.putExtra("which","status");
+                startActivity(intent);
+            }
+        });
+        gitAdr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
+                intent.putExtra("which","github");
+                startActivity(intent);
+            }
+        });
+        linkedinAdr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
+                intent.putExtra("which","linkedin");
+                startActivity(intent);
+            }
+        });
+        websiteAdr.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
+                intent.putExtra("which","website");
+                startActivity(intent);
+            }
+        });
         signOut.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
