@@ -19,6 +19,11 @@ import android.widget.Toast;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
@@ -42,6 +47,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageButton linkedinAdr;
     private ImageButton websiteAdr;
     private ImageButton signOut;
+    private FirebaseStorage myStorage;
     private ImageView userProfilePhoto;
     private Uri filePath;
     private ProgressDialog pd;
@@ -49,7 +55,7 @@ public class ProfileActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile);
         mAuth = FirebaseAuth.getInstance();
-        FirebaseStorage myStorage=FirebaseStorage.getInstance();
+        myStorage=FirebaseStorage.getInstance();
         storageRef= myStorage.getReference();
         if (mAuth.getCurrentUser() == null) {
             finish();
@@ -63,19 +69,11 @@ public class ProfileActivity extends AppCompatActivity {
         websiteAdr=(ImageButton)findViewById(R.id.edit_website);
         signOut=(ImageButton)findViewById(R.id.signOut);
         userProfilePhoto=(ImageView)findViewById(R.id.user_profile_photo);
-        StorageReference image = storageRef.child("images/profiles/"+mAuth.getCurrentUser().getUid());
-        image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Picasso.with(ProfileActivity.this).load(uri).fit().centerCrop().into(userProfilePhoto);
-            }}).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Picasso.with(ProfileActivity.this).load(R.drawable.ic_user).fit().centerCrop().into(userProfilePhoto);
-            }
-        });
+
+
         pd = new ProgressDialog(this);
         pd.setMessage("Uploading...");
+        loadDataOnFirebase();
         changePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -206,5 +204,46 @@ public class ProfileActivity extends AppCompatActivity {
                 cursor.close();
             }
         }
+    }
+    public void loadDataOnFirebase(){
+        DatabaseReference mDatabase=FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if(snapshot.hasChild("name-surname")){
+                    ((TextView)findViewById(R.id.user_profile_name)).setText(snapshot.child("name-surname").getValue().toString());
+                }
+                if(snapshot.hasChild("status")){
+                    ((TextView)findViewById(R.id.user_profile_short_bio)).setText(snapshot.child("status").getValue().toString());
+                }
+                if(snapshot.hasChild("github")){
+                    ((TextView)findViewById(R.id.txt_github)).setText(snapshot.child("github").getValue().toString());
+                }
+                if(snapshot.hasChild("linkedin")){
+                    ((TextView)findViewById(R.id.txt_linkedin)).setText(snapshot.child("linkedin").getValue().toString());
+                }
+                if(snapshot.hasChild("website")){
+                    ((TextView)findViewById(R.id.txt_website)).setText(snapshot.child("website").getValue().toString());
+                }
+
+            }
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(ProfileActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
+            }
+        });
+        StorageReference image = storageRef.child("images/profiles/"+mAuth.getCurrentUser().getUid());
+
+        image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.with(ProfileActivity.this).load(uri).fit().centerCrop().into(userProfilePhoto);
+            }}).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Picasso.with(ProfileActivity.this).load(R.drawable.ic_user).fit().centerCrop().into(userProfilePhoto);
+            }
+        });
+
     }
     }

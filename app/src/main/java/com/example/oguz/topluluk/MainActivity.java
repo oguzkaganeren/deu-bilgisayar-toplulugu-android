@@ -3,6 +3,7 @@ package com.example.oguz.topluluk;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentTransaction;
@@ -28,8 +29,18 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
+import com.google.firebase.storage.FirebaseStorage;
+import com.google.firebase.storage.StorageReference;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -46,6 +57,8 @@ public class MainActivity extends AppCompatActivity {
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private View navHeader;
+    private FirebaseStorage myStorage;
+    private StorageReference storageRef;
     private ImageView imgNavHeaderBg, imgProfile;
     private TextView txtName, txtWebsite;
     //Seçili olan menu indexi
@@ -222,9 +235,10 @@ public class MainActivity extends AppCompatActivity {
     private void loadNavHeader() {
         // name, website
         //kullanıcı giriş yaptıysa görünecek
+
         txtName.setText("Name Surname");
         txtWebsite.setText("Website");
-
+        loadDataOnFirebase();
         // kullanıcı arkaplan resmi
         Glide.with(this).load(R.mipmap.bg_menuheadlast)
                 .crossFade()
@@ -233,12 +247,7 @@ public class MainActivity extends AppCompatActivity {
 
         // Loading profile image
         //kullanıcı giriş yaptıysa kullanıcı fotosu burada gözükecek
-        Glide.with(this).load(R.mipmap.usericon)
-                .crossFade()
-                .thumbnail(0.5f)
-                .bitmapTransform(new CircleTransform(this))
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgProfile);
+
 
         // menude nokta gözükme meselesi
         navigationView.getMenu().getItem(4).setActionView(R.layout.menu_dot);
@@ -444,7 +453,39 @@ public class MainActivity extends AppCompatActivity {
         super.onBackPressed();
     }
 
+    public void loadDataOnFirebase() {
+        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.hasChild("name-surname")) {
+                    txtName.setText(snapshot.child("name-surname").getValue().toString());
+                }
+                if (snapshot.hasChild("website")) {
+                    txtWebsite.setText(snapshot.child("website").getValue().toString());
+                }
 
+            }
 
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                Toast.makeText(MainActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
+            }
+        });
+        myStorage= FirebaseStorage.getInstance();
+        storageRef= myStorage.getReference();
+        StorageReference image = storageRef.child("images/profiles/"+mAuth.getCurrentUser().getUid());
+
+        image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+            @Override
+            public void onSuccess(Uri uri) {
+                Picasso.with(MainActivity.this).load(uri).fit().centerCrop().into(imgProfile);
+            }}).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception exception) {
+                Picasso.with(MainActivity.this).load(R.drawable.ic_user).fit().centerCrop().into(imgProfile);
+            }
+        });
+    }
 
 }
