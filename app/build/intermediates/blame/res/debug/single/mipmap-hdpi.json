@@ -1,5 +1,9 @@
 [
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\logo.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\logo.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\bg_mheader.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\bg_mheader.png"
     }

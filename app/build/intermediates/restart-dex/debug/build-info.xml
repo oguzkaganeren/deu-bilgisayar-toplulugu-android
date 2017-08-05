@@ -5,7 +5,7 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="18554275217205"
+    timestamp="20678961080463"
     token="1363264538717696597"
     verifier="COMPATIBLE" >
 
@@ -27,14 +27,14 @@
         type="RESOURCES" />
 
     <build
-        timestamp="18019346288076"
+        timestamp="20432171152332"
         verifier="R_CLASS_CHANGE" >
         <artifact
             location="E:\androidWorks\Topluluk\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="18554275217205"
+        timestamp="20678961080463"
         verifier="COMPATIBLE" >
         <artifact
             location="E:\androidWorks\Topluluk\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"

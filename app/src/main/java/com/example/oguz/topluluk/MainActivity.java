@@ -208,19 +208,19 @@ public class MainActivity extends AppCompatActivity {
                 switch (page) {
                     case 0:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.green,
+                                R.color.content_bg,
                                 "http://phandroid.s3.amazonaws.com/wp-content/uploads/2014/06/android_google_moutain_google_now_1920x1080_wallpaper_Wallpaper-HD_2560x1600_www.paperhi.com_-640x400.jpg");
                     case 1:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.blue,
+                                R.color.notice_bg,
                                 "http://www.hdiphonewallpapers.us/phone-wallpapers/540x960-1/540x960-mobile-wallpapers-hd-2218x5ox3.jpg");
                     case 2:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.cyan,
+                                R.color.event_bg,
                                 "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
                     case 3:
                         return HeaderDesign.fromColorResAndUrl(
-                                R.color.red,
+                                R.color.lime,
                                 "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
                 }
 
