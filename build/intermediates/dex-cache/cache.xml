@@ -7,8 +7,17 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="abf798d524f649726330b5b31b167709964218c6">
+        sha1="4b0a4f84ed981b510e417786138a5ca562ed2e48">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.jpardogo.materialtabstrip\library\1.1.0\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="611c7708cd3df0d7ae99105d4df5af8eb25c4b32">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.jpardogo.materialtabstrip-library-1.1.0_3d3e48f08def09111b493f1c0730fe6bbc9c9d8c.jar" />
     </item>
     <item
         is-multidex="false"
@@ -192,6 +201,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.github.florent37\materialviewpager\1.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bed84864149d15e9c893b68ce9994fe6093cdbf4">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.github.florent37-materialviewpager-1.2.1_dc82709310df9eebabb4255295bc8442ddc57984.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\11.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -286,7 +304,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="fbcbddf63a450a81744bcfa0d1da5b23237b7d1e">
+        sha1="195d608a11031f420921caf730dcc43ca2779538">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222.jar" />
     </item>
     <item
@@ -297,6 +315,15 @@
         revision="25.0.2"
         sha1="45f697922e6f072daa12f8a2995dc77ab03c11da">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.android.support-support-media-compat-25.3.1_a1acd6b1a84ffe3f61645092bf6ea464c18ba40e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.flaviofaria\kenburnsview\1.0.7\ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1\kenburnsview-1.0.7.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\kenburnsview-1.0.7_db4c3f9777f7878acf455df738f926795360c1c2.jar" />
     </item>
     <item
         is-multidex="false"

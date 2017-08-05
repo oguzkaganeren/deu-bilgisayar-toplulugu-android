@@ -24,16 +24,20 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\person_24dp.png"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\event_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\event_24dp.png"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\account_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\account_24dp.png"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\event_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\event_24dp.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_directions_run_black_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_directions_run_black_24dp.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_recent_actors_white_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_recent_actors_white_24dp.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_user.png",

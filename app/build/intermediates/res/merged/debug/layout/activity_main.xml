@@ -7,37 +7,26 @@
     android:fitsSystemWindows="true"
     tools:openDrawer="start">
 
-    <android.support.design.widget.AppBarLayout
+    <com.github.florent37.materialviewpager.MaterialViewPager
+        android:id="@+id/materialViewPager"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:id="@+id/myBarLayout"
-        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
+        android:layout_height="match_parent"
+        app:viewpager_logoMarginTop="100dp"
+        app:viewpager_color="@color/colorPrimary"
+        app:viewpager_headerHeight="200dp"
+        app:viewpager_headerAlpha="1.0"
+        app:viewpager_pagerTitleStrip="@layout/my_tabs"
+        app:viewpager_hideLogoWithFade="false"
+        app:viewpager_hideToolbarAndTitle="true"
+        app:viewpager_enableToolbarElevation="true"
+        app:viewpager_parallaxHeaderFactor="1.5"
+        app:viewpager_headerAdditionalHeight="20dp"
+        app:viewpager_displayToolbarWhenSwipe="true"
+        app:viewpager_transparentToolbar="true"
+        app:viewpager_animatedHeaderImage="true"
+        app:viewpager_disableToolbar="false"
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar"
-            android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:layout_scrollFlags="scroll|snap"
-            app:popupTheme="@style/ThemeOverlay.AppCompat.Light" />
-
-        <android.support.design.widget.TabLayout
-            android:id="@+id/tabs"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            app:layout_scrollFlags="scroll|snap"
-            app:tabTextAppearance="@style/MyTabLayoutTextAppearance"
-            app:tabMode="fixed"
-            app:tabGravity="fill"
-            app:tabTextColor="@color/colorTabNormal"
-            app:tabSelectedTextColor="@color/colorTabSelected"
-            />
-        <android.support.v4.view.ViewPager
-            android:id="@+id/viewpager"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@color/colorTabNormal"/>
-    </android.support.design.widget.AppBarLayout>
+        />
 
     <android.support.design.widget.NavigationView
         android:id="@+id/nav_view"

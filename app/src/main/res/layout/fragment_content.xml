@@ -2,28 +2,31 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
     android:id="@+id/myContainerContent"
-    android:layout_width="match_parent"
+    android:layout_width="wrap_content"
     android:layout_height="wrap_content">
 
-    <android.support.v7.widget.CardView
-        android:id="@+id/card_view"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:elevation="3dp"
 
-        card_view:cardCornerRadius="@dimen/card_album_radius">
-
-        <RelativeLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            >
             <android.support.v7.widget.RecyclerView
                 android:id="@+id/rcview"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
                 />
-
+            <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+                xmlns:app="http://schemas.android.com/apk/res-auto"
+                android:id="@+id/card_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/cardMarginVertical"
+                android:layout_marginLeft="@dimen/cardMarginHorizontal"
+                android:layout_marginRight="@dimen/cardMarginHorizontal"
+                android:layout_marginTop="@dimen/cardMarginVertical"
+                app:cardCornerRadius="2dp"
+                app:cardElevation="2dp"
+                app:cardPreventCornerOverlap="false"
+                app:contentPadding="0dp">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
             <ImageView
                 android:id="@+id/thumbnail"
                 android:layout_width="match_parent"
@@ -79,10 +82,9 @@
                 android:layout_below="@id/thumbnail"
                 android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
                 android:scaleType="centerCrop" />
+                </RelativeLayout>
+            </android.support.v7.widget.CardView>
 
-        </RelativeLayout>
-
-    </android.support.v7.widget.CardView>
 
 
 </LinearLayout>

@@ -21,12 +21,14 @@
     <color name="abc_search_url_text_normal">#7fa87f</color>
     <color name="abc_search_url_text_pressed">@android:color/black</color>
     <color name="abc_search_url_text_selected">@android:color/black</color>
+    <color name="accent_color">@color/blue</color>
     <color name="accent_material_dark">@color/material_deep_teal_200</color>
     <color name="accent_material_light">@color/material_deep_teal_500</color>
     <color name="background_floating_material_dark">@color/material_grey_800</color>
     <color name="background_floating_material_light">@android:color/white</color>
     <color name="background_material_dark">@color/material_grey_850</color>
     <color name="background_material_light">@color/material_grey_50</color>
+    <color name="blue">#303F9F</color>
     <color name="bright_foreground_disabled_material_dark">#80ffffff</color>
     <color name="bright_foreground_disabled_material_light">#80000000</color>
     <color name="bright_foreground_inverse_material_dark">@color/bright_foreground_material_light</color>
@@ -54,6 +56,7 @@
     <color name="common_google_signin_btn_text_light_disabled">#1F000000</color>
     <color name="common_google_signin_btn_text_light_focused">#90000000</color>
     <color name="common_google_signin_btn_text_light_pressed">#DE000000</color>
+    <color name="cyan">#00BCD4</color>
     <color name="design_bottom_navigation_shadow_color">#14000000</color>
     <color name="design_fab_shadow_end_color">@android:color/transparent</color>
     <color name="design_fab_shadow_mid_color">#14000000</color>
@@ -69,10 +72,14 @@
     <color name="dim_foreground_disabled_material_light">#80323232</color>
     <color name="dim_foreground_material_dark">#ffbebebe</color>
     <color name="dim_foreground_material_light">#ff323232</color>
+    <color name="drawerArrowColor">@android:color/white</color>
     <color name="foreground_material_dark">@android:color/white</color>
     <color name="foreground_material_light">@android:color/black</color>
+    <color name="green">#4CAF50</color>
+    <color name="green_teal">#009688</color>
     <color name="highlighted_text_material_dark">#6680cbc4</color>
     <color name="highlighted_text_material_light">#66009688</color>
+    <color name="lime">#CDDC39</color>
     <color name="material_blue_grey_800">#ff37474f</color>
     <color name="material_blue_grey_900">#ff263238</color>
     <color name="material_blue_grey_950">#ff21272b</color>
@@ -97,6 +104,10 @@
     <color name="primary_text_default_material_light">#de000000</color>
     <color name="primary_text_disabled_material_dark">#4Dffffff</color>
     <color name="primary_text_disabled_material_light">#39000000</color>
+    <color name="psts_background_tab_pressed">#1AFFFFFF</color>
+    <color name="psts_background_tab_pressed_ripple">#AAFFFFFF</color>
+    <color name="purple">#673AB7</color>
+    <color name="red">#F44336</color>
     <color name="rippelColor">#FFFFFF</color>
     <color name="ripple_material_dark">#33ffffff</color>
     <color name="ripple_material_light">#1f000000</color>
@@ -104,6 +115,7 @@
     <color name="secondary_text_default_material_light">#8a000000</color>
     <color name="secondary_text_disabled_material_dark">#36ffffff</color>
     <color name="secondary_text_disabled_material_light">#24000000</color>
+    <color name="statusBarColor">@color/blue</color>
     <color name="switch_thumb_disabled_material_dark">#ff616161</color>
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
@@ -333,6 +345,7 @@
 <enum name="adjust_height" value="2"/>
 
 </attr><attr format="float" name="imageAspectRatio"/><attr format="boolean" name="circleCrop"/></declare-styleable>
+    <declare-styleable name="MaterialViewPager"><attr format="reference" name="viewpager_header"/><attr format="reference" name="viewpager_logo"/><attr format="reference" name="viewpager_pagerTitleStrip"/><attr format="reference" name="viewpager_viewpager"/><attr format="dimension" name="viewpager_logoMarginTop"/><attr format="color" name="viewpager_color"/><attr format="dimension" name="viewpager_headerHeight"/><attr format="float" name="viewpager_headerAlpha"/><attr format="float" name="viewpager_imageHeaderDarkLayerAlpha"/><attr format="boolean" name="viewpager_hideToolbarAndTitle"/><attr format="boolean" name="viewpager_hideLogoWithFade"/><attr format="boolean" name="viewpager_enableToolbarElevation"/><attr format="float" name="viewpager_parallaxHeaderFactor"/><attr format="dimension" name="viewpager_headerAdditionalHeight"/><attr format="boolean" name="viewpager_displayToolbarWhenSwipe"/><attr format="boolean" name="viewpager_transparentToolbar"/><attr format="boolean" name="viewpager_animatedHeaderImage"/><attr format="boolean" name="viewpager_disableToolbar"/></declare-styleable>
     <declare-styleable name="MenuGroup"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:checkableBehavior"/><attr name="android:visible"/><attr name="android:enabled"/></declare-styleable>
     <declare-styleable name="MenuItem"><attr name="android:id"/><attr name="android:menuCategory"/><attr name="android:orderInCategory"/><attr name="android:title"/><attr name="android:titleCondensed"/><attr name="android:icon"/><attr name="android:alphabeticShortcut"/><attr name="android:numericShortcut"/><attr name="android:checkable"/><attr name="android:checked"/><attr name="android:visible"/><attr name="android:enabled"/><attr name="android:onClick"/><attr name="showAsAction">
             
@@ -348,6 +361,7 @@
         </attr><attr format="reference" name="actionLayout"/><attr format="string" name="actionViewClass"/><attr format="string" name="actionProviderClass"/></declare-styleable>
     <declare-styleable name="MenuView"><attr name="android:itemTextAppearance"/><attr name="android:horizontalDivider"/><attr name="android:verticalDivider"/><attr name="android:headerBackground"/><attr name="android:itemBackground"/><attr name="android:windowAnimationStyle"/><attr name="android:itemIconDisabledAlpha"/><attr format="boolean" name="preserveIconSpacing"/><attr format="reference" name="subMenuArrow"/></declare-styleable>
     <declare-styleable name="NavigationView"><attr name="android:background"/><attr name="android:fitsSystemWindows"/><attr name="android:maxWidth"/><attr name="elevation"/><attr format="reference" name="menu"/><attr format="color" name="itemIconTint"/><attr format="color" name="itemTextColor"/><attr format="reference" name="itemBackground"/><attr format="reference" name="itemTextAppearance"/><attr format="reference" name="headerLayout"/></declare-styleable>
+    <declare-styleable name="PagerSlidingTabStrip"><attr format="color" name="pstsIndicatorColor"/><attr format="dimension" name="pstsIndicatorHeight"/><attr format="color" name="pstsUnderlineColor"/><attr format="dimension" name="pstsUnderlineHeight"/><attr format="color" name="pstsDividerColor"/><attr format="dimension" name="pstsDividerWidth"/><attr format="dimension" name="pstsDividerPadding"/><attr format="dimension" name="pstsScrollOffset"/><attr format="boolean" name="pstsShouldExpand"/><attr format="boolean" name="pstsPaddingMiddle"/><attr format="dimension" name="pstsTabPaddingLeftRight"/><attr format="reference" name="pstsTabBackground"/><attr format="dimension" name="pstsTabTextSize"/><attr format="reference" name="pstsTabTextColor"/><attr format="reference" name="pstsTabTextStyle"><flag name="normal" value="0x0"/><flag name="bold" value="0x1"/><flag name="italic" value="0x2"/></attr><attr format="boolean" name="pstsTabTextAllCaps"/><attr format="integer" name="pstsTabTextAlpha"/><attr format="string" name="pstsTabTextFontFamily"/></declare-styleable>
     <declare-styleable name="PopupWindow"><attr format="boolean" name="overlapAnchor"/><attr name="android:popupBackground"/><attr name="android:popupAnimationStyle"/></declare-styleable>
     <declare-styleable name="PopupWindowBackgroundState"><attr format="boolean" name="state_above_anchor"/></declare-styleable>
     <declare-styleable name="RecycleListView"><attr format="dimension" name="paddingBottomNoButtons"/><attr format="dimension" name="paddingTopNoTitle"/></declare-styleable>
@@ -522,6 +536,8 @@
     <dimen name="album_title_padding">10dp</dimen>
     <dimen name="backdrop_subtitle">18dp</dimen>
     <dimen name="backdrop_title">30dp</dimen>
+    <dimen name="cardMarginHorizontal">10dp</dimen>
+    <dimen name="cardMarginVertical">8dp</dimen>
     <dimen name="card_album_radius">4dp</dimen>
     <dimen name="card_margin">5dp</dimen>
     <dimen name="cardview_compat_inset_shadow">1dp</dimen>
@@ -584,6 +600,7 @@
     <dimen name="item_touch_helper_max_drag_scroll_per_frame">20dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_max_velocity">800dp</dimen>
     <dimen name="item_touch_helper_swipe_escape_velocity">120dp</dimen>
+    <dimen name="materialviewpager_logoHeight">35dp</dimen>
     <dimen name="nav_header_height">160dp</dimen>
     <dimen name="nav_header_vertical_spacing">17dp</dimen>
     <dimen name="nav_header_vertical_spacing_text">5dp</dimen>
@@ -617,6 +634,10 @@
     <item name="action_menu_presenter" type="id"/>
     <item name="home" type="id"/>
     <item name="item_touch_helper_previous_elevation" type="id"/>
+    <item name="materialviewpager_headerImageDarkLayer" type="id"/>
+    <item name="materialviewpager_imageHeader" type="id"/>
+    <item name="materialviewpager_pagerTitleStrip" type="id"/>
+    <item name="materialviewpager_viewpager" type="id"/>
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
@@ -1772,6 +1793,39 @@
     </style>
     <style name="CardView.Light">
         <item name="cardBackgroundColor">@color/cardview_light_background</item>
+    </style>
+    <style name="MVP_AppBaseTheme" parent="@style/Theme.AppCompat.Light.NoActionBar">
+    </style>
+    <style name="MVP_AppTheme" parent="MVP_AppBaseTheme">
+
+        <item name="android:textColorPrimary">@android:color/white</item>
+        <item name="drawerArrowStyle">@style/MVP_DrawerArrowStyle</item>
+        <item name="android:windowTranslucentStatus" ns2:targetApi="19">true</item>
+
+        <item name="android:windowContentOverlay">@null</item>
+        <item name="windowActionBar">false</item>
+
+        <!-- Toolbar Theme / Apply white arrow -->
+        <item name="colorControlNormal">@android:color/white</item>
+        <item name="actionBarTheme">@style/MVP_AppTheme.ActionBarTheme</item>
+
+        <!-- Material Theme -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/accent_color</item>
+
+        <item name="android:statusBarColor" ns2:targetApi="21">@color/statusBarColor</item>
+        <item name="android:navigationBarColor" ns2:targetApi="21">@color/navigationBarColor</item>
+        <item name="android:windowDrawsSystemBarBackgrounds" ns2:targetApi="21">true</item>
+
+    </style>
+    <style name="MVP_AppTheme.ActionBarTheme" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+        <!-- White arrow -->
+        <item name="colorControlNormal">@android:color/white</item>
+    </style>
+    <style name="MVP_DrawerArrowStyle" parent="Widget.AppCompat.DrawerArrowToggle">
+        <item name="spinBars">true</item>
+        <item name="color">@color/drawerArrowColor</item>
     </style>
     <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
 

@@ -16,6 +16,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\drawable-v21\\avd_hide_password.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\psts_background_tab.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.jpardogo.materialtabstrip\\library\\1.1.0\\res\\drawable-v21\\psts_background_tab.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-v21\\avd_show_password.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\drawable-v21\\avd_show_password.xml"
     },

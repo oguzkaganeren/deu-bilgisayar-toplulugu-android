@@ -27,6 +27,7 @@ import android.webkit.WebView;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 
+import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 
@@ -196,10 +197,11 @@ public class ContentFragment extends Fragment {
 
         // 2.
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
+        //mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         // 3.
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview);
+        mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         final View myToolBar = getActivity().findViewById(R.id.toolbar);

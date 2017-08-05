@@ -6,9 +6,11 @@ import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
+import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -29,6 +31,8 @@ import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.github.florent37.materialviewpager.MaterialViewPager;
+import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -53,7 +57,7 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private TabLayout tabLayout;
     private ViewPager viewPager;
-    ViewPagerAdapter adapter;
+    private MaterialViewPager mViewPager;
     private NavigationView navigationView;
     private DrawerLayout drawer;
     private View navHeader;
@@ -98,14 +102,21 @@ public class MainActivity extends AppCompatActivity {
 
         setContentView(R.layout.activity_main);
         mAuth = FirebaseAuth.getInstance();
-        toolbar = (Toolbar) findViewById(R.id.toolbar);
+        mViewPager=(MaterialViewPager)findViewById(R.id.materialViewPager);
+        toolbar = mViewPager.getToolbar();
         toolbar.setNavigationIcon(R.drawable.ic_user);//bu kısımı bir kontrol et
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
+
+            ActionBar actionBar = getSupportActionBar();
+            actionBar.setDisplayHomeAsUpEnabled(true);
+            actionBar.setDisplayShowHomeEnabled(true);
+            actionBar.setDisplayShowTitleEnabled(true);
+            actionBar.setDisplayUseLogoEnabled(false);
+            actionBar.setHomeButtonEnabled(true);
         }
-        mContext=getApplicationContext();
-        setSupportActionBar(toolbar);
+        mContext= getApplicationContext();
         //----------------------------
         mHandler = new Handler() {
             @Override
@@ -146,88 +157,87 @@ public class MainActivity extends AppCompatActivity {
             loadHomeFragment();
         }
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        viewPager = (ViewPager) findViewById(R.id.viewpager);
-       setupViewPager(viewPager);
+        viewPager = mViewPager.getViewPager();
+        final ContentFragment myContents=new ContentFragment();
+        final EventFragment myEvents=new EventFragment();
+        final MeetingFragment myMeeting=new MeetingFragment();
+        final NoticeFragment myNotices=new NoticeFragment();
+        mViewPager.getViewPager().setAdapter(new FragmentStatePagerAdapter(getSupportFragmentManager()) {
 
-        tabLayout = (TabLayout) findViewById(R.id.tabs);
-        tabLayout.setupWithViewPager(viewPager);
-        tabLayout.setSelectedTabIndicatorColor(Color.parseColor("#FF9800"));
-        tabLayout.setTabTextColors(Color.parseColor("#E2E2E2"), Color.parseColor("#ffffff"));
+            @Override
+            public Fragment getItem(int position) {
+                switch (position % 4) {
+                    case 0:
+                        return myContents;
+                    case 1:
+                        return myNotices;
+                    case 2:
+                        return myEvents;
+                    case 3:
+                        return myMeeting;
+                    default:
+                            return myEvents;
+
+                }
+            }
+
+            @Override
+            public int getCount() {
+                return 4;
+            }
+
+            @Override
+            public CharSequence getPageTitle(int position) {
+                switch (position % 4) {
+                    case 0:
+                        return "Contents";
+                    case 1:
+                        return "Notices";
+                    case 2:
+                        return "Events";
+                    case 3:
+                        return "Meeting";
+                }
+                return "";
+            }
+        });
+
+        mViewPager.setMaterialViewPagerListener(new MaterialViewPager.Listener() {
+            @Override
+            public HeaderDesign getHeaderDesign(int page) {
+                switch (page) {
+                    case 0:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.green,
+                                "http://phandroid.s3.amazonaws.com/wp-content/uploads/2014/06/android_google_moutain_google_now_1920x1080_wallpaper_Wallpaper-HD_2560x1600_www.paperhi.com_-640x400.jpg");
+                    case 1:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.blue,
+                                "http://www.hdiphonewallpapers.us/phone-wallpapers/540x960-1/540x960-mobile-wallpapers-hd-2218x5ox3.jpg");
+                    case 2:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.cyan,
+                                "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                    case 3:
+                        return HeaderDesign.fromColorResAndUrl(
+                                R.color.red,
+                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
+                }
+
+                //execute others actions if needed (ex : modify your header logo)
+
+                return null;
+            }
+        });
+
+        mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
+        mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
+
         if (mAuth.getCurrentUser() != null) {
             // User is logged in
             navigationView.getMenu().getItem(1).setTitle("Profil");
         }else {
             navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
-        }
-        tabLayout.addOnTabSelectedListener(new TabLayout.OnTabSelectedListener() {
-            @Override
-            public void onTabSelected(TabLayout.Tab tab) {
-                tabLayout.setSelectedTabIndicatorColor(getResources().getColor(android.R.color.holo_orange_light));
-
-            }
-
-            @Override
-            public void onTabUnselected(TabLayout.Tab tab) {
-            }
-
-            @Override
-            public void onTabReselected(TabLayout.Tab tab) {
-                Fragment f =  adapter.getItem(tab.getPosition());
-                if (f != null) {
-                    View fragmentView = f.getView();
-                    RecyclerView mRecyclerView = (RecyclerView) fragmentView.findViewById(R.id.rcview);//mine one is RecyclerView
-                    if (mRecyclerView != null)
-                        mRecyclerView.smoothScrollToPosition(0);
-                }
-            }
-        });
-
-        tabLayout.post(new Runnable() {
-            @Override
-            public void run() {
-
-                tabLayout.setupWithViewPager(viewPager);
-
-            }
-        });
-    }
-    //pageleri ekler (tablar)
-    private void setupViewPager(ViewPager viewPager) {
-        adapter = new ViewPagerAdapter(getSupportFragmentManager());
-        adapter.addFragment(new ContentFragment(), getString(R.string.tabOne));
-        //kullanıcı giriş yaptıysa alt kısım gözükecek
-        adapter.addFragment(new NoticeFragment(), getString(R.string.tabTwo));
-        adapter.addFragment(new EventFragment(), getString(R.string.tabThree));
-        adapter.addFragment(new MeetingFragment(), getString(R.string.tabFour));
-        viewPager.setAdapter(adapter);
-    }
-
-    class ViewPagerAdapter extends FragmentPagerAdapter {
-        private final List<Fragment> mFragmentList = new ArrayList<>();
-        private final List<String> mFragmentTitleList = new ArrayList<>();
-
-        public ViewPagerAdapter(FragmentManager manager) {
-            super(manager);
-        }
-
-        @Override
-        public Fragment getItem(int position) {
-            return mFragmentList.get(position);
-        }
-
-        @Override
-        public int getCount() {
-            return mFragmentList.size();
-        }
-
-        public void addFragment(Fragment fragment, String title) {
-            mFragmentList.add(fragment);
-            mFragmentTitleList.add(title);
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return mFragmentTitleList.get(position);
         }
     }
 
