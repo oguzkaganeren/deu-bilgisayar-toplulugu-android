@@ -23,12 +23,14 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.astuetz.PagerSlidingTabStrip;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.github.florent37.materialviewpager.MaterialViewPager;
@@ -59,6 +61,7 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager viewPager;
     private MaterialViewPager mViewPager;
     private NavigationView navigationView;
+    private NavigationView navigationViewRight;
     private DrawerLayout drawer;
     private View navHeader;
     private FirebaseStorage myStorage;
@@ -75,6 +78,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_PERSON="person";
     private static final String TAG_NOTIFICATIONS = "notifications";
     private static final String TAG_SETTINGS = "settings";
+    private boolean shouldGoInvisible;
     public static String CURRENT_TAG = TAG_HOME;
     private static Context mContext;
 
@@ -108,7 +112,7 @@ public class MainActivity extends AppCompatActivity {
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-
+            toolbar.inflateMenu(R.menu.notifications);
             ActionBar actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
@@ -116,6 +120,14 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayUseLogoEnabled(false);
             actionBar.setHomeButtonEnabled(true);
         }
+        toolbar.setOnMenuItemClickListener(
+                new Toolbar.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        // Handle menu item click event
+                        return true;
+                    }
+                });
         mContext= getApplicationContext();
         //----------------------------
         mHandler = new Handler() {
@@ -134,8 +146,10 @@ public class MainActivity extends AppCompatActivity {
 
             }
         };
+
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
+        navigationViewRight=(NavigationView) findViewById(R.id.nav_viewTwo);
         // Navigation view header
         //menu içerisindeki değerleri verme kısmı
         navHeader = navigationView.getHeaderView(0);
@@ -143,7 +157,6 @@ public class MainActivity extends AppCompatActivity {
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-
 
         // load toolbar titles from string resources
         //string içerindeki başlıklardan değerleri çeker
@@ -497,5 +510,43 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+    @Override
 
+    public boolean onPrepareOptionsMenu(Menu menu) {
+
+        // If the nav drawer is open, hide action items related to the content view
+        boolean drawerOpen = shouldGoInvisible;
+        hideMenuItems(menu, !drawerOpen);
+        return super.onPrepareOptionsMenu(menu);
+    }
+    private void hideMenuItems(Menu menu, boolean visible)
+    {
+
+        for(int i = 0; i < menu.size(); i++){
+
+            menu.getItem(i).setVisible(visible);
+
+        }
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
+
+        return true;
+    }
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            //The id of the <item> tag we created was logout, so, if the user clicks on an item with the id logout, we call on doWhateverYouWant(), in your case, doWhateverYouWant() is you logout method.
+            case 1:
+                break;
+            default:
+                return super.onOptionsItemSelected(item);
+        }
+        return false;
+
+    }
 }
