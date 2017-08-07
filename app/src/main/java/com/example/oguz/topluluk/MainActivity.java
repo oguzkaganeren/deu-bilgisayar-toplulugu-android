@@ -23,6 +23,7 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -511,42 +512,37 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     @Override
-
-    public boolean onPrepareOptionsMenu(Menu menu) {
-
-        // If the nav drawer is open, hide action items related to the content view
-        boolean drawerOpen = shouldGoInvisible;
-        hideMenuItems(menu, !drawerOpen);
-        return super.onPrepareOptionsMenu(menu);
-    }
-    private void hideMenuItems(Menu menu, boolean visible)
-    {
-
-        for(int i = 0; i < menu.size(); i++){
-
-            menu.getItem(i).setVisible(visible);
-
-        }
-    }
-
-    @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.activity_main_drawer, menu);
+        getMenuInflater().inflate(R.menu.right, menu);
 
         return true;
     }
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle item selection
-        switch (item.getItemId()) {
-            //The id of the <item> tag we created was logout, so, if the user clicks on an item with the id logout, we call on doWhateverYouWant(), in your case, doWhateverYouWant() is you logout method.
-            case 1:
-                break;
-            default:
-                return super.onOptionsItemSelected(item);
-        }
-        return false;
+        // Handle action bar item clicks here. The action bar will
+        // automatically handle clicks on the Home/Up button, so long
+        // as you specify a parent activity in AndroidManifest.xml.
+        int id = item.getItemId();
 
+        //noinspection SimplifiableIfStatement
+
+        if (id == R.id.members) {
+            Intent intent = new Intent(this,MainActivity.class);
+            startActivity(intent);
+            return true;
+        }
+
+        return super.onOptionsItemSelected(item);
+    }
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+
+        if (keyCode == KeyEvent.KEYCODE_MENU) {
+
+
+            return true;
+        }
+        return super.onKeyDown(keyCode, event);
     }
 }

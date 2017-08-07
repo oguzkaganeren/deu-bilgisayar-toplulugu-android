@@ -5,30 +5,30 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="122763386673688"
+    timestamp="192000754379657"
     token="1363264538717696597"
-    verifier="FULL_BUILD_REQUESTED" >
+    verifier="R_CLASS_CHANGE" >
 
     <task
         name="javac"
-        duration="330" />
+        duration="793" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="45" />
+        duration="34" />
     <task
         name="verifier"
-        duration="8" />
+        duration="12" />
 
     <artifact
         location="E:\androidWorks\Topluluk\app\build\outputs\apk\app-debug.apk"
         type="MAIN" />
 
     <build
-        timestamp="122763386673688"
-        verifier="FULL_BUILD_REQUESTED" >
+        timestamp="192000754379657"
+        verifier="R_CLASS_CHANGE" >
         <artifact
             location="E:\androidWorks\Topluluk\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
