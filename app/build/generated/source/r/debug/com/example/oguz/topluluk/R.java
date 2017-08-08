@@ -3795,28 +3795,29 @@ containing a value of this type.
         public static final int google_app_id=0x7f070041;
         public static final int google_crash_reporting_api_key=0x7f070042;
         public static final int google_storage_bucket=0x7f070043;
-        public static final int nav_about_us=0x7f070044;
-        public static final int nav_account=0x7f070045;
-        public static final int nav_event=0x7f070046;
-        public static final int nav_login=0x7f070047;
-        public static final int nav_notice=0x7f070048;
-        public static final int nav_person=0x7f070049;
-        public static final int nav_settings=0x7f07004a;
-        public static final int nav_start=0x7f07004b;
-        public static final int openDrawer=0x7f07004c;
-        public static final int password_toggle_content_description=0x7f07004d;
-        public static final int path_password_eye=0x7f07004e;
-        public static final int path_password_eye_mask_strike_through=0x7f07004f;
-        public static final int path_password_eye_mask_visible=0x7f070050;
-        public static final int path_password_strike_through=0x7f070051;
-        public static final int privacy_policy=0x7f070052;
-        public static final int project_id=0x7f070053;
+        public static final int members=0x7f070044;
+        public static final int nav_about_us=0x7f070045;
+        public static final int nav_account=0x7f070046;
+        public static final int nav_event=0x7f070047;
+        public static final int nav_login=0x7f070048;
+        public static final int nav_notice=0x7f070049;
+        public static final int nav_person=0x7f07004a;
+        public static final int nav_settings=0x7f07004b;
+        public static final int nav_start=0x7f07004c;
+        public static final int openDrawer=0x7f07004d;
+        public static final int password_toggle_content_description=0x7f07004e;
+        public static final int path_password_eye=0x7f07004f;
+        public static final int path_password_eye_mask_strike_through=0x7f070050;
+        public static final int path_password_eye_mask_visible=0x7f070051;
+        public static final int path_password_strike_through=0x7f070052;
+        public static final int privacy_policy=0x7f070053;
+        public static final int project_id=0x7f070054;
         public static final int search_menu_title=0x7f070024;
         public static final int status_bar_notification_info_overflow=0x7f070025;
-        public static final int tabFour=0x7f070054;
-        public static final int tabOne=0x7f070055;
-        public static final int tabThree=0x7f070056;
-        public static final int tabTwo=0x7f070057;
+        public static final int tabFour=0x7f070055;
+        public static final int tabOne=0x7f070056;
+        public static final int tabThree=0x7f070057;
+        public static final int tabTwo=0x7f070058;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f0900a3;
@@ -3824,8 +3825,6 @@ containing a value of this type.
         public static final int Animation_AppCompat_Dialog=0x7f0900a5;
         public static final int Animation_AppCompat_DropDownUp=0x7f0900a6;
         public static final int Animation_Design_BottomSheetDialog=0x7f0900a7;
-        /**  Customize your theme here. 
-         */
         public static final int AppTheme=0x7f0900a8;
         public static final int Base_AlertDialog_AppCompat=0x7f0900a9;
         public static final int Base_AlertDialog_AppCompat_Light=0x7f0900aa;

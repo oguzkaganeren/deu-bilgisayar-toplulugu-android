@@ -23,11 +23,18 @@ import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
+import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -113,7 +120,6 @@ public class MainActivity extends AppCompatActivity {
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
-            toolbar.inflateMenu(R.menu.notifications);
             ActionBar actionBar = getSupportActionBar();
             actionBar.setDisplayHomeAsUpEnabled(true);
             actionBar.setDisplayShowHomeEnabled(true);
@@ -262,7 +268,11 @@ public class MainActivity extends AppCompatActivity {
 
         txtName.setText("Name Surname");
         txtWebsite.setText("Website");
-        loadDataOnFirebase();
+        if (mAuth.getCurrentUser() != null) {
+            // User is logged in
+            loadDataOnFirebase();
+        }
+
         // kullanıcı arkaplan resmi
         Glide.with(this).load(R.mipmap.bg_menuheadlast)
                 .crossFade()
@@ -476,7 +486,15 @@ public class MainActivity extends AppCompatActivity {
 
         super.onBackPressed();
     }
-
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        MenuInflater inflater = getMenuInflater();
+        inflater.inflate(R.menu.right, menu);
+        return true;
+    }
+    public void rightMenu(MenuItem item) {
+        drawer.openDrawer(navigationViewRight);
+    }
     public void loadDataOnFirebase() {
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
@@ -510,39 +528,5 @@ public class MainActivity extends AppCompatActivity {
                 Picasso.with(MainActivity.this).load(R.drawable.ic_user).fit().centerCrop().into(imgProfile);
             }
         });
-    }
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.right, menu);
-
-        return true;
-    }
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        // Handle action bar item clicks here. The action bar will
-        // automatically handle clicks on the Home/Up button, so long
-        // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-
-        if (id == R.id.members) {
-            Intent intent = new Intent(this,MainActivity.class);
-            startActivity(intent);
-            return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-    @Override
-    public boolean onKeyDown(int keyCode, KeyEvent event) {
-
-        if (keyCode == KeyEvent.KEYCODE_MENU) {
-
-
-            return true;
-        }
-        return super.onKeyDown(keyCode, event);
     }
 }

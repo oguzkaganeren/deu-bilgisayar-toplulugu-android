@@ -33,4 +33,6 @@
     <string name="tabTwo">Duyuru</string>
     <string name="tabThree">Etkinlik</string>
     <string name="tabFour">Toplantı</string>
+    <!--Rmenu-->
+    <string name="members">rightMenu</string>
 </resources>

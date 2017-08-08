@@ -5,33 +5,47 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="192000754379657"
+    timestamp="272196867732833"
     token="1363264538717696597"
-    verifier="R_CLASS_CHANGE" >
+    verifier="COMPATIBLE" >
 
     <task
         name="javac"
-        duration="793" />
+        duration="326" />
     <task
         name="instant-run-dex"
-        duration="0" />
+        duration="16" />
     <task
         name="instant-run-transform"
-        duration="34" />
+        duration="27" />
     <task
         name="verifier"
-        duration="12" />
+        duration="3" />
 
     <artifact
-        location="E:\androidWorks\Topluluk\app\build\outputs\apk\app-debug.apk"
-        type="MAIN" />
+        location="E:\androidWorks\Topluluk\app\build\intermediates\reload-dex\debug\classes.dex"
+        type="RELOAD_DEX" />
 
     <build
-        timestamp="192000754379657"
-        verifier="R_CLASS_CHANGE" >
+        timestamp="271891678949277"
+        verifier="METHOD_DELETED" >
         <artifact
             location="E:\androidWorks\Topluluk\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
+    </build>
+    <build
+        timestamp="272138563644889"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\androidWorks\Topluluk\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+    <build
+        timestamp="272196867732833"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\androidWorks\Topluluk\app\build\intermediates\reload-dex\debug\classes.dex"
+            type="RELOAD_DEX" />
     </build>
 
 </instant-run>
