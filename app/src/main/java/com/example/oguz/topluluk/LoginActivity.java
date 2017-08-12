@@ -106,7 +106,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, "There is a wrong", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    checkIfEmailVerified();
+                                    //checkIfEmailVerified();
                                     /*Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();*/

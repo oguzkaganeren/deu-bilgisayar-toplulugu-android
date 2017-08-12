@@ -21,8 +21,10 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.KeyEvent;
 import android.view.Menu;
@@ -43,6 +45,7 @@ import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
+import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -56,7 +59,10 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.squareup.picasso.Picasso;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
@@ -76,6 +82,10 @@ public class MainActivity extends AppCompatActivity {
     private StorageReference storageRef;
     private ImageView imgNavHeaderBg, imgProfile;
     private TextView txtName, txtWebsite;
+    private ArrayList<MembersInfo> membersList;
+    private ImageView profile_image_right;
+    private MembersAdapter ourMembersAdapter;
+    private RecyclerView rcMembers;
     //Seçili olan menu indexi
     public static int navItemIndex = 0;
     // tags used to attach the fragments
@@ -127,6 +137,7 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayUseLogoEnabled(false);
             actionBar.setHomeButtonEnabled(true);
         }
+
         toolbar.setOnMenuItemClickListener(
                 new Toolbar.OnMenuItemClickListener() {
                     @Override
@@ -164,10 +175,11 @@ public class MainActivity extends AppCompatActivity {
         txtWebsite = (TextView) navHeader.findViewById(R.id.website);
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-
+        profile_image_right=(ImageView)findViewById(R.id.right_profile_picture);
         // load toolbar titles from string resources
         //string içerindeki başlıklardan değerleri çeker
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
+
         // load nav menu header data
         loadNavHeader();
         setUpNavigationView();
@@ -493,8 +505,22 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     public void rightMenu(MenuItem item) {
+        //members kısmı
+        Fragment fragment = null;
+        Class fragmentClass = null;
+        fragmentClass = MembersFragment.class;
+        try {
+            fragment = (Fragment) fragmentClass.newInstance();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        FragmentManager fragmentManager = getSupportFragmentManager();
+        fragmentManager.beginTransaction().replace(R.id.members_frame, fragment).commit();
+        //-----------------------------------
         drawer.openDrawer(navigationViewRight);
     }
+
     public void loadDataOnFirebase() {
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
@@ -506,7 +532,6 @@ public class MainActivity extends AppCompatActivity {
                 if (snapshot.hasChild("website")) {
                     txtWebsite.setText(snapshot.child("website").getValue().toString());
                 }
-
             }
 
             @Override

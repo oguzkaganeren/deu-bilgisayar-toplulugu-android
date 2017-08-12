@@ -80,15 +80,6 @@ public class ContentFragment extends Fragment {
 
                     // We will get the XML from an input stream
                     xpp.setInput(getInputStream(urlTo), "UTF_8");
-
-        /* We will parse the XML content looking for the "<title>" tag which appears inside the "<item>" tag.
-         * However, we should take in consideration that the rss feed name also is enclosed in a "<title>" tag.
-         * As we know, every feed begins with these lines: "<channel><title>Feed_Name</title>...."
-         * so we should skip the "<title>" tag which is a child of "<channel>" tag,
-         * and take in consideration only "<title>" tag which is a child of "<item>"
-         *
-         * In order to achieve this, we will make use of a boolean variable.
-         */
                     boolean insideItem = false;
                     // Returns the type of current event: START_TAG, END_TAG, etc..
                     int eventType = xpp.getEventType();
