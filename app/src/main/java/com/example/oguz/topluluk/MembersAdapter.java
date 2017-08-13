@@ -41,25 +41,13 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
         MembersInfo wb = dataList.get(i);
         membersViewHolder.name_surname.setText(wb.NameSurname);
         membersViewHolder.status.setText(wb.status);
-        String cDate=wb.date;
+        membersViewHolder.date.setText(wb.date);
         Picasso.with(context)
                 .load(wb.imgSrc)
                 .placeholder(R.drawable.progress_animation)
                 .fit()
                 .into(membersViewHolder.imgSrc);
-        /*SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z", Locale.getDefault());
-        try {
-            format.setLenient(false);
-            Date date = format.parse(cDate);
-            Calendar cal = Calendar.getInstance();
-            cal.setTime(date);
-            String formatedDate = cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" +         cal.get(Calendar.YEAR);
-            membersViewHolder.date.setText(formatedDate);
-        } catch (ParseException e) {
-            // TODO Auto-generated catch block
-            e.printStackTrace();
-            membersViewHolder.date.setText(wb.date);
-        }*/
+
 
     }
 

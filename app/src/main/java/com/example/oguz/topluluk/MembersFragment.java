@@ -4,6 +4,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -22,7 +23,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Oguz on 12-Aug-17.
@@ -59,8 +62,11 @@ public class MembersFragment  extends Fragment {
 
         // 3.
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcmembers);
-        mRecyclerView.setHasFixedSize(true);
+       // mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
+                mLinearLayoutManager.getOrientation());
+        mRecyclerView.addItemDecoration(dividerItemDecoration);
         //final View myToolBar = getActivity().findViewById(R.id.toolbar);
         // final View myTabs = getActivity().findViewById(R.id.tabs);
         // final View myBarLa = getActivity().findViewById(R.id.myBarLayout);
@@ -72,7 +78,7 @@ public class MembersFragment  extends Fragment {
     }
     public void loadMembers(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        final MembersInfo member = new MembersInfo();
+
         FirebaseStorage myStorage=FirebaseStorage.getInstance();
         final StorageReference storageRef= myStorage.getReference();
         ourMembersAdapter=new MembersAdapter(getActivity(),membersList);
@@ -83,6 +89,7 @@ public class MembersFragment  extends Fragment {
                 // of the iterator returned by dataSnapshot.getChildren() to
                 // initialize the array
                 for (DataSnapshot memberSnapshot: dataSnapshot.getChildren()) {
+                   final MembersInfo member = new MembersInfo();
                     if(memberSnapshot.hasChild("name-surname")){
                         String nameSurname = memberSnapshot.child("name-surname").getValue(String.class);
                         member.NameSurname=nameSurname;
@@ -95,9 +102,13 @@ public class MembersFragment  extends Fragment {
                     }else{
                         member.status="-";
                     }
-                    if(memberSnapshot.hasChild("last-login-date")){
-                        String date = memberSnapshot.child("last-login-date").getValue(String.class);
-                        member.date=date;
+                    if(memberSnapshot.hasChild("last-online-date")){
+                        Long val = memberSnapshot.child("last-online-date").getValue(Long.class);
+                        Date date=new Date(val);
+                        SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy HH:mm");
+                        String dateText = df2.format(date);
+                        Toast.makeText(getActivity(), dateText, Toast.LENGTH_SHORT).show();
+                        member.date=dateText;
                     }else{
                         member.date="-";
                     }
@@ -126,7 +137,7 @@ public class MembersFragment  extends Fragment {
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getActivity(), databaseError.toString(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
             }
         });
 

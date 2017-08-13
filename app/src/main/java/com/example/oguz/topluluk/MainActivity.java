@@ -54,6 +54,7 @@ import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -86,6 +87,7 @@ public class MainActivity extends AppCompatActivity {
     private ImageView profile_image_right;
     private MembersAdapter ourMembersAdapter;
     private RecyclerView rcMembers;
+    private DatabaseReference mDatabase;
     //Seçili olan menu indexi
     public static int navItemIndex = 0;
     // tags used to attach the fragments
@@ -181,8 +183,18 @@ public class MainActivity extends AppCompatActivity {
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
         // load nav menu header data
-        loadNavHeader();
         setUpNavigationView();
+        if (mAuth.getCurrentUser() != null) {
+            // User is logged in
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("last-online-date").setValue(ServerValue.TIMESTAMP);
+            navigationView.getMenu().getItem(1).setTitle("Profil");
+
+        }else {
+            navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+        }
+        loadNavHeader();
+
         if (savedInstanceState == null) {
             navItemIndex = 0;
             CURRENT_TAG = TAG_HOME;
@@ -265,12 +277,7 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
-        if (mAuth.getCurrentUser() != null) {
-            // User is logged in
-            navigationView.getMenu().getItem(1).setTitle("Profil");
-        }else {
-            navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
-        }
+
     }
 
     //menu ile ilgili şeyler
@@ -522,7 +529,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void loadDataOnFirebase() {
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
