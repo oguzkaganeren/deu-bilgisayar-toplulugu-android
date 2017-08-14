@@ -21,6 +21,8 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
 
 public class LoginActivity extends AppCompatActivity {
     private EditText inputEmail, inputPassword;
@@ -107,9 +109,12 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 } else {
                                     //checkIfEmailVerified();
-                                    /*Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                                    mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
+                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
-                                    finish();*/
+                                    finish();
+
                                 }
                             }
                         });

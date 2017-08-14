@@ -2,6 +2,9 @@ package com.example.oguz.topluluk;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.ColorStateList;
+import android.graphics.Color;
+import android.graphics.drawable.GradientDrawable;
 import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -41,7 +44,16 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
         MembersInfo wb = dataList.get(i);
         membersViewHolder.name_surname.setText(wb.NameSurname);
         membersViewHolder.status.setText(wb.status);
-        membersViewHolder.date.setText(wb.date);
+        if(wb.online!=null){
+            ImageView imgCircle = membersViewHolder.online;
+            imgCircle.setBackgroundResource(R.drawable.bg_circle);
+            GradientDrawable drawable = (GradientDrawable) imgCircle.getBackground();
+            if(wb.online){
+                drawable.setColor(Color.GREEN);
+            }else{
+                drawable.setColor(Color.RED);
+            }
+        }
         Picasso.with(context)
                 .load(wb.imgSrc)
                 .placeholder(R.drawable.progress_animation)
@@ -61,13 +73,13 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
     public static class MembersViewHolder extends RecyclerView.ViewHolder {
         protected TextView name_surname;
         protected TextView status;
-        protected TextView date;
+        protected ImageView online;
         protected ImageView imgSrc;
         public MembersViewHolder(View v) {
             super(v);
             name_surname =  (TextView) v.findViewById(R.id.right_name_surname);
             status = (TextView)  v.findViewById(R.id.right_status);
-            date = (TextView) v.findViewById(R.id.right_last_time);
+            online = (ImageView) v.findViewById(R.id.right_online);
             imgSrc=(ImageView)v.findViewById(R.id.right_profile_picture);
 
             //image üzerine uzun süre basıldığında yapılacaklar...

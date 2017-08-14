@@ -12,5 +12,6 @@ public class MembersInfo {
     protected String status;
     protected String date;
     protected String imgSrc;
+    protected Boolean online;
 
 }

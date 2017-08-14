@@ -102,15 +102,18 @@ public class MembersFragment  extends Fragment {
                     }else{
                         member.status="-";
                     }
-                    if(memberSnapshot.hasChild("last-online-date")){
+                   /* if(memberSnapshot.hasChild("last-online-date")){
                         Long val = memberSnapshot.child("last-online-date").getValue(Long.class);
                         Date date=new Date(val);
                         SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy HH:mm");
                         String dateText = df2.format(date);
-                        Toast.makeText(getActivity(), dateText, Toast.LENGTH_SHORT).show();
                         member.date=dateText;
                     }else{
                         member.date="-";
+                    }*/
+                    if(memberSnapshot.hasChild("online")){
+                        Boolean val = memberSnapshot.child("online").getValue(Boolean.class);
+                        member.online=val;
                     }
 
                     StorageReference image = storageRef.child("images/profiles/"+memberSnapshot.getKey().toString());
@@ -118,12 +121,12 @@ public class MembersFragment  extends Fragment {
                         @Override
                         public void onSuccess(Uri uri) {
                             member.imgSrc=uri.toString();
-                            mRecyclerView.setAdapter(ourMembersAdapter);
+                            mRecyclerView.swapAdapter(ourMembersAdapter,false);
                         }}).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception exception) {
                             member.imgSrc="@drawable/ic_user.xml";
-                            mRecyclerView.setAdapter(ourMembersAdapter);
+                            mRecyclerView.swapAdapter(ourMembersAdapter,false);
                         }
                     });
 

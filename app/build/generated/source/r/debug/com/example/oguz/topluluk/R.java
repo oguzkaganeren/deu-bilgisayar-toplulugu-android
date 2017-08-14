@@ -3528,8 +3528,8 @@ containing a value of this type.
         public static final int rectangle=0x7f0e0048;
         public static final int right=0x7f0e0031;
         public static final int right_icon=0x7f0e00df;
-        public static final int right_last_time=0x7f0e00ba;
         public static final int right_name_surname=0x7f0e00b9;
+        public static final int right_online=0x7f0e00ba;
         public static final int right_profile_picture=0x7f0e00b7;
         public static final int right_side=0x7f0e00da;
         public static final int right_status=0x7f0e00b8;

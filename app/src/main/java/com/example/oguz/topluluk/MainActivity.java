@@ -189,7 +189,7 @@ public class MainActivity extends AppCompatActivity {
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("last-online-date").setValue(ServerValue.TIMESTAMP);
             navigationView.getMenu().getItem(1).setTitle("Profil");
-
+            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(true);
         }else {
             navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
         }
@@ -278,6 +278,15 @@ public class MainActivity extends AppCompatActivity {
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
 
 
+    }
+    @Override
+    public void onStop() {
+        super.onStop();
+        if (mAuth.getCurrentUser() != null) {
+            // User is logged in
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
+        }
     }
 
     //menu ile ilgili şeyler

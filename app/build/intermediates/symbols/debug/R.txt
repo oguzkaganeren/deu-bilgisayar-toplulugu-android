@@ -1032,8 +1032,8 @@ int id rcview 0x7f0e00af
 int id rectangle 0x7f0e0048
 int id right 0x7f0e0031
 int id right_icon 0x7f0e00df
-int id right_last_time 0x7f0e00ba
 int id right_name_surname 0x7f0e00b9
+int id right_online 0x7f0e00ba
 int id right_profile_picture 0x7f0e00b7
 int id right_side 0x7f0e00da
 int id right_status 0x7f0e00b8

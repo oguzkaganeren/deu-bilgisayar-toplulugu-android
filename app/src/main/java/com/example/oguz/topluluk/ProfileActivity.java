@@ -126,6 +126,8 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 mAuth.signOut();
+                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
                 Toast.makeText(ProfileActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
                 finish();
             }
