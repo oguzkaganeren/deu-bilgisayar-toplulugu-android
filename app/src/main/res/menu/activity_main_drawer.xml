@@ -24,9 +24,9 @@
             android:icon="@drawable/ic_notifications_none_black_24dp"
             android:title="@string/nav_notice" />
         <item
-            android:id="@+id/nav_person"
-            android:icon="@drawable/person_24dp"
-            android:title="@string/nav_person" />
+            android:id="@+id/nav_signout"
+            android:icon="@drawable/ic_exit_to_app_black_24dp"
+            android:title="@string/nav_signout" />
 
 
     </group>

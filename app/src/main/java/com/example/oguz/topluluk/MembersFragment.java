@@ -15,6 +15,7 @@ import android.widget.Toast;
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
@@ -34,6 +35,7 @@ import java.util.Date;
 public class MembersFragment  extends Fragment {
     private LinearLayoutManager mLinearLayoutManager;
     private RecyclerView mRecyclerView;
+    private FirebaseAuth mAuth;
     private MembersAdapter ourMembersAdapter;
     private ArrayList<MembersInfo> membersList;
     public MembersFragment() {
@@ -44,8 +46,13 @@ public class MembersFragment  extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
 
         super.onCreate(savedInstanceState);
-        membersList=new ArrayList<MembersInfo>();
-        loadMembers();
+        mAuth = FirebaseAuth.getInstance();
+        if (mAuth.getCurrentUser() != null) {
+            membersList=new ArrayList<MembersInfo>();
+            loadMembers();
+        }
+
+
     }
 
     @Override
@@ -79,7 +86,7 @@ public class MembersFragment  extends Fragment {
     public void loadMembers(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
 
-        FirebaseStorage myStorage=FirebaseStorage.getInstance();
+        final FirebaseStorage myStorage=FirebaseStorage.getInstance();
         final StorageReference storageRef= myStorage.getReference();
         ourMembersAdapter=new MembersAdapter(getActivity(),membersList);
         mDatabase.child("users").addValueEventListener(new ValueEventListener() {
@@ -88,6 +95,9 @@ public class MembersFragment  extends Fragment {
                 // Is better to use a List, because you don't know the size
                 // of the iterator returned by dataSnapshot.getChildren() to
                 // initialize the array
+                mRecyclerView.setAdapter(null);
+                membersList.clear();
+                ourMembersAdapter.notifyItemRangeRemoved(0,ourMembersAdapter.getItemCount());
                 for (DataSnapshot memberSnapshot: dataSnapshot.getChildren()) {
                    final MembersInfo member = new MembersInfo();
                     if(memberSnapshot.hasChild("name-surname")){
@@ -113,7 +123,12 @@ public class MembersFragment  extends Fragment {
                     }*/
                     if(memberSnapshot.hasChild("online")){
                         Boolean val = memberSnapshot.child("online").getValue(Boolean.class);
-                        member.online=val;
+                        if(memberSnapshot.getKey()==mAuth.getCurrentUser().getUid()){
+                            member.online=true;
+                        }else{
+                            member.online=val;
+                        }
+
                     }
 
                     StorageReference image = storageRef.child("images/profiles/"+memberSnapshot.getKey().toString());
@@ -121,12 +136,12 @@ public class MembersFragment  extends Fragment {
                         @Override
                         public void onSuccess(Uri uri) {
                             member.imgSrc=uri.toString();
-                            mRecyclerView.swapAdapter(ourMembersAdapter,false);
+                            mRecyclerView.setAdapter(ourMembersAdapter);
                         }}).addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception exception) {
                             member.imgSrc="@drawable/ic_user.xml";
-                            mRecyclerView.swapAdapter(ourMembersAdapter,false);
+                            mRecyclerView.setAdapter(ourMembersAdapter);
                         }
                     });
 

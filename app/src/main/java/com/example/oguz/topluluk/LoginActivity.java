@@ -108,9 +108,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, "There is a wrong", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    //checkIfEmailVerified();
-                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                                    mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
+                                    checkIfEmailVerified();
                                     Intent intent = new Intent(LoginActivity.this, MainActivity.class);
                                     startActivity(intent);
                                     finish();
@@ -129,6 +127,8 @@ public class LoginActivity extends AppCompatActivity {
         if (user.isEmailVerified())
         {
             // user is verified, so you can finish this activity or send user to activity which you want.
+            DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
             finish();
             Toast.makeText(LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
         }

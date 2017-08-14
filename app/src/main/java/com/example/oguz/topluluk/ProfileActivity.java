@@ -46,7 +46,6 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageButton gitAdr;
     private ImageButton linkedinAdr;
     private ImageButton websiteAdr;
-    private ImageButton signOut;
     private FirebaseStorage myStorage;
     private ImageView userProfilePhoto;
     private Uri filePath;
@@ -59,6 +58,7 @@ public class ProfileActivity extends AppCompatActivity {
         storageRef= myStorage.getReference();
         if (mAuth.getCurrentUser() == null) {
             finish();
+
         }
         profilePhoto=(ImageButton)findViewById(R.id.edit_profileImage);
         changePass=(ImageButton)findViewById(R.id.edit_password);
@@ -67,7 +67,6 @@ public class ProfileActivity extends AppCompatActivity {
         gitAdr=(ImageButton)findViewById(R.id.edit_github);
         linkedinAdr=(ImageButton)findViewById(R.id.edit_linkedin);
         websiteAdr=(ImageButton)findViewById(R.id.edit_website);
-        signOut=(ImageButton)findViewById(R.id.signOut);
         userProfilePhoto=(ImageView)findViewById(R.id.user_profile_photo);
 
 
@@ -120,16 +119,6 @@ public class ProfileActivity extends AppCompatActivity {
                 Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
                 intent.putExtra("which","website");
                 startActivity(intent);
-            }
-        });
-        signOut.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                mAuth.signOut();
-                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
-                Toast.makeText(ProfileActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
-                finish();
             }
         });
         profilePhoto.setOnClickListener(new View.OnClickListener() {

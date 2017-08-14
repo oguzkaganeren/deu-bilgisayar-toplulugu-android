@@ -209,32 +209,6 @@
                 android:layout_alignBottom="@id/txt_website"
                 android:layout_alignRight="@id/txt_website"
                 />
-            <TextView
-                android:id="@+id/txt_signOut"
-                android:layout_width="120dp"
-                android:layout_below="@id/txt_website"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="Sign Out"
-                />
-            <ImageButton
-                android:id="@+id/signOut"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:padding="4dp"
-                android:scaleType="fitXY"
-                android:elevation="4dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/editor_pencil"
-                android:src="@drawable/ic_keyboard_backspace_black_24dp"
-                android:layout_alignBottom="@id/txt_signOut"
-                android:layout_alignRight="@id/txt_signOut"
-                />
         </RelativeLayout>
     </RelativeLayout>
 </ScrollView>

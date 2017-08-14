@@ -88,6 +88,8 @@ public class MainActivity extends AppCompatActivity {
     private MembersAdapter ourMembersAdapter;
     private RecyclerView rcMembers;
     private DatabaseReference mDatabase;
+    private Fragment fragment = null;
+    private Class fragmentClass = null;
     //Seçili olan menu indexi
     public static int navItemIndex = 0;
     // tags used to attach the fragments
@@ -95,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
     private static final String TAG_LOGIN = "login";
     private static final String TAG_ACCOUNT = "account";
     private static final String TAG_EVENT="event";
-    private static final String TAG_PERSON="person";
+    private static final String TAG_SIGNOUT="signout";
     private static final String TAG_NOTIFICATIONS = "notifications";
     private static final String TAG_SETTINGS = "settings";
     private boolean shouldGoInvisible;
@@ -288,7 +290,6 @@ public class MainActivity extends AppCompatActivity {
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
         }
     }
-
     //menu ile ilgili şeyler
     private void loadNavHeader() {
         // name, website
@@ -430,9 +431,13 @@ public class MainActivity extends AppCompatActivity {
                         navItemIndex = 4;
                         CURRENT_TAG = TAG_NOTIFICATIONS;
                         break;
-                    case R.id.nav_person:
+                    case R.id.nav_signout:
                         navItemIndex = 5;
-                        CURRENT_TAG = TAG_PERSON;
+                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
+                        mAuth.signOut();
+                        Toast.makeText(MainActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
+                        CURRENT_TAG = TAG_SIGNOUT;
                         break;
                     case R.id.nav_about_us:
                         // launch new intent instead of loading fragment
@@ -522,17 +527,19 @@ public class MainActivity extends AppCompatActivity {
     }
     public void rightMenu(MenuItem item) {
         //members kısmı
-        Fragment fragment = null;
-        Class fragmentClass = null;
-        fragmentClass = MembersFragment.class;
-        try {
-            fragment = (Fragment) fragmentClass.newInstance();
-        } catch (Exception e) {
-            e.printStackTrace();
+        if(fragmentClass==null&&fragment==null){
+            fragmentClass = MembersFragment.class;
+            try {
+                fragment = (Fragment) fragmentClass.newInstance();
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+            FragmentManager fragmentManager = getSupportFragmentManager();
+            fragmentManager.beginTransaction().replace(R.id.members_frame, fragment).commit();
         }
 
-        FragmentManager fragmentManager = getSupportFragmentManager();
-        fragmentManager.beginTransaction().replace(R.id.members_frame, fragment).commit();
+
+
         //-----------------------------------
         drawer.openDrawer(navigationViewRight);
     }

@@ -5,7 +5,7 @@
     <string name="nav_login">Uye Girişi</string>
     <string name="nav_account">Hesap</string>
     <string name="nav_event">Geçmiş Etkinlikler</string>
-    <string name="nav_person">Kişiler</string>
+    <string name="nav_signout">Signout</string>
     <string name="nav_notice">Duyurular</string>
     <string name="nav_settings">Ayarlar</string>
     <string name="nav_about_us">Hakkımızda</string>
