@@ -100,13 +100,13 @@ public class MembersFragment  extends Fragment {
                 ourMembersAdapter.notifyItemRangeRemoved(0,ourMembersAdapter.getItemCount());
                 for (DataSnapshot memberSnapshot: dataSnapshot.getChildren()) {
                    final MembersInfo member = new MembersInfo();
-                    if(memberSnapshot.hasChild("name-surname")){
+                    if(memberSnapshot.hasChild("name-surname")&&mAuth!=null){
                         String nameSurname = memberSnapshot.child("name-surname").getValue(String.class);
                         member.NameSurname=nameSurname;
                     }else{
                         member.NameSurname="Computer Society Member";
                     }
-                    if(memberSnapshot.hasChild("status")){
+                    if(memberSnapshot.hasChild("status")&&mAuth!=null){
                         String status = memberSnapshot.child("status").getValue(String.class);
                         member.status=status;
                     }else{
@@ -121,7 +121,7 @@ public class MembersFragment  extends Fragment {
                     }else{
                         member.date="-";
                     }*/
-                    if(memberSnapshot.hasChild("online")){
+                    if(memberSnapshot.hasChild("online")&&mAuth!=null){
                         Boolean val = memberSnapshot.child("online").getValue(Boolean.class);
                         if(memberSnapshot.getKey()==mAuth.getCurrentUser().getUid()){
                             member.online=true;

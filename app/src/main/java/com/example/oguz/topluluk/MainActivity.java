@@ -88,6 +88,7 @@ public class MainActivity extends AppCompatActivity {
     private MembersAdapter ourMembersAdapter;
     private RecyclerView rcMembers;
     private DatabaseReference mDatabase;
+    private ActionBarDrawerToggle actionBarDrawerToggle;
     private Fragment fragment = null;
     private Class fragmentClass = null;
     //Seçili olan menu indexi
@@ -130,7 +131,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mViewPager=(MaterialViewPager)findViewById(R.id.materialViewPager);
         toolbar = mViewPager.getToolbar();
-        toolbar.setNavigationIcon(R.drawable.ic_user);//bu kısımı bir kontrol et
+        toolbar.setNavigationIcon(R.drawable.ic_recent_actors_white_24dp);//bu kısımı bir kontrol et
 
         if (toolbar != null) {
             setSupportActionBar(toolbar);
@@ -141,7 +142,6 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayUseLogoEnabled(false);
             actionBar.setHomeButtonEnabled(true);
         }
-
         toolbar.setOnMenuItemClickListener(
                 new Toolbar.OnMenuItemClickListener() {
                     @Override
@@ -184,24 +184,40 @@ public class MainActivity extends AppCompatActivity {
         //string içerindeki başlıklardan değerleri çeker
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
-        // load nav menu header data
+// load nav menu header data
         setUpNavigationView();
+
+        actionBarDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (mAuth.getCurrentUser() == null) {
+                Intent intent = new Intent(getContext(), LoginActivity.class);
+                MainActivity.this.startActivity(intent);
+                 }
+            }
+        });
         if (mAuth.getCurrentUser() != null) {
+
             // User is logged in
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("last-online-date").setValue(ServerValue.TIMESTAMP);
             navigationView.getMenu().getItem(1).setTitle("Profil");
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(true);
-        }else {
-            navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
-        }
-        loadNavHeader();
+
+            setDrawerState(true);
+
+
 
         if (savedInstanceState == null) {
             navItemIndex = 0;
             CURRENT_TAG = TAG_HOME;
             loadHomeFragment();
         }
+        }else {
+            setDrawerState(false);
+            navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+        }
+        loadNavHeader();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = mViewPager.getViewPager();
         final ContentFragment myContents=new ContentFragment();
@@ -288,6 +304,21 @@ public class MainActivity extends AppCompatActivity {
             // User is logged in
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
+        }
+    }
+    public void setDrawerState(boolean isEnabled) {
+        if ( isEnabled ) {
+            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+            actionBarDrawerToggle.onDrawerStateChanged(DrawerLayout.STATE_SETTLING);
+            actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
+            actionBarDrawerToggle.syncState();
+
+        }
+        else {
+            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            actionBarDrawerToggle.onDrawerStateChanged(DrawerLayout.STATE_SETTLING);
+            actionBarDrawerToggle.setDrawerIndicatorEnabled(false);
+            actionBarDrawerToggle.syncState();
         }
     }
     //menu ile ilgili şeyler
@@ -436,6 +467,7 @@ public class MainActivity extends AppCompatActivity {
                         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
                         mAuth.signOut();
+                        setDrawerState(false);
                         Toast.makeText(MainActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
                         CURRENT_TAG = TAG_SIGNOUT;
                         break;
@@ -469,7 +501,7 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-        ActionBarDrawerToggle actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer) {
+        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer) {
 
             @Override
             public void onDrawerClosed(View drawerView) {
@@ -521,8 +553,10 @@ public class MainActivity extends AppCompatActivity {
     }
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
-        MenuInflater inflater = getMenuInflater();
-        inflater.inflate(R.menu.right, menu);
+        if (mAuth.getCurrentUser() != null) {
+            MenuInflater inflater = getMenuInflater();
+            inflater.inflate(R.menu.right, menu);
+        }
         return true;
     }
     public void rightMenu(MenuItem item) {
@@ -549,17 +583,19 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.hasChild("name-surname")) {
+                if (snapshot.hasChild("name-surname")&&mAuth!=null) {
                     txtName.setText(snapshot.child("name-surname").getValue().toString());
                 }
-                if (snapshot.hasChild("website")) {
+                if (snapshot.hasChild("website")&&mAuth!=null) {
                     txtWebsite.setText(snapshot.child("website").getValue().toString());
                 }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(MainActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
+                if(mAuth!=null){
+                    Toast.makeText(MainActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
+                }
             }
         });
         myStorage= FirebaseStorage.getInstance();

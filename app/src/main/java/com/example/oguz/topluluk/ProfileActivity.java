@@ -220,7 +220,10 @@ public class ProfileActivity extends AppCompatActivity {
             }
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(ProfileActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
+                if(mAuth!=null){
+                    Toast.makeText(ProfileActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
         StorageReference image = storageRef.child("images/profiles/"+mAuth.getCurrentUser().getUid());
