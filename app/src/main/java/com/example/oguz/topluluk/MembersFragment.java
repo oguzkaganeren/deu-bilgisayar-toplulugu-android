@@ -89,29 +89,31 @@ public class MembersFragment  extends Fragment {
         final FirebaseStorage myStorage=FirebaseStorage.getInstance();
         final StorageReference storageRef= myStorage.getReference();
         ourMembersAdapter=new MembersAdapter(getActivity(),membersList);
-        mDatabase.child("users").addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(DataSnapshot dataSnapshot) {
-                // Is better to use a List, because you don't know the size
-                // of the iterator returned by dataSnapshot.getChildren() to
-                // initialize the array
-                mRecyclerView.setAdapter(null);
-                membersList.clear();
-                ourMembersAdapter.notifyItemRangeRemoved(0,ourMembersAdapter.getItemCount());
-                for (DataSnapshot memberSnapshot: dataSnapshot.getChildren()) {
-                   final MembersInfo member = new MembersInfo();
-                    if(memberSnapshot.hasChild("name-surname")&&mAuth!=null){
-                        String nameSurname = memberSnapshot.child("name-surname").getValue(String.class);
-                        member.NameSurname=nameSurname;
-                    }else{
-                        member.NameSurname="Computer Society Member";
-                    }
-                    if(memberSnapshot.hasChild("status")&&mAuth!=null){
-                        String status = memberSnapshot.child("status").getValue(String.class);
-                        member.status=status;
-                    }else{
-                        member.status="-";
-                    }
+            mDatabase.child("users").addValueEventListener(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot dataSnapshot) {
+                    // Is better to use a List, because you don't know the size
+                    // of the iterator returned by dataSnapshot.getChildren() to
+                    // initialize the array
+                    mRecyclerView.setAdapter(null);
+                    membersList.clear();
+                    ourMembersAdapter.notifyItemRangeRemoved(0, ourMembersAdapter.getItemCount());
+                    if (dataSnapshot.exists()) {
+                        for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
+                            if (mAuth.getCurrentUser() != null && memberSnapshot.getKey() != null) {
+                                final MembersInfo member = new MembersInfo();
+                                if (memberSnapshot.hasChild("name-surname") && mAuth != null) {
+                                    String nameSurname = memberSnapshot.child("name-surname").getValue(String.class);
+                                    member.NameSurname = nameSurname;
+                                } else {
+                                    member.NameSurname = "Computer Society Member";
+                                }
+                                if (memberSnapshot.hasChild("status") && mAuth != null) {
+                                    String status = memberSnapshot.child("status").getValue(String.class);
+                                    member.status = status;
+                                } else {
+                                    member.status = "-";
+                                }
                    /* if(memberSnapshot.hasChild("last-online-date")){
                         Long val = memberSnapshot.child("last-online-date").getValue(Long.class);
                         Date date=new Date(val);
@@ -121,44 +123,42 @@ public class MembersFragment  extends Fragment {
                     }else{
                         member.date="-";
                     }*/
-                    if(memberSnapshot.hasChild("online")&&mAuth!=null){
-                        Boolean val = memberSnapshot.child("online").getValue(Boolean.class);
-                        if(memberSnapshot.getKey()==mAuth.getCurrentUser().getUid()){
-                            member.online=true;
-                        }else{
-                            member.online=val;
-                        }
+                                if (memberSnapshot.hasChild("online")) {
+                                    Boolean val = memberSnapshot.child("online").getValue(Boolean.class);
+                                    if (memberSnapshot.getKey() == mAuth.getCurrentUser().getUid()) {
+                                        member.online = true;
+                                    } else {
+                                        member.online = val;
+                                    }
 
+                                }
+                                StorageReference image = storageRef.child("images/profiles/" + memberSnapshot.getKey().toString());
+                                image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                                    @Override
+                                    public void onSuccess(Uri uri) {
+                                        member.imgSrc = uri.toString();
+                                        mRecyclerView.setAdapter(ourMembersAdapter);
+                                    }
+                                }).addOnFailureListener(new OnFailureListener() {
+                                    @Override
+                                    public void onFailure(@NonNull Exception exception) {
+                                        member.imgSrc = null;
+                                        mRecyclerView.setAdapter(ourMembersAdapter);
+                                    }
+                                });
+
+                                membersList.add(member);
+                            }
+
+                        }
                     }
-
-                    StorageReference image = storageRef.child("images/profiles/"+memberSnapshot.getKey().toString());
-                    image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                        @Override
-                        public void onSuccess(Uri uri) {
-                            member.imgSrc=uri.toString();
-                            mRecyclerView.setAdapter(ourMembersAdapter);
-                        }}).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception exception) {
-                            member.imgSrc="@drawable/ic_user.xml";
-                            mRecyclerView.setAdapter(ourMembersAdapter);
-                        }
-                    });
-
-                    membersList.add(member);
-
-
                 }
 
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                   // Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
 
-            }
-
-            @Override
-            public void onCancelled(DatabaseError databaseError) {
-                Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
-            }
-        });
-
-
-    }
 }

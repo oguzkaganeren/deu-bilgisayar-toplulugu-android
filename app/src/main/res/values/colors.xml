@@ -13,4 +13,5 @@
     <color name="content_bg">#ffa726</color>
     <color name="notice_bg">#03a9f4</color>
     <color name="event_bg">#2962ff</color>
+    <color name="hint">#FFF</color>
 </resources>

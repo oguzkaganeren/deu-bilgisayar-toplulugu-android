@@ -54,11 +54,20 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
                 drawable.setColor(Color.RED);
             }
         }
-        Picasso.with(context)
-                .load(wb.imgSrc)
-                .placeholder(R.drawable.progress_animation)
-                .fit()
-                .into(membersViewHolder.imgSrc);
+        if(wb.imgSrc==null){
+            Picasso.with(context)
+                    .load(R.mipmap.logo)
+                    .placeholder(R.drawable.progress_animation)
+                    .fit()
+                    .into(membersViewHolder.imgSrc);
+        }else{
+            Picasso.with(context)
+                    .load(wb.imgSrc)
+                    .placeholder(R.drawable.progress_animation)
+                    .fit()
+                    .into(membersViewHolder.imgSrc);
+        }
+
 
 
     }
@@ -81,7 +90,6 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             status = (TextView)  v.findViewById(R.id.right_status);
             online = (ImageView) v.findViewById(R.id.right_online);
             imgSrc=(ImageView)v.findViewById(R.id.right_profile_picture);
-
             //image üzerine uzun süre basıldığında yapılacaklar...
         }
 

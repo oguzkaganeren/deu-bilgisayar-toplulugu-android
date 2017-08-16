@@ -205,17 +205,14 @@ public class MainActivity extends AppCompatActivity {
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(true);
 
             setDrawerState(true);
-
-
-
+        }else {
+            setDrawerState(false);
+            navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+        }
         if (savedInstanceState == null) {
             navItemIndex = 0;
             CURRENT_TAG = TAG_HOME;
             loadHomeFragment();
-        }
-        }else {
-            setDrawerState(false);
-            navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
         }
         loadNavHeader();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -583,19 +580,20 @@ public class MainActivity extends AppCompatActivity {
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if (snapshot.hasChild("name-surname")&&mAuth!=null) {
-                    txtName.setText(snapshot.child("name-surname").getValue().toString());
-                }
-                if (snapshot.hasChild("website")&&mAuth!=null) {
-                    txtWebsite.setText(snapshot.child("website").getValue().toString());
-                }
+                    if (snapshot.hasChild("name-surname")) {
+                        txtName.setText(snapshot.child("name-surname").getValue().toString());
+                    }
+                    if (snapshot.hasChild("website")) {
+                        txtWebsite.setText(snapshot.child("website").getValue().toString());
+                    }
             }
 
             @Override
             public void onCancelled(DatabaseError databaseError) {
-                if(mAuth!=null){
-                    Toast.makeText(MainActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
+                if(mAuth==null){
+                    Toast.makeText(MainActivity.this, databaseError.getMessage().toString(), Toast.LENGTH_SHORT).show();
                 }
+
             }
         });
         myStorage= FirebaseStorage.getInstance();
