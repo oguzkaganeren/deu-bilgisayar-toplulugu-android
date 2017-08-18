@@ -62,17 +62,17 @@ public final class R {
 		public static final int center = 0x7f0e002b;
 		public static final int dark = 0x7f0e004d;
 		public static final int date = 0x7f0e00b0;
-		public static final int email = 0x7f0e00ba;
+		public static final int email = 0x7f0e00bd;
 		public static final int icon_only = 0x7f0e004a;
 		public static final int light = 0x7f0e004e;
 		public static final int none = 0x7f0e0018;
 		public static final int normal = 0x7f0e0014;
-		public static final int progressBar = 0x7f0e00bf;
+		public static final int progressBar = 0x7f0e00c2;
 		public static final int radio = 0x7f0e006d;
 		public static final int standard = 0x7f0e004b;
-		public static final int text = 0x7f0e00e3;
-		public static final int text2 = 0x7f0e00e1;
-		public static final int toolbar = 0x7f0e00c6;
+		public static final int text = 0x7f0e00e6;
+		public static final int text2 = 0x7f0e00e4;
+		public static final int toolbar = 0x7f0e00c9;
 		public static final int wide = 0x7f0e004c;
 		public static final int wrap_content = 0x7f0e0028;
 	}
@@ -101,6 +101,7 @@ public final class R {
 		public static final int common_open_on_phone = 0x7f070021;
 		public static final int common_signin_button_text = 0x7f070022;
 		public static final int common_signin_button_text_long = 0x7f070023;
+		public static final int fcm_fallback_notification_channel_label = 0x7f07003e;
 	}
 	public static final class style {
 	}
