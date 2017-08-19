@@ -66,6 +66,7 @@ MERGED from [com.google.android.gms:play-services-gcm:11.0.2] E:\androidWorks\To
 MERGED from [com.google.android.gms:play-services-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\AndroidManifest.xml:23:5-19
 MERGED from [de.hdodenhof:circleimageview:2.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\AndroidManifest.xml:9:5-20
 MERGED from [com.jpardogo.materialtabstrip:library:1.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.jpardogo.materialtabstrip\library\1.1.0\AndroidManifest.xml:9:5-20
+MERGED from [tyrantgit:explosionfield:1.0.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\tyrantgit\explosionfield\1.0.1\AndroidManifest.xml:11:5-14:19
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:12:9-41
 	android:supportsRtl
@@ -179,6 +180,7 @@ MERGED from [com.google.firebase:firebase-storage:11.0.2] E:\androidWorks\Toplul
 MERGED from [com.google.firebase:firebase-storage-common:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\11.0.2\AndroidManifest.xml:3:5-43
 MERGED from [com.github.florent37:materialviewpager:1.2.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.github.florent37\materialviewpager\1.2.1\AndroidManifest.xml:7:5-9:41
 MERGED from [com.jpardogo.materialtabstrip:library:1.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.jpardogo.materialtabstrip\library\1.1.0\AndroidManifest.xml:5:5-7:41
+MERGED from [tyrantgit:explosionfield:1.0.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\tyrantgit\explosionfield\1.0.1\AndroidManifest.xml:7:5-9:41
 	tools:overrideLibrary
 		ADDED from [com.android.support:design:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\AndroidManifest.xml:23:9-59
 	android:targetSdkVersion

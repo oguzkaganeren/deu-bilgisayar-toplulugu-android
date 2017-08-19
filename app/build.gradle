@@ -41,6 +41,7 @@ dependencies {
     compile 'com.github.florent37:materialviewpager:1.2.1'
     compile 'com.flaviofaria:kenburnsview:1.0.7'
     compile 'com.jpardogo.materialtabstrip:library:1.1.0'
+    compile 'tyrantgit:explosionfield:1.0.1'
     // RecyclerView
     compile 'com.android.support:recyclerview-v7:25.3.+'
     testCompile 'junit:junit:4.12'

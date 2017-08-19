@@ -85,12 +85,15 @@ public class NoticeFragment  extends Fragment {
     public void loadNotifications(){
             SharedPreferences preferences = getActivity().getSharedPreferences("notificationDEU", 0);
             String descriptions = preferences.getString("notificationDEU", "");
-        Log.d("a",String.valueOf(descriptions.isEmpty()));
+        Log.d("a",String.valueOf(descriptions.isEmpty())+descriptions);
             ArrayList<String> desArray=new ArrayList<String>();
         if(descriptions!=null){
             for (int i=descriptions.split("~").length-1;i>=0;i--)
             {
-                notifList.add(descriptions.split("~")[i].split("é")[0]);
+                if(!descriptions.split("~")[i].startsWith("¨")){
+                    notifList.add(descriptions.split("~")[i].split("é")[0]);
+                }
+
             }
         }
         ourNotificationsAdapter=new NoticeAdapter(getActivity(),notifList);

@@ -1,11 +1,16 @@
 package com.example.oguz.topluluk;
 
+import android.app.Activity;
+import android.app.Fragment;
+import android.app.FragmentManager;
 import android.app.Notification;
 import android.app.NotificationManager;
 import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.support.v4.app.FragmentTransaction;
+import android.support.v7.app.AppCompatActivity;
 import android.support.v7.app.NotificationCompat;
 import android.util.Log;
 
@@ -57,6 +62,8 @@ public class OurFirebaseMessagingService extends FirebaseMessagingService {
 
         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, b.build());
+        //FragmentManager fm = ((AppCompatActivity)getApplicationContext()).getFragmentManager();
+        //FragmentTransaction ft = fm.beginTransaction();
         Log.d(TAG,sharedPref.getString("notificationDEU","").toString());
         Log.d(TAG, "Notification Message Body: " + remoteMessage.getNotification().getBody());
     }
