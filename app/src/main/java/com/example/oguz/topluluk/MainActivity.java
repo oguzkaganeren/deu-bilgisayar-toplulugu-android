@@ -244,21 +244,17 @@ public class MainActivity extends AppCompatActivity {
             public HeaderDesign getHeaderDesign(int page) {
                 switch (page) {
                     case 0:
-                        return HeaderDesign.fromColorResAndUrl(
-                                R.color.content_bg,
-                                "http://phandroid.s3.amazonaws.com/wp-content/uploads/2014/06/android_google_moutain_google_now_1920x1080_wallpaper_Wallpaper-HD_2560x1600_www.paperhi.com_-640x400.jpg");
+                        return HeaderDesign.fromColorAndDrawable(
+                                getResources().getColor(R.color.content_bg), getResources().getDrawable(R.drawable.content_back));
                     case 1:
-                        return HeaderDesign.fromColorResAndUrl(
-                                R.color.notice_bg,
-                                "http://www.hdiphonewallpapers.us/phone-wallpapers/540x960-1/540x960-mobile-wallpapers-hd-2218x5ox3.jpg");
+                        return HeaderDesign.fromColorAndDrawable(
+                               getResources().getColor( R.color.notice_bg),getResources().getDrawable(R.drawable.notice_back));
                     case 2:
-                        return HeaderDesign.fromColorResAndUrl(
-                                R.color.event_bg,
-                                "http://www.droid-life.com/wp-content/uploads/2014/10/lollipop-wallpapers10.jpg");
+                        return HeaderDesign.fromColorAndDrawable(
+                               getResources().getColor(R.color.event_bg),getResources().getDrawable(R.drawable.event_back));
                     case 3:
-                        return HeaderDesign.fromColorResAndUrl(
-                                R.color.lime,
-                                "http://www.tothemobile.com/wp-content/uploads/2014/07/original.jpg");
+                        return HeaderDesign.fromColorAndDrawable(
+                               getResources().getColor(R.color.lime), getResources().getDrawable(R.drawable.meeting_back));
                 }
 
                 //execute others actions if needed (ex : modify your header logo)
@@ -308,13 +304,10 @@ public class MainActivity extends AppCompatActivity {
 
         txtName.setText("Name Surname");
         txtWebsite.setText("Website");
-        if (mAuth.getCurrentUser() != null) {
-            // User is logged in
-            loadDataOnFirebase();
-        }
+
 
         // kullanıcı arkaplan resmi
-        Glide.with(this).load(R.mipmap.bg_menuheadlast)
+        Glide.with(this).load(R.mipmap.menu_header_back)
                 .crossFade()
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imgNavHeaderBg);
@@ -327,6 +320,7 @@ public class MainActivity extends AppCompatActivity {
     private void loadHomeFragment() {
         // selecting appropriate nav menu item
         selectNavMenu();
+
         // if user select the current navigation menu again, don't do anything
         // just close the navigation drawer
         if (getSupportFragmentManager().findFragmentByTag(CURRENT_TAG) != null) {
@@ -452,6 +446,7 @@ public class MainActivity extends AppCompatActivity {
                 if (mAuth.getCurrentUser() != null) {
                     // User is logged in
                     navigationView.getMenu().getItem(1).setTitle("Account");
+                        loadDataOnFirebase();
                 }else {
                     navigationView.getMenu().getItem(1).setTitle("Login");
                 }

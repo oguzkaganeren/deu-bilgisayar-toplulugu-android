@@ -1,27 +1,18 @@
 package com.example.oguz.topluluk;
 
 import android.content.Context;
-import android.content.Intent;
-import android.content.res.ColorStateList;
 import android.graphics.Color;
 import android.graphics.drawable.GradientDrawable;
-import android.net.Uri;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
-import com.squareup.picasso.Picasso;
+import com.bumptech.glide.Glide;
 
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
 import java.util.List;
-import java.util.Locale;
 
 /**
  * Created by Oguz on 07-Aug-17.
@@ -55,16 +46,14 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             }
         }
         if(wb.imgSrc==null){
-            Picasso.with(context)
+            Glide.with(context)
                     .load(R.mipmap.logo)
-                    .placeholder(R.drawable.progress_animation)
-                    .fit()
+                    .centerCrop()
                     .into(membersViewHolder.imgSrc);
         }else{
-            Picasso.with(context)
+            Glide.with(context)
                     .load(wb.imgSrc)
-                    .placeholder(R.drawable.progress_animation)
-                    .fit()
+                    .centerCrop()
                     .into(membersViewHolder.imgSrc);
         }
 

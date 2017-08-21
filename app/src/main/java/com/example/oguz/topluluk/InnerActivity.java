@@ -15,6 +15,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -90,6 +91,19 @@ public class InnerActivity  extends AppCompatActivity {
             }
             else if(((String)extras.get("which")).equals("nameSurname")){
                 editTxt.setHint("Name Surname");
+                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if(snapshot.hasChild("name-surname")){
+                            editTxt.setHint(snapshot.child("name-surname").getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+
+                    }
+                });
                 mActionBarToolbar.setTitle("Change your name and surname");
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -103,6 +117,19 @@ public class InnerActivity  extends AppCompatActivity {
                 });
         }else if(((String)extras.get("which")).equals("status")){
                 editTxt.setHint("Your status");
+                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if(snapshot.hasChild("status")){
+                            editTxt.setHint(snapshot.child("status").getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+
+                    }
+                });
                 mActionBarToolbar.setTitle("Change your status");
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -116,6 +143,19 @@ public class InnerActivity  extends AppCompatActivity {
                 });
         }else if(((String)extras.get("which")).equals("github")) {
                 editTxt.setHint("Your github address");
+                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if(snapshot.hasChild("github")){
+                            editTxt.setHint(snapshot.child("github").getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+
+                    }
+                });
                 mActionBarToolbar.setTitle("Change your github address");
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -129,6 +169,19 @@ public class InnerActivity  extends AppCompatActivity {
                 });
         }else if(((String)extras.get("which")).equals("linkedin")) {
                 editTxt.setHint("Your linkedin address");
+                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if(snapshot.hasChild("linkedin")){
+                            editTxt.setHint(snapshot.child("linkedin").getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+
+                    }
+                });
                 mActionBarToolbar.setTitle("Change your linkedin address");
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
@@ -142,6 +195,19 @@ public class InnerActivity  extends AppCompatActivity {
                 });
         }else if(((String)extras.get("which")).equals("website")) {
                 editTxt.setHint("Your website address");
+                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        if(snapshot.hasChild("website")){
+                            editTxt.setHint(snapshot.child("website").getValue().toString());
+                        }
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+
+
+                    }
+                });
                 mActionBarToolbar.setTitle("Change your website address");
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override

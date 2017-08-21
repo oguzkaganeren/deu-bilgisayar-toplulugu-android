@@ -24,8 +24,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
+import com.bumptech.glide.Glide;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -56,10 +55,9 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         contentViewHolder.description.setText(wb.description);
         contentViewHolder.urlS=wb.link;
         contentViewHolder.source.setText("Source:"+wb.source);
-        Picasso.with(context)
+        Glide.with(context)
                 .load(wb.imgSrc)
-                .placeholder(R.drawable.progress_animation)
-                .fit()
+                .centerCrop()
                 .into(contentViewHolder.imgSrc);
         String cDate=wb.date;
         SimpleDateFormat format = new SimpleDateFormat("EEE, dd MMM yyyy HH:mm:ss Z", Locale.getDefault());

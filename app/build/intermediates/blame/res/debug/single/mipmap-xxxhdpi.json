@@ -6,13 +6,5 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\usericon.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-xxxhdpi\\usericon.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\bg_menuheadlast.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-xxxhdpi\\bg_menuheadlast.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-xxxhdpi\\bg_menuheader.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-xxxhdpi\\bg_menuheader.png"
     }
 ]

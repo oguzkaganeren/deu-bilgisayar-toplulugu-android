@@ -207,15 +207,6 @@ public class ProfileActivity extends AppCompatActivity {
                 if(snapshot.hasChild("status")){
                     ((TextView)findViewById(R.id.user_profile_short_bio)).setText(snapshot.child("status").getValue().toString());
                 }
-                if(snapshot.hasChild("github")){
-                    ((TextView)findViewById(R.id.txt_github)).setText(snapshot.child("github").getValue().toString());
-                }
-                if(snapshot.hasChild("linkedin")){
-                    ((TextView)findViewById(R.id.txt_linkedin)).setText(snapshot.child("linkedin").getValue().toString());
-                }
-                if(snapshot.hasChild("website")){
-                    ((TextView)findViewById(R.id.txt_website)).setText(snapshot.child("website").getValue().toString());
-                }
 
             }
             @Override
