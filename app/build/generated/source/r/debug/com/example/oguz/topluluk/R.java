@@ -25,6 +25,7 @@ public final class R {
         public static final int design_fab_out=0x7f05000d;
         public static final int design_snackbar_in=0x7f05000e;
         public static final int design_snackbar_out=0x7f05000f;
+        public static final int left_exit =0x7f050010;
     }
     public static final class animator {
         public static final int design_appbar_state_list_animator=0x7f060000;
@@ -3378,12 +3379,12 @@ containing a value of this type.
         public static final int action_bar_spinner=0x7f0e0001;
         public static final int action_bar_subtitle=0x7f0e0052;
         public static final int action_bar_title=0x7f0e0051;
-        public static final int action_clear_notifications=0x7f0e00f9;
+        public static final int action_clear_notifications=0x7f0e00f8;
         public static final int action_container=0x7f0e00d1;
         public static final int action_context_bar=0x7f0e0075;
         public static final int action_divider=0x7f0e00d8;
         public static final int action_image=0x7f0e00d2;
-        public static final int action_mark_all_read=0x7f0e00f8;
+        public static final int action_mark_all_read=0x7f0e00f7;
         public static final int action_menu_divider=0x7f0e0002;
         public static final int action_menu_presenter=0x7f0e0003;
         public static final int action_mode_bar=0x7f0e0071;
@@ -3490,7 +3491,7 @@ containing a value of this type.
         public static final int materialviewpager_pagerTitleStrip=0x7f0e0008;
         public static final int materialviewpager_viewpager=0x7f0e0009;
         public static final int media_actions=0x7f0e00d7;
-        public static final int members=0x7f0e00fa;
+        public static final int members=0x7f0e00f9;
         public static final int members_frame=0x7f0e0087;
         public static final int middle=0x7f0e003d;
         public static final int mini=0x7f0e003b;
@@ -3498,14 +3499,13 @@ containing a value of this type.
         public static final int myBarLayoutInner=0x7f0e0098;
         public static final int myContainerContent=0x7f0e00ac;
         public static final int name=0x7f0e00cf;
-        public static final int nav_about_us=0x7f0e00f6;
-        public static final int nav_account=0x7f0e00f1;
-        public static final int nav_event=0x7f0e00f2;
-        public static final int nav_login=0x7f0e00f0;
-        public static final int nav_notifications=0x7f0e00f3;
-        public static final int nav_privacy_policy=0x7f0e00f7;
-        public static final int nav_settings=0x7f0e00f5;
-        public static final int nav_signout=0x7f0e00f4;
+        public static final int nav_about_us=0x7f0e00f5;
+        public static final int nav_account=0x7f0e00f0;
+        public static final int nav_event=0x7f0e00f1;
+        public static final int nav_notifications=0x7f0e00f2;
+        public static final int nav_privacy_policy=0x7f0e00f6;
+        public static final int nav_settings=0x7f0e00f4;
+        public static final int nav_signout=0x7f0e00f3;
         public static final int nav_start=0x7f0e00ef;
         public static final int nav_view=0x7f0e0085;
         public static final int nav_viewTwo=0x7f0e0086;
@@ -3806,27 +3806,26 @@ containing a value of this type.
         public static final int google_storage_bucket=0x7f070044;
         public static final int members=0x7f070045;
         public static final int nav_about_us=0x7f070046;
-        public static final int nav_account=0x7f070047;
-        public static final int nav_event=0x7f070048;
-        public static final int nav_login=0x7f070049;
-        public static final int nav_notice=0x7f07004a;
-        public static final int nav_settings=0x7f07004b;
-        public static final int nav_signout=0x7f07004c;
-        public static final int nav_start=0x7f07004d;
-        public static final int openDrawer=0x7f07004e;
-        public static final int password_toggle_content_description=0x7f07004f;
-        public static final int path_password_eye=0x7f070050;
-        public static final int path_password_eye_mask_strike_through=0x7f070051;
-        public static final int path_password_eye_mask_visible=0x7f070052;
-        public static final int path_password_strike_through=0x7f070053;
-        public static final int privacy_policy=0x7f070054;
-        public static final int project_id=0x7f070055;
+        public static final int nav_event=0x7f070047;
+        public static final int nav_login=0x7f070048;
+        public static final int nav_notice=0x7f070049;
+        public static final int nav_settings=0x7f07004a;
+        public static final int nav_signout=0x7f07004b;
+        public static final int nav_start=0x7f07004c;
+        public static final int openDrawer=0x7f07004d;
+        public static final int password_toggle_content_description=0x7f07004e;
+        public static final int path_password_eye=0x7f07004f;
+        public static final int path_password_eye_mask_strike_through=0x7f070050;
+        public static final int path_password_eye_mask_visible=0x7f070051;
+        public static final int path_password_strike_through=0x7f070052;
+        public static final int privacy_policy=0x7f070053;
+        public static final int project_id=0x7f070054;
         public static final int search_menu_title=0x7f070024;
         public static final int status_bar_notification_info_overflow=0x7f070025;
-        public static final int tabFour=0x7f070056;
-        public static final int tabOne=0x7f070057;
-        public static final int tabThree=0x7f070058;
-        public static final int tabTwo=0x7f070059;
+        public static final int tabFour=0x7f070055;
+        public static final int tabOne=0x7f070056;
+        public static final int tabThree=0x7f070057;
+        public static final int tabTwo=0x7f070058;
     }
     public static final class style {
         public static final int AlertDialog_AppCompat=0x7f0900a3;
@@ -3834,8 +3833,6 @@ containing a value of this type.
         public static final int Animation_AppCompat_Dialog=0x7f0900a5;
         public static final int Animation_AppCompat_DropDownUp=0x7f0900a6;
         public static final int Animation_Design_BottomSheetDialog=0x7f0900a7;
-        /**  Customize your theme here. 
-         */
         public static final int AppTheme=0x7f0900a8;
         public static final int Base_AlertDialog_AppCompat=0x7f0900a9;
         public static final int Base_AlertDialog_AppCompat_Light=0x7f0900aa;

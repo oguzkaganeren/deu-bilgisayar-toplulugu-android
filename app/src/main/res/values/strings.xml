@@ -1,9 +1,8 @@
 <resources>
     <string name="app_name">D.E.U Bilgisayar Topluluğu</string>
     <!-- Navigation Drawer menu labels -->
-    <string name="nav_start">Başlangıç</string>
-    <string name="nav_login">Uye Girişi</string>
-    <string name="nav_account">Hesap</string>
+    <string name="nav_start">Starter</string>
+    <string name="nav_login">Account</string>
     <string name="nav_event">Geçmiş Etkinlikler</string>
     <string name="nav_signout">Signout</string>
     <string name="nav_notice">Duyurular</string>

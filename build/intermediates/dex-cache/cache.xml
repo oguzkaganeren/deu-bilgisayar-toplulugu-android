@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ad2d5f5e1f5332d6b4876c4b401c793ee2abdb09">
+        sha1="ba777a1c2d1070d8e442b01d48b88e7ee1f6fb08">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053.jar" />
     </item>
     <item
@@ -201,21 +201,21 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\glide-3.7.0_3dd7359bbe2f191181b970118cfe958fdbee52bc.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.github.florent37\materialviewpager\1.2.1\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="bed84864149d15e9c893b68ce9994fe6093cdbf4">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.github.florent37-materialviewpager-1.2.1_dc82709310df9eebabb4255295bc8442ddc57984.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\glide-3.7.0_3dd7359bbe2f191181b970118cfe958fdbee52bc.jar" />
     </item>
     <item
         is-multidex="false"
@@ -313,7 +313,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d29f67992dbf8c3cc59ea575a9427c9083fd60b0">
+        sha1="bf8d8d76b18852a28d194d91bc86726d6a41451b">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222.jar" />
     </item>
     <item

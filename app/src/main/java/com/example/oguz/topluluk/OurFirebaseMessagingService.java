@@ -1,7 +1,8 @@
 package com.example.oguz.topluluk;
 
 import android.app.Activity;
-import android.app.Fragment;
+import android.app.Application;
+import android.support.v4.app.Fragment;
 import android.app.FragmentManager;
 import android.app.Notification;
 import android.app.NotificationManager;
@@ -59,7 +60,6 @@ public class OurFirebaseMessagingService extends FirebaseMessagingService {
             editor.putString("notificationDEU", remoteMessage.getNotification().getBody()+"é"+currentTime.toString()+"~");
         }
         editor.commit();
-
         NotificationManager notificationManager = (NotificationManager) getApplicationContext().getSystemService(Context.NOTIFICATION_SERVICE);
         notificationManager.notify(1, b.build());
         //FragmentManager fm = ((AppCompatActivity)getApplicationContext()).getFragmentManager();

@@ -2,7 +2,6 @@ package com.example.oguz.topluluk;
 
 import android.content.Context;
 import android.content.Intent;
-import android.graphics.Color;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.design.widget.NavigationView;
@@ -19,33 +18,21 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Gravity;
-import android.view.KeyEvent;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.astuetz.PagerSlidingTabStrip;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
-import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -58,15 +45,8 @@ import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
-import com.squareup.picasso.Picasso;
 
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
-import java.util.List;
-import java.util.logging.Handler;
-import java.util.logging.LogRecord;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -95,21 +75,16 @@ public class MainActivity extends AppCompatActivity {
     public static int navItemIndex = 0;
     // tags used to attach the fragments
     private static final String TAG_HOME = "home";
-    private static final String TAG_LOGIN = "login";
     private static final String TAG_ACCOUNT = "account";
     private static final String TAG_EVENT="event";
     private static final String TAG_SIGNOUT="signout";
     private static final String TAG_NOTIFICATIONS = "notifications";
     private static final String TAG_SETTINGS = "settings";
-    private boolean shouldGoInvisible;
     public static String CURRENT_TAG = TAG_HOME;
     private static Context mContext;
 
-    // Seçili olan menunun başlığı
-    private String[] activityTitles;
     // kullanıcı geri tuşuna basınca bir önceki fragmente geçme meselesi
     private boolean shouldLoadHomeFragOnBackPress = true;
-    private Handler mHandler;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     public static Context getContext() {
@@ -142,32 +117,8 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayUseLogoEnabled(false);
             actionBar.setHomeButtonEnabled(true);
         }
-        toolbar.setOnMenuItemClickListener(
-                new Toolbar.OnMenuItemClickListener() {
-                    @Override
-                    public boolean onMenuItemClick(MenuItem item) {
-                        // Handle menu item click event
-                        return true;
-                    }
-                });
+
         mContext= getApplicationContext();
-        //----------------------------
-        mHandler = new Handler() {
-            @Override
-            public void publish(LogRecord record) {
-
-            }
-
-            @Override
-            public void flush() {
-
-            }
-
-            @Override
-            public void close() throws SecurityException {
-
-            }
-        };
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -180,13 +131,10 @@ public class MainActivity extends AppCompatActivity {
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
         profile_image_right=(ImageView)findViewById(R.id.right_profile_picture);
-        // load toolbar titles from string resources
-        //string içerindeki başlıklardan değerleri çeker
-        activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
 // load nav menu header data
         setUpNavigationView();
-
+//if the user did not login, login page is showed
         actionBarDrawerToggle.setToolbarNavigationClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -201,13 +149,14 @@ public class MainActivity extends AppCompatActivity {
             // User is logged in
             mDatabase = FirebaseDatabase.getInstance().getReference();
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("last-online-date").setValue(ServerValue.TIMESTAMP);
-            navigationView.getMenu().getItem(1).setTitle("Profil");
+            navigationView.getMenu().getItem(1).setTitle("Account");
+            navigationView.getMenu().getItem(1).setIcon(R.drawable.account_24dp);
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(true);
 
             setDrawerState(true);
         }else {
             setDrawerState(false);
-            navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+            navigationView.getMenu().getItem(1).setTitle("Login");
         }
         if (savedInstanceState == null) {
             navItemIndex = 0;
@@ -229,33 +178,62 @@ public class MainActivity extends AppCompatActivity {
                     case 0:
                         return myContents;
                     case 1:
-                        return myNotices;
+                        if(mAuth.getCurrentUser() != null){
+                            return myNotices;
+                        }else{
+                            return null;
+                        }
                     case 2:
-                        return myEvents;
-                    case 3:
-                        return myMeeting;
-                    default:
+                        if(mAuth.getCurrentUser() != null){
                             return myEvents;
+                        }else {
+                            return null;
+                        }
+                    case 3:
+                        if(mAuth.getCurrentUser() != null){
+                            return myMeeting;
+                        }else{
+                            return null;
+                        }
+
+                    default:
+                            return myContents;
 
                 }
             }
 
             @Override
             public int getCount() {
-                return 4;
+                if(mAuth.getCurrentUser() != null){
+                    return 4;
+                }else{
+                    return 1;
+                }
             }
 
             @Override
             public CharSequence getPageTitle(int position) {
                 switch (position % 4) {
                     case 0:
-                        return "Contents";
+                            return "Contents";
                     case 1:
+                        if(mAuth.getCurrentUser() != null) {
                         return "Notices";
+                        }else{
+                            return null;
+                        }
                     case 2:
-                        return "Events";
+                        if(mAuth.getCurrentUser() != null) {
+                            return "Events";
+                        }else{
+                            return null;
+                        }
                     case 3:
+                        if(mAuth.getCurrentUser() != null) {
                         return "Meeting";
+                        }else{
+                            return null;
+                        }
                 }
                 return "";
             }
@@ -303,6 +281,11 @@ public class MainActivity extends AppCompatActivity {
             mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
         }
     }
+    @Override
+    public void finish() {
+        super.finish();
+        overridePendingTransition(0, R.anim.left_exit);
+    }
     public void setDrawerState(boolean isEnabled) {
         if ( isEnabled ) {
             drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
@@ -336,20 +319,14 @@ public class MainActivity extends AppCompatActivity {
                 .diskCacheStrategy(DiskCacheStrategy.ALL)
                 .into(imgNavHeaderBg);
 
-        // Loading profile image
-        //kullanıcı giriş yaptıysa kullanıcı fotosu burada gözükecek
-
-
         // menude nokta gözükme meselesi
-        navigationView.getMenu().getItem(4).setActionView(R.layout.menu_dot);
+        //navigationView.getMenu().getItem(4).setActionView(R.layout.menu_dot);
     }
 
     //seçilen menuye göre fragment döner
     private void loadHomeFragment() {
         // selecting appropriate nav menu item
         selectNavMenu();
-        // set toolbar title
-        setToolbarTitle();
         // if user select the current navigation menu again, don't do anything
         // just close the navigation drawer
         if (getSupportFragmentManager().findFragmentByTag(CURRENT_TAG) != null) {
@@ -366,7 +343,6 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 // update the main content by replacing fragments
-                Fragment fragment = getHomeFragment();
                 FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
                 fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left,
                         android.R.anim.slide_out_right);
@@ -379,38 +355,6 @@ public class MainActivity extends AppCompatActivity {
 
         // refresh toolbar menu
         invalidateOptionsMenu();
-    }
-
-    private Fragment getHomeFragment() {
-        switch (navItemIndex) {
-
-            case 0:
-                // home
-                MainActivity homeFragment = new MainActivity();
-                return null;
-
-            case 1:
-
-
-                // login
-                return null;
-            case 2:
-                // movies fragment
-                return null;
-            case 3:
-                // notifications fragment
-                return null;
-
-            case 4:
-                // settings fragment
-                return null;
-            default:
-                return null;
-        }
-    }
-
-    private void setToolbarTitle() {
-        getSupportActionBar().setTitle(activityTitles[navItemIndex]);
     }
 
     private void selectNavMenu() {
@@ -442,12 +386,8 @@ public class MainActivity extends AppCompatActivity {
                         CURRENT_TAG = TAG_HOME;
                         drawer.closeDrawers();
                         break;
-                    case R.id.nav_login:
-                        navItemIndex = 1;
-                        CURRENT_TAG = TAG_LOGIN;
-                        break;
                     case R.id.nav_account:
-                        navItemIndex = 2;
+                        navItemIndex = 1;
                         CURRENT_TAG = TAG_ACCOUNT;
                         break;
                     case R.id.nav_event:
@@ -511,9 +451,9 @@ public class MainActivity extends AppCompatActivity {
                 // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
                 if (mAuth.getCurrentUser() != null) {
                     // User is logged in
-                    navigationView.getMenu().getItem(1).setTitle("Profil");
+                    navigationView.getMenu().getItem(1).setTitle("Account");
                 }else {
-                    navigationView.getMenu().getItem(1).setTitle("Üye Girişi");
+                    navigationView.getMenu().getItem(1).setTitle("Login");
                 }
                 super.onDrawerOpened(drawerView);
             }
@@ -585,6 +525,7 @@ public class MainActivity extends AppCompatActivity {
                     }
                     if (snapshot.hasChild("website")) {
                         txtWebsite.setText(snapshot.child("website").getValue().toString());
+
                     }
             }
 
@@ -603,11 +544,19 @@ public class MainActivity extends AppCompatActivity {
         image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.with(MainActivity.this).load(uri).fit().centerCrop().into(imgProfile);
+                Glide
+                        .with(MainActivity.this)
+                        .load(uri)
+                        .centerCrop()
+                        .into(imgProfile);
             }}).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                Picasso.with(MainActivity.this).load(R.drawable.ic_user).fit().centerCrop().into(imgProfile);
+                Glide
+                        .with(MainActivity.this)
+                        .load(R.mipmap.logo)
+                        .centerCrop()
+                        .into(imgProfile);
             }
         });
     }
