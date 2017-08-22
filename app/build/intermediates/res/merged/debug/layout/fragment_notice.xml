@@ -33,7 +33,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:paddingLeft="@dimen/album_title_padding"
-                android:paddingRight="@dimen/album_title_padding"
+                android:paddingRight="30dp"
                 android:paddingTop="@dimen/album_title_padding"
                 android:layout_centerInParent="true"
                 android:textSize="16sp"

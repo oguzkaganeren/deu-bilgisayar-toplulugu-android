@@ -23,9 +23,9 @@ public final class R {
 		public static final int rippelColor = 0x7f0c005f;
 	}
 	public static final class id {
-		public static final int doubleRipple = 0x7f0e0047;
-		public static final int rectangle = 0x7f0e0048;
-		public static final int simpleRipple = 0x7f0e0049;
+		public static final int doubleRipple = 0x7f0d0047;
+		public static final int rectangle = 0x7f0d0048;
+		public static final int simpleRipple = 0x7f0d0049;
 	}
 	public static final class style {
 		public static final int AppTheme = 0x7f0900a8;

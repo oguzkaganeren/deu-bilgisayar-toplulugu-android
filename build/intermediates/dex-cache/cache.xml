@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="037620d110d926cd85a5483131eb51093c3b7013">
+        sha1="2a601dca7c831ae87c73bc5c879997a8c7ca22f7">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053.jar" />
     </item>
     <item
@@ -54,15 +54,6 @@
         revision="25.0.2"
         sha1="86e2c2399cfd7f8271b535b0e7d8ec092d0c6335">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.firebase-firebase-storage-common-11.0.2_e93a7a3f4efc2b9b97f5fc5ff538c1c21586b190.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.squareup.picasso\picasso\2.5.2\7446d06ec8d4f7ffcc53f1da37c95f200dcb9387\picasso-2.5.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="25.0.2"
-        sha1="7446d06ec8d4f7ffcc53f1da37c95f200dcb9387">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\picasso-2.5.2_575fb1fc8a5f0f426ca7d8a56b54e9052e647700.jar" />
     </item>
     <item
         is-multidex="false"
@@ -313,7 +304,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="73e6913b81fa34c08d8c84b59938b3bae50cb88f">
+        sha1="122338a88bced874b58a001b961bcdc85f254b1b">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222.jar" />
     </item>
     <item

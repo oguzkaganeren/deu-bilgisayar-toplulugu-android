@@ -16,6 +16,7 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.bumptech.glide.Glide;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -27,7 +28,6 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
-import com.squareup.picasso.Picasso;
 
 import java.io.File;
 import java.util.List;
@@ -222,11 +222,11 @@ public class ProfileActivity extends AppCompatActivity {
         image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Picasso.with(ProfileActivity.this).load(uri).fit().centerCrop().into(userProfilePhoto);
+                Glide.with(ProfileActivity.this).load(uri).centerCrop().into(userProfilePhoto);
             }}).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                Picasso.with(ProfileActivity.this).load(R.drawable.ic_user).fit().centerCrop().into(userProfilePhoto);
+                Glide.with(ProfileActivity.this).load(R.drawable.ic_user).centerCrop().into(userProfilePhoto);
             }
         });
 

@@ -5,7 +5,7 @@
     density="xxhdpi"
     format="8"
     plugin-version="2.2.2"
-    timestamp="373924691421356"
+    timestamp="448889868118175"
     token="1363264538717696597"
     verifier="COMPATIBLE" >
 
@@ -14,7 +14,7 @@
         duration="0" />
     <task
         name="instant-run-dex"
-        duration="38" />
+        duration="0" />
     <task
         name="instant-run-transform"
         duration="0" />
@@ -23,22 +23,43 @@
         duration="0" />
 
     <artifact
-        location="E:\androidWorks\Topluluk\app\build\intermediates\reload-dex\debug\classes.dex"
-        type="RELOAD_DEX" />
+        location="E:\androidWorks\Topluluk\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
 
     <build
-        timestamp="373911988385189"
+        timestamp="448338524554459"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="E:\androidWorks\Topluluk\app\build\outputs\apk\app-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="373924691421356"
+        timestamp="448384236155561"
         verifier="COMPATIBLE" >
         <artifact
-            location="E:\androidWorks\Topluluk\app\build\intermediates\reload-dex\debug\classes.dex"
+            location="E:\androidWorks\Topluluk\app\build\intermediates\builds\debug\448384236155561\classes.dex"
             type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="448423869025632"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\androidWorks\Topluluk\app\build\intermediates\builds\debug\448423869025632\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="448518163732478"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\androidWorks\Topluluk\app\build\intermediates\builds\debug\448518163732478\classes.dex"
+            type="RELOAD_DEX" />
+    </build>
+    <build
+        timestamp="448889868118175"
+        verifier="COMPATIBLE" >
+        <artifact
+            location="E:\androidWorks\Topluluk\app\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
     </build>
 
 </instant-run>

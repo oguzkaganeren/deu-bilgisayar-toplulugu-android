@@ -7,6 +7,7 @@ import android.os.Bundle;
 import android.preference.PreferenceManager;
 import android.support.annotation.NonNull;
 import android.support.v4.app.Fragment;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -67,10 +68,8 @@ public class NoticeFragment  extends Fragment {
         //bu kısım fragmenlere özel
 
         View v = inflater.inflate(R.layout.fragment_notice, container, false);
-
         // 2.
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        //mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         // 3.
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview_notice);
@@ -87,7 +86,7 @@ public class NoticeFragment  extends Fragment {
             String descriptions = preferences.getString("notificationDEU", "");
         Log.d("a",String.valueOf(descriptions.isEmpty())+descriptions);
             ArrayList<String> desArray=new ArrayList<String>();
-        if(descriptions!=null){
+        if(descriptions!=null&&!descriptions.isEmpty()){
             for (int i=descriptions.split("~").length-1;i>=0;i--)
             {
                 if(!descriptions.split("~")[i].startsWith("¨")){

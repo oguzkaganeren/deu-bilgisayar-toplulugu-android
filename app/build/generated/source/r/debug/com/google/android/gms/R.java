@@ -56,25 +56,25 @@ public final class R {
 		public static final int googleg_standard_color_18 = 0x7f020077;
 	}
 	public static final class id {
-		public static final int adjust_height = 0x7f0e003e;
-		public static final int adjust_width = 0x7f0e003f;
-		public static final int auto = 0x7f0e0029;
-		public static final int center = 0x7f0e002b;
-		public static final int dark = 0x7f0e004d;
-		public static final int date = 0x7f0e00b0;
-		public static final int email = 0x7f0e00bd;
-		public static final int icon_only = 0x7f0e004a;
-		public static final int light = 0x7f0e004e;
-		public static final int none = 0x7f0e0018;
-		public static final int normal = 0x7f0e0014;
-		public static final int progressBar = 0x7f0e00c2;
-		public static final int radio = 0x7f0e006d;
-		public static final int standard = 0x7f0e004b;
-		public static final int text = 0x7f0e00e6;
-		public static final int text2 = 0x7f0e00e4;
-		public static final int toolbar = 0x7f0e00c9;
-		public static final int wide = 0x7f0e004c;
-		public static final int wrap_content = 0x7f0e0028;
+		public static final int adjust_height = 0x7f0d003e;
+		public static final int adjust_width = 0x7f0d003f;
+		public static final int auto = 0x7f0d0029;
+		public static final int center = 0x7f0d002b;
+		public static final int dark = 0x7f0d004d;
+		public static final int date = 0x7f0d00b0;
+		public static final int email = 0x7f0d00bd;
+		public static final int icon_only = 0x7f0d004a;
+		public static final int light = 0x7f0d004e;
+		public static final int none = 0x7f0d0018;
+		public static final int normal = 0x7f0d0014;
+		public static final int progressBar = 0x7f0d00c2;
+		public static final int radio = 0x7f0d006d;
+		public static final int standard = 0x7f0d004b;
+		public static final int text = 0x7f0d00e6;
+		public static final int text2 = 0x7f0d00e4;
+		public static final int toolbar = 0x7f0d00c9;
+		public static final int wide = 0x7f0d004c;
+		public static final int wrap_content = 0x7f0d0028;
 	}
 	public static final class integer {
 		public static final int google_play_services_version = 0x7f0b0006;
@@ -101,7 +101,7 @@ public final class R {
 		public static final int common_open_on_phone = 0x7f070021;
 		public static final int common_signin_button_text = 0x7f070022;
 		public static final int common_signin_button_text_long = 0x7f070023;
-		public static final int fcm_fallback_notification_channel_label = 0x7f07003e;
+		public static final int fcm_fallback_notification_channel_label = 0x7f07003c;
 	}
 	public static final class style {
 	}
