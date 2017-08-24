@@ -14,4 +14,8 @@
     <color name="notice_bg">#03a9f4</color>
     <color name="event_bg">#2962ff</color>
     <color name="hint">#FFF</color>
+    <color name="edittext_hint">#59000000</color>
+    <color name="edittext_normal">#8C000000</color>
+    <color name="edittext_active">#D9000000</color>
+    <color name="edittext_highlight">#8C000000</color>
 </resources>

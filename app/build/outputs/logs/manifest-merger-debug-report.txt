@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:2:1-41:12
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:2:1-46:12
 	package
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:3:5-40
 		INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml
@@ -18,6 +18,7 @@ ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:4:5-78
 MERGED from [com.google.firebase:firebase-analytics:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\11.0.2\AndroidManifest.xml:21:5-78
 MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics-impl\11.0.2\AndroidManifest.xml:21:5-78
 MERGED from [com.google.firebase:firebase-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\11.0.2\AndroidManifest.xml:19:5-78
+MERGED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:19:5-78
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:4:22-76
 uses-permission#android.permission.ACCESS_WIFI_STATE
@@ -31,6 +32,7 @@ MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] E:\androidWorks
 MERGED from [com.google.firebase:firebase-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-iid\11.0.2\AndroidManifest.xml:20:5-66
 MERGED from [com.google.android.gms:play-services-gcm:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\11.0.2\AndroidManifest.xml:21:5-66
 MERGED from [com.google.android.gms:play-services-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\AndroidManifest.xml:21:5-66
+MERGED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:20:5-66
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
@@ -38,7 +40,7 @@ ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:7:5-81
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:7:22-78
 application
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:8:5-39:19
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:8:5-44:19
 MERGED from [com.android.support:design:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-v4:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-v4\25.3.1\AndroidManifest.xml:29:5-20
 MERGED from [com.android.support:support-compat:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\support-compat\25.3.1\AndroidManifest.xml:29:5-20
@@ -64,6 +66,7 @@ MERGED from [com.google.android.gms:play-services-base:11.0.2] E:\androidWorks\T
 MERGED from [com.google.firebase:firebase-messaging:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\11.0.2\AndroidManifest.xml:19:5-29:19
 MERGED from [com.google.android.gms:play-services-gcm:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\11.0.2\AndroidManifest.xml:23:5-19
 MERGED from [com.google.android.gms:play-services-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:24:5-19
 MERGED from [de.hdodenhof:circleimageview:2.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\AndroidManifest.xml:9:5-20
 MERGED from [com.jpardogo.materialtabstrip:library:1.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.jpardogo.materialtabstrip\library\1.1.0\AndroidManifest.xml:9:5-20
 MERGED from [tyrantgit:explosionfield:1.0.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\tyrantgit\explosionfield\1.0.1\AndroidManifest.xml:11:5-14:19
@@ -145,6 +148,24 @@ ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:38:9-83
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:38:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:38:52-81
+activity#com.example.oguz.topluluk.AddEventActivity
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:39:9-86
+	android:label
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:39:19-51
+	android:name
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:39:52-84
+activity#com.example.oguz.topluluk.MapActivity
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:40:9-81
+	android:label
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:40:19-51
+	android:name
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:40:52-79
+meta-data#com.google.android.geo.API_KEY
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:41:9-43:70
+	android:value
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:43:13-68
+	android:name
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:42:13-58
 uses-sdk
 INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.android.support:design:25.3.1] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.android.support\design\25.3.1\AndroidManifest.xml:21:5-23:62
@@ -175,6 +196,7 @@ MERGED from [com.google.firebase:firebase-database-connection:11.0.2] E:\android
 MERGED from [com.google.firebase:firebase-messaging:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-gcm:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:23:5-43
 MERGED from [de.hdodenhof:circleimageview:2.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\AndroidManifest.xml:5:5-7:41
 MERGED from [com.google.firebase:firebase-storage:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage\11.0.2\AndroidManifest.xml:3:5-43
 MERGED from [com.google.firebase:firebase-storage-common:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-storage-common\11.0.2\AndroidManifest.xml:3:5-43
@@ -333,3 +355,9 @@ ADDED from [com.google.firebase:firebase-messaging:11.0.2] E:\androidWorks\Toplu
 		ADDED from [com.google.firebase:firebase-messaging:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\11.0.2\AndroidManifest.xml:23:88-111
 	android:name
 		ADDED from [com.google.firebase:firebase-messaging:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\11.0.2\AndroidManifest.xml:23:18-87
+uses-feature#0x00020000
+ADDED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:21:5-77
+	android:glEsVersion
+		ADDED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:21:19-51
+	android:required
+		ADDED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:21:52-75

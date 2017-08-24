@@ -8,30 +8,30 @@ package com.andexert.library;
 
 public final class R {
 	public static final class attr {
-		public static final int rv_alpha = 0x7f010121;
-		public static final int rv_centered = 0x7f010126;
-		public static final int rv_color = 0x7f010125;
-		public static final int rv_framerate = 0x7f010122;
-		public static final int rv_rippleDuration = 0x7f010123;
-		public static final int rv_ripplePadding = 0x7f010128;
-		public static final int rv_type = 0x7f010127;
-		public static final int rv_zoom = 0x7f010129;
-		public static final int rv_zoomDuration = 0x7f010124;
-		public static final int rv_zoomScale = 0x7f01012a;
+		public static final int rv_alpha = 0x7f010138;
+		public static final int rv_centered = 0x7f01013d;
+		public static final int rv_color = 0x7f01013c;
+		public static final int rv_framerate = 0x7f010139;
+		public static final int rv_rippleDuration = 0x7f01013a;
+		public static final int rv_ripplePadding = 0x7f01013f;
+		public static final int rv_type = 0x7f01013e;
+		public static final int rv_zoom = 0x7f010140;
+		public static final int rv_zoomDuration = 0x7f01013b;
+		public static final int rv_zoomScale = 0x7f010141;
 	}
 	public static final class color {
-		public static final int rippelColor = 0x7f0c005f;
+		public static final int rippelColor = 0x7f0c0063;
 	}
 	public static final class id {
-		public static final int doubleRipple = 0x7f0d0047;
-		public static final int rectangle = 0x7f0d0048;
-		public static final int simpleRipple = 0x7f0d0049;
+		public static final int doubleRipple = 0x7f0d004a;
+		public static final int rectangle = 0x7f0d004b;
+		public static final int simpleRipple = 0x7f0d004c;
 	}
 	public static final class style {
 		public static final int AppTheme = 0x7f0900a8;
 	}
 	public static final class styleable {
-		public static final int[] RippleView = { 0x7f010121, 0x7f010122, 0x7f010123, 0x7f010124, 0x7f010125, 0x7f010126, 0x7f010127, 0x7f010128, 0x7f010129, 0x7f01012a };
+		public static final int[] RippleView = { 0x7f010138, 0x7f010139, 0x7f01013a, 0x7f01013b, 0x7f01013c, 0x7f01013d, 0x7f01013e, 0x7f01013f, 0x7f010140, 0x7f010141 };
 		public static final int RippleView_rv_alpha = 0;
 		public static final int RippleView_rv_centered = 5;
 		public static final int RippleView_rv_color = 4;

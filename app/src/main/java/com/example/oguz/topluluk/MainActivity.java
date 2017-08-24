@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.support.annotation.NonNull;
+import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.FragmentTransaction;
@@ -70,6 +71,7 @@ public class MainActivity extends AppCompatActivity {
     private DatabaseReference mDatabase;
     private ActionBarDrawerToggle actionBarDrawerToggle;
     private Fragment fragment = null;
+    private FloatingActionButton fab;
     private Class fragmentClass = null;
     //Seçili olan menu indexi
     public static int navItemIndex = 0;
@@ -131,7 +133,7 @@ public class MainActivity extends AppCompatActivity {
         imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
         profile_image_right=(ImageView)findViewById(R.id.right_profile_picture);
-
+        fab=(FloatingActionButton)findViewById(R.id.fab);
 // load nav menu header data
         setUpNavigationView();
 //if the user did not login, login page is showed
@@ -244,15 +246,27 @@ public class MainActivity extends AppCompatActivity {
             public HeaderDesign getHeaderDesign(int page) {
                 switch (page) {
                     case 0:
+                        fab.setVisibility(View.INVISIBLE);
                         return HeaderDesign.fromColorAndDrawable(
                                 getResources().getColor(R.color.content_bg), getResources().getDrawable(R.drawable.content_back));
+
                     case 1:
+                        fab.setVisibility(View.INVISIBLE);
                         return HeaderDesign.fromColorAndDrawable(
                                getResources().getColor( R.color.notice_bg),getResources().getDrawable(R.drawable.notice_back));
                     case 2:
+                        fab.setVisibility(View.VISIBLE);
+                        fab.setImageDrawable(getResources().getDrawable(R.drawable.events_add_white));
+                        fab.setOnClickListener(new View.OnClickListener() {
+                        public void onClick(View v) {
+                            Intent intent = new Intent(getContext(), AddEventActivity.class);
+                            MainActivity.this.startActivity(intent);
+                        }
+                    });
                         return HeaderDesign.fromColorAndDrawable(
                                getResources().getColor(R.color.event_bg),getResources().getDrawable(R.drawable.event_back));
                     case 3:
+                        fab.setVisibility(View.INVISIBLE);
                         return HeaderDesign.fromColorAndDrawable(
                                getResources().getColor(R.color.lime), getResources().getDrawable(R.drawable.meeting_back));
                 }

@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/myBarLayoutInner">
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbarInner"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary" />
+    </android.support.design.widget.AppBarLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColorHint="@color/edittext_hint"
+        android:textColor="@color/edittext_normal"
+        app:theme="@style/TextAppearance.App.TextInputLayout">
+
+        <EditText
+            android:id="@+id/title_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Title"
+            style="@style/FullWidthEditText"/>
+    </android.support.design.widget.TextInputLayout>
+
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:theme="@style/TextAppearance.App.TextInputLayout">
+
+        <EditText
+            android:id="@+id/description_event"
+            android:layout_width="fill_parent"
+            android:layout_height="match_parent"
+            android:hint="Description about the event..."
+            android:inputType="textMultiLine"
+            style="@style/FullWidthEditText"/>
+    </android.support.design.widget.TextInputLayout>
+    <android.support.design.widget.TextInputLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:textColorHint="@color/edittext_hint"
+        android:textColor="@color/edittext_normal"
+        app:theme="@style/TextAppearance.App.TextInputLayout">
+
+        <EditText
+            android:id="@+id/address_event"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Adress..."
+            style="@style/FullWidthEditText"/>
+    </android.support.design.widget.TextInputLayout>
+    <FrameLayout
+        android:id="@+id/map_frame"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+</LinearLayout>
