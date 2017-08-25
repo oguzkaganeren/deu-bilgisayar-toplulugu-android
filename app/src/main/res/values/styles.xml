@@ -20,10 +20,6 @@
         <item name="android:textColor">@color/edittext_normal</item>
         <item name="android:textSize">16sp</item>
         <item name="colorAccent">@color/edittext_active</item>
-
-        <item name="colorControlActivated">@color/edittext_active</item>
-        <item name="colorControlNormal">@color/edittext_normal</item>
-        <item name="colorControlHighlight">@color/edittext_highlight</item>
     </style>
     <style name="FullWidthEditText" parent="Widget.AppCompat.EditText">
         <item name="android:padding">20dp</item>

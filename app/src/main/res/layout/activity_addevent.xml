@@ -1,4 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
+
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical"
@@ -9,7 +10,7 @@
         android:layout_height="wrap_content"
         android:id="@+id/myBarLayoutInner">
         <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbarInner"
+            android:id="@+id/toolbarInnerEvent"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary" />
@@ -41,8 +42,14 @@
             android:layout_height="match_parent"
             android:hint="Description about the event..."
             android:inputType="textMultiLine"
+            android:maxLines="8"
             style="@style/FullWidthEditText"/>
     </android.support.design.widget.TextInputLayout>
+<android.support.v7.widget.AppCompatButton
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:id="@+id/date_event"
+    android:text="Date-Time"/>
     <android.support.design.widget.TextInputLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -58,6 +65,7 @@
             android:hint="Adress..."
             style="@style/FullWidthEditText"/>
     </android.support.design.widget.TextInputLayout>
+
     <FrameLayout
         android:id="@+id/map_frame"
         android:layout_width="match_parent"
