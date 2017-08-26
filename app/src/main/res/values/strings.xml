@@ -22,4 +22,5 @@
     <string name="tabFour">Toplantı</string>
     <!--Rmenu-->
     <string name="members">rightMenu</string>
+    <string name="doneaddevent">done</string>
 </resources>

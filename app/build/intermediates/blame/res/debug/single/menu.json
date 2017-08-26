@@ -10,5 +10,9 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\menu\\right.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\menu\\right.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\menu\\done_addevent.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\menu\\done_addevent.xml"
     }
 ]

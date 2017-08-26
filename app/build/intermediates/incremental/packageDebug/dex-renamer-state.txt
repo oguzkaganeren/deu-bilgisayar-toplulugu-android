@@ -1,4 +1,4 @@
-#Fri Aug 25 14:39:30 EEST 2017
+#Sat Aug 26 16:40:37 EEST 2017
 base.0=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053
 renamed.1=classes.dex
 renamed.0=classes2.dex

@@ -25,7 +25,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="7a243d2e1060fada8731f18229924ad331b9024f">
+        sha1="77e9d4c55beeda5722d916b41672ed4a81119162">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053\classes.dex" />
     </item>
     <item
@@ -322,7 +322,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="75eb60145b8a943d221bb59d9454bcd9c0b4489a">
+        sha1="7027531e0af103f4c693d2a2e138b8b1e40688d1">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222\classes.dex" />
     </item>
     <item

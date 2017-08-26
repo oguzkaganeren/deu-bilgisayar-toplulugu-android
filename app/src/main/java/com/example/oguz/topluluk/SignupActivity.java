@@ -165,27 +165,3 @@ public class SignupActivity extends AppCompatActivity {
 
 
 }
-
- class User {
-
-    public String email;
-    public String pass;
-     public String role;
-     Object createdTimestamp;
-
-    // Default constructor required for calls to
-    // DataSnapshot.getValue(User.class)
-    public User() {
-    }
-
-    public User(String email, String pass,String role) {
-        this.email = email;
-        this.pass = pass;
-        this.role=role;
-        createdTimestamp = ServerValue.TIMESTAMP;
-    }
-     @Exclude
-     public long getCreatedTimestampLong(){
-         return (long)createdTimestamp;
-     }
-}
