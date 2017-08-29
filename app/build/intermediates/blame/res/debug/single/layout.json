@@ -20,6 +20,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.github.florent37\\materialviewpager\\1.2.1\\res\\layout\\material_view_pager_imageview_header.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_fragment.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\11.0.2\\res\\layout\\place_autocomplete_fragment.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\menu_dot.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\menu_dot.xml"
     },
@@ -264,6 +268,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_layout_snackbar.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_item_prediction.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\11.0.2\\res\\layout\\place_autocomplete_item_prediction.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_main.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\activity_main.xml"
     },
@@ -320,8 +328,16 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\notification_action.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_progress.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\11.0.2\\res\\layout\\place_autocomplete_progress.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_tab.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\custom_tab.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\place_autocomplete_item_powered_by_google.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\11.0.2\\res\\layout\\place_autocomplete_item_powered_by_google.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",

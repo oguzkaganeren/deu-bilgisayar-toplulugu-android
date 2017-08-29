@@ -691,8 +691,46 @@
                     "startLine": 38,
                     "startColumn": 4,
                     "startOffset": 4609,
+                    "endColumn": 107,
+                    "endOffset": 4712
+                },
+                "from": {
+                    "file": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\11.0.2\\res\\values-in\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 233,
+                        "endColumn": 103,
+                        "endOffset": 336
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 39,
+                    "startColumn": 4,
+                    "startOffset": 4717,
+                    "endColumn": 97,
+                    "endOffset": 4810
+                },
+                "from": {
+                    "file": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\11.0.2\\res\\values-in\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 0,
+                        "startOffset": 337,
+                        "endColumn": 93,
+                        "endOffset": 430
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 40,
+                    "startColumn": 4,
+                    "startOffset": 4815,
                     "endColumn": 83,
-                    "endOffset": 4688
+                    "endOffset": 4894
                 },
                 "from": {
                     "file": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\values-in\\values-in.xml",
@@ -707,11 +745,11 @@
             },
             {
                 "to": {
-                    "startLine": 39,
+                    "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 4693,
+                    "startOffset": 4899,
                     "endColumn": 100,
-                    "endOffset": 4789
+                    "endOffset": 4995
                 },
                 "from": {
                     "file": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\values-in\\values-in.xml",

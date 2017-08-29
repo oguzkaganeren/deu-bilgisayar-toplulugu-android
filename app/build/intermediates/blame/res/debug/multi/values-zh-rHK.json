@@ -691,8 +691,46 @@
                     "startLine": 38,
                     "startColumn": 4,
                     "startOffset": 4107,
+                    "endColumn": 94,
+                    "endOffset": 4197
+                },
+                "from": {
+                    "file": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\11.0.2\\res\\values-zh-rHK\\values.xml",
+                    "position": {
+                        "startLine": 4,
+                        "startColumn": 0,
+                        "startOffset": 237,
+                        "endColumn": 90,
+                        "endOffset": 327
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 39,
+                    "startColumn": 4,
+                    "startOffset": 4202,
+                    "endColumn": 91,
+                    "endOffset": 4289
+                },
+                "from": {
+                    "file": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-places\\11.0.2\\res\\values-zh-rHK\\values.xml",
+                    "position": {
+                        "startLine": 5,
+                        "startColumn": 0,
+                        "startOffset": 328,
+                        "endColumn": 87,
+                        "endOffset": 415
+                    }
+                }
+            },
+            {
+                "to": {
+                    "startLine": 40,
+                    "startColumn": 4,
+                    "startOffset": 4294,
                     "endColumn": 77,
-                    "endOffset": 4180
+                    "endOffset": 4367
                 },
                 "from": {
                     "file": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\values-zh-rHK\\values-zh-rHK.xml",
@@ -707,11 +745,11 @@
             },
             {
                 "to": {
-                    "startLine": 39,
+                    "startLine": 41,
                     "startColumn": 4,
-                    "startOffset": 4185,
+                    "startOffset": 4372,
                     "endColumn": 101,
-                    "endOffset": 4282
+                    "endOffset": 4469
                 },
                 "from": {
                     "file": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\values-zh-rHK\\values-zh-rHK.xml",

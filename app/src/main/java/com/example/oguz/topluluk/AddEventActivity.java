@@ -1,8 +1,10 @@
 package com.example.oguz.topluluk;
 
+import android.app.Activity;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.PorterDuff;
 import android.graphics.drawable.Drawable;
@@ -24,6 +26,8 @@ import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.MotionEvent;
 import android.view.View;
+import android.widget.AdapterView;
+import android.widget.AutoCompleteTextView;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
@@ -31,6 +35,17 @@ import android.widget.ImageView;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesNotAvailableException;
+import com.google.android.gms.common.GooglePlayServicesRepairableException;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.places.Place;
+import com.google.android.gms.location.places.Places;
+import com.google.android.gms.location.places.ui.PlaceAutocompleteFragment;
+import com.google.android.gms.location.places.ui.PlacePicker;
+import com.google.android.gms.location.places.ui.PlaceSelectionListener;
 import com.google.android.gms.maps.CameraUpdateFactory;
 import com.google.android.gms.maps.GoogleMap;
 import com.google.android.gms.maps.OnMapReadyCallback;
@@ -50,6 +65,8 @@ import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 
 import java.io.IOException;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 import java.sql.Time;
 import java.util.ArrayList;
 import java.util.List;
@@ -67,56 +84,37 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
     private EditText address;
     private Button date;
     private Toolbar mActionBarToolbar;
-     private DatePicker datePicker;
+    private DatePicker datePicker;
     private String saveLocation;
     private TimePicker timePicker;
     private FirebaseAuth mAuth;
-    private LatLng latLng;
     private DatabaseReference mDatabase;
     private GoogleMap mMap;
-    public void onCreate(Bundle savedInstanceState) {
+    private String sAddress;
+
+    public void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addevent);
         mAuth = FirebaseAuth.getInstance();
-        if(mAuth!=null){
-
+        if (mAuth != null) {
             mActionBarToolbar = (Toolbar) findViewById(R.id.toolbarInnerEvent);
             mActionBarToolbar.setTitleTextColor(getResources().getColor(R.color.colorTabSelected));
             mActionBarToolbar.setTitle("Add Event");
             setSupportActionBar(mActionBarToolbar);
-            mDatabase= FirebaseDatabase.getInstance().getReference();
-            title=(EditText)findViewById(R.id.title_event);
-            description=(EditText)findViewById(R.id.description_event);
-            address=(EditText)findViewById(R.id.address_event);
-            date=(Button) findViewById(R.id.date_event);
-            address.setOnFocusChangeListener(new View.OnFocusChangeListener() {
-
-                @Override
-                public void onFocusChange(View v, boolean hasFocus) {
-                    if (!hasFocus) {
-                        if(address.getText()!=null){
-                            if(address.getText().toString().trim().toLowerCase().length()>0){
-                                getLocationFromAddress(address.getText().toString().trim().toLowerCase());
-                            }
-
-                        }
-                    }
-                }
-            });
-
-
-        FragmentManager fm = getSupportFragmentManager();
-            SupportMapFragment supportMapFragment =  SupportMapFragment.newInstance();
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            title = (EditText) findViewById(R.id.title_event);
+            description = (EditText) findViewById(R.id.description_event);
+            date = (Button) findViewById(R.id.date_event);
+            FragmentManager fm = getSupportFragmentManager();
+            SupportMapFragment supportMapFragment = SupportMapFragment.newInstance();
             fm.beginTransaction().replace(R.id.map_frame, supportMapFragment).commit();
             supportMapFragment.getMapAsync(this);
-
             final Dialog dialog = new Dialog(AddEventActivity.this);
-
             dialog.setContentView(R.layout.custom_date_time);
             dialog.setTitle("Custom Dialog");
-            date.setOnClickListener(new View.OnClickListener(){
+            date.setOnClickListener(new View.OnClickListener() {
                 @Override
-                public void onClick(View v){
+                public void onClick(View v) {
                     dialog.show();
                 }
             });
@@ -132,14 +130,43 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                     int day = datePicker.getDayOfMonth();
                     int month = datePicker.getMonth() + 1;
                     int year = datePicker.getYear();
-                    int hour=timePicker.getCurrentHour();
-                    int minute=timePicker.getCurrentMinute();
-                    date.setText(day+"/"+month+"/"+year+" "+hour+":"+minute);
+                    int hour = timePicker.getCurrentHour();
+                    int minute = timePicker.getCurrentMinute();
+                    date.setText(day + "/" + month + "/" + year + " " + hour + ":" + minute);
+                }
+            });
+            PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
+                    getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+            address=((EditText)autocompleteFragment.getView().findViewById(R.id.place_autocomplete_search_input));
+            autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
+                @Override
+                public void onPlaceSelected(Place place) {
+                    // TODO: Get info about the selected place.
+                    mMap.clear();
+                    Marker srchMarker = mMap.addMarker(new MarkerOptions().position(place.getLatLng()).title("Event"));
+                    saveLocation=String.valueOf(place.getLatLng().latitude)+"-"+String.valueOf(place.getLatLng().longitude);
+                    //Animate and Zoon on that map location
+                    mMap.moveCamera(CameraUpdateFactory.newLatLng(place.getLatLng()));
+                    mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+                    if(place.getAddress()!=null){
+                        sAddress=place.getAddress().toString();
+                        Log.d("yazdir", "onPlaceSelected: "+sAddress);
+                    }
+
+
+                }
+
+                @Override
+                public void onError(Status status) {
+                    // TODO: Handle the error.
+                    Log.i("all", "An error occurred: " + status);
                 }
             });
         }
 
     }
+
+
     public boolean onCreateOptionsMenu(Menu menu) {
         if (mAuth.getCurrentUser() != null) {
             MenuInflater inflater = getMenuInflater();
@@ -148,6 +175,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
         }
         return true;
     }
+
     public void changeActionMenuItemsBackground(int color) {
         for (int i = 0; i < mActionBarToolbar.getChildCount(); i++) {
             final View v = mActionBarToolbar.getChildAt(i);
@@ -156,32 +184,32 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
             }
         }
     }
+
     public void done(MenuItem item) {
         String key = mDatabase.child("events").push().getKey();
-        String sTitle=title.getText().toString();
-        String sDesc=description.getText().toString();
-        String sDate=date.getText().toString();
-        if(sTitle.length()>0&&sTitle.length()<100&&sDesc.length()>0
-                &&sDesc.length()<800&&sDate.length()>0&&sDate.length()<20){
-            if(address.getText().toString().trim().toLowerCase().length()>0){
-                getLocationFromAddress(address.getText().toString().trim().toLowerCase());
-            }
-            if(saveLocation!=null&&!saveLocation.isEmpty()){
-                Event newEvent=new Event();
-                newEvent.title=sTitle.trim();
-                newEvent.description=sDesc.trim();
-                newEvent.date=sDate.trim();
-                newEvent.location=saveLocation;
-                newEvent.uid=mAuth.getCurrentUser().getUid();
-                Toast.makeText(AddEventActivity.this, key,
-                        Toast.LENGTH_SHORT).show();
+        String sTitle = title.getText().toString();
+        String sDesc = description.getText().toString();
+        String sDate = date.getText().toString();
+        if (sTitle.length() > 0 && sTitle.length() < 100 && sDesc.length() > 0
+                && sDesc.length() < 800 && sDate.length() > 0 && sDate.length() < 20&&sAddress.length()>3) {
+            if (saveLocation != null && !saveLocation.isEmpty()) {
+                Event newEvent = new Event();
+                newEvent.title = sTitle.trim();
+                newEvent.description = sDesc.trim();
+                newEvent.date = sDate.trim();
+                newEvent.address=sAddress;
+                newEvent.location = saveLocation;
+                newEvent.uid = mAuth.getCurrentUser().getUid();
                 mDatabase.child("events").child(key).setValue(newEvent);
                 mDatabase.child("events").addListenerForSingleValueEvent(new ValueEventListener() {
                     public void onDataChange(DataSnapshot dataSnapshot) {
+                        Toast.makeText(AddEventActivity.this, "Adding Event succeed.",
+                                Toast.LENGTH_SHORT).show();
                         finish();
                     }
+
                     public void onCancelled(DatabaseError firebaseError) {
-                        Toast.makeText(AddEventActivity.this, "Adding Event failed."+firebaseError.getDetails().toString(),
+                        Toast.makeText(AddEventActivity.this, "Adding Event failed." + firebaseError.getDetails().toString(),
                                 Toast.LENGTH_SHORT).show();
                     }
                 });
@@ -191,6 +219,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
 
 
     }
+
 
     @Override
     public void onMapReady(GoogleMap googleMap) {
@@ -232,7 +261,11 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                     }
                     //place marker where user just clicked
                     Marker marker = mMap.addMarker(new MarkerOptions().position(point).title("Event"));
-                    saveLocation=String.valueOf(latLng.latitude)+"-"+String.valueOf(latLng.longitude);
+                    saveLocation=String.valueOf(point.latitude)+"-"+String.valueOf(point.longitude);
+                    if(address.getText()!=null&&address.getText().toString().length()>3){
+                        sAddress=address.getText().toString();
+                        Log.d("yazdir", "onClick: "+sAddress);
+                    }
                 }
             }
         });
@@ -241,64 +274,35 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
         mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
         mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
     }
-    public void getLocationFromAddress(String strAddress)
-    {
-        //Create coder with Activity context - this
-        Geocoder coder = new Geocoder(this);
-        List<Address> maddress;
 
-        try {
-            //Get latLng from String
-            maddress = coder.getFromLocationName(strAddress,4);
+ }
+    class Event {
 
-            //check for null
-            if (maddress == null) {
-                return;
-            }
+        public String title;
+        public String description;
+        public String date;
+        public String location;
+        public String uid;
+        public String address;
+        Object createdTimestamp;
 
-            //Lets take first possibility from the all possibilities.
-            Address location=maddress.get(0);
-            latLng = new LatLng(location.getLatitude(), location.getLongitude());
+        // Default constructor required for calls to
+        // DataSnapshot.getValue(User.class)
+        public Event() {
+        }
 
-            //Put marker on map on that LatLng
-            mMap.clear();
-            Marker srchMarker = mMap.addMarker(new MarkerOptions().position(latLng).title("Event"));
-            saveLocation=String.valueOf(latLng.latitude)+"-"+String.valueOf(latLng.longitude);
-            //Animate and Zoon on that map location
-            mMap.moveCamera(CameraUpdateFactory.newLatLng(latLng));
-            mMap.animateCamera(CameraUpdateFactory.zoomTo(15));
+        public Event(String title, String description, String date, String location, String uid,String address) {
+            this.title = title;
+            this.description = description;
+            this.date = date;
+            this.location = location;
+            this.uid = uid;
+            this.address=address;
+            createdTimestamp = ServerValue.TIMESTAMP;
+        }
 
-
-        } catch (IOException e)
-        {
-            e.printStackTrace();
+        @Exclude
+        public long getCreatedTimestampLong() {
+            return (long) createdTimestamp;
         }
     }
-}
-class Event {
-
-    public String title;
-    public String description;
-    public String date;
-    public String location;
-    public String uid;
-    Object createdTimestamp;
-
-    // Default constructor required for calls to
-    // DataSnapshot.getValue(User.class)
-    public Event() {
-    }
-
-    public Event(String title, String description,String date,String location,String uid) {
-        this.title=title;
-        this.description=description;
-        this.date=date;
-        this.location=location;
-        this.uid=uid;
-        createdTimestamp = ServerValue.TIMESTAMP;
-    }
-    @Exclude
-    public long getCreatedTimestampLong(){
-        return (long)createdTimestamp;
-    }
-}

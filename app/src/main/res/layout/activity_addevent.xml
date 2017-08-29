@@ -50,22 +50,13 @@
     android:layout_height="wrap_content"
     android:id="@+id/date_event"
     android:text="Date-Time"/>
-    <android.support.design.widget.TextInputLayout
+
+    <fragment
+        android:id="@+id/place_autocomplete_fragment"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:textColorHint="@color/edittext_hint"
-        android:textColor="@color/edittext_normal"
-        app:theme="@style/TextAppearance.App.TextInputLayout">
-
-        <EditText
-            android:id="@+id/address_event"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:hint="Adress..."
-            style="@style/FullWidthEditText"/>
-    </android.support.design.widget.TextInputLayout>
-
+        android:name="com.google.android.gms.location.places.ui.PlaceAutocompleteFragment"
+        />
     <FrameLayout
         android:id="@+id/map_frame"
         android:layout_width="match_parent"
