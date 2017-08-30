@@ -68,8 +68,13 @@ import java.io.IOException;
 import java.io.UnsupportedEncodingException;
 import java.net.URLEncoder;
 import java.sql.Time;
+import java.text.DateFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 import java.util.logging.Handler;
@@ -196,7 +201,14 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                 Event newEvent = new Event();
                 newEvent.title = sTitle.trim();
                 newEvent.description = sDesc.trim();
-                newEvent.date = sDate.trim();
+                newEvent.createdTimestamp=ServerValue.TIMESTAMP;
+                try {
+                    DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ENGLISH);
+                    Date dt = format.parse(sDate);
+                    newEvent.date = dt;
+                }catch (ParseException e){
+                    e.printStackTrace();
+                }
                 newEvent.address=sAddress;
                 newEvent.location = saveLocation;
                 newEvent.uid = mAuth.getCurrentUser().getUid();
@@ -280,25 +292,25 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
 
         public String title;
         public String description;
-        public String date;
+        public Date date;
         public String location;
         public String uid;
         public String address;
-        Object createdTimestamp;
+        public Object createdTimestamp;
 
         // Default constructor required for calls to
         // DataSnapshot.getValue(User.class)
         public Event() {
         }
 
-        public Event(String title, String description, String date, String location, String uid,String address) {
+        public Event(String title, String description, Date date, String location, String uid,String address) {
             this.title = title;
             this.description = description;
             this.date = date;
             this.location = location;
             this.uid = uid;
             this.address=address;
-            createdTimestamp = ServerValue.TIMESTAMP;
+            this.createdTimestamp = ServerValue.TIMESTAMP;
         }
 
         @Exclude

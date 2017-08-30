@@ -38,7 +38,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         eventsViewHolder.address.setText(wb.address);
         eventsViewHolder.title.setText(wb.title);
         eventsViewHolder.description.setText(wb.description);
-        eventsViewHolder.date.setText(wb.date);
+        eventsViewHolder.date.setText(wb.date.toString());
         Glide.with(context)
                 .load(R.drawable.event)
                 .centerCrop()

@@ -28,7 +28,13 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.Date;
+import java.util.Locale;
 
 
 public class EventFragment extends Fragment{
@@ -73,25 +79,19 @@ public class EventFragment extends Fragment{
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
                 mLinearLayoutManager.getOrientation());
         mRecyclerView.addItemDecoration(dividerItemDecoration);
-        if (mRecyclerView.getAdapter()==null){
-            mRecyclerView.setAdapter(eventAdapter);
-        }
 
         return v;
     }
     public void loadMembers(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-        eventAdapter=new EventAdapter(getActivity(),eventList);
 
-        mDatabase.child("events").addValueEventListener(new ValueEventListener() {
+
+        mDatabase.child("events").orderByChild("createdTimestamp").limitToLast(20).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Is better to use a List, because you don't know the size
                 // of the iterator returned by dataSnapshot.getChildren() to
                 // initialize the array
-                mRecyclerView.setAdapter(null);
-                eventList.clear();
-                eventAdapter.notifyItemRangeRemoved(0, eventAdapter.getItemCount());
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
                         if (mAuth.getCurrentUser() != null && memberSnapshot.getKey() != null) {
@@ -109,7 +109,7 @@ public class EventFragment extends Fragment{
                                 event.description = desc;
                             }
                             if (memberSnapshot.hasChild("date") && mAuth != null) {
-                                String date = memberSnapshot.child("date").getValue(String.class);
+                                Date date = memberSnapshot.child("date").getValue(Date.class);
                                 event.date = date;
                             }
                             if (memberSnapshot.hasChild("location") && mAuth != null) {
@@ -120,10 +120,21 @@ public class EventFragment extends Fragment{
                                 String uid = memberSnapshot.child("uid").getValue(String.class);
                                 event.uid = uid;
                             }
+                            if (memberSnapshot.hasChild("createdTimestamp") && mAuth != null) {
+                                Long addate = memberSnapshot.child("createdTimestamp").getValue(Long.class);
+                                event.addingDate = addate;
+                            }
                             eventList.add(event);
+                            Collections.sort(eventList, new Comparator<EventsInfo>() {
+                                public int compare(EventsInfo o1, EventsInfo o2) {
+                                    return o1.getAddingDate().compareTo(o2.getAddingDate());
+                                }
+                            });
                         }
 
                     }
+                    Collections.reverse(eventList);
+                    eventAdapter=new EventAdapter(getActivity(),eventList);
                     mRecyclerView.setAdapter(eventAdapter);
                 }
             }
@@ -134,5 +145,4 @@ public class EventFragment extends Fragment{
             }
         });
     }
-
 }
