@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.oguz.topluluk.test" >
+    package="com.example.oguz.bilgisayarToplulugu.test" >
 
     <uses-sdk
         android:minSdkVersion="19"
@@ -10,8 +10,8 @@
         android:name="android.support.test.runner.AndroidJUnitRunner"
         android:functionalTest="false"
         android:handleProfiling="false"
-        android:label="Tests for com.example.oguz.topluluk"
-        android:targetPackage="com.example.oguz.topluluk" />
+        android:label="Tests for com.example.oguz.bilgisayarToplulugu"
+        android:targetPackage="com.example.oguz.bilgisayarToplulugu" />
 
     <application>
         <uses-library android:name="android.test.runner" />

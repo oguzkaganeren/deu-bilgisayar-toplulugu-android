@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.oguz.topluluk"
+    package="com.example.oguz.bilgisayarToplulugu"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -21,10 +21,10 @@
     <uses-permission android:name="com.google.android.c2dm.permission.RECEIVE" />
 
     <permission
-        android:name="com.example.oguz.topluluk.permission.C2D_MESSAGE"
+        android:name="com.example.oguz.bilgisayarToplulugu.permission.C2D_MESSAGE"
         android:protectionLevel="signature" />
 
-    <uses-permission android:name="com.example.oguz.topluluk.permission.C2D_MESSAGE" />
+    <uses-permission android:name="com.example.oguz.bilgisayarToplulugu.permission.C2D_MESSAGE" />
 
     <uses-feature
         android:glEsVersion="0x00020000"
@@ -39,7 +39,7 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme" >
         <activity
-            android:name="com.example.oguz.topluluk.MainActivity"
+            android:name="com.example.oguz.bilgisayarToplulugu.MainActivity"
             android:label="@string/app_name" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -48,37 +48,37 @@
             </intent-filter>
         </activity>
 
-        <service android:name="com.example.oguz.topluluk.OurFirebaseMessagingService" >
+        <service android:name="com.example.oguz.bilgisayarToplulugu.OurFirebaseMessagingService" >
             <intent-filter>
                 <action android:name="com.google.firebase.MESSAGING_EVENT" />
             </intent-filter>
         </service>
-        <service android:name="com.example.oguz.topluluk.FirebaseIDService" >
+        <service android:name="com.example.oguz.bilgisayarToplulugu.FirebaseIDService" >
             <intent-filter>
                 <action android:name="com.google.firebase.INSTANCE_ID_EVENT" />
             </intent-filter>
         </service>
 
         <activity
-            android:name="com.example.oguz.topluluk.SignupActivity"
+            android:name="com.example.oguz.bilgisayarToplulugu.SignupActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.example.oguz.topluluk.LoginActivity"
+            android:name="com.example.oguz.bilgisayarToplulugu.LoginActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.example.oguz.topluluk.ResetPassword"
+            android:name="com.example.oguz.bilgisayarToplulugu.ResetPassword"
             android:label="@string/app_name" />
         <activity
-            android:name="com.example.oguz.topluluk.ProfileActivity"
+            android:name="com.example.oguz.bilgisayarToplulugu.ProfileActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.example.oguz.topluluk.InnerActivity"
+            android:name="com.example.oguz.bilgisayarToplulugu.InnerActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.example.oguz.topluluk.AddEventActivity"
+            android:name="com.example.oguz.bilgisayarToplulugu.AddEventActivity"
             android:label="@string/app_name" />
         <activity
-            android:name="com.example.oguz.topluluk.MapActivity"
+            android:name="com.example.oguz.bilgisayarToplulugu.MapActivity"
             android:label="@string/app_name" />
 
         <meta-data
@@ -121,7 +121,7 @@
             <intent-filter>
                 <action android:name="com.google.android.c2dm.intent.RECEIVE" />
 
-                <category android:name="com.example.oguz.topluluk" />
+                <category android:name="com.example.oguz.bilgisayarToplulugu" />
             </intent-filter>
         </receiver>
         <!--
@@ -145,7 +145,7 @@
 
         <provider
             android:name="com.google.firebase.provider.FirebaseInitProvider"
-            android:authorities="com.example.oguz.topluluk.firebaseinitprovider"
+            android:authorities="com.example.oguz.bilgisayarToplulugu.firebaseinitprovider"
             android:exported="false"
             android:initOrder="100" />
 

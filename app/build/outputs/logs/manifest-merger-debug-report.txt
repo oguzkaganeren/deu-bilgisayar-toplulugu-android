@@ -2,7 +2,7 @@
 manifest
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:2:1-46:12
 	package
-		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:3:5-40
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:3:5-51
 		INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml
 		INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml
 	android:versionName
@@ -83,7 +83,7 @@ MERGED from [tyrantgit:explosionfield:1.0.1] E:\androidWorks\Topluluk\app\build\
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:9:9-33
 	android:theme
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:14:9-47
-activity#com.example.oguz.topluluk.MainActivity
+activity#com.example.oguz.bilgisayarToplulugu.MainActivity
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:15:9-23:20
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:15:48-80
@@ -99,17 +99,17 @@ category#android.intent.category.LAUNCHER
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:20:17-77
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:20:27-74
-service#com.example.oguz.topluluk.OurFirebaseMessagingService
+service#com.example.oguz.bilgisayarToplulugu.OurFirebaseMessagingService
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:24:9-28:19
 	android:name
-		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:24:18-61
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:24:18-60
 intent-filter#com.google.firebase.MESSAGING_EVENT
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:25:13-27:29
 action#com.google.firebase.MESSAGING_EVENT
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:26:17-77
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:26:25-75
-service#com.example.oguz.topluluk.FirebaseIDService
+service#com.example.oguz.bilgisayarToplulugu.FirebaseIDService
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:29:9-33:19
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:29:18-51
@@ -119,43 +119,43 @@ action#com.google.firebase.INSTANCE_ID_EVENT
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:31:17-79
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:31:25-77
-activity#com.example.oguz.topluluk.SignupActivity
+activity#com.example.oguz.bilgisayarToplulugu.SignupActivity
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:34:9-84
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:34:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:34:52-82
-activity#com.example.oguz.topluluk.LoginActivity
+activity#com.example.oguz.bilgisayarToplulugu.LoginActivity
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:35:9-83
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:35:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:35:52-81
-activity#com.example.oguz.topluluk.ResetPassword
+activity#com.example.oguz.bilgisayarToplulugu.ResetPassword
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:36:9-83
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:36:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:36:52-81
-activity#com.example.oguz.topluluk.ProfileActivity
+activity#com.example.oguz.bilgisayarToplulugu.ProfileActivity
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:37:9-85
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:37:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:37:52-83
-activity#com.example.oguz.topluluk.InnerActivity
+activity#com.example.oguz.bilgisayarToplulugu.InnerActivity
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:38:9-83
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:38:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:38:52-81
-activity#com.example.oguz.topluluk.AddEventActivity
+activity#com.example.oguz.bilgisayarToplulugu.AddEventActivity
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:39:9-86
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:39:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:39:52-84
-activity#com.example.oguz.topluluk.MapActivity
+activity#com.example.oguz.bilgisayarToplulugu.MapActivity
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:40:9-81
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:40:19-51
