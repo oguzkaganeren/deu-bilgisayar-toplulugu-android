@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Wed Aug 30 17:38:38 EEST 2017
+#Wed Aug 30 17:53:32 EEST 2017
 20.base=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\resources-debug.ap_
 143.base=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\resources-debug.ap_
 340.file=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xxhdpi-v4\\abc_btn_switch_to_on_mtrl_00001.9.png

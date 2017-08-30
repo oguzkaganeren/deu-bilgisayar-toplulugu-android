@@ -66,6 +66,7 @@ MERGED from [com.google.android.gms:play-services-base:11.0.2] E:\androidWorks\T
 MERGED from [com.google.firebase:firebase-messaging:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\11.0.2\AndroidManifest.xml:19:5-29:19
 MERGED from [com.google.android.gms:play-services-gcm:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\11.0.2\AndroidManifest.xml:23:5-19
 MERGED from [com.google.android.gms:play-services-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\AndroidManifest.xml:23:5-19
+MERGED from [com.google.android.gms:play-services-safetynet:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\11.0.2\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-places:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\11.0.2\AndroidManifest.xml:18:5-19
 MERGED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:24:5-19
 MERGED from [de.hdodenhof:circleimageview:2.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\AndroidManifest.xml:9:5-20
@@ -197,6 +198,7 @@ MERGED from [com.google.firebase:firebase-database-connection:11.0.2] E:\android
 MERGED from [com.google.firebase:firebase-messaging:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-messaging\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-gcm:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-iid:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-iid\11.0.2\AndroidManifest.xml:17:5-43
+MERGED from [com.google.android.gms:play-services-safetynet:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-places:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-places\11.0.2\AndroidManifest.xml:17:5-43
 MERGED from [com.google.android.gms:play-services-maps:11.0.2] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-maps\11.0.2\AndroidManifest.xml:23:5-43
 MERGED from [de.hdodenhof:circleimageview:2.1.0] E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\de.hdodenhof\circleimageview\2.1.0\AndroidManifest.xml:5:5-7:41

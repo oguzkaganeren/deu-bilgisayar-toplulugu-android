@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="30edbd0164ffb3dba93bea9f5c299ed9c2066bb3">
+        sha1="7d7e888b8bb9d1014391bbf79db432d204e38e72">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053.jar" />
     </item>
     <item
@@ -228,6 +228,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-safetynet\11.0.2\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="587840a157b50a6380d814a7a5a87b76118405e2">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.google.android.gms-play-services-safetynet-11.0.2_2d00ae79f39f8b7952065cf769312705f56c412b.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.android.gms\play-services-gcm\11.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -322,7 +331,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="ab48cc4de4b01af99a45e85ee05dadd673372118">
+        sha1="f5af37f23ca89d230bbfb839749b2c257cd88761">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222.jar" />
     </item>
     <item

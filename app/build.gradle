@@ -36,6 +36,7 @@ dependencies {
     compile "com.google.firebase:firebase-messaging:11.0.2"
     compile "com.google.android.gms:play-services-gcm:11.0.2"
     compile "com.google.android.gms:play-services-maps:11.0.2"
+    compile 'com.google.android.gms:play-services-safetynet:11.0.2'
     compile 'com.google.android.gms:play-services-places:11.0.2'
     compile 'de.hdodenhof:circleimageview:2.1.0'
     compile 'com.google.firebase:firebase-storage:11.0.2'
