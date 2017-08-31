@@ -922,10 +922,10 @@ int drawable powered_by_google_dark 0x7f02009d
 int drawable powered_by_google_light 0x7f02009e
 int drawable privacy_24dp 0x7f02009f
 int drawable profile_circular 0x7f0200a0
-int drawable progress_animation 0x7f0200a1
-int drawable psts_background_tab 0x7f0200a2
-int drawable setting_24dp 0x7f0200a3
-int drawable specback 0x7f0200a4
+int drawable profilebackground 0x7f0200a1
+int drawable progress_animation 0x7f0200a2
+int drawable psts_background_tab 0x7f0200a3
+int drawable setting_24dp 0x7f0200a4
 int drawable starter_24dp 0x7f0200a5
 int drawable textview_border_pencil 0x7f0200a6
 int id LinearLayout02 0x7f0d00a7

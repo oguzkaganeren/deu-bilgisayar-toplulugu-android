@@ -9,9 +9,9 @@
         <ImageView
             android:id="@+id/header_cover_image"
             android:layout_width="match_parent"
-            android:layout_height="100dp"
+            android:layout_height="200dp"
             android:scaleType="centerCrop"
-            android:src="@drawable/specback" />
+            android:src="@drawable/profilebackground" />
 
 
 
@@ -19,20 +19,16 @@
             android:id="@+id/profile_layout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/header_cover_image"
-            android:background="#2196F3"
-            android:elevation="4dp"
-            android:paddingBottom="24dp">
+            android:paddingTop="25dp">
 
             <TextView
                 android:id="@+id/user_profile_name"
                 android:layout_width="220dp"
                 android:layout_height="wrap_content"
                 android:gravity="center"
-                android:layout_marginTop="30dp"
-                android:layout_marginLeft="100dp"
                 android:text="Name Surname"
                 android:textColor="#fff"
+                android:layout_centerInParent="true"
                 android:textSize="24sp"
                 android:textStyle="bold" />
             <ImageButton
@@ -49,12 +45,12 @@
                 android:layout_alignBottom="@id/user_profile_name"/>
             <TextView
                 android:id="@+id/user_profile_short_bio"
-                android:layout_width="220dp"
+                android:layout_width="200dp"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/user_profile_name"
-                android:gravity="center"
-                android:layout_marginTop="12dp"
-                android:layout_marginLeft="53dp"
+                android:layout_alignEnd="@+id/user_profile_name"
+                android:layout_alignRight="@+id/user_profile_name"
+                android:layout_marginTop="55dp"
+                android:layout_marginLeft="15dp"
                 android:text="Your Status"
                 android:textColor="#fff"
                 android:textSize="14sp" />
@@ -75,13 +71,13 @@
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
             android:id="@+id/user_profile_photo"
-            android:layout_width="96dp"
-            android:layout_height="96dp"
-            android:src="@drawable/specback"
+            android:layout_width="120dp"
+            android:layout_height="120dp"
+            android:src="@drawable/profilebackground"
             android:background="@drawable/profile_circular"
-            android:layout_marginTop="-40dp"
+            android:layout_marginTop="-75dp"
+            android:layout_centerInParent="true"
             android:layout_below="@+id/header_cover_image"
-            android:layout_marginLeft="20dp"
             android:elevation="5dp"
             app:civ_border_color="#FF000000"/>
         <ImageButton
@@ -102,7 +98,7 @@
         <RelativeLayout
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/profile_layout"
+            android:layout_below="@+id/user_profile_photo"
             android:layout_marginTop="5dp"
             android:orientation="vertical">
             <TextView

@@ -63,47 +63,19 @@ public class ResetPassword extends AppCompatActivity {
                 }
 
                 progressBar.setVisibility(View.VISIBLE);
-                SafetyNet.getClient(ResetPassword.this).verifyWithRecaptcha("6LcGxC4UAAAAAAJ6lK9nlffGa8WjCNnyNj0I1HWB")
-                        .addOnSuccessListener((Executor) ResetPassword.this,
-                                new OnSuccessListener<SafetyNetApi.RecaptchaTokenResponse>() {
-                                    @Override
-                                    public void onSuccess(SafetyNetApi.RecaptchaTokenResponse response) {
-                                        // Indicates communication with reCAPTCHA service was
-                                        // successful.
-                                        String userResponseToken = response.getTokenResult();
-                                        if (!userResponseToken.isEmpty()) {
-                                            // Validate the user response token using the
-                                            // reCAPTCHA siteverify API.
-                                            auth.sendPasswordResetEmail(lastEmail)
-                                                    .addOnCompleteListener(new OnCompleteListener<Void>() {
-                                                        @Override
-                                                        public void onComplete(@NonNull Task<Void> task) {
-                                                            if (task.isSuccessful()) {
-                                                                Toast.makeText(ResetPassword.this, "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
-                                                            } else {
-                                                                Toast.makeText(ResetPassword.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
-                                                            }
-
-                                                            progressBar.setVisibility(View.GONE);
-                                                        }
-                                                    });
-                                        }
-                                    }
-                                })
-                        .addOnFailureListener((Executor) ResetPassword.this, new OnFailureListener() {
+                auth.sendPasswordResetEmail(lastEmail)
+                        .addOnCompleteListener(new OnCompleteListener<Void>() {
                             @Override
-                            public void onFailure(@NonNull Exception e) {
-                                if (e instanceof ApiException) {
-                                    // An error occurred when communicating with the
-                                    // reCAPTCHA service. Refer to the status code to
-                                    // handle the error appropriately.
+                            public void onComplete(@NonNull Task<Void> task) {
+                                if (task.isSuccessful()) {
+                                    Toast.makeText(ResetPassword.this, "We have sent you instructions to reset your password!", Toast.LENGTH_SHORT).show();
                                 } else {
-                                    // A different, unknown type of error occurred.
-                                    Log.d("err", "Error: " + e.getMessage());
+                                    Toast.makeText(ResetPassword.this, "Failed to send reset email!", Toast.LENGTH_SHORT).show();
                                 }
+
+                                progressBar.setVisibility(View.GONE);
                             }
                         });
-
             }
         });
     }
