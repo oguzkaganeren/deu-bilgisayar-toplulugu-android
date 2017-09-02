@@ -8,6 +8,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\anim\\design_snackbar_in.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\anim\\expand_in.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.github.jrvansuita\\MaterialAbout\\0.1.7\\res\\anim\\expand_in.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_fab_out.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\anim\\design_fab_out.xml"
     },

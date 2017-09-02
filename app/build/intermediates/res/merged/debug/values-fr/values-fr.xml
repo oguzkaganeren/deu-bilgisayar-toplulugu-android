@@ -19,6 +19,7 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Partager avec"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"Partager avec %s"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Réduire"</string>
+    <string name="changelog">Dernières modifications</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Activer"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"<ns1:g id="APP_NAME">%1$s</ns1:g> ne fonctionnera pas tant que vous n\'aurez pas activé les services Google Play."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Activer les services Google Play"</string>
@@ -36,8 +37,22 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Ouvrir sur le téléphone"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Se connecter"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Se connecter avec Google"</string>
+    <string name="donate">Dons</string>
+    <string name="email">Mail</string>
+    <string name="error">Erreur</string>
+    <string name="feedback_app">Votre avis</string>
+    <string name="google_play_games">Google Play Games</string>
+    <string name="help">Aide</string>
+    <string name="introduce_app">Présenter l\'application</string>
+    <string name="more_apps">Mes autres applications</string>
     <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"Effacer la recherche"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"Rechercher"</string>
+    <string name="privacy">Politique de confidentalité</string>
+    <string name="rate_five_stars">Noter cette application 5 étoiles</string>
+    <string name="remove_ads">Supprimer les publicités</string>
     <string msgid="146198913615257606" name="search_menu_title">"Rechercher"</string>
+    <string name="share_app">Partager l\'application</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">">999"</string>
+    <string name="update_app">Mettre à jour l\'application</string>
+    <string name="website">Site</string>
 </resources>

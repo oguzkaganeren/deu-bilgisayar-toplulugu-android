@@ -76,6 +76,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\layout\\abc_alert_dialog_title_material.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\xab_each_action.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.github.jrvansuita\\MaterialAbout\\0.1.7\\res\\layout\\xab_each_action.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\layout\\design_navigation_menu.xml"
     },
@@ -192,6 +196,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.github.florent37\\materialviewpager\\1.2.1\\res\\layout\\tools_list_item_card_big.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\xab_each_link.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.github.jrvansuita\\MaterialAbout\\0.1.7\\res\\layout\\xab_each_link.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tools_material_view_pager_pagertitlestrip.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.github.florent37\\materialviewpager\\1.2.1\\res\\layout\\tools_material_view_pager_pagertitlestrip.xml"
     },
@@ -254,6 +262,10 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\custom_date_time.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\custom_date_time.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\xab_about_layout_card.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.github.jrvansuita\\MaterialAbout\\0.1.7\\res\\layout\\xab_about_layout_card.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_menu_item.xml",

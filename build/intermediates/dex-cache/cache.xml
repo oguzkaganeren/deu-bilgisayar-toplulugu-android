@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="f3452df5637376881af18eee82b6371e065ec572">
+        sha1="13d88bc595bc56eae34ef3f921760a9f00de46f8">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053.jar" />
     </item>
     <item
@@ -201,6 +201,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.github.florent37\materialviewpager\1.2.1\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bed84864149d15e9c893b68ce9994fe6093cdbf4">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.github.florent37-materialviewpager-1.2.1_dc82709310df9eebabb4255295bc8442ddc57984.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
         jumboMode="true"
         optimize="true"
@@ -210,12 +219,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.github.florent37\materialviewpager\1.2.1\jars\classes.jar"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.github.jrvansuita\IconHandler\v2.0.0\jars\classes.jar"
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="bed84864149d15e9c893b68ce9994fe6093cdbf4">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.github.florent37-materialviewpager-1.2.1_dc82709310df9eebabb4255295bc8442ddc57984.jar" />
+        sha1="6dbd313cdd1181794a956a3cb5522dd61a6ee1b6">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.github.jrvansuita-IconHandler-v2.0.0_484fd854a9275adfb8aaac476c8b340908d5722a.jar" />
     </item>
     <item
         is-multidex="false"
@@ -282,6 +291,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.github.jrvansuita\MaterialAbout\0.1.7\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ccb456696d352a0b28956a284d741d04ba3583ba">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\com.github.jrvansuita-MaterialAbout-0.1.7_d076e0ee408facd4e574ef52e54b17dac143c9fa.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="E:\androidWorks\Topluluk\app\build\intermediates\exploded-aar\com.google.firebase\firebase-analytics\11.0.2\jars\classes.jar"
         jumboMode="true"
         optimize="true"
@@ -331,7 +349,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="714cc49017d994f1cee6f7f78245bc998ff55170">
+        sha1="c1ceea23b4d0d8a76c4f33c1403d8457c8663a93">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222.jar" />
     </item>
     <item

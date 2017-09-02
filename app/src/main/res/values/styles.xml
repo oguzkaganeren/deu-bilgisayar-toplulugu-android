@@ -27,4 +27,5 @@
         <item name="android:textSize">@dimen/abc_text_size_subhead_material</item>
         <item name="android:textCursorDrawable">@drawable/custom_cursor</item>
     </style>
+
 </resources>

@@ -22,7 +22,9 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * Created by Oguz on 12-Aug-17.
@@ -110,15 +112,33 @@ public class MembersFragment  extends Fragment {
                                 } else {
                                     member.status = "-";
                                 }
-                   /* if(memberSnapshot.hasChild("last-online-date")){
-                        Long val = memberSnapshot.child("last-online-date").getValue(Long.class);
-                        Date date=new Date(val);
-                        SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy HH:mm");
-                        String dateText = df2.format(date);
-                        member.date=dateText;
-                    }else{
-                        member.date="-";
-                    }*/
+                                if(memberSnapshot.hasChild("last-online-date")){
+                                    Long val = memberSnapshot.child("last-online-date").getValue(Long.class);
+                                    Date date=new Date(val);
+                                    SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy HH:mm");
+                                    String dateText = df2.format(date);
+                                    member.last_login=dateText;
+                                }else{
+                                    member.last_login="-";
+                                }
+                                if (memberSnapshot.hasChild("github") && mAuth != null) {
+                                    String git = memberSnapshot.child("github").getValue(String.class);
+                                    member.github = git;
+                                } else {
+                                    member.github = null;
+                                }
+                                if (memberSnapshot.hasChild("linkedin") && mAuth != null) {
+                                    String linkedin = memberSnapshot.child("linkedin").getValue(String.class);
+                                    member.linkedin = linkedin;
+                                } else {
+                                    member.linkedin = null;
+                                }
+                                if (memberSnapshot.hasChild("website") && mAuth != null) {
+                                    String web = memberSnapshot.child("website").getValue(String.class);
+                                    member.website = web;
+                                } else {
+                                    member.website = null;
+                                }
                                 if (memberSnapshot.hasChild("online")) {
                                     Boolean val = memberSnapshot.child("online").getValue(Boolean.class);
                                     if (memberSnapshot.getKey() == mAuth.getCurrentUser().getUid()) {

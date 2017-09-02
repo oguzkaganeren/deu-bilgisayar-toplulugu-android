@@ -196,6 +196,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\25.3.1\\res\\drawable\\abc_btn_borderless_material.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\social_media_divider.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.github.jrvansuita\\MaterialAbout\\0.1.7\\res\\drawable\\social_media_divider.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\design_password_eye.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\exploded-aar\\com.android.support\\design\\25.3.1\\res\\drawable\\design_password_eye.xml"
     },

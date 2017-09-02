@@ -19,6 +19,9 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"공유 대상"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"%s와(과) 공유"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"접기"</string>
+    <string name="android">안드로이드</string>
+    <string name="bitbucket">빗버켓</string>
+    <string name="changelog">앱 변경내역</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"사용 설정"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Google Play 서비스를 사용하도록 설정해야 <ns1:g id="APP_NAME">%1$s</ns1:g>이(가) 작동합니다."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play 서비스 사용"</string>
@@ -36,8 +39,35 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"스마트폰에서 열기"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"로그인"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Google 계정으로 로그인"</string>
+    <string name="donate">기부하기</string>
+    <string name="dribbble">드리블</string>
+    <string name="email">이메일</string>
+    <string name="error">에러</string>
+    <string name="facebook">페이스북</string>
+    <string name="feedback_app">피드백 남기기</string>
+    <string name="github">깃헙</string>
+    <string name="google">구글</string>
+    <string name="google_play_games">게임 플레이</string>
+    <string name="google_play_store">플레이스토어</string>
+    <string name="google_plus">구글플러스</string>
+    <string name="help">도움말</string>
+    <string name="instagram">인스타그램</string>
+    <string name="introduce_app">앱 소개하기</string>
+    <string name="linkedin">링크드인</string>
+    <string name="more_apps">더 많은 앱 보기</string>
     <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"검색어 지우기"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"검색"</string>
+    <string name="privacy">개인정보 정책</string>
+    <string name="rate_five_stars">별점 남기기</string>
+    <string name="remove_ads">광고 제거</string>
     <string msgid="146198913615257606" name="search_menu_title">"검색"</string>
+    <string name="share_app">앱 추천하기</string>
+    <string name="skype">스카이프</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="twitter">트위터</string>
+    <string name="update_app">업데이트 체크</string>
+    <string name="version">버전 %s</string>
+    <string name="website">웹사이트</string>
+    <string name="whastapp">왓츠앱</string>
+    <string name="youtube">유튜브</string>
 </resources>

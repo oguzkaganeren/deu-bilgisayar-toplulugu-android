@@ -19,6 +19,7 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"分享方式"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"通过%s分享"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"收起"</string>
+    <string name="changelog">更新日志</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"启用"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"您必须先启用 Google Play 服务，然后才能运行<ns1:g id="APP_NAME">%1$s</ns1:g>。"</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"启用 Google Play 服务"</string>
@@ -36,8 +37,22 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"在手机上打开"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"登录"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"使用 Google 帐号登录"</string>
+    <string name="donate">捐赠我们</string>
+    <string name="email">E-mail</string>
+    <string name="error">Error</string>
+    <string name="feedback_app">反馈</string>
+    <string name="help">帮助</string>
+    <string name="introduce_app">功能介绍</string>
+    <string name="more_apps">更多APP</string>
     <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"清除搜索内容"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"搜索"</string>
+    <string name="privacy">隱私政策</string>
+    <string name="rate_five_stars">评价</string>
+    <string name="remove_ads">去除广告</string>
     <string msgid="146198913615257606" name="search_menu_title">"搜索"</string>
+    <string name="share_app">分享</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="update_app">检查更新</string>
+    <string name="version">版本 %s</string>
+    <string name="website">Website</string>
 </resources>

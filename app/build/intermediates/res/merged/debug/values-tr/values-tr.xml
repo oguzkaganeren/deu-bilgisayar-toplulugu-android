@@ -19,6 +19,7 @@
     <string msgid="3421042268587513524" name="abc_shareactionprovider_share_with">"Şununla paylaş"</string>
     <string msgid="7165123711973476752" name="abc_shareactionprovider_share_with_application">"%s ile paylaş"</string>
     <string msgid="1603543279005712093" name="abc_toolbar_collapse_description">"Daralt"</string>
+    <string name="changelog">Versiyon notları</string>
     <string msgid="8585111718777012708" name="common_google_play_services_enable_button">"Etkinleştir"</string>
     <string msgid="7045129128108380659" name="common_google_play_services_enable_text">"Google Play hizmetlerini etkinleştirmezseniz <ns1:g id="APP_NAME">%1$s</ns1:g> çalışmaz."</string>
     <string msgid="3147157405986503375" name="common_google_play_services_enable_title">"Google Play hizmetlerini etkinleştirin"</string>
@@ -36,8 +37,22 @@
     <string msgid="5201977337835724196" name="common_open_on_phone">"Telefonda aç"</string>
     <string msgid="3441753203274453993" name="common_signin_button_text">"Oturum aç"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Google\'da oturum aç"</string>
+    <string name="donate">Bağış yap</string>
+    <string name="email">E-posta</string>
+    <string name="error">Hata</string>
+    <string name="feedback_app">İstek, öneri gönder</string>
+    <string name="help">Yardım</string>
+    <string name="introduce_app">Uygulamayı tanıt</string>
+    <string name="more_apps">Diğer uygulamalarım</string>
     <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"Aramayı temizle"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"Ara"</string>
+    <string name="privacy">Gizlilik Politikası</string>
+    <string name="rate_five_stars">Bu uygulamaya 5 yıldız ver</string>
+    <string name="remove_ads">Reklamları kaldır</string>
     <string msgid="146198913615257606" name="search_menu_title">"Ara"</string>
+    <string name="share_app">Uygulamayı paylaş</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
+    <string name="update_app">Uygulamayı güncelle</string>
+    <string name="version">Versiyon %s</string>
+    <string name="website">Website</string>
 </resources>

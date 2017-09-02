@@ -1,9 +1,13 @@
 package com.example.oguz.bilgisayarToplulugu;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -11,8 +15,14 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.BitmapImageViewTarget;
+import com.bumptech.glide.request.target.SimpleTarget;
+import com.vansuita.materialabout.builder.AboutBuilder;
+import com.vansuita.materialabout.views.AboutView;
 
 import java.util.List;
+import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Oguz on 07-Aug-17.
@@ -33,6 +43,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
     @Override
     public void onBindViewHolder(final MembersAdapter.MembersViewHolder membersViewHolder, int i) {
         MembersInfo wb = dataList.get(i);
+        final MembersInfo swb=dataList.get(i);
         membersViewHolder.name_surname.setText(wb.NameSurname);
         membersViewHolder.status.setText(wb.status);
         if(wb.online!=null){
@@ -56,7 +67,56 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
                     .centerCrop()
                     .into(membersViewHolder.imgSrc);
         }
+        membersViewHolder.imgSrc.setOnLongClickListener(new View.OnLongClickListener() {
+            @Override
+            public boolean onLongClick(View v) {
+                // TODO Auto-generated method stub
+               final AboutBuilder ab = AboutBuilder.with(context) .setLinksAnimated(true)
+                       .setShowAsCard(true).addFiveStarsAction().setWrapScrollView(true).setAppName(R.string.app_name).addShareAction(R.string.app_name);
+                ab.setCover(R.drawable.profilebackground);
+                if(swb.NameSurname!=null){
+                    ab.setName(swb.NameSurname);
+                }
+                if(swb.status!=null){
+                    ab.setSubTitle(swb.status);
+                }
+                if(swb.github!=null&&!swb.github.trim().isEmpty()){
+                    ab.addGitHubLink(swb.github);
+                }
+                if(swb.website!=null&&!swb.website.trim().isEmpty()){
+                    ab.addWebsiteLink(swb.website);
+                }
+                if(swb.linkedin!=null&&!swb.linkedin.trim().isEmpty()){
+                    ab.addLinkedInLink(swb.linkedin);
+                }
+                if(swb.imgSrc==null){
+                    ab.setPhoto(R.mipmap.logo);
+                    View view=ab.build();
+                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+                    dialogBuilder.setView(view);
+                    dialogBuilder.show();
+                }else{
+                    Glide
+                            .with(context)
+                            .load(swb.imgSrc)
+                            .asBitmap()
+                            .into(new SimpleTarget<Bitmap>(96, 96) {
+                                @Override
+                                public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                                    // Do something with bitmap here.
+                                    ab.setPhoto(bitmap);
+                                    View view=ab.build();
+                                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
+                                    dialogBuilder.setView(view);
+                                    dialogBuilder.show();
 
+                                }
+                            });
+                }
+
+                return true;
+            }
+        });
 
 
     }
@@ -79,7 +139,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             status = (TextView)  v.findViewById(R.id.right_status);
             online = (ImageView) v.findViewById(R.id.right_online);
             imgSrc=(ImageView)v.findViewById(R.id.right_profile_picture);
-            //image üzerine uzun süre basıldığında yapılacaklar...
+
         }
 
     }
