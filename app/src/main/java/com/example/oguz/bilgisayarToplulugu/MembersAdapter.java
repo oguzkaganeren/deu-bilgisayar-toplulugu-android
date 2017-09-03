@@ -72,7 +72,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
                final AboutBuilder ab = AboutBuilder.with(context) .setLinksAnimated(true)
-                       .setShowAsCard(true).addFiveStarsAction().setWrapScrollView(true).setAppName(R.string.app_name).addShareAction(R.string.app_name);
+                       .setShowAsCard(false).addFiveStarsAction().setWrapScrollView(true).setAppName(R.string.app_name).addShareAction(R.string.app_name);
                 ab.setCover(R.drawable.profilebackground);
                 if(swb.NameSurname!=null){
                     ab.setName(swb.NameSurname);

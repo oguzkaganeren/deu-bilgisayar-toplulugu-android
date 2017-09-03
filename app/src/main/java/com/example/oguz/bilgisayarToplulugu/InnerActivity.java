@@ -74,7 +74,7 @@ public class InnerActivity  extends AppCompatActivity {
                                         }
                                     });
                         }else{
-                            Toast.makeText(InnerActivity.this, "Your password should be min. 6 max. 15 characters.", Toast.LENGTH_SHORT).show();
+                            editTxt.setError("Your password should be min. 6 max. 15 characters.");
                         }
 
                     }
@@ -104,7 +104,7 @@ public class InnerActivity  extends AppCompatActivity {
                         if (editTxt.length() > 6 && editTxt.length() < 30) {
                             addingData("name-surname");
                         } else {
-                            Toast.makeText(InnerActivity.this, "Your name and surname should be min. 6 max. 30 characters.", Toast.LENGTH_SHORT).show();
+                            editTxt.setError("Your name and surname should be min. 6 max. 30 characters.");
                         }
                     }
                 });
@@ -130,12 +130,12 @@ public class InnerActivity  extends AppCompatActivity {
                         if (editTxt.length() > 6 && editTxt.length() < 75) {
                             addingData("status");
                         } else {
-                            Toast.makeText(InnerActivity.this, "Your github address should be min. 6 max. 75 characters.", Toast.LENGTH_SHORT).show();
+                            editTxt.setError("Your github address should be min. 6 max. 75 characters.");
                         }
                     }
                 });
         }else if(((String)extras.get("which")).equals("github")) {
-                editTxt.setHint("Your github address");
+                editTxt.setHint("Your github username");
                 mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
@@ -149,14 +149,20 @@ public class InnerActivity  extends AppCompatActivity {
 
                     }
                 });
-                mActionBarToolbar.setTitle("Change your github address");
+                mActionBarToolbar.setTitle("Change your github id");
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (editTxt.length() > 6 && editTxt.length() < 50) {
-                            addingData("github");
+                            if(editTxt.getText().toString().startsWith("http")||editTxt.getText().toString().startsWith("https")||editTxt.getText().toString().startsWith("www")||editTxt.getText().toString().startsWith(".")||editTxt.getText().toString().endsWith(".com")){
+                                editTxt.setError("Please enter only github username");
+                            }
+                            else {
+                                addingData("github");
+                            }
+
                         } else {
-                            Toast.makeText(InnerActivity.this, "Your github address should be min. 6 max. 80 characters.", Toast.LENGTH_SHORT).show();
+                            editTxt.setError("Your github address should be min. 6 max. 80 characters.");
                         }
                     }
                 });
@@ -175,14 +181,20 @@ public class InnerActivity  extends AppCompatActivity {
 
                     }
                 });
-                mActionBarToolbar.setTitle("Change your linkedin address");
+                mActionBarToolbar.setTitle("Change your linkedin username");
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         if (editTxt.length() > 6 && editTxt.length() < 50) {
-                            addingData("linkedin");
+                            if(editTxt.getText().toString().startsWith("http")||editTxt.getText().toString().startsWith("https")||editTxt.getText().toString().startsWith("www")||editTxt.getText().toString().startsWith(".")||editTxt.getText().toString().endsWith(".com")){
+                                editTxt.setError("Please enter only linkedin username");
+                            }else{
+                                addingData("linkedin");
+                            }
+
+
                         } else {
-                            Toast.makeText(InnerActivity.this, "Your linkedin address should be min. 6 max. 80 characters.", Toast.LENGTH_SHORT).show();
+                            editTxt.setError("Your linkedin address should be min. 6 max. 80 characters.");
                         }
                     }
                 });
@@ -206,9 +218,14 @@ public class InnerActivity  extends AppCompatActivity {
                     @Override
                     public void onClick(View v) {
                         if (editTxt.length() > 6 && editTxt.length() < 35) {
-                            addingData("website");
+                            if(editTxt.getText().toString().startsWith("http://")||editTxt.getText().toString().startsWith("https://")){
+                                addingData("website");
+                            }else {
+                                editTxt.setError("Please enter your website like that http://www.example.com");
+
+                            }
                         } else {
-                            Toast.makeText(InnerActivity.this, "Your website address should be min. 6 max. 80 characters.", Toast.LENGTH_SHORT).show();
+                            editTxt.setError( "Your website address should be min. 6 max. 80 characters.");
                         }
                     }
                 });

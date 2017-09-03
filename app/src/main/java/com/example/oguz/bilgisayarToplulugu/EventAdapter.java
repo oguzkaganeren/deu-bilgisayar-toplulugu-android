@@ -1,6 +1,9 @@
 package com.example.oguz.bilgisayarToplulugu;
 
 import android.content.Context;
+import android.content.Intent;
+import android.net.Uri;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -30,7 +33,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
 
     @Override
     public void onBindViewHolder(final EventAdapter.EventsViewHolder eventsViewHolder, int i) {
-        EventsInfo wb = dataList.get(i);
+       final EventsInfo wb = dataList.get(i);
         eventsViewHolder.address.setText(wb.address);
         eventsViewHolder.title.setText(wb.title);
         eventsViewHolder.description.setText(wb.description);
@@ -39,7 +42,17 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                 .load(R.drawable.event)
                 .centerCrop()
                 .into(eventsViewHolder.image);
+        eventsViewHolder.theCard.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                String[] loc=wb.location.split("-");
+                Uri gmmIntentUri = Uri.parse("geo:<" + loc[0]  + ">,<" + loc[1] + ">?q=<" + loc[0]  + ">,<" + loc[1] + ">(" + wb.title + ")");
+                Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                mapIntent.setPackage("com.google.android.apps.maps");
+                v.getContext().startActivity(mapIntent);
 
+
+            }
+        });
 
     }
 
@@ -56,6 +69,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         protected TextView description;
         protected TextView date;
         protected ImageView image;
+        protected View theCard;
         public EventsViewHolder(View v) {
             super(v);
             address =  (TextView) v.findViewById(R.id.address_event_frag);
@@ -63,7 +77,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             description = (TextView) v.findViewById(R.id.description_event_frag);
             date = (TextView) v.findViewById(R.id.date_event_frag);
             image=(ImageView)v.findViewById(R.id.thumbnail_event_frag);
-            //image üzerine uzun süre basıldığında yapılacaklar...
+            theCard= v;
+
         }
 
     }

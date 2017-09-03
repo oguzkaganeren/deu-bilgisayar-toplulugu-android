@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.ImageButton;
@@ -17,6 +18,8 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.target.SimpleTarget;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -28,6 +31,7 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.vansuita.materialabout.builder.AboutBuilder;
 
 import java.io.File;
 
@@ -47,6 +51,7 @@ public class ProfileActivity extends AppCompatActivity {
     private ImageButton websiteAdr;
     private FirebaseStorage myStorage;
     private ImageView userProfilePhoto;
+    private ImageButton selfAbout;
     private Uri filePath;
     private ProgressDialog pd;
     protected void onCreate(Bundle savedInstanceState) {
@@ -59,6 +64,7 @@ public class ProfileActivity extends AppCompatActivity {
             finish();
 
         }
+        selfAbout=(ImageButton)findViewById(R.id.self_about);
         profilePhoto=(ImageButton)findViewById(R.id.edit_profileImage);
         changePass=(ImageButton)findViewById(R.id.edit_password);
         nameSurname=(ImageButton)findViewById(R.id.edit_namesurname);
@@ -127,6 +133,75 @@ public class ProfileActivity extends AppCompatActivity {
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_PICK);
                 startActivityForResult(Intent.createChooser(intent, "Select Image"),111);
+            }
+        });
+        selfAbout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                DatabaseReference mDatabase=FirebaseDatabase.getInstance().getReference();
+                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot snapshot) {
+                        final AboutBuilder ab = AboutBuilder.with(ProfileActivity.this) .setLinksAnimated(true)
+                                .setShowAsCard(false).addFiveStarsAction().setWrapScrollView(true).setAppName(R.string.app_name).addShareAction(R.string.app_name);
+                        ab.setCover(R.drawable.profilebackground);
+                        if(snapshot.hasChild("name-surname")){
+                            ab.setName(snapshot.child("name-surname").getValue().toString());
+                        }
+                        if(snapshot.hasChild("status")){
+                            ab.setSubTitle(snapshot.child("status").getValue().toString());
+                        }
+                        if(snapshot.hasChild("github")&&!snapshot.child("github").getValue().toString().trim().isEmpty()){
+                            ab.addGitHubLink(snapshot.child("github").getValue().toString());
+                        }
+                        if(snapshot.hasChild("website")&&!snapshot.child("website").getValue().toString().trim().isEmpty()){
+                            ab.addWebsiteLink(snapshot.child("website").getValue().toString());
+                        }
+                        if(snapshot.hasChild("linkedin")&&!snapshot.child("linkedin").getValue().toString().trim().isEmpty()){
+                            ab.addLinkedInLink(snapshot.child("linkedin").getValue().toString());
+                        }
+                        StorageReference image = storageRef.child("images/profiles/"+mAuth.getCurrentUser().getUid());
+
+                        image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                            @Override
+                            public void onSuccess(Uri uri) {
+                                Glide
+                                        .with(ProfileActivity.this)
+                                        .load(uri)
+                                        .asBitmap()
+                                        .into(new SimpleTarget<Bitmap>(96, 96) {
+                                            @Override
+                                            public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
+                                                // Do something with bitmap here.
+                                                ab.setPhoto(bitmap);
+                                                View view=ab.build();
+                                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
+                                                dialogBuilder.setView(view);
+                                                dialogBuilder.show();
+
+                                            }
+                                        });
+                            }}).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception exception) {
+                                ab.setPhoto(R.mipmap.logo);
+                                View view=ab.build();
+                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
+                                dialogBuilder.setView(view);
+                                dialogBuilder.show();
+                            }
+                        });
+
+                    }
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        if(mAuth!=null){
+                            Toast.makeText(ProfileActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
+                        }
+
+                    }
+                });
+
             }
         });
 

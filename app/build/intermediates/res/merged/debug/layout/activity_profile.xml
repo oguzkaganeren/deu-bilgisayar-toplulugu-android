@@ -67,6 +67,15 @@
                 android:layout_alignRight="@id/user_profile_short_bio"
                 android:layout_marginRight="25dp"
                 android:layout_alignBottom="@id/user_profile_short_bio"/>
+            <android.support.design.widget.CheckableImageButton
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:id="@+id/self_about"
+                android:src="@drawable/self_white_24dp"
+                android:background="@null"
+                android:layout_alignParentRight="true"
+                android:layout_alignParentTop="true"
+                android:layout_marginRight="10dp"/>
         </RelativeLayout>
         <de.hdodenhof.circleimageview.CircleImageView
             xmlns:app="http://schemas.android.com/apk/res-auto"
