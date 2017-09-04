@@ -77,7 +77,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                 .load(R.drawable.event)
                 .centerCrop()
                 .into(eventsViewHolder.image);
-        /*eventsViewHolder.theCard.setOnClickListener(new View.OnClickListener() {
+        eventsViewHolder.theCard.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 String[] loc=wb.location.split("-");
                 Uri gmmIntentUri = Uri.parse("geo:<" + loc[0]  + ">,<" + loc[1] + ">?q=<" + loc[0]  + ">,<" + loc[1] + ">(" + wb.title + ")");
@@ -87,7 +87,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
 
 
             }
-        });*/
+        });
         StorageReference storageRef=FirebaseStorage.getInstance().getReference();
         StorageReference image = storageRef.child("images/profiles/"+wb.uid);
 
@@ -131,7 +131,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                                             Date date=new Date(val);
                                             SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy HH:mm");
                                             String dateText = df2.format(date);
-                                            ab.setBrief(dateText);
+                                            ab.setBrief("Last seen: "+dateText);
                                         }
                                         if (dataSnapshot.hasChild("github")) {
                                             String git = dataSnapshot.child("github").getValue(String.class);
