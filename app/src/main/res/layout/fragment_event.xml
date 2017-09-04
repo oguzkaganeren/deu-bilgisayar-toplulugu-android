@@ -56,6 +56,26 @@
                 android:textStyle="italic"
                 android:layout_alignParentRight="true"
                 android:textSize="@dimen/songs_count" />
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:padding="6dip"
+                android:clickable="true"
+                android:layout_marginTop="143dp"
+                android:layout_alignParentEnd="true">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_picture_event"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:padding="0dp"
+                    android:background="@drawable/profile_circular"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:elevation="5dp"
+                    app:civ_border_color="#FF000000"/>
+            </RelativeLayout>
 
             <TextView
                 android:id="@+id/description_event_frag"

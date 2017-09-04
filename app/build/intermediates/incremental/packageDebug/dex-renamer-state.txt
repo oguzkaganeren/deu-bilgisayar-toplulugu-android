@@ -1,4 +1,4 @@
-#Sun Sep 03 13:29:49 EEST 2017
+#Mon Sep 04 14:12:21 EEST 2017
 base.0=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
 renamed.0=classes.dex
 file.0=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
