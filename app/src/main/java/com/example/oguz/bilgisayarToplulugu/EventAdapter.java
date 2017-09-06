@@ -8,9 +8,11 @@ import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -20,10 +22,14 @@ import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.Query;
+import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
@@ -32,6 +38,8 @@ import com.vansuita.materialabout.builder.AboutBuilder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
+import java.util.Collections;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -186,7 +194,84 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                     });
             }
         });
+        final DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        final FirebaseAuth  mAuth = FirebaseAuth.getInstance();
+        eventsViewHolder.join.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(final View v) {
+                final EventRegister reg = new EventRegister();
+               // reg.changedTime=ServerValue.TIMESTAMP;
+               // mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).setValue(reg);
+                ValueEventListener registerListener=new ValueEventListener() {
+                    @Override
+                    public void onDataChange(DataSnapshot dataSnapshot) {
+                        // Is better to use a List, because you don't know the size
+                        // of the iterator returned by dataSnapshot.getChildren() to
+                        // initialize the array
+                        if (dataSnapshot.exists()) {
+                                if (mAuth.getCurrentUser() != null) {
+                                    if (dataSnapshot.hasChild("register")) {
+                                        Boolean register = dataSnapshot.child("register").getValue(Boolean.class);
 
+                                        //-----
+                                        if(register){
+                                            reg.register=false;
+                                            v.setBackgroundColor(context.getResources().getColor(R.color.green));
+                                            eventsViewHolder.join.setText("Join");
+
+                                        }else
+                                        {
+                                            reg.register=true;
+                                            v.setBackgroundColor(context.getResources().getColor(R.color.red));
+                                            eventsViewHolder.join.setText("Leave");
+                                        }
+                                    }else{
+                                        reg.register=true;
+                                        v.setBackgroundColor(context.getResources().getColor(R.color.red));
+                                        eventsViewHolder.join.setText("Leave");
+                                    }
+                                    reg.changedTime=ServerValue.TIMESTAMP;
+                                    mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).setValue(reg);
+                                }
+                        }
+                    }
+
+                    @Override
+                    public void onCancelled(DatabaseError databaseError) {
+                        // Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
+                    }
+                };
+                mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).addListenerForSingleValueEvent(registerListener);
+                mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).removeEventListener(registerListener);
+            }
+        });
+        mDatabase.child("eventregister").addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Is better to use a List, because you don't know the size
+                // of the iterator returned by dataSnapshot.getChildren() to
+                // initialize the array
+                if (dataSnapshot.exists()) {
+                    int count=0;
+                    for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
+                        if (memberSnapshot.hasChild("register")) {
+                            Boolean reg = memberSnapshot.child("register").getValue(Boolean.class);
+                            Log.d("a", "onDataChange: ");
+                            if(reg){
+                                count++;
+                                eventsViewHolder.join.setText(eventsViewHolder.join.getText().subSequence(0,5).toString()+"\\("+count+"\\)");
+                            }
+                    }
+                        }
+
+                    }
+                }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
+            }
+        });
     }
 
     @Override
@@ -203,6 +288,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         protected TextView date;
         protected ImageView image;
         protected ImageView userImage;
+        protected Button join;
         protected View theCard;
         public EventsViewHolder(View v) {
             super(v);
@@ -212,6 +298,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             date = (TextView) v.findViewById(R.id.date_event_frag);
             image=(ImageView)v.findViewById(R.id.thumbnail_event_frag);
             userImage=(ImageView)v.findViewById(R.id.profile_picture_event);
+            join=(Button)v.findViewById(R.id.btn_join);
             theCard= v;
 
         }
@@ -219,4 +306,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
     }
 
 }
+class EventRegister {
 
+    public Boolean register;
+    public Object changedTime;
+
+    public EventRegister() {
+    }
+
+    public EventRegister(Boolean register) {
+        this.register = register;
+        this.changedTime = ServerValue.TIMESTAMP;
+    }
+}

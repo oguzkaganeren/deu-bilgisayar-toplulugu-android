@@ -258,7 +258,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
  }
-    class Event {
+     class Event {
 
         public String title;
         public String description;

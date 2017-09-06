@@ -12,9 +12,12 @@ public class EventsInfo {
         protected String description;
         protected Date date;
         protected String uid;
+        protected String eventKey;
         protected String location;
         protected Long addingDate;
-
+        public String getEventKey(){
+                return eventKey;
+        }
         public Date getAddingDate() {
                 Long cDate=addingDate;
                 Date dt=new Date(cDate*1000);

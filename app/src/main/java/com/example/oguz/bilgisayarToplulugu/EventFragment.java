@@ -114,6 +114,7 @@ public class EventFragment extends Fragment{
                                 Long addate = memberSnapshot.child("createdTimestamp").getValue(Long.class);
                                 event.addingDate = addate;
                             }
+                            event.eventKey=memberSnapshot.getKey();
                             eventList.add(event);
                             Collections.sort(eventList, new Comparator<EventsInfo>() {
                                 public int compare(EventsInfo o1, EventsInfo o2) {
