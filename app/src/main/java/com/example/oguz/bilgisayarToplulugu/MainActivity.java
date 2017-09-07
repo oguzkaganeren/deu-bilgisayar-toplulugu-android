@@ -134,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
         imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
         profile_image_right=(ImageView)findViewById(R.id.right_profile_picture);
         fab=(FloatingActionButton)findViewById(R.id.fab);
+        fab.setVisibility(View.GONE);
 // load nav menu header data
         setUpNavigationView();
 //if the user did not login, login page is showed
@@ -246,16 +247,14 @@ public class MainActivity extends AppCompatActivity {
             public HeaderDesign getHeaderDesign(int page) {
                 switch (page) {
                     case 0:
-                        fab.setVisibility(View.INVISIBLE);
+                        fabStatusAccordingToRole();
                         return HeaderDesign.fromColorAndDrawable(
                                 getResources().getColor(R.color.content_bg), getResources().getDrawable(R.drawable.content_back));
 
                     case 1:
-                        fab.setVisibility(View.INVISIBLE);
                         return HeaderDesign.fromColorAndDrawable(
                                getResources().getColor( R.color.notice_bg),getResources().getDrawable(R.drawable.notice_back));
                     case 2:
-                        fab.setVisibility(View.VISIBLE);
                         fab.setImageDrawable(getResources().getDrawable(R.drawable.events_add_white));
                         fab.setOnClickListener(new View.OnClickListener() {
                         public void onClick(View v) {
@@ -266,7 +265,6 @@ public class MainActivity extends AppCompatActivity {
                         return HeaderDesign.fromColorAndDrawable(
                                getResources().getColor(R.color.event_bg),getResources().getDrawable(R.drawable.event_back));
                     case 3:
-                        fab.setVisibility(View.INVISIBLE);
                         return HeaderDesign.fromColorAndDrawable(
                                getResources().getColor(R.color.lime), getResources().getDrawable(R.drawable.meeting_back));
                 }
@@ -566,6 +564,26 @@ public class MainActivity extends AppCompatActivity {
                         .load(R.mipmap.logo)
                         .centerCrop()
                         .into(imgProfile);
+            }
+        });
+    }
+    public void fabStatusAccordingToRole(){
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot snapshot) {
+                if (snapshot.hasChild("role")) {
+                    fab.setVisibility(View.VISIBLE);
+                }else{
+                    fab.setVisibility(View.GONE);
+                }
+            }
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                if(mAuth==null){
+                    Toast.makeText(MainActivity.this, databaseError.getMessage().toString(), Toast.LENGTH_SHORT).show();
+                }
+
             }
         });
     }

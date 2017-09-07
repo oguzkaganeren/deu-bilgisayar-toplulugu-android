@@ -274,7 +274,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             }
         };
         mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).addValueEventListener(getData);
-        mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).removeEventListener(getData);
+        //bu kısımda bi problem çıkabilir
+        //mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).removeEventListener(getData);
         mDatabase.child("eventregister").child(wb.getEventKey()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
