@@ -7,7 +7,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="876d629673b6516c0fd7216aa29a8085a2a82e76">
+        sha1="6ade158397745a2484bb82de7b39e8c5f9a1604a">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053.jar" />
     </item>
     <item
@@ -349,7 +349,7 @@
         jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="c8cd27d35bf00a0d6d180ebcd8ca471955b88e5c">
+        sha1="b75cd06792eb037d4fe0bae167ef3c233e6a57b4">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222.jar" />
     </item>
     <item

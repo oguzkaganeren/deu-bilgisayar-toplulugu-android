@@ -244,7 +244,36 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                 mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).removeEventListener(registerListener);
             }
         });
-        mDatabase.child("eventregister").addValueEventListener(new ValueEventListener() {
+        mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(DataSnapshot dataSnapshot) {
+                // Is better to use a List, because you don't know the size
+                // of the iterator returned by dataSnapshot.getChildren() to
+                // initialize the array
+                if (dataSnapshot.exists()) {
+                        if (dataSnapshot.hasChild("register")) {
+                            Boolean reg = dataSnapshot.child("register").getValue(Boolean.class);
+                            Log.d("a", "onDataChange: "+reg);
+
+                            if(reg){
+                                eventsViewHolder.join.setText("Leave");
+                                eventsViewHolder.join.setBackgroundColor(context.getResources().getColor(R.color.red));
+                            }else{
+                                eventsViewHolder.join.setText("Join");
+                                eventsViewHolder.join.setBackgroundColor(context.getResources().getColor(R.color.green));
+                            }
+                    }
+
+                }
+            }
+
+
+            @Override
+            public void onCancelled(DatabaseError databaseError) {
+                // Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
+            }
+        });
+        mDatabase.child("eventregister").child(wb.getEventKey()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Is better to use a List, because you don't know the size
@@ -253,14 +282,22 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                 if (dataSnapshot.exists()) {
                     int count=0;
                     for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
-                        if (memberSnapshot.hasChild("register")) {
-                            Boolean reg = memberSnapshot.child("register").getValue(Boolean.class);
-                            Log.d("a", "onDataChange: ");
-                            if(reg){
-                                count++;
-                                eventsViewHolder.join.setText(eventsViewHolder.join.getText().subSequence(0,5).toString()+"\\("+count+"\\)");
+                            if (memberSnapshot.hasChild("register")) {
+                                Boolean reg = memberSnapshot.child("register").getValue(Boolean.class);
+                                Log.d("a", "onDataChange: "+reg);
+
+                                if(reg){
+                                    count++;
+                                    String value;
+                                    if(eventsViewHolder.join.getText().toString().length()>4){
+                                       value =eventsViewHolder.join.getText().toString().substring(0,5);
+                                    }else{
+                                        value=eventsViewHolder.join.getText().toString().substring(0,4);
+                                    }
+
+                                    eventsViewHolder.join.setText(value+"("+count+")");
+                                }
                             }
-                    }
                         }
 
                     }
