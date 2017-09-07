@@ -75,7 +75,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
-                email+="@ceng.deu.edu.tr";
+                email+="@gmail.com";
                 final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {

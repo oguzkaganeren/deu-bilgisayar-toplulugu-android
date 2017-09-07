@@ -199,6 +199,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         eventsViewHolder.join.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(final View v) {
                 final EventRegister reg = new EventRegister();
+
                // reg.changedTime=ServerValue.TIMESTAMP;
                // mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).setValue(reg);
                 ValueEventListener registerListener=new ValueEventListener() {
@@ -207,7 +208,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                         // Is better to use a List, because you don't know the size
                         // of the iterator returned by dataSnapshot.getChildren() to
                         // initialize the array
-                        if (dataSnapshot.exists()) {
+
                                 if (mAuth.getCurrentUser() != null) {
                                     if (dataSnapshot.hasChild("register")) {
                                         Boolean register = dataSnapshot.child("register").getValue(Boolean.class);
@@ -232,7 +233,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                                     reg.changedTime=ServerValue.TIMESTAMP;
                                     mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).setValue(reg);
                                 }
-                        }
                     }
 
                     @Override
@@ -244,7 +244,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                 mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).removeEventListener(registerListener);
             }
         });
-        mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        ValueEventListener getData=new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Is better to use a List, because you don't know the size
@@ -272,7 +272,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             public void onCancelled(DatabaseError databaseError) {
                 // Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
             }
-        });
+        };
+        mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).addValueEventListener(getData);
+        mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).removeEventListener(getData);
         mDatabase.child("eventregister").child(wb.getEventKey()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -289,10 +291,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                                 if(reg){
                                     count++;
                                     String value;
-                                    if(eventsViewHolder.join.getText().toString().length()>4){
-                                       value =eventsViewHolder.join.getText().toString().substring(0,5);
+                                    if(eventsViewHolder.join.getText().toString().startsWith("Join")){
+                                       value =eventsViewHolder.join.getText().toString().substring(0,4);
                                     }else{
-                                        value=eventsViewHolder.join.getText().toString().substring(0,4);
+                                        value=eventsViewHolder.join.getText().toString().substring(0,5);
                                     }
 
                                     eventsViewHolder.join.setText(value+"("+count+")");

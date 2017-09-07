@@ -74,14 +74,17 @@ public class EventFragment extends Fragment{
     }
     public void loadMembers(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+        eventAdapter=new EventAdapter(getActivity(),eventList);
 
-
-        mDatabase.child("events").orderByChild("createdTimestamp").limitToLast(20).addValueEventListener(new ValueEventListener() {
+        ValueEventListener getList= new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
                 // Is better to use a List, because you don't know the size
                 // of the iterator returned by dataSnapshot.getChildren() to
                 // initialize the array
+                mRecyclerView.setAdapter(null);
+                eventList.clear();
+                eventAdapter.notifyItemRangeRemoved(0, eventAdapter.getItemCount());
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
                         if (mAuth.getCurrentUser() != null && memberSnapshot.getKey() != null) {
@@ -125,7 +128,7 @@ public class EventFragment extends Fragment{
 
                     }
                     Collections.reverse(eventList);
-                    eventAdapter=new EventAdapter(getActivity(),eventList);
+
                     mRecyclerView.setAdapter(eventAdapter);
                 }
             }
@@ -134,7 +137,8 @@ public class EventFragment extends Fragment{
             public void onCancelled(DatabaseError databaseError) {
                 // Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
             }
-        });
+        };
+        mDatabase.child("events").orderByChild("createdTimestamp").limitToLast(20).addValueEventListener(getList);
     }
 
 }

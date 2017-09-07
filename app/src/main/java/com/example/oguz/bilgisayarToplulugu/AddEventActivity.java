@@ -17,6 +17,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TimePicker;
 import android.widget.Toast;
 
@@ -66,18 +67,23 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
     private DatabaseReference mDatabase;
     private GoogleMap mMap;
     private String sAddress;
+    private ProgressBar spinner;
+    private MenuItem doneMenu;
 
     public void onCreate(Bundle savedInstanceState)  {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addevent);
         mAuth = FirebaseAuth.getInstance();
         if (mAuth != null) {
+
             mActionBarToolbar = (Toolbar) findViewById(R.id.toolbarInnerEvent);
             mActionBarToolbar.setTitleTextColor(getResources().getColor(R.color.colorTabSelected));
             mActionBarToolbar.setTitle("Add Event");
             setSupportActionBar(mActionBarToolbar);
             mDatabase = FirebaseDatabase.getInstance().getReference();
             title = (EditText) findViewById(R.id.title_event);
+            spinner = (ProgressBar)findViewById(R.id.addevent_progressbar);
+            spinner.setVisibility(View.GONE);
             description = (EditText) findViewById(R.id.description_event);
             date = (Button) findViewById(R.id.date_event);
             FragmentManager fm = getSupportFragmentManager();
@@ -146,6 +152,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
         if (mAuth.getCurrentUser() != null) {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.done_addevent, menu);
+            doneMenu=menu.getItem(0);
             changeActionMenuItemsBackground(getResources().getColor(R.color.green));
         }
         return true;
@@ -161,42 +168,59 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     public void done(MenuItem item) {
+        spinner.setVisibility(View.VISIBLE);
+        doneMenu.setVisible(false);
         String key = mDatabase.child("events").push().getKey();
         String sTitle = title.getText().toString();
         String sDesc = description.getText().toString();
         String sDate = date.getText().toString();
-        if (sTitle.length() > 0 && sTitle.length() < 100 && sDesc.length() > 0
-                && sDesc.length() < 800 && sDate.length() > 0 && sDate.length() < 20&&sAddress.length()>3) {
-            if (saveLocation != null && !saveLocation.isEmpty()) {
-                Event newEvent = new Event();
-                newEvent.title = sTitle.trim();
-                newEvent.description = sDesc.trim();
-                newEvent.createdTimestamp=ServerValue.TIMESTAMP;
-                try {
-                    DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ENGLISH);
-                    Date dt = format.parse(sDate);
-                    newEvent.date = dt;
-                }catch (ParseException e){
-                    e.printStackTrace();
+        if(sTitle!=null&&sDesc!=null&&sDate!=null&&sAddress!=null) {
+
+            if (sTitle.length() > 0 && sTitle.length() < 100 && sDesc.length() > 0
+                    && sDesc.length() < 800 && sDate.length() > 0 && sDate.length() < 20 && sAddress.length() > 3) {
+                if (saveLocation != null && !saveLocation.isEmpty()) {
+                    Event newEvent = new Event();
+                    newEvent.title = sTitle.trim();
+                    newEvent.description = sDesc.trim();
+                    newEvent.createdTimestamp = ServerValue.TIMESTAMP;
+                    try {
+                        DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ENGLISH);
+                        Date dt = format.parse(sDate);
+                        newEvent.date = dt;
+                    } catch (ParseException e) {
+                        e.printStackTrace();
+                    }
+                    newEvent.address = sAddress;
+                    newEvent.location = saveLocation;
+                    newEvent.uid = mAuth.getCurrentUser().getUid();
+                    mDatabase.child("events").child(key).setValue(newEvent);
+                    mDatabase.child("events").addListenerForSingleValueEvent(new ValueEventListener() {
+                        public void onDataChange(DataSnapshot dataSnapshot) {
+                            Toast.makeText(AddEventActivity.this, "Adding Event succeed.",
+                                    Toast.LENGTH_SHORT).show();
+                            finish();
+                        }
+
+                        public void onCancelled(DatabaseError firebaseError) {
+                            Toast.makeText(AddEventActivity.this, "Adding Event failed." + firebaseError.getDetails().toString(),
+                                    Toast.LENGTH_SHORT).show();
+                            spinner.setVisibility(View.GONE);
+                            doneMenu.setEnabled(true);
+                        }
+                    });
+                } else {
+                    spinner.setVisibility(View.GONE);
+                    doneMenu.setVisible(true);
+                    //hataları yazdır
                 }
-                newEvent.address=sAddress;
-                newEvent.location = saveLocation;
-                newEvent.uid = mAuth.getCurrentUser().getUid();
-                mDatabase.child("events").child(key).setValue(newEvent);
-                mDatabase.child("events").addListenerForSingleValueEvent(new ValueEventListener() {
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        Toast.makeText(AddEventActivity.this, "Adding Event succeed.",
-                                Toast.LENGTH_SHORT).show();
-                        finish();
-                    }
 
-                    public void onCancelled(DatabaseError firebaseError) {
-                        Toast.makeText(AddEventActivity.this, "Adding Event failed." + firebaseError.getDetails().toString(),
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });
+            } else {
+                spinner.setVisibility(View.GONE);
+                doneMenu.setVisible(true);
             }
-
+        }else{
+            spinner.setVisibility(View.GONE);
+            doneMenu.setVisible(true);
         }
 
 
