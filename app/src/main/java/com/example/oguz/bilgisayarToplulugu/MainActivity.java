@@ -22,6 +22,7 @@ import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -53,7 +54,6 @@ import java.util.ArrayList;
 public class MainActivity extends AppCompatActivity {
 
     private Toolbar toolbar;
-    private TabLayout tabLayout;
     private ViewPager viewPager;
     private MaterialViewPager mViewPager;
     private NavigationView navigationView;
@@ -169,6 +169,11 @@ public class MainActivity extends AppCompatActivity {
         loadNavHeader();
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = mViewPager.getViewPager();
+        loadTabs();
+
+
+    }
+    private void loadTabs(){
         final ContentFragment myContents=new ContentFragment();
         final EventFragment myEvents=new EventFragment();
         final MeetingFragment myMeeting=new MeetingFragment();
@@ -200,7 +205,7 @@ public class MainActivity extends AppCompatActivity {
                         }
 
                     default:
-                            return myContents;
+                        return myContents;
 
                 }
             }
@@ -218,10 +223,10 @@ public class MainActivity extends AppCompatActivity {
             public CharSequence getPageTitle(int position) {
                 switch (position % 4) {
                     case 0:
-                            return "Contents";
+                        return "Contents";
                     case 1:
                         if(mAuth.getCurrentUser() != null) {
-                        return "Notices";
+                            return "Notices";
                         }else{
                             return null;
                         }
@@ -233,7 +238,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     case 3:
                         if(mAuth.getCurrentUser() != null) {
-                        return "Meeting";
+                            return "Meeting";
                         }else{
                             return null;
                         }
@@ -247,26 +252,29 @@ public class MainActivity extends AppCompatActivity {
             public HeaderDesign getHeaderDesign(int page) {
                 switch (page) {
                     case 0:
-                        fabStatusAccordingToRole();
+                        fab.setVisibility(View.GONE);
                         return HeaderDesign.fromColorAndDrawable(
                                 getResources().getColor(R.color.content_bg), getResources().getDrawable(R.drawable.content_back));
 
                     case 1:
+                        fab.setVisibility(View.GONE);
                         return HeaderDesign.fromColorAndDrawable(
-                               getResources().getColor( R.color.notice_bg),getResources().getDrawable(R.drawable.notice_back));
+                                getResources().getColor( R.color.notice_bg),getResources().getDrawable(R.drawable.notice_back));
                     case 2:
+                        fabStatusAccordingToRole();
                         fab.setImageDrawable(getResources().getDrawable(R.drawable.events_add_white));
                         fab.setOnClickListener(new View.OnClickListener() {
-                        public void onClick(View v) {
-                            Intent intent = new Intent(getContext(), AddEventActivity.class);
-                            MainActivity.this.startActivity(intent);
-                        }
-                    });
+                            public void onClick(View v) {
+                                Intent intent = new Intent(getContext(), AddEventActivity.class);
+                                MainActivity.this.startActivity(intent);
+                            }
+                        });
                         return HeaderDesign.fromColorAndDrawable(
-                               getResources().getColor(R.color.event_bg),getResources().getDrawable(R.drawable.event_back));
+                                getResources().getColor(R.color.event_bg),getResources().getDrawable(R.drawable.event_back));
                     case 3:
+                        fab.setVisibility(View.GONE);
                         return HeaderDesign.fromColorAndDrawable(
-                               getResources().getColor(R.color.lime), getResources().getDrawable(R.drawable.meeting_back));
+                                getResources().getColor(R.color.lime), getResources().getDrawable(R.drawable.meeting_back));
                 }
 
                 //execute others actions if needed (ex : modify your header logo)
@@ -277,8 +285,6 @@ public class MainActivity extends AppCompatActivity {
 
         mViewPager.getViewPager().setOffscreenPageLimit(mViewPager.getViewPager().getAdapter().getCount());
         mViewPager.getPagerTitleStrip().setViewPager(mViewPager.getViewPager());
-
-
     }
     @Override
     public void onStop() {
@@ -410,6 +416,7 @@ public class MainActivity extends AppCompatActivity {
                         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
                         mAuth.signOut();
+                        loadTabs();
                         setDrawerState(false);
                         Toast.makeText(MainActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
                         CURRENT_TAG = TAG_SIGNOUT;
@@ -495,6 +502,7 @@ public class MainActivity extends AppCompatActivity {
 
         super.onBackPressed();
     }
+
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         if (mAuth.getCurrentUser() != null) {

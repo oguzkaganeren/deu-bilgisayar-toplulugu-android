@@ -3,6 +3,7 @@ package com.example.oguz.bilgisayarToplulugu;
 /**
  * Created by Oguz on 16-Jul-17.
  */
+import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -75,7 +76,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
-                email+="@gmail.com";
+                email+="@ceng.deu.edu.tr";
                 final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
@@ -108,10 +109,11 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 } else {
                                     //checkIfEmailVerified();
-                                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-                                    startActivity(intent);
-                                    finish();
 
+                                    /*Intent i = new Intent(LoginActivity.this,MainActivity.class);
+                                    startActivityForResult(i, 1);*/
+                                    finish();
+                                    Runtime.getRuntime().exit(0);
                                 }
                             }
                         });
