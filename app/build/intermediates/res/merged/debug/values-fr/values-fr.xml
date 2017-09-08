@@ -44,6 +44,8 @@
     <string name="google_play_games">Google Play Games</string>
     <string name="help">Aide</string>
     <string name="introduce_app">Présenter l\'application</string>
+    <string name="material_drawer_close">Fermer</string>
+    <string name="material_drawer_open">Ouvrir</string>
     <string name="more_apps">Mes autres applications</string>
     <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"Effacer la recherche"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"Rechercher"</string>
