@@ -111,9 +111,14 @@ public class LoginActivity extends AppCompatActivity {
                                     //checkIfEmailVerified();
 
                                     /*Intent i = new Intent(LoginActivity.this,MainActivity.class);
-                                    startActivityForResult(i, 1);*/
+                                    startActivity(i);*/
+                                    DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                                    mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
                                     finish();
-                                    Runtime.getRuntime().exit(0);
+                                    //Burayı iyi başardım haaa :)
+                                    Intent i=new Intent(LoginActivity.this,MainActivity.class);
+                                    i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                                    MainActivity.getContext().startActivity(i);
                                 }
                             }
                         });

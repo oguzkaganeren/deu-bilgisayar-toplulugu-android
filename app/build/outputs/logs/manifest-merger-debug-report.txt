@@ -41,7 +41,6 @@ ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:7:5-81
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:7:22-78
 application
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:8:5-44:19
-MERGED from [com.github.traex.rippleeffect:library:1.3] C:\Users\Oguz\.android\build-cache\a6c5efd4c47d7ef62f44d7da08ce10e300a343fc\output\AndroidManifest.xml:12:5-20
 MERGED from [com.google.firebase:firebase-core:11.0.2] C:\Users\Oguz\.android\build-cache\82d95ea84e2129c0ffb0c58d03e1b7ce7dfbc037\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:11.0.2] C:\Users\Oguz\.android\build-cache\f90509d1230364878f358dc55018a5c0310ebfcc\output\AndroidManifest.xml:24:5-34:19
 MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] C:\Users\Oguz\.android\build-cache\cde69206885dee3f89115aad9406af89e2d0ebe2\output\AndroidManifest.xml:24:5-28:19
@@ -172,7 +171,6 @@ ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:41:9-43:70
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:42:13-58
 uses-sdk
 INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
-MERGED from [com.github.traex.rippleeffect:library:1.3] C:\Users\Oguz\.android\build-cache\a6c5efd4c47d7ef62f44d7da08ce10e300a343fc\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.google.firebase:firebase-core:11.0.2] C:\Users\Oguz\.android\build-cache\82d95ea84e2129c0ffb0c58d03e1b7ce7dfbc037\output\AndroidManifest.xml:4:5-43
 MERGED from [com.google.firebase:firebase-analytics:11.0.2] C:\Users\Oguz\.android\build-cache\f90509d1230364878f358dc55018a5c0310ebfcc\output\AndroidManifest.xml:17:5-43
 MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] C:\Users\Oguz\.android\build-cache\cde69206885dee3f89115aad9406af89e2d0ebe2\output\AndroidManifest.xml:17:5-43

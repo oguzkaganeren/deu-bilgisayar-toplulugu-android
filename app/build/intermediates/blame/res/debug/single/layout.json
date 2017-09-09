@@ -128,12 +128,12 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\0f75db4c694c6829d296e972d2d67a53ea4ebfa1\\output\\res\\layout\\notification_template_media_custom.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_profile.xml",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\activity_profile.xml"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_drawer_recycler_view.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\1566efbb34e82f233c14a2ee359fff61a4bed9a5\\output\\res\\layout\\material_drawer_recycler_view.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_profile.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\activity_profile.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_bottom_navigation_item.xml",

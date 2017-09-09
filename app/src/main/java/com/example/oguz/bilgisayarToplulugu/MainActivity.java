@@ -73,15 +73,10 @@ public class MainActivity extends AppCompatActivity {
     private Toolbar toolbar;
     private ViewPager viewPager;
     private MaterialViewPager mViewPager;
-    private NavigationView navigationView;
     private NavigationView navigationViewRight;
-    private View navHeader;
     private FirebaseStorage myStorage;
     private StorageReference storageRef;
-    private ImageView imgNavHeaderBg, imgProfile;
-    private TextView txtName, txtWebsite;
     private ArrayList<MembersInfo> membersList;
-    private ImageView profile_image_right;
     private MembersAdapter ourMembersAdapter;
     private RecyclerView rcMembers;
     private DatabaseReference mDatabase;
@@ -89,12 +84,11 @@ public class MainActivity extends AppCompatActivity {
     private Fragment fragment = null;
     private FloatingActionButton fab;
     private Class fragmentClass = null;
+    private DrawerLayout rightDrawer;
     private DrawerLayout drawerLayout;
     private static Context mContext;
     private AccountHeader headerResult;
     private Menu rightMenu;
-    // kullanıcı geri tuşuna basınca bir önceki fragmente geçme meselesi
-    private boolean shouldLoadHomeFragOnBackPress = true;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
     public static Context getContext() {
@@ -116,7 +110,7 @@ public class MainActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         mViewPager=(MaterialViewPager)findViewById(R.id.materialViewPager);
         toolbar = mViewPager.getToolbar();
-
+        rightDrawer=(DrawerLayout)findViewById(R.id.drawer_layout);
         if (toolbar != null) {
             setSupportActionBar(toolbar);
             ActionBar actionBar = getSupportActionBar();
@@ -128,18 +122,9 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mContext= getApplicationContext();
-       // navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationViewRight=(NavigationView) findViewById(R.id.nav_viewTwo);
-        // Navigation view header
-        //menu içerisindeki değerleri verme kısmı
-        /*
-        navHeader = navigationView.getHeaderView(0);
-        txtName = (TextView) navHeader.findViewById(R.id.name);
-        txtWebsite = (TextView) navHeader.findViewById(R.id.website);
-        imgNavHeaderBg = (ImageView) navHeader.findViewById(R.id.img_header_bg);
-        imgProfile = (ImageView) navHeader.findViewById(R.id.img_profile);
-        */
-        profile_image_right=(ImageView)findViewById(R.id.right_profile_picture);
+
+
 
         fab=(FloatingActionButton)findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
@@ -149,7 +134,7 @@ public class MainActivity extends AppCompatActivity {
         DrawerImageLoader.init(new AbstractDrawerImageLoader() {
             @Override
             public void set(ImageView imageView, Uri uri, Drawable placeholder, String tag) {
-                Glide.with(imageView.getContext()).load(uri).placeholder(placeholder).into(imageView);
+                Glide.with(getApplicationContext()).load(uri).placeholder(placeholder).into(imageView);
             }
 
             @Override
@@ -182,6 +167,8 @@ public class MainActivity extends AppCompatActivity {
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
                     public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
+                        Intent intent = new Intent(getContext(), ProfileActivity.class);
+                        MainActivity.this.startActivity(intent);
                         return false;
                     }
                 })
@@ -241,6 +228,7 @@ public class MainActivity extends AppCompatActivity {
                         return false;
                     }
                 })
+                .withSavedInstance(savedInstanceState)
                 .build();
         drawerLayout = left.getDrawerLayout();
         actionBarDrawerToggle=  new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.material_drawer_open, R.string.material_drawer_close);
@@ -263,6 +251,42 @@ public class MainActivity extends AppCompatActivity {
                 Intent intent = new Intent(getContext(), LoginActivity.class);
                 MainActivity.this.startActivity(intent);
                  }
+            }
+        });
+
+        rightDrawer.addDrawerListener(new DrawerLayout.DrawerListener() {
+
+            @Override
+            public void onDrawerSlide(View drawerView, float slideOffset) {
+                //Called when a drawer's position changes.
+            }
+
+            @Override
+            public void onDrawerOpened(View drawerView) {
+
+            }
+
+            @Override
+            public void onDrawerClosed(View drawerView) {
+                // Called when a drawer has settled in a completely closed state.
+            }
+
+            @Override
+            public void onDrawerStateChanged(int newState) {
+                if(mAuth.getCurrentUser()!=null) {
+
+                    //members kısmı
+                    if (fragmentClass == null && fragment == null) {
+                        fragmentClass = MembersFragment.class;
+                        try {
+                            fragment = (Fragment) fragmentClass.newInstance();
+                        } catch (Exception e) {
+                            e.printStackTrace();
+                        }
+                        FragmentManager fragmentManager = getSupportFragmentManager();
+                        fragmentManager.beginTransaction().replace(R.id.members_frame, fragment).commit();
+                    }
+                }
             }
         });
     }
@@ -396,6 +420,7 @@ public class MainActivity extends AppCompatActivity {
     public void setDrawerState(boolean isEnabled) {
         if ( isEnabled ) {
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
+            rightDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             actionBarDrawerToggle.onDrawerStateChanged(DrawerLayout.STATE_SETTLING);
             actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
             actionBarDrawerToggle.syncState();
@@ -406,8 +431,10 @@ public class MainActivity extends AppCompatActivity {
                 rightMenu.setGroupVisible(R.id.main_menu_group,false);
                 navigationViewRight.setEnabled(false);
             }
+            fab.setVisibility(View.GONE);
             actionBarDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_recent_actors_white_24dp);
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
+            rightDrawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
             actionBarDrawerToggle.onDrawerStateChanged(DrawerLayout.STATE_SETTLING);
             actionBarDrawerToggle.setDrawerIndicatorEnabled(false);
             actionBarDrawerToggle.syncState();
@@ -442,20 +469,16 @@ public class MainActivity extends AppCompatActivity {
             drawerLayout.openDrawer(navigationViewRight);
         }
     }
-
     public void loadDataOnFirebase() {
         final IProfile profile =  new ProfileDrawerItem();
         profile.withIdentifier(0);
+        profile.withEmail(mAuth.getCurrentUser().getEmail().toString());
         headerResult.addProfile(profile,0);
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                     if (snapshot.hasChild("name-surname")) {
                         profile.withName(snapshot.child("name-surname").getValue().toString());
-                        headerResult.updateProfile(profile);
-                    }
-                    if (snapshot.hasChild("website")) {
-                        profile.withEmail(snapshot.child("website").getValue().toString());
                         headerResult.updateProfile(profile);
                     }
             }
