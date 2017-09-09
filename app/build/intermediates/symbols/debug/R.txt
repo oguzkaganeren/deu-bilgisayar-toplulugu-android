@@ -1563,6 +1563,7 @@ int id list_item 0x7f0d008b
 int id login 0x7f0d0152
 int id logoContainer 0x7f0d012e
 int id logo_white 0x7f0d0106
+int id main_menu_group 0x7f0d016f
 int id map 0x7f0d00c2
 int id map_frame 0x7f0d00bc
 int id masked 0x7f0d0162

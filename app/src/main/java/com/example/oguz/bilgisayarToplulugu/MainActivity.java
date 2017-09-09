@@ -24,6 +24,7 @@ import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -74,7 +75,6 @@ public class MainActivity extends AppCompatActivity {
     private MaterialViewPager mViewPager;
     private NavigationView navigationView;
     private NavigationView navigationViewRight;
-    private DrawerLayout drawer;
     private View navHeader;
     private FirebaseStorage myStorage;
     private StorageReference storageRef;
@@ -92,6 +92,7 @@ public class MainActivity extends AppCompatActivity {
     private DrawerLayout drawerLayout;
     private static Context mContext;
     private AccountHeader headerResult;
+    private Menu rightMenu;
     // kullanıcı geri tuşuna basınca bir önceki fragmente geçme meselesi
     private boolean shouldLoadHomeFragOnBackPress = true;
     private FirebaseAuth mAuth;
@@ -127,8 +128,6 @@ public class MainActivity extends AppCompatActivity {
         }
 
         mContext= getApplicationContext();
-
-        drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
        // navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationViewRight=(NavigationView) findViewById(R.id.nav_viewTwo);
         // Navigation view header
@@ -197,7 +196,7 @@ public class MainActivity extends AppCompatActivity {
         SecondaryDrawerItem item6 = new SecondaryDrawerItem().withIdentifier(2).withName("About Us").withIcon(R.drawable.about_24dp);
         SecondaryDrawerItem item7 = new SecondaryDrawerItem().withIdentifier(2).withName("Privacy Policy").withIcon(R.drawable.privacy_24dp);
 //create the drawer and remember the `Drawer` result object
-        Drawer result = new DrawerBuilder()
+        Drawer left = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
@@ -243,8 +242,8 @@ public class MainActivity extends AppCompatActivity {
                     }
                 })
                 .build();
-        drawerLayout = result.getDrawerLayout();
-        actionBarDrawerToggle=result.getActionBarDrawerToggle();
+        drawerLayout = left.getDrawerLayout();
+        actionBarDrawerToggle=  new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.material_drawer_open, R.string.material_drawer_close);
         if (mAuth.getCurrentUser() != null) {
 
             // User is logged in
@@ -396,7 +395,6 @@ public class MainActivity extends AppCompatActivity {
     }
     public void setDrawerState(boolean isEnabled) {
         if ( isEnabled ) {
-            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);
             actionBarDrawerToggle.onDrawerStateChanged(DrawerLayout.STATE_SETTLING);
             actionBarDrawerToggle.setDrawerIndicatorEnabled(true);
@@ -404,181 +402,20 @@ public class MainActivity extends AppCompatActivity {
 
         }
         else {
+            if(rightMenu!=null){
+                rightMenu.setGroupVisible(R.id.main_menu_group,false);
+                navigationViewRight.setEnabled(false);
+            }
+            actionBarDrawerToggle.setHomeAsUpIndicator(R.drawable.ic_recent_actors_white_24dp);
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
-            drawer.setDrawerLockMode(DrawerLayout.LOCK_MODE_LOCKED_CLOSED);
             actionBarDrawerToggle.onDrawerStateChanged(DrawerLayout.STATE_SETTLING);
             actionBarDrawerToggle.setDrawerIndicatorEnabled(false);
             actionBarDrawerToggle.syncState();
         }
     }
-    /*
-    //menu ile ilgili şeyler
-    private void loadNavHeader() {
-        // name, website
-        //kullanıcı giriş yaptıysa görünecek
-
-        txtName.setText("Name Surname");
-        txtWebsite.setText("Website");
-
-
-        // kullanıcı arkaplan resmi
-        Glide.with(this).load(R.mipmap.menu_header_back)
-                .crossFade()
-                .diskCacheStrategy(DiskCacheStrategy.ALL)
-                .into(imgNavHeaderBg);
-
-        // menude nokta gözükme meselesi
-        //navigationView.getMenu().getItem(4).setActionView(R.layout.menu_dot);
-    }
-
-    //seçilen menuye göre fragment döner
-    private void loadHomeFragment() {
-        // selecting appropriate nav menu item
-        selectNavMenu();
-
-        // if user select the current navigation menu again, don't do anything
-        // just close the navigation drawer
-        if (getSupportFragmentManager().findFragmentByTag(CURRENT_TAG) != null) {
-            drawer.closeDrawers();
-
-            return;
-        }
-
-        // Sometimes, when fragment has huge data, screen seems hanging
-        // when switching between navigation menus
-        // So using runnable, the fragment is loaded with cross fade effect
-        // This effect can be seen in GMail app
-        Runnable mPendingRunnable = new Runnable() {
-            @Override
-            public void run() {
-                // update the main content by replacing fragments
-                FragmentTransaction fragmentTransaction = getSupportFragmentManager().beginTransaction();
-                fragmentTransaction.setCustomAnimations(android.R.anim.slide_in_left,
-                        android.R.anim.slide_out_right);
-                fragmentTransaction.commitAllowingStateLoss();
-            }
-        };
-
-        //Closing drawer on item click
-        drawer.closeDrawers();
-
-        // refresh toolbar menu
-        invalidateOptionsMenu();
-    }
-
-    private void selectNavMenu() {
-        navigationView.getMenu().getItem(navItemIndex).setChecked(true);
-        if (navItemIndex==1){
-            if (mAuth.getCurrentUser() != null) {
-                Intent intent = new Intent(this, ProfileActivity.class);
-                MainActivity.this.startActivity(intent);
-            }else{
-                Intent intent = new Intent(this, LoginActivity.class);
-                MainActivity.this.startActivity(intent);
-            }
-        }
-    }
-
-    private void setUpNavigationView() {
-        //Setting Navigation View Item Selected Listener to handle the item click of the navigation menu
-        navigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
-
-            // This method will trigger on item Click of navigation menu
-            @Override
-            public boolean onNavigationItemSelected(MenuItem menuItem) {
-
-                //Check to see which item was being clicked and perform appropriate action
-                switch (menuItem.getItemId()) {
-                    //Replacing the main content with ContentFragment Which is our Inbox View;
-                    case R.id.nav_start:
-                        navItemIndex = 0;
-                        CURRENT_TAG = TAG_HOME;
-                        drawer.closeDrawers();
-                        break;
-                    case R.id.nav_account:
-                        navItemIndex = 1;
-                        CURRENT_TAG = TAG_ACCOUNT;
-                        break;
-                    case R.id.nav_event:
-                        navItemIndex = 3;
-                        CURRENT_TAG = TAG_EVENT;
-                        break;
-
-                    case R.id.nav_notifications:
-                        navItemIndex = 4;
-                        CURRENT_TAG = TAG_NOTIFICATIONS;
-                        break;
-                    case R.id.nav_signout:
-                        navItemIndex = 5;
-                        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
-                        mAuth.signOut();
-                        loadTabs();
-                        setDrawerState(false);
-                        Toast.makeText(MainActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
-                        CURRENT_TAG = TAG_SIGNOUT;
-                        break;
-                    case R.id.nav_about_us:
-                        // launch new intent instead of loading fragment
-                        startActivity(new Intent(MainActivity.this, NoticeFragment.class));
-                        drawer.closeDrawers();
-                        return true;
-                    case R.id.nav_privacy_policy:
-                        // launch new intent instead of loading fragment
-                        startActivity(new Intent(MainActivity.this, MeetingFragment.class));
-                        drawer.closeDrawers();
-                        return true;
-                    default:
-                        navItemIndex = 0;
-                }
-
-                //Checking if the item is in checked state or not, if not make it in checked state
-                if (menuItem.isChecked()) {
-                    menuItem.setChecked(false);
-                } else {
-                    menuItem.setChecked(true);
-                }
-
-                menuItem.setChecked(true);
-
-                loadHomeFragment();
-
-                return true;
-            }
-        });
-
-
-        actionBarDrawerToggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.openDrawer, R.string.closeDrawer) {
-
-            @Override
-            public void onDrawerClosed(View drawerView) {
-                // Code here will be triggered once the drawer closes as we dont want anything to happen so we leave this blank
-                super.onDrawerClosed(drawerView);
-            }
-
-            @Override
-            public void onDrawerOpened(View drawerView) {
-                // Code here will be triggered once the drawer open as we dont want anything to happen so we leave this blank
-                if (mAuth.getCurrentUser() != null) {
-                    // User is logged in
-                    navigationView.getMenu().getItem(1).setTitle("Account");
-                        loadDataOnFirebase();
-                }else {
-                    navigationView.getMenu().getItem(1).setTitle("Login");
-                }
-                super.onDrawerOpened(drawerView);
-            }
-        };
-
-        //Setting the actionbarToggle to drawer layout
-        drawer.setDrawerListener(actionBarDrawerToggle);
-
-        //calling sync state is necessary or else your hamburger icon wont show up
-        actionBarDrawerToggle.syncState();
-    }*/
-
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        rightMenu=menu;
         if (mAuth.getCurrentUser() != null) {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.right, menu);
@@ -586,22 +423,24 @@ public class MainActivity extends AppCompatActivity {
         return true;
     }
     public void rightMenu(MenuItem item) {
-        //members kısmı
-        if(fragmentClass==null&&fragment==null){
-            fragmentClass = MembersFragment.class;
-            try {
-                fragment = (Fragment) fragmentClass.newInstance();
-            } catch (Exception e) {
-                e.printStackTrace();
+        if(mAuth.getCurrentUser()!=null) {
+
+            //members kısmı
+            if (fragmentClass == null && fragment == null) {
+                fragmentClass = MembersFragment.class;
+                try {
+                    fragment = (Fragment) fragmentClass.newInstance();
+                } catch (Exception e) {
+                    e.printStackTrace();
+                }
+                FragmentManager fragmentManager = getSupportFragmentManager();
+                fragmentManager.beginTransaction().replace(R.id.members_frame, fragment).commit();
             }
-            FragmentManager fragmentManager = getSupportFragmentManager();
-            fragmentManager.beginTransaction().replace(R.id.members_frame, fragment).commit();
+
+
+            //-----------------------------------
+            drawerLayout.openDrawer(navigationViewRight);
         }
-
-
-
-        //-----------------------------------
-        drawer.openDrawer(navigationViewRight);
     }
 
     public void loadDataOnFirebase() {
