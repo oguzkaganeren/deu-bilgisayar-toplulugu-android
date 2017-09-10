@@ -56,25 +56,14 @@ public class MembersFragment  extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //bu kısım fragmenlere özel
-
         View v = inflater.inflate(R.layout.fragment_members, container, false);
         v.findViewById(R.id.right_profile_picture).setDrawingCacheEnabled(true);
-
-        // 2.
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        //mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        // 3.
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcmembers);
-       // mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
                 mLinearLayoutManager.getOrientation());
         mRecyclerView.addItemDecoration(dividerItemDecoration);
-        //final View myToolBar = getActivity().findViewById(R.id.toolbar);
-        // final View myTabs = getActivity().findViewById(R.id.tabs);
-        // final View myBarLa = getActivity().findViewById(R.id.myBarLayout);
         if (mRecyclerView.getAdapter()==null){
             mRecyclerView.setAdapter(ourMembersAdapter);
         }

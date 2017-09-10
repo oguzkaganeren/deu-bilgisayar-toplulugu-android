@@ -3,11 +3,9 @@ package com.example.oguz.bilgisayarToplulugu;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
-import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,13 +14,10 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
-import com.bumptech.glide.request.target.BitmapImageViewTarget;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.vansuita.materialabout.builder.AboutBuilder;
-import com.vansuita.materialabout.views.AboutView;
 
 import java.util.List;
-import java.util.concurrent.ExecutionException;
 
 /**
  * Created by Oguz on 07-Aug-17.

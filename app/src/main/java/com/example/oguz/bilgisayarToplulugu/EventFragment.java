@@ -6,7 +6,6 @@ package com.example.oguz.bilgisayarToplulugu;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
-import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -44,7 +43,7 @@ public class EventFragment extends Fragment{
         mAuth = FirebaseAuth.getInstance();
        if (mAuth.getCurrentUser() != null) {
             eventList=new ArrayList<EventsInfo>();
-            loadMembers();
+            loadEvents();
         }
     }
 
@@ -53,26 +52,17 @@ public class EventFragment extends Fragment{
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //bu kısım fragmenlere özel
-
         View v = inflater.inflate(R.layout.fragment_event, container, false);
-
-        // 2.
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        //mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
-
-        // 3.
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview_event_frag);
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
-
         return v;
     }
-    public void loadMembers(){
+    public void loadEvents(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         eventAdapter=new EventAdapter(getActivity(),eventList);
-
         ValueEventListener getList= new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -124,8 +114,8 @@ public class EventFragment extends Fragment{
                         }
 
                     }
+                    //listeyi tersine çeviriyoruz (son eklenen başda gözüksün)
                     Collections.reverse(eventList);
-
                     mRecyclerView.setAdapter(eventAdapter);
                 }
             }

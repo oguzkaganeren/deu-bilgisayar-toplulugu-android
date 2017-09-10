@@ -26,16 +26,18 @@ import com.google.firebase.database.ValueEventListener;
  */
 
 public class InnerActivity  extends AppCompatActivity {
+    //bu activity profile kısmındaki ayarların birine girdiğinde gözükür ve ayara göre içeriği değişir.
     private EditText editTxt;
     private Button done;
     private Button cancel;
     private FirebaseUser user;
     private DatabaseReference mDatabase;
-    Toolbar mActionBarToolbar;
+    private Toolbar mActionBarToolbar;
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_profile_inner);
+        //koşulu extras ile sağlayacağız
         Bundle extras = getIntent().getExtras();
         user = FirebaseAuth.getInstance().getCurrentUser();
         editTxt=(EditText)findViewById(R.id.input_information);
@@ -58,8 +60,7 @@ public class InnerActivity  extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(editTxt.length()>6&&editTxt.length()<15){
-
+                        if(editTxt.length()>6&&editTxt.length()<50){
                             user.updatePassword(editTxt.getText().toString().trim())
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -69,12 +70,11 @@ public class InnerActivity  extends AppCompatActivity {
                                                 finish();
                                             } else {
                                                 Toast.makeText(InnerActivity.this, "Failed to update password!", Toast.LENGTH_SHORT).show();
-                                                finish();
                                             }
                                         }
                                     });
                         }else{
-                            editTxt.setError("Your password should be min. 6 max. 15 characters.");
+                            editTxt.setError("Your password should be min. 6 max. 50 characters.");
                         }
 
                     }
@@ -101,10 +101,10 @@ public class InnerActivity  extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (editTxt.length() > 6 && editTxt.length() < 30) {
+                        if (editTxt.getText().toString().trim().length() > 1 && editTxt.getText().toString().trim().length() < 30) {
                             addingData("name-surname");
                         } else {
-                            editTxt.setError("Your name and surname should be min. 6 max. 30 characters.");
+                            editTxt.setError("Your name and surname should be min. 1 max. 30 characters.");
                         }
                     }
                 });
@@ -127,7 +127,7 @@ public class InnerActivity  extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (editTxt.length() > 6 && editTxt.length() < 75) {
+                        if (editTxt.getText().toString().trim().length() > 6 && editTxt.getText().toString().trim().length() < 75) {
                             addingData("status");
                         } else {
                             editTxt.setError("Your github address should be min. 6 max. 75 characters.");
@@ -153,7 +153,7 @@ public class InnerActivity  extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (editTxt.length() > 6 && editTxt.length() < 50) {
+                        if (editTxt.getText().toString().trim().length() > 6 && editTxt.getText().toString().trim().length() < 50) {
                             if(editTxt.getText().toString().startsWith("http")||editTxt.getText().toString().startsWith("https")||editTxt.getText().toString().startsWith("www")||editTxt.getText().toString().startsWith(".")||editTxt.getText().toString().endsWith(".com")){
                                 editTxt.setError("Please enter only github username");
                             }
@@ -185,7 +185,7 @@ public class InnerActivity  extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (editTxt.length() > 6 && editTxt.length() < 50) {
+                        if (editTxt.getText().toString().trim().length() > 6 && editTxt.getText().toString().trim().length() < 50) {
                             if(editTxt.getText().toString().startsWith("http")||editTxt.getText().toString().startsWith("https")||editTxt.getText().toString().startsWith("www")||editTxt.getText().toString().startsWith(".")||editTxt.getText().toString().endsWith(".com")){
                                 editTxt.setError("Please enter only linkedin username");
                             }else{
@@ -217,7 +217,7 @@ public class InnerActivity  extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if (editTxt.length() > 6 && editTxt.length() < 35) {
+                        if (editTxt.getText().toString().trim().length() > 6 && editTxt.getText().toString().trim().length() < 35) {
                             if(editTxt.getText().toString().startsWith("http://")||editTxt.getText().toString().startsWith("https://")){
                                 addingData("website");
                             }else {

@@ -87,19 +87,6 @@ public class SignupActivity extends AppCompatActivity {
                 }
 
                 progressBar.setVisibility(View.VISIBLE);
-
-               /* User user = new User(email, password,"normal");
-                mDatabase.child("users").child(userId).setValue(user);
-                mDatabase.child(userId).addListenerForSingleValueEvent(new ValueEventListener() {
-                    public void onDataChange(DataSnapshot dataSnapshot) {
-                        startActivity(new Intent(SignupActivity.this, MainActivity.class));
-                        finish();
-                    }
-                    public void onCancelled(DatabaseError firebaseError) {
-                        Toast.makeText(SignupActivity.this, "Authentication failed.",
-                                Toast.LENGTH_SHORT).show();
-                    }
-                });*/
                 //create user
                 auth.createUserWithEmailAndPassword(email, password)
                         .addOnCompleteListener(SignupActivity.this, new OnCompleteListener<AuthResult>() {

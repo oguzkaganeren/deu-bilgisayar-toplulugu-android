@@ -47,13 +47,9 @@ public class NoticeFragment  extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        //bu kısım fragmenlere özel
 
         View v = inflater.inflate(R.layout.fragment_notice, container, false);
-        // 2.
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
-
-        // 3.
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview_notice);
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
         mRecyclerView.setHasFixedSize(true);

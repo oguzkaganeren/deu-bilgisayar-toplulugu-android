@@ -13,13 +13,10 @@
         android:supportsRtl="true"
         android:theme="@style/MyMaterialTheme" >
         <activity android:name=".MainActivity" android:label="@string/app_name">
-
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
-
         </activity>
         <service android:name="OurFirebaseMessagingService">
             <intent-filter>
@@ -37,7 +34,7 @@
         <activity android:label="@string/app_name" android:name=".ProfileActivity"/>
         <activity android:label="@string/app_name" android:name=".InnerActivity"/>
         <activity android:label="@string/app_name" android:name=".AddEventActivity"/>
-        <activity android:label="@string/app_name" android:name=".MapActivity"/>
+
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="AIzaSyAcuSUxVH--JaDmo5T6vQWoqM-TBqkXm9I"/>

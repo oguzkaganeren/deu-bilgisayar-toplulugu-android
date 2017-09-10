@@ -8,33 +8,24 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
-
-
-import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.view.ViewPager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
-import android.util.Log;
-import android.view.Gravity;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.engine.DiskCacheStrategy;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -58,6 +49,7 @@ import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
 import com.mikepenz.materialdrawer.model.SecondaryDrawerItem;
+import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
@@ -65,7 +57,6 @@ import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerUIUtils;
 
 import java.util.ArrayList;
-import java.util.List;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -86,14 +77,10 @@ public class MainActivity extends AppCompatActivity {
     private Class fragmentClass = null;
     private DrawerLayout rightDrawer;
     private DrawerLayout drawerLayout;
-    private static Context mContext;
     private AccountHeader headerResult;
     private Menu rightMenu;
     private FirebaseAuth mAuth;
     private FirebaseAuth.AuthStateListener mAuthListener;
-    public static Context getContext() {
-        return mContext;
-    }
     @Override
     public void onStart() {
         super.onStart();
@@ -120,17 +107,13 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayUseLogoEnabled(false);
             actionBar.setHomeButtonEnabled(true);
         }
-
-        mContext= getApplicationContext();
         navigationViewRight=(NavigationView) findViewById(R.id.nav_viewTwo);
-
-
-
         fab=(FloatingActionButton)findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = mViewPager.getViewPager();
         loadTabs();
+        //account builder'ın ierisinde image loader olmadığı için aşağıdaki init'i ekledik
         DrawerImageLoader.init(new AbstractDrawerImageLoader() {
             @Override
             public void set(ImageView imageView, Uri uri, Drawable placeholder, String tag) {
@@ -154,10 +137,6 @@ public class MainActivity extends AppCompatActivity {
                 } else if ("customUrlItem".equals(tag)) {
                     return new IconicsDrawable(ctx).iconText(" ").backgroundColorRes(R.color.md_red_500).sizeDp(56);
                 }
-
-                //we use the default one for
-                //DrawerImageLoader.Tags.PROFILE_DRAWER_ITEM.name()
-
                 return super.placeholder(ctx, tag);
             }
         });
@@ -167,7 +146,7 @@ public class MainActivity extends AppCompatActivity {
                 .withOnAccountHeaderListener(new AccountHeader.OnAccountHeaderListener() {
                     @Override
                     public boolean onProfileChanged(View view, IProfile profile, boolean currentProfile) {
-                        Intent intent = new Intent(getContext(), ProfileActivity.class);
+                        Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                         MainActivity.this.startActivity(intent);
                         return false;
                     }
@@ -204,7 +183,7 @@ public class MainActivity extends AppCompatActivity {
                         // do something with the clicked item :D
                         switch (position){
                             case 3:
-                                Intent intent = new Intent(getContext(), ProfileActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), ProfileActivity.class);
                                 MainActivity.this.startActivity(intent);
                                 break;
                             case 4:
@@ -233,7 +212,6 @@ public class MainActivity extends AppCompatActivity {
         drawerLayout = left.getDrawerLayout();
         actionBarDrawerToggle=  new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.material_drawer_open, R.string.material_drawer_close);
         if (mAuth.getCurrentUser() != null) {
-
             // User is logged in
             mDatabase = FirebaseDatabase.getInstance().getReference();
             loadDataOnFirebase();
@@ -248,7 +226,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 if (mAuth.getCurrentUser() == null) {
-                Intent intent = new Intent(getContext(), LoginActivity.class);
+                Intent intent = new Intent(getApplicationContext(), LoginActivity.class);
                 MainActivity.this.startActivity(intent);
                  }
             }
@@ -382,7 +360,7 @@ public class MainActivity extends AppCompatActivity {
                         fab.setImageDrawable(getResources().getDrawable(R.drawable.events_add_white));
                         fab.setOnClickListener(new View.OnClickListener() {
                             public void onClick(View v) {
-                                Intent intent = new Intent(getContext(), AddEventActivity.class);
+                                Intent intent = new Intent(getApplicationContext(), AddEventActivity.class);
                                 MainActivity.this.startActivity(intent);
                             }
                         });
@@ -417,6 +395,7 @@ public class MainActivity extends AppCompatActivity {
         super.finish();
         overridePendingTransition(0, R.anim.left_exit);
     }
+    //kullanıcı girişi yoksa menuleri görmemesi için kullanılan method
     public void setDrawerState(boolean isEnabled) {
         if ( isEnabled ) {
             drawerLayout.setDrawerLockMode(DrawerLayout.LOCK_MODE_UNLOCKED);

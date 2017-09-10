@@ -6,7 +6,6 @@ import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -15,7 +14,6 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
@@ -26,9 +24,7 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
-import com.google.firebase.database.Exclude;
 import com.google.firebase.database.FirebaseDatabase;
-import com.google.firebase.database.Query;
 import com.google.firebase.database.ServerValue;
 import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
@@ -38,8 +34,6 @@ import com.vansuita.materialabout.builder.AboutBuilder;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
-import java.util.Collections;
-import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
@@ -66,7 +60,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         eventsViewHolder.address.setText(wb.address);
         eventsViewHolder.title.setText(wb.title);
         eventsViewHolder.description.setText(wb.description);
-
+        //date formatını 00/00/0000 formatına çeviriyorum
         String cDate=wb.date.toString();
         SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.getDefault());
         try {
@@ -81,10 +75,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             e.printStackTrace();
             eventsViewHolder.date.setText(wb.date.toString());
         }
+        //--------------------------------------
         Glide.with(context)
                 .load(R.drawable.event)
                 .centerCrop()
                 .into(eventsViewHolder.image);
+        //event kartının üzerine tıklandığında google maps açılıp locationı gösterecek
         eventsViewHolder.theCard.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 String[] loc=wb.location.split("-");
@@ -96,9 +92,10 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
 
             }
         });
+        //--------------------------------------------------
         StorageReference storageRef=FirebaseStorage.getInstance().getReference();
         StorageReference image = storageRef.child("images/profiles/"+wb.uid);
-
+        //eventi ekleyenin resimi gözükme kısmı
         image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
@@ -109,7 +106,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                 Glide.with(context).load(R.drawable.ic_user).centerCrop().into(eventsViewHolder.userImage);
             }
         });
-
+        //resmin üzerine tıklanınca verileri gözükecek bu kısım başka bir yerde daha kullanılıdı class veya fonksiyona çevirmeli
         eventsViewHolder.userImage.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 final AboutBuilder ab = AboutBuilder.with(context) .setLinksAnimated(true)
@@ -199,9 +196,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         eventsViewHolder.join.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(final View v) {
                 final EventRegister reg = new EventRegister();
-
-               // reg.changedTime=ServerValue.TIMESTAMP;
-               // mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).setValue(reg);
                 ValueEventListener registerListener=new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
@@ -274,8 +268,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             }
         };
         mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).addValueEventListener(getData);
-        //bu kısımda bi problem çıkabilir
-        //mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).removeEventListener(getData);
+        //burada bir'den fazla listener var bi kontrol et
         mDatabase.child("eventregister").child(wb.getEventKey()).addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {

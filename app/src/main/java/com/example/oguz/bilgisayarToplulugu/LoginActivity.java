@@ -3,7 +3,6 @@ package com.example.oguz.bilgisayarToplulugu;
 /**
  * Created by Oguz on 16-Jul-17.
  */
-import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
@@ -33,30 +32,21 @@ public class LoginActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
+        setContentView(R.layout.log_in);
         //Get Firebase auth instance
         auth = FirebaseAuth.getInstance();
         auth.signOut();
         if (auth.getCurrentUser() != null) {
-            startActivity(new Intent(LoginActivity.this, MainActivity.class));
             finish();
         }
-
-        // set the view now
-        setContentView(R.layout.log_in);
-
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
         inputEmail = (EditText) findViewById(R.id.email);
         inputPassword = (EditText) findViewById(R.id.password);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
         btnSignup = (Button) findViewById(R.id.btn_signup);
         btnLogin = (Button) findViewById(R.id.btn_login);
         btnReset = (Button) findViewById(R.id.btn_reset_password);
-
-        //Get Firebase auth instance
-        auth = FirebaseAuth.getInstance();
 
         btnSignup.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -83,14 +73,15 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter email address!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
                 if (TextUtils.isEmpty(password)) {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                if(!email.endsWith("@ceng.deu.edu.tr")||!email.endsWith("@deu.edu.tr")){
+                    Toast.makeText(getApplicationContext(), "You can just log in a school email such as example@ceng.deu.edu.tr or example@deu.edu.tr", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 progressBar.setVisibility(View.VISIBLE);
-
                 //authenticate user
                 auth.signInWithEmailAndPassword(email, password)
                         .addOnCompleteListener(LoginActivity.this, new OnCompleteListener<AuthResult>() {
@@ -109,16 +100,12 @@ public class LoginActivity extends AppCompatActivity {
                                     }
                                 } else {
                                     //checkIfEmailVerified();
-
-                                    /*Intent i = new Intent(LoginActivity.this,MainActivity.class);
-                                    startActivity(i);*/
                                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                                     mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
                                     finish();
-                                    //Burayı iyi başardım haaa :)
                                     Intent i=new Intent(LoginActivity.this,MainActivity.class);
                                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                                    MainActivity.getContext().startActivity(i);
+                                    startActivity(i);
                                 }
                             }
                         });

@@ -39,48 +39,45 @@ import java.util.List;
 
 
 public class ContentFragment extends Fragment {
+    //projenin en karışık kısmı bu kısmı daha anlaşılır biçime sokmak gerek birde rss yerine json'a geçilmeli
     private RecyclerView mRecyclerView;
     private LinearLayoutManager mLinearLayoutManager;
     private List headlines;
     private List links;
-    ImageView imageView;
-    ArrayList<WebDataInfo> ls;
-    WebDataInfo wb;
-   public WebDataAdapter myAdap;
-        String[] myWebSource=new String[]{"https://www.cnet.com/rss/news/","http://www.techradar.com/rss/news/software","https://www.wired.com/feed/rss"};
-    int mySourceNumber=0;
+    private ImageView imageView;
+    private ArrayList<WebDataInfo> ls;
+    private WebDataInfo wb;
+    private WebDataAdapter myAdap;
+    //veri çekilecek kaynaklar
+    private String[] myWebSource=new String[]{"https://www.cnet.com/rss/news/","http://www.techradar.com/rss/news/software","https://www.wired.com/feed/rss"};
+    private int mySourceNumber=0;//endless rcyler sayesinde aşağılara inildikçe yeni kaynaktan veri çekecek, bu sayı arttıkça bir sonraki kaynağa geçer
     public ContentFragment() {
         // Required empty public constructor
     }
-
+    //arkaplanda verileri çekmek için kullanılan inner class
     class ParseXMLTask extends AsyncTask<String, Void, Void> {
 
         @Override
         protected Void doInBackground(String... params) {
             try {
-                    URL urlTo = new URL(myWebSource[mySourceNumber]);
-                if (mySourceNumber<myWebSource.length)
+                    URL urlTo = new URL(myWebSource[mySourceNumber]);//sourcenumber'a göre hangi web sayfasından veri alınacağı belirleniyor
+                if (mySourceNumber<myWebSource.length)//sınırı aşmayalım :)
                     mySourceNumber++;
-                    //https://servis.chip.com.tr/chiponline.xml
-                    //http://www.techrepublic.com/rssfeeds/articles/latest/
-                    //https://www.cnet.com/rss/news/
-                    //http://feeds.pcworld.com/pcworld/latestnews
                     XmlPullParserFactory factory = XmlPullParserFactory.newInstance();
-                    factory.setNamespaceAware(false);
+                    factory.setNamespaceAware(false);//içerisinde bulunan boşlukları kaldırması için kullanılır(bi kontrol et)
                     XmlPullParser xpp = factory.newPullParser();
 
                     // We will get the XML from an input stream
                     xpp.setInput(getInputStream(urlTo), "UTF_8");
-                    boolean insideItem = false;
+                    boolean insideItem = false;//node'un cocuklarına erişmek için kullanacağız
                     // Returns the type of current event: START_TAG, END_TAG, etc..
                     int eventType = xpp.getEventType();
                     wb = new WebDataInfo();
                     String source=urlTo.toString();
-
-                    String[] sourceWeb=source.split("\\.");
+                    String[] sourceWeb=source.split("\\.");//kaynağı cardview'e yazdırırken kullanıldı
                     while (eventType != XmlPullParser.END_DOCUMENT) {
                         if (eventType == XmlPullParser.START_TAG) {
-
+                            //genel olarak image için üç farklı tag kullanılıyor enclosure,media:content,media:thumbnail
                             if (xpp.getName().equalsIgnoreCase("item")) {
                                 insideItem = true;
 
@@ -119,7 +116,9 @@ public class ContentFragment extends Fragment {
                             }
                         } else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")) {
                             insideItem = false;
+                            //gelen veriler önce wb classına alınıyor burda listeye aktarılıyor
                             ls.add(wb);
+                            //wb'nin yeni instance alınıyor(önceki içeriğin sıfırlanması için)(belki değiştir)
                             wb = new WebDataInfo();
                         }
 
@@ -139,6 +138,7 @@ public class ContentFragment extends Fragment {
         @Override
         protected void onPostExecute(Void result) {
             super.onPostExecute(result);
+            //background işlemi bitti
             //do something after parsing is done
             myAdap=new WebDataAdapter(getActivity(),ls);
             mRecyclerView.swapAdapter(myAdap,false);
@@ -157,6 +157,7 @@ public class ContentFragment extends Fragment {
                 .getDefaultSharedPreferences(getActivity().getApplicationContext());
         Gson gson = new Gson();
         String json = appSharedPrefs.getString("topluveri", "");
+        //internet olup olmadığı kısmı tam iyi çalışmıyor düzeltilecek
         if (!haveInternet()){
             ls=gson.fromJson(json,type);
             myAdap=new WebDataAdapter(getActivity(),ls);
@@ -179,7 +180,6 @@ public class ContentFragment extends Fragment {
 
         // 2.
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
-        //mLinearLayoutManager.setOrientation(LinearLayoutManager.VERTICAL);
 
         // 3.
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcview);
@@ -187,11 +187,10 @@ public class ContentFragment extends Fragment {
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         final View myToolBar = getActivity().findViewById(R.id.toolbar);
-       // final View myTabs = getActivity().findViewById(R.id.tabs);
-       // final View myBarLa = getActivity().findViewById(R.id.myBarLayout);
         if (mRecyclerView.getAdapter()==null){
             mRecyclerView.swapAdapter(myAdap,false);
         }
+
         mRecyclerView.setOnScrollListener(new EndlessRecyclerOnScrollListener(mLinearLayoutManager) {
             @Override
             //scroll yaptıkça verileri çekmesi gerekiyor bunun için aşağıdaki methodu kullanacağım
@@ -200,38 +199,6 @@ public class ContentFragment extends Fragment {
                     ParseXMLTask pars = new ParseXMLTask();
                     pars.execute();
                 }
-            }
-            private static final int HIDE_THRESHOLD = 20;
-            private int scrolledDistance = 0;
-            private boolean controlsVisible = true;
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                super.onScrolled(recyclerView, dx, dy);
-                if (scrolledDistance > HIDE_THRESHOLD && controlsVisible) {
-                    hideViews();
-                    controlsVisible = false;
-                    scrolledDistance = 0;
-                } else if (scrolledDistance < -HIDE_THRESHOLD && !controlsVisible) {
-                    showViews();
-                    controlsVisible = true;
-                    scrolledDistance = 0;
-                }
-
-                if((controlsVisible && dy>0) || (!controlsVisible && dy<0)) {
-                    scrolledDistance += dy;
-                }
-            }
-
-            private void hideViews() {
-              // myToolBar.animate().translationY(-myToolBar.getHeight()).setInterpolator(new AccelerateInterpolator(3));
-               // myTabs.animate().translationY(-myTabs.getHeight()).setInterpolator(new AccelerateInterpolator(2));
-
-
-            }
-
-            private void showViews() {
-               //myToolBar.animate().translationY(0).setInterpolator(new DecelerateInterpolator(1));
-               // myTabs.animate().translationY(0).setInterpolator(new DecelerateInterpolator(2));
             }
         });
 
@@ -245,6 +212,7 @@ public class ContentFragment extends Fragment {
         //çünkü biz üyelerimizin internet kotalarını düşünürüz :)
         if (ls!=null)
         {
+            //burayı bi kontrol et
             SharedPreferences appSharedPrefs = PreferenceManager
                 .getDefaultSharedPreferences(getActivity().getApplicationContext());
             SharedPreferences.Editor prefsEditor = appSharedPrefs.edit();

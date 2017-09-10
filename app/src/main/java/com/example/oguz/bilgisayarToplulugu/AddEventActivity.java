@@ -74,8 +74,8 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_addevent);
         mAuth = FirebaseAuth.getInstance();
-        if (mAuth != null) {
-
+        //kullanıcı giriş yapmadıysa bu sayfayı görememeli
+        if (mAuth.getCurrentUser() != null) {
             mActionBarToolbar = (Toolbar) findViewById(R.id.toolbarInnerEvent);
             mActionBarToolbar.setTitleTextColor(getResources().getColor(R.color.colorTabSelected));
             mActionBarToolbar.setTitle("Add Event");
@@ -86,10 +86,13 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
             spinner.setVisibility(View.GONE);
             description = (EditText) findViewById(R.id.description_event);
             date = (Button) findViewById(R.id.date_event);
+            //--------------Google maps'in ilave edilme kısmı
             FragmentManager fm = getSupportFragmentManager();
             SupportMapFragment supportMapFragment = SupportMapFragment.newInstance();
             fm.beginTransaction().replace(R.id.map_frame, supportMapFragment).commit();
             supportMapFragment.getMapAsync(this);
+            //-----------------------------------------
+            //--------------Tarih ve saat dialog kısmı
             final Dialog dialog = new Dialog(AddEventActivity.this);
             dialog.setContentView(R.layout.custom_date_time);
             dialog.setTitle("Custom Dialog");
@@ -116,9 +119,13 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                     date.setText(day + "/" + month + "/" + year + " " + hour + ":" + minute);
                 }
             });
+            //-----------------------------------------
+            //--------------------Google maps auto complete'ın eklenmesi
             PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
                     getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
             address=((EditText)autocompleteFragment.getView().findViewById(R.id.place_autocomplete_search_input));
+            //-----------------------------------------
+            //------------------Addrese göre kameranın oynaması ve marker koyulması
             autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
                 public void onPlaceSelected(Place place) {
@@ -149,6 +156,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
 
 
     public boolean onCreateOptionsMenu(Menu menu) {
+        //sağ üste yer alan tamam butonun oluşturulma kısmı
         if (mAuth.getCurrentUser() != null) {
             MenuInflater inflater = getMenuInflater();
             inflater.inflate(R.menu.done_addevent, menu);
@@ -159,6 +167,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     public void changeActionMenuItemsBackground(int color) {
+        //Action bar üzerindeki butonun rengini değiştirmek için bu method kullanıldı
         for (int i = 0; i < mActionBarToolbar.getChildCount(); i++) {
             final View v = mActionBarToolbar.getChildAt(i);
             if (v instanceof ActionMenuView) {
@@ -168,8 +177,10 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
     }
 
     public void done(MenuItem item) {
+        //tekrar done butona basması engelleniyor
         spinner.setVisibility(View.VISIBLE);
         doneMenu.setVisible(false);
+        //-----------------------------------------
         String key = mDatabase.child("events").push().getKey();
         String sTitle = title.getText().toString();
         String sDesc = description.getText().toString();
@@ -211,12 +222,13 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                 } else {
                     spinner.setVisibility(View.GONE);
                     doneMenu.setVisible(true);
-                    //hataları yazdır
+                    address.setError("Please select an address");
                 }
 
             } else {
                 spinner.setVisibility(View.GONE);
                 doneMenu.setVisible(true);
+                Toast.makeText(AddEventActivity.this, "Please do not leave empty area and be careful character limit", Toast.LENGTH_SHORT).show();
             }
         }else{
             spinner.setVisibility(View.GONE);
@@ -230,6 +242,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
     @Override
     public void onMapReady(GoogleMap googleMap) {
         mMap = googleMap;
+        //map üzerine tıklama işleminde address labeline addresin yazılması ve location'ın alınması ile ilgili kısım
         mMap.setOnMapClickListener(new GoogleMap.OnMapClickListener() {
 
             @Override
@@ -275,10 +288,6 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                 }
             }
         });
-        // Add a marker in Sydney, Australia, and move the camera.
-        /*LatLng sydney = new LatLng(-34, 151);
-        mMap.addMarker(new MarkerOptions().position(sydney).title("Marker in Sydney"));
-        mMap.moveCamera(CameraUpdateFactory.newLatLng(sydney));*/
     }
 
  }
