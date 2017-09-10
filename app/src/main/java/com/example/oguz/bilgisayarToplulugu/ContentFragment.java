@@ -82,8 +82,16 @@ public class ContentFragment extends Fragment {
                                 insideItem = true;
 
                             } else if (xpp.getName().equalsIgnoreCase("title")) {
+
                                 if (insideItem) {
-                                    wb.title = xpp.nextText();
+
+                                      wb.title = xpp.nextText();
+                                    for(int i=0;i<ls.size();i++){
+                                        if(wb.title.toString().equals(ls.get(i).title)){
+                                            insideItem=false;
+                                        }
+                                    }
+
                                 }
                             } else if (xpp.getName().equalsIgnoreCase("enclosure")) {
                                 if (insideItem) {
@@ -115,11 +123,14 @@ public class ContentFragment extends Fragment {
                                 }
                             }
                         } else if (eventType == XmlPullParser.END_TAG && xpp.getName().equalsIgnoreCase("item")) {
-                            insideItem = false;
-                            //gelen veriler önce wb classına alınıyor burda listeye aktarılıyor
-                            ls.add(wb);
-                            //wb'nin yeni instance alınıyor(önceki içeriğin sıfırlanması için)(belki değiştir)
-                            wb = new WebDataInfo();
+                            if(insideItem){
+                                insideItem = false;
+                                //gelen veriler önce wb classına alınıyor burda listeye aktarılıyor
+                                ls.add(wb);
+                                //wb'nin yeni instance alınıyor(önceki içeriğin sıfırlanması için)(belki değiştir)
+                                wb = new WebDataInfo();
+                            }
+
                         }
 
                         eventType = xpp.next(); //move to next element
@@ -158,12 +169,9 @@ public class ContentFragment extends Fragment {
         Gson gson = new Gson();
         String json = appSharedPrefs.getString("topluveri", "");
         //internet olup olmadığı kısmı tam iyi çalışmıyor düzeltilecek
-        if (!haveInternet()){
-            ls=gson.fromJson(json,type);
-            myAdap=new WebDataAdapter(getActivity(),ls);
-            Log.e("internet","yoktur");
-        }else{
-            ls=new ArrayList<WebDataInfo>();
+        ls=gson.fromJson(json,type);
+        myAdap=new WebDataAdapter(getActivity(),ls);
+        if (haveInternet()){
             ParseXMLTask pars=new ParseXMLTask();
             pars.execute();
         }
@@ -198,6 +206,7 @@ public class ContentFragment extends Fragment {
                 if (mySourceNumber<myWebSource.length) {
                     ParseXMLTask pars = new ParseXMLTask();
                     pars.execute();
+                    Log.d("deneme", "onLoadMore: "+String.valueOf(mySourceNumber) );
                 }
             }
         });

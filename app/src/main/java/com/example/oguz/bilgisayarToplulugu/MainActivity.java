@@ -282,14 +282,15 @@ public class MainActivity extends AppCompatActivity {
                         return myContents;
                     case 1:
                         if(mAuth.getCurrentUser() != null){
-                            return myNotices;
-                        }else{
-                            return null;
-                        }
-                    case 2:
-                        if(mAuth.getCurrentUser() != null){
                             return myEvents;
                         }else {
+                            return null;
+                        }
+
+                    case 2:
+                        if(mAuth.getCurrentUser() != null){
+                            return myNotices;
+                        }else{
                             return null;
                         }
                     case 3:
@@ -321,13 +322,13 @@ public class MainActivity extends AppCompatActivity {
                         return "Contents";
                     case 1:
                         if(mAuth.getCurrentUser() != null) {
-                            return "Notices";
+                            return "Events";
                         }else{
                             return null;
                         }
                     case 2:
                         if(mAuth.getCurrentUser() != null) {
-                            return "Events";
+                            return "Notices";
                         }else{
                             return null;
                         }
@@ -352,10 +353,6 @@ public class MainActivity extends AppCompatActivity {
                                 getResources().getColor(R.color.content_bg), getResources().getDrawable(R.drawable.content_back));
 
                     case 1:
-                        fab.setVisibility(View.GONE);
-                        return HeaderDesign.fromColorAndDrawable(
-                                getResources().getColor( R.color.notice_bg),getResources().getDrawable(R.drawable.notice_back));
-                    case 2:
                         fabStatusAccordingToRole();
                         fab.setImageDrawable(getResources().getDrawable(R.drawable.events_add_white));
                         fab.setOnClickListener(new View.OnClickListener() {
@@ -366,6 +363,11 @@ public class MainActivity extends AppCompatActivity {
                         });
                         return HeaderDesign.fromColorAndDrawable(
                                 getResources().getColor(R.color.event_bg),getResources().getDrawable(R.drawable.event_back));
+
+                    case 2:
+                        fab.setVisibility(View.GONE);
+                        return HeaderDesign.fromColorAndDrawable(
+                                getResources().getColor( R.color.notice_bg),getResources().getDrawable(R.drawable.notice_back));
                     case 3:
                         fab.setVisibility(View.GONE);
                         return HeaderDesign.fromColorAndDrawable(
