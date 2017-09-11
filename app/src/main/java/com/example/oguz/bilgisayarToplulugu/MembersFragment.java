@@ -84,13 +84,13 @@ public class MembersFragment  extends Fragment {
                     // Is better to use a List, because you don't know the size
                     // of the iterator returned by dataSnapshot.getChildren() to
                     // initialize the array
-                    mRecyclerView.setAdapter(null);
-                    membersList.clear();
-                    ourMembersAdapter.notifyItemRangeRemoved(0, ourMembersAdapter.getItemCount());
                     if (dataSnapshot.exists()) {
                         for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
                             if (mAuth.getCurrentUser() != null && memberSnapshot.getKey() != null) {
+
                                 final MembersInfo member = new MembersInfo();
+
+
                                 if (memberSnapshot.hasChild("name-surname") && mAuth != null) {
                                     String nameSurname = memberSnapshot.child("name-surname").getValue(String.class);
                                     member.nameSurname = nameSurname;
@@ -109,6 +109,7 @@ public class MembersFragment  extends Fragment {
                                     SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy HH:mm");
                                     String dateText = df2.format(date);
                                     member.last_login=dateText;
+                                    member.uid=memberSnapshot.getKey().toString();
                                 }else{
                                     member.last_login="-";
                                 }
@@ -139,7 +140,7 @@ public class MembersFragment  extends Fragment {
                                     }
 
                                 }
-                                StorageReference image = storageRef.child("images/profiles/" + memberSnapshot.getKey().toString());
+                               StorageReference image = storageRef.child("images/profiles/" + memberSnapshot.getKey().toString());
                                 image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
                                     @Override
                                     public void onSuccess(Uri uri) {
@@ -153,8 +154,20 @@ public class MembersFragment  extends Fragment {
                                         mRecyclerView.setAdapter(ourMembersAdapter);
                                     }
                                 });
-
-                                membersList.add(member);
+                                boolean isChanged=false;
+                                for(int i=0;i<membersList.size();i++){
+                                    if(membersList.get(i).uid.equals(member.uid)){
+                                        membersList.set(i,member);
+                                        isChanged=true;
+                                        Log.d("he", "onDataChange: "+String.valueOf(member.uid)+"name"+member.nameSurname);
+                                        break;
+                                    }
+                                }
+                                if(!isChanged){
+                                    membersList.add(member);
+                                }else{
+                                    isChanged=false;
+                                }
                                 Collections.sort(membersList);
                                 Collections.reverse(membersList);
                             }

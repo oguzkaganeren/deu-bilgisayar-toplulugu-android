@@ -12,6 +12,7 @@ public class MembersInfo implements Comparable<MembersInfo>{
     protected String github;
     protected String linkedin;
     protected String email;
+    protected String uid;
     protected String website;
     protected String imgSrc;
     protected Boolean online;
