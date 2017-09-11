@@ -67,7 +67,7 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String email = inputEmail.getText().toString().trim();
-                String userId = mDatabase.push().getKey();
+                email+="@ceng.deu.edu.tr";
                 String password = inputPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {

@@ -7,6 +7,7 @@ import android.support.v4.app.Fragment;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -24,6 +25,7 @@ import com.google.firebase.storage.StorageReference;
 
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Date;
 
 /**
@@ -51,6 +53,7 @@ public class MembersFragment  extends Fragment {
         }
 
 
+
     }
 
     @Override
@@ -67,16 +70,15 @@ public class MembersFragment  extends Fragment {
         if (mRecyclerView.getAdapter()==null){
             mRecyclerView.setAdapter(ourMembersAdapter);
         }
-
         return v;
     }
     public void loadMembers(){
         DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-
         final FirebaseStorage myStorage=FirebaseStorage.getInstance();
         final StorageReference storageRef= myStorage.getReference();
         ourMembersAdapter=new MembersAdapter(getActivity(),membersList);
-            mDatabase.child("users").addValueEventListener(new ValueEventListener() {
+            mDatabase.child("users")
+                    .addValueEventListener(new ValueEventListener() {
                 @Override
                 public void onDataChange(DataSnapshot dataSnapshot) {
                     // Is better to use a List, because you don't know the size
@@ -91,9 +93,9 @@ public class MembersFragment  extends Fragment {
                                 final MembersInfo member = new MembersInfo();
                                 if (memberSnapshot.hasChild("name-surname") && mAuth != null) {
                                     String nameSurname = memberSnapshot.child("name-surname").getValue(String.class);
-                                    member.NameSurname = nameSurname;
+                                    member.nameSurname = nameSurname;
                                 } else {
-                                    member.NameSurname = "Computer Society Member";
+                                    member.nameSurname = "Computer Society Member";
                                 }
                                 if (memberSnapshot.hasChild("status") && mAuth != null) {
                                     String status = memberSnapshot.child("status").getValue(String.class);
@@ -153,6 +155,8 @@ public class MembersFragment  extends Fragment {
                                 });
 
                                 membersList.add(member);
+                                Collections.sort(membersList);
+                                Collections.reverse(membersList);
                             }
 
                         }

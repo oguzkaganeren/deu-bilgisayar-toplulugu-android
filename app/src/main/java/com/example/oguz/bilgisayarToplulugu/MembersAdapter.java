@@ -40,7 +40,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
     public void onBindViewHolder(final MembersAdapter.MembersViewHolder membersViewHolder, int i) {
         MembersInfo wb = dataList.get(i);
         final MembersInfo swb=dataList.get(i);
-        membersViewHolder.name_surname.setText(wb.NameSurname);
+        membersViewHolder.name_surname.setText(wb.nameSurname);
         membersViewHolder.status.setText(wb.status);
         if(wb.online!=null){
             ImageView imgCircle = membersViewHolder.online;
@@ -72,8 +72,8 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
                final AboutBuilder ab = AboutBuilder.with(context) .setLinksAnimated(true)
                        .setShowAsCard(false).addFiveStarsAction().setWrapScrollView(true).setAppName(R.string.app_name).addShareAction(R.string.app_name);
                 ab.setCover(R.drawable.profilebackground);
-                if(swb.NameSurname!=null){
-                    ab.setName(swb.NameSurname);
+                if(swb.nameSurname!=null){
+                    ab.setName(swb.nameSurname);
                 }
                 if(swb.status!=null){
                     ab.setSubTitle(swb.status);

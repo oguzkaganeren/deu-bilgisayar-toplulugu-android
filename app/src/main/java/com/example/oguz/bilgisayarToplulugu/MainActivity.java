@@ -394,6 +394,16 @@ public class MainActivity extends AppCompatActivity {
         setIntent(intent);
     }
     @Override
+    public void onResume(){
+        super.onResume();
+        if (mAuth.getCurrentUser() != null) {
+            // User is logged in
+            mDatabase = FirebaseDatabase.getInstance().getReference();
+            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(true);
+        }
+
+    }
+    @Override
     public void onStop() {
         super.onStop();
         if (mAuth.getCurrentUser() != null) {
