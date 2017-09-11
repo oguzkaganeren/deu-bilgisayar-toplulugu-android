@@ -60,6 +60,9 @@ public class ContentFragment extends Fragment {
         @Override
         protected Void doInBackground(String... params) {
             try {
+                if(ls==null){
+                    ls=new ArrayList<WebDataInfo>();
+                }
                     URL urlTo = new URL(myWebSource[mySourceNumber]);//sourcenumber'a göre hangi web sayfasından veri alınacağı belirleniyor
                 if (mySourceNumber<myWebSource.length)//sınırı aşmayalım :)
                     mySourceNumber++;
@@ -86,11 +89,12 @@ public class ContentFragment extends Fragment {
                                 if (insideItem) {
 
                                       wb.title = xpp.nextText();
-                                    for(int i=0;i<ls.size();i++){
-                                        if(wb.title.toString().equals(ls.get(i).title)){
-                                            insideItem=false;
+                                        for(int i=0;i<ls.size();i++){
+                                            if(wb.title.toString().equals(ls.get(i).title)){
+                                                insideItem=false;
+                                            }
                                         }
-                                    }
+
 
                                 }
                             } else if (xpp.getName().equalsIgnoreCase("enclosure")) {
@@ -169,8 +173,11 @@ public class ContentFragment extends Fragment {
         Gson gson = new Gson();
         String json = appSharedPrefs.getString("topluveri", "");
         //internet olup olmadığı kısmı tam iyi çalışmıyor düzeltilecek
-        ls=gson.fromJson(json,type);
-        myAdap=new WebDataAdapter(getActivity(),ls);
+        if(!json.isEmpty()){
+            ls=gson.fromJson(json,type);
+            myAdap=new WebDataAdapter(getActivity(),ls);
+        }
+
         if (haveInternet()){
             ParseXMLTask pars=new ParseXMLTask();
             pars.execute();

@@ -67,7 +67,6 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String email = inputEmail.getText().toString().trim();
-                email+="@ceng.deu.edu.tr";
                 String userId = mDatabase.push().getKey();
                 String password = inputPassword.getText().toString().trim();
 
@@ -85,7 +84,10 @@ public class SignupActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Password too short, enter minimum 6 characters!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-
+                if(!email.endsWith("@ceng.deu.edu.tr")&&!email.endsWith("@deu.edu.tr")){
+                    Toast.makeText(getApplicationContext(), "You can just register a school email such as example@ceng.deu.edu.tr or example@deu.edu.tr", Toast.LENGTH_SHORT).show();
+                    return;
+                }
                 progressBar.setVisibility(View.VISIBLE);
                 //create user
                 auth.createUserWithEmailAndPassword(email, password)

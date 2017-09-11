@@ -66,7 +66,7 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
-                email+="@ceng.deu.edu.tr";
+                //email+="@ceng.deu.edu.tr";
                 final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
@@ -77,7 +77,7 @@ public class LoginActivity extends AppCompatActivity {
                     Toast.makeText(getApplicationContext(), "Enter password!", Toast.LENGTH_SHORT).show();
                     return;
                 }
-                if(!email.endsWith("@ceng.deu.edu.tr")||!email.endsWith("@deu.edu.tr")){
+                if(!email.endsWith("@ceng.deu.edu.tr")&&!email.endsWith("@deu.edu.tr")){
                     Toast.makeText(getApplicationContext(), "You can just log in a school email such as example@ceng.deu.edu.tr or example@deu.edu.tr", Toast.LENGTH_SHORT).show();
                     return;
                 }
@@ -101,11 +101,11 @@ public class LoginActivity extends AppCompatActivity {
                                 } else {
                                     //checkIfEmailVerified();
                                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                                    mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
                                     finish();
                                     Intent i=new Intent(LoginActivity.this,MainActivity.class);
                                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(i);
+                                    mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
                                 }
                             }
                         });

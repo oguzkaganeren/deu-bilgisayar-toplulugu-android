@@ -14,6 +14,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
+import com.bumptech.glide.request.animation.ViewPropertyAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
 import com.vansuita.materialabout.builder.AboutBuilder;
 
@@ -55,11 +56,13 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             Glide.with(context)
                     .load(R.mipmap.logo)
                     .centerCrop()
+                    .fitCenter()
                     .into(membersViewHolder.imgSrc);
         }else{
             Glide.with(context)
                     .load(wb.imgSrc)
                     .centerCrop()
+                    .fitCenter()
                     .into(membersViewHolder.imgSrc);
         }
         membersViewHolder.imgSrc.setOnLongClickListener(new View.OnLongClickListener() {
