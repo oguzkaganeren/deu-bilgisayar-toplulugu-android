@@ -75,42 +75,46 @@ public class EventFragment extends Fragment{
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
                         if (mAuth.getCurrentUser() != null && memberSnapshot.getKey() != null) {
-                            final EventsInfo event = new EventsInfo();
-                            if (memberSnapshot.hasChild("address") && mAuth != null) {
-                                String address = memberSnapshot.child("address").getValue(String.class);
-                                event.address = address;
-                            }
-                            if (memberSnapshot.hasChild("title") && mAuth != null) {
-                                String title = memberSnapshot.child("title").getValue(String.class);
-                                event.title = title;
-                            }
-                            if (memberSnapshot.hasChild("description") && mAuth != null) {
-                                String desc = memberSnapshot.child("description").getValue(String.class);
-                                event.description = desc;
-                            }
-                            if (memberSnapshot.hasChild("date") && mAuth != null) {
-                                Date date = memberSnapshot.child("date").getValue(Date.class);
-                                event.date = date;
-                            }
-                            if (memberSnapshot.hasChild("location") && mAuth != null) {
-                                String loc = memberSnapshot.child("location").getValue(String.class);
-                                event.location = loc;
-                            }
-                            if (memberSnapshot.hasChild("uid") && mAuth != null) {
-                                String uid = memberSnapshot.child("uid").getValue(String.class);
-                                event.uid = uid;
-                            }
-                            if (memberSnapshot.hasChild("createdTimestamp") && mAuth != null) {
-                                Long addate = memberSnapshot.child("createdTimestamp").getValue(Long.class);
-                                event.addingDate = addate;
-                            }
-                            event.eventKey=memberSnapshot.getKey();
-                            eventList.add(event);
-                            Collections.sort(eventList, new Comparator<EventsInfo>() {
-                                public int compare(EventsInfo o1, EventsInfo o2) {
-                                    return o1.getAddingDate().compareTo(o2.getAddingDate());
+                            if(!memberSnapshot.hasChild("hide"))
+                            {
+                                final EventsInfo event = new EventsInfo();
+                                if (memberSnapshot.hasChild("address") && mAuth != null) {
+                                    String address = memberSnapshot.child("address").getValue(String.class);
+                                    event.address = address;
                                 }
-                            });
+                                if (memberSnapshot.hasChild("title") && mAuth != null) {
+                                    String title = memberSnapshot.child("title").getValue(String.class);
+                                    event.title = title;
+                                }
+                                if (memberSnapshot.hasChild("description") && mAuth != null) {
+                                    String desc = memberSnapshot.child("description").getValue(String.class);
+                                    event.description = desc;
+                                }
+                                if (memberSnapshot.hasChild("date") && mAuth != null) {
+                                    Date date = memberSnapshot.child("date").getValue(Date.class);
+                                    event.date = date;
+                                }
+                                if (memberSnapshot.hasChild("location") && mAuth != null) {
+                                    String loc = memberSnapshot.child("location").getValue(String.class);
+                                    event.location = loc;
+                                }
+                                if (memberSnapshot.hasChild("uid") && mAuth != null) {
+                                    String uid = memberSnapshot.child("uid").getValue(String.class);
+                                    event.uid = uid;
+                                }
+                                if (memberSnapshot.hasChild("createdTimestamp") && mAuth != null) {
+                                    Long addate = memberSnapshot.child("createdTimestamp").getValue(Long.class);
+                                    event.addingDate = addate;
+                                }
+                                event.eventKey=memberSnapshot.getKey();
+                                eventList.add(event);
+                                Collections.sort(eventList, new Comparator<EventsInfo>() {
+                                    public int compare(EventsInfo o1, EventsInfo o2) {
+                                        return o1.getAddingDate().compareTo(o2.getAddingDate());
+                                    }
+                                });
+                            }
+
                         }
 
                     }

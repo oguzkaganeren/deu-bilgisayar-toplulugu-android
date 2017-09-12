@@ -1,11 +1,14 @@
 package com.example.oguz.bilgisayarToplulugu;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
+import android.support.v7.view.ContextThemeWrapper;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -37,6 +40,8 @@ import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.Locale;
+
+import tyrantgit.explosionfield.ExplosionField;
 
 /**
  * Created by Oguz on 29-Aug-17.
@@ -93,6 +98,47 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             }
         });
         //--------------------------------------------------
+        eventsViewHolder.delete.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                DialogInterface.OnClickListener dialogClickListener = new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        switch (which){
+                            case DialogInterface.BUTTON_POSITIVE:
+                                //Yes button clicked
+                                DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
+                                mDatabase.child("events").child(wb.eventKey).child("hide").setValue(true);
+                                Activity activity = (Activity) context;
+                                ExplosionField explosionField=ExplosionField.attach2Window(activity);
+                                explosionField.explode(eventsViewHolder.theCard);
+                                break;
+
+                            case DialogInterface.BUTTON_NEGATIVE:
+                                //No button clicked
+                                DatabaseReference dt = FirebaseDatabase.getInstance().getReference();
+                                dt.child("users").child(wb.uid).child("role").setValue("deneme");
+                                //role kısmını yeni bir node dalına koy böyle olmaz
+                                break;
+                        }
+                    }
+                };
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(new ContextThemeWrapper(context, R.style.MaterialTheme));
+                builder.setMessage("Are you sure?").setPositiveButton("Yes", dialogClickListener)
+                        .setNegativeButton("No", dialogClickListener).show();
+
+
+            }
+        });
+        eventsViewHolder.edit.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+
+
+            }
+        });
+
+
+
         StorageReference storageRef=FirebaseStorage.getInstance().getReference();
         StorageReference image = storageRef.child("images/profiles/"+wb.uid);
         //eventi ekleyenin resimi gözükme kısmı
@@ -323,6 +369,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         protected ImageView userImage;
         protected Button join;
         protected View theCard;
+        protected Button edit;
+        protected Button delete;
         public EventsViewHolder(View v) {
             super(v);
             address =  (TextView) v.findViewById(R.id.address_event_frag);
@@ -332,6 +380,8 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             image=(ImageView)v.findViewById(R.id.thumbnail_event_frag);
             userImage=(ImageView)v.findViewById(R.id.profile_picture_event);
             join=(Button)v.findViewById(R.id.btn_join);
+            edit=(Button)v.findViewById(R.id.btn_edit_event);
+            delete=(Button)v.findViewById(R.id.btn_delete_event);
             theCard= v;
 
         }
