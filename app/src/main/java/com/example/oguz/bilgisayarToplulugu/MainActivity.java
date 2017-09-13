@@ -195,7 +195,7 @@ public class MainActivity extends AppCompatActivity {
                                 break;
                             case 5:
                                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-                                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
+                                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").child("online").setValue(false);
                                 mAuth.signOut();
                                 loadTabs();
                                 setDrawerState(false);
@@ -220,8 +220,8 @@ public class MainActivity extends AppCompatActivity {
             // User is logged in
             mDatabase = FirebaseDatabase.getInstance().getReference();
             loadDataOnFirebase();
-            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("last-online-date").setValue(ServerValue.TIMESTAMP);
-            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(true);
+            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").child("last-online-date").setValue(ServerValue.TIMESTAMP);
+            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").child("online").setValue(true);
             setDrawerState(true);
         }else {
             setDrawerState(false);
@@ -399,7 +399,7 @@ public class MainActivity extends AppCompatActivity {
         if (mAuth.getCurrentUser() != null) {
             // User is logged in
             mDatabase = FirebaseDatabase.getInstance().getReference();
-            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(true);
+            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").child("online").setValue(true);
         }
 
     }
@@ -409,7 +409,7 @@ public class MainActivity extends AppCompatActivity {
         if (mAuth.getCurrentUser() != null) {
             // User is logged in
             mDatabase = FirebaseDatabase.getInstance().getReference();
-            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("online").setValue(false);
+            mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").child("online").setValue(false);
         }
     }
     @Override
@@ -475,7 +475,7 @@ public class MainActivity extends AppCompatActivity {
         profile.withIdentifier(0);
         profile.withEmail(mAuth.getCurrentUser().getEmail().toString());
         headerResult.addProfile(profile,0);
-        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                     if (snapshot.hasChild("name-surname")) {
@@ -510,7 +510,7 @@ public class MainActivity extends AppCompatActivity {
         });
     }
     public void fabStatusAccordingToRole(){
-        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("private").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if (snapshot.hasChild("role")) {

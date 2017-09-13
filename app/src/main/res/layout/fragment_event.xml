@@ -45,6 +45,7 @@
                     android:layout_width="48dp"
                     android:layout_height="36dp"
                     android:textSize="5pt"
+                    android:visibility="gone"
                     android:background="@color/lime"
                     android:layout_alignParentLeft="true"
                     android:text="Edit">
@@ -54,6 +55,7 @@
                     android:layout_width="48dp"
                     android:layout_height="36dp"
                     android:textSize="5pt"
+                    android:visibility="gone"
                     android:layout_alignParentRight="true"
                     android:textColor="@color/md_white_1000"
                     android:background="@color/md_red_600"

@@ -105,7 +105,7 @@ public class LoginActivity extends AppCompatActivity {
                                     Intent i=new Intent(LoginActivity.this,MainActivity.class);
                                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(i);
-                                    mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
+                                    mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("profile").child("online").setValue(true);
                                 }
                             }
                         });
@@ -121,7 +121,7 @@ public class LoginActivity extends AppCompatActivity {
         {
             // user is verified, so you can finish this activity or send user to activity which you want.
             DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
-            mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("online").setValue(true);
+            mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("profile").child("online").setValue(true);
             finish();
             Toast.makeText(LoginActivity.this, "Successfully logged in", Toast.LENGTH_SHORT).show();
         }

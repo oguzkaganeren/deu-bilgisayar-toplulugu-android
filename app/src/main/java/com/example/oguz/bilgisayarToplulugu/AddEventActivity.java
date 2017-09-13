@@ -67,6 +67,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
     private DatabaseReference mDatabase;
     private GoogleMap mMap;
     private String sAddress;
+    Bundle extras;
     private ProgressBar spinner;
     private MenuItem doneMenu;
 
@@ -86,6 +87,31 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
             spinner.setVisibility(View.GONE);
             description = (EditText) findViewById(R.id.description_event);
             date = (Button) findViewById(R.id.date_event);
+            //--------------------Google maps auto complete'ın eklenmesi
+            PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
+                    getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
+            address=((EditText)autocompleteFragment.getView().findViewById(R.id.place_autocomplete_search_input));
+            //-----------------------------------------
+            extras = getIntent().getExtras();
+
+            if (extras!=null){
+                if(extras.get("title")!=null){
+                    title.setText(extras.get("title").toString());
+                }
+                if(extras.get("description")!=null){
+                    description.setText(extras.get("description").toString());
+                }
+                if(extras.get("location")!=null){
+                    saveLocation=extras.get("location").toString();
+                }
+                if(extras.get("address")!=null){
+                    address.setText(extras.get("address").toString());
+                    sAddress=extras.get("address").toString();
+                }
+                if(extras.get("date")!=null){
+                    date.setText(extras.get("date").toString());
+                }
+            }
             //--------------Google maps'in ilave edilme kısmı
             FragmentManager fm = getSupportFragmentManager();
             SupportMapFragment supportMapFragment = SupportMapFragment.newInstance();
@@ -120,11 +146,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                 }
             });
             //-----------------------------------------
-            //--------------------Google maps auto complete'ın eklenmesi
-            PlaceAutocompleteFragment autocompleteFragment = (PlaceAutocompleteFragment)
-                    getFragmentManager().findFragmentById(R.id.place_autocomplete_fragment);
-            address=((EditText)autocompleteFragment.getView().findViewById(R.id.place_autocomplete_search_input));
-            //-----------------------------------------
+
             //------------------Addrese göre kameranın oynaması ve marker koyulması
             autocompleteFragment.setOnPlaceSelectedListener(new PlaceSelectionListener() {
                 @Override
@@ -181,14 +203,20 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
         spinner.setVisibility(View.VISIBLE);
         doneMenu.setVisible(false);
         //-----------------------------------------
-        String key = mDatabase.child("events").push().getKey();
+        String key;
+        if(extras!=null){
+            key = extras.get("eventkey").toString();
+        }else{
+            key = mDatabase.child("events").push().getKey();
+        }
+
         String sTitle = title.getText().toString();
         String sDesc = description.getText().toString();
         String sDate = date.getText().toString();
         if(sTitle!=null&&sDesc!=null&&sDate!=null&&sAddress!=null) {
 
             if (sTitle.length() > 0 && sTitle.length() < 100 && sDesc.length() > 0
-                    && sDesc.length() < 800 && sDate.length() > 0 && sDate.length() < 20 && sAddress.length() > 3) {
+                    && sDesc.length() < 800 && sDate.length() > 0 && sDate.length() < 35 && sAddress.length() > 3) {
                 if (saveLocation != null && !saveLocation.isEmpty()) {
                     Event newEvent = new Event();
                     newEvent.title = sTitle.trim();
@@ -203,7 +231,11 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                     }
                     newEvent.address = sAddress;
                     newEvent.location = saveLocation;
-                    newEvent.uid = mAuth.getCurrentUser().getUid();
+                    if(extras!=null){
+                        newEvent.uid=extras.get("uid").toString();
+                    }else{
+                        newEvent.uid = mAuth.getCurrentUser().getUid();
+                    }
                     mDatabase.child("events").child(key).setValue(newEvent);
                     mDatabase.child("events").addListenerForSingleValueEvent(new ValueEventListener() {
                         public void onDataChange(DataSnapshot dataSnapshot) {

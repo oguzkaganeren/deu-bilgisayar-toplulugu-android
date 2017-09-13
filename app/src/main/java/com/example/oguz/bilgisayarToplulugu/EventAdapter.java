@@ -115,9 +115,6 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
 
                             case DialogInterface.BUTTON_NEGATIVE:
                                 //No button clicked
-                                DatabaseReference dt = FirebaseDatabase.getInstance().getReference();
-                                dt.child("users").child(wb.uid).child("role").setValue("deneme");
-                                //role kısmını yeni bir node dalına koy böyle olmaz
                                 break;
                         }
                     }
@@ -132,7 +129,16 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         });
         eventsViewHolder.edit.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
-
+                Intent intent = new Intent(context, AddEventActivity.class);
+                intent.putExtra("title",wb.title);
+                intent.putExtra("location",wb.location);
+                intent.putExtra("address",wb.address);
+                intent.putExtra("date",wb.date);
+                intent.putExtra("description",wb.description);
+                intent.putExtra("eventkey",wb.eventKey);
+                intent.putExtra("uid",wb.uid);
+                Activity activity = (Activity) context;
+                activity.startActivity(intent);
 
             }
         });
@@ -162,7 +168,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
 
                     final FirebaseStorage myStorage=FirebaseStorage.getInstance();
                     final StorageReference storageRef= myStorage.getReference();
-                    mDatabase.child("users").child(wb.uid).addValueEventListener(new ValueEventListener() {
+                    mDatabase.child("users").child(wb.uid).child("profile").addValueEventListener(new ValueEventListener() {
                         @Override
                         public void onDataChange(DataSnapshot dataSnapshot) {
                                         if (dataSnapshot.hasChild("name-surname")) {
@@ -313,6 +319,23 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                 // Toast.makeText(getActivity(), "Firebase problem", Toast.LENGTH_SHORT).show();
             }
         };
+        //edit-delete butonlarının role göre gösterilme kısmı
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("private").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(DataSnapshot snapshot) {
+                    if (snapshot.hasChild("role")) {
+                        eventsViewHolder.delete.setVisibility(View.VISIBLE);
+                        eventsViewHolder.edit.setVisibility(View.VISIBLE);
+                    }else{
+                        eventsViewHolder.delete.setVisibility(View.GONE);
+                        eventsViewHolder.edit.setVisibility(View.GONE);
+                    }
+                }
+
+                @Override
+                public void onCancelled(DatabaseError databaseError) {
+                }
+            });
         mDatabase.child("eventregister").child(wb.getEventKey()).child(mAuth.getCurrentUser().getUid()).addValueEventListener(getData);
         //burada bir'den fazla listener var bi kontrol et
         mDatabase.child("eventregister").child(wb.getEventKey()).addValueEventListener(new ValueEventListener() {
@@ -387,6 +410,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         }
 
     }
+
 
 }
 class EventRegister {

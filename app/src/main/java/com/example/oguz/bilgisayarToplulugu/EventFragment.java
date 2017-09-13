@@ -8,9 +8,12 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
+import android.widget.RelativeLayout;
 
 import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.google.firebase.auth.FirebaseAuth;
@@ -32,6 +35,10 @@ public class EventFragment extends Fragment{
     private FirebaseAuth mAuth;
     private EventAdapter eventAdapter;
     private ArrayList<EventsInfo> eventList;
+    private Button edit;
+    private Button delete;
+    private RelativeLayout rlEditDelete;
+    DatabaseReference mDatabase;
     public EventFragment() {
         // Required empty public constructor
     }
@@ -41,6 +48,7 @@ public class EventFragment extends Fragment{
 
         super.onCreate(savedInstanceState);
         mAuth = FirebaseAuth.getInstance();
+        mDatabase = FirebaseDatabase.getInstance().getReference();
        if (mAuth.getCurrentUser() != null) {
             eventList=new ArrayList<EventsInfo>();
             loadEvents();
@@ -58,10 +66,11 @@ public class EventFragment extends Fragment{
         mRecyclerView.addItemDecoration(new MaterialViewPagerHeaderDecorator());
         mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        rlEditDelete=v.findViewById(R.id.relativelayout02);
         return v;
     }
+
     public void loadEvents(){
-        DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
         eventAdapter=new EventAdapter(getActivity(),eventList);
         ValueEventListener getList= new ValueEventListener() {
             @Override
@@ -72,6 +81,7 @@ public class EventFragment extends Fragment{
                 mRecyclerView.setAdapter(null);
                 eventList.clear();
                 eventAdapter.notifyItemRangeRemoved(0, eventAdapter.getItemCount());
+
                 if (dataSnapshot.exists()) {
                     for (DataSnapshot memberSnapshot : dataSnapshot.getChildren()) {
                         if (mAuth.getCurrentUser() != null && memberSnapshot.getKey() != null) {
@@ -121,6 +131,7 @@ public class EventFragment extends Fragment{
                     //listeyi tersine çeviriyoruz (son eklenen başda gözüksün)
                     Collections.reverse(eventList);
                     mRecyclerView.setAdapter(eventAdapter);
+
                 }
             }
 

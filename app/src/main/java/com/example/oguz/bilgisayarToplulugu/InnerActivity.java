@@ -84,7 +84,7 @@ public class InnerActivity  extends AppCompatActivity {
             }
             else if(((String)extras.get("which")).equals("nameSurname")){
                 editTxt.setHint("Name Surname");
-                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("users").child(user.getUid()).child("profile").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("name-surname")){
@@ -110,7 +110,7 @@ public class InnerActivity  extends AppCompatActivity {
                 });
         }else if(((String)extras.get("which")).equals("status")){
                 editTxt.setHint("Your status");
-                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("users").child(user.getUid()).child("profile").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("status")){
@@ -136,7 +136,7 @@ public class InnerActivity  extends AppCompatActivity {
                 });
         }else if(((String)extras.get("which")).equals("github")) {
                 editTxt.setHint("Your github username");
-                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("users").child(user.getUid()).child("profile").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("github")){
@@ -168,7 +168,7 @@ public class InnerActivity  extends AppCompatActivity {
                 });
         }else if(((String)extras.get("which")).equals("linkedin")) {
                 editTxt.setHint("Your linkedin address");
-                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("users").child(user.getUid()).child("profile").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("linkedin")){
@@ -200,7 +200,7 @@ public class InnerActivity  extends AppCompatActivity {
                 });
         }else if(((String)extras.get("which")).equals("website")) {
                 editTxt.setHint("Your website address");
-                mDatabase.child("users").child(user.getUid()).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("users").child(user.getUid()).child("profile").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("website")){
@@ -238,7 +238,7 @@ public class InnerActivity  extends AppCompatActivity {
     private void addingData(String where){
         final String wheref=where;
 
-                    mDatabase.child("users").child(user.getUid()).child(wheref).setValue(editTxt.getText().toString().trim());
+                    mDatabase.child("users").child(user.getUid()).child("profile").child(wheref).setValue(editTxt.getText().toString().trim());
                     mDatabase.child(user.getUid()).addListenerForSingleValueEvent(new ValueEventListener() {
                         public void onDataChange(DataSnapshot dataSnapshot) {
                             finish();

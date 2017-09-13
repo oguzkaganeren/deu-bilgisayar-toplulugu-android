@@ -139,7 +139,7 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatabaseReference mDatabase=FirebaseDatabase.getInstance().getReference();
-                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         final AboutBuilder ab = AboutBuilder.with(ProfileActivity.this) .setLinksAnimated(true)
@@ -272,7 +272,7 @@ public class ProfileActivity extends AppCompatActivity {
     }
     public void loadDataOnFirebase(){
         DatabaseReference mDatabase=FirebaseDatabase.getInstance().getReference();
-        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).addValueEventListener(new ValueEventListener() {
+        mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
                 if(snapshot.hasChild("name-surname")){

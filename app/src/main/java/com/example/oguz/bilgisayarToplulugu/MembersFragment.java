@@ -91,20 +91,20 @@ public class MembersFragment  extends Fragment {
                                 final MembersInfo member = new MembersInfo();
 
 
-                                if (memberSnapshot.hasChild("name-surname") && mAuth != null) {
-                                    String nameSurname = memberSnapshot.child("name-surname").getValue(String.class);
+                                if (memberSnapshot.child("profile").hasChild("name-surname") && mAuth != null) {
+                                    String nameSurname = memberSnapshot.child("profile").child("name-surname").getValue(String.class);
                                     member.nameSurname = nameSurname;
                                 } else {
                                     member.nameSurname = "Computer Society Member";
                                 }
-                                if (memberSnapshot.hasChild("status") && mAuth != null) {
-                                    String status = memberSnapshot.child("status").getValue(String.class);
+                                if (memberSnapshot.child("profile").hasChild("status") && mAuth != null) {
+                                    String status = memberSnapshot.child("profile").child("status").getValue(String.class);
                                     member.status = status;
                                 } else {
                                     member.status = "-";
                                 }
-                                if(memberSnapshot.hasChild("last-online-date")){
-                                    Long val = memberSnapshot.child("last-online-date").getValue(Long.class);
+                                if(memberSnapshot.child("profile").hasChild("last-online-date")){
+                                    Long val = memberSnapshot.child("profile").child("last-online-date").getValue(Long.class);
                                     Date date=new Date(val);
                                     SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy HH:mm");
                                     String dateText = df2.format(date);
@@ -112,27 +112,28 @@ public class MembersFragment  extends Fragment {
                                     member.uid=memberSnapshot.getKey().toString();
                                 }else{
                                     member.last_login="-";
+                                    member.uid=memberSnapshot.getKey().toString();
                                 }
-                                if (memberSnapshot.hasChild("github") && mAuth != null) {
-                                    String git = memberSnapshot.child("github").getValue(String.class);
+                                if (memberSnapshot.child("profile").hasChild("github") && mAuth != null) {
+                                    String git = memberSnapshot.child("profile").child("github").getValue(String.class);
                                     member.github = git;
                                 } else {
                                     member.github = null;
                                 }
-                                if (memberSnapshot.hasChild("linkedin") && mAuth != null) {
-                                    String linkedin = memberSnapshot.child("linkedin").getValue(String.class);
+                                if (memberSnapshot.child("profile").hasChild("linkedin") && mAuth != null) {
+                                    String linkedin = memberSnapshot.child("profile").child("linkedin").getValue(String.class);
                                     member.linkedin = linkedin;
                                 } else {
                                     member.linkedin = null;
                                 }
-                                if (memberSnapshot.hasChild("website") && mAuth != null) {
-                                    String web = memberSnapshot.child("website").getValue(String.class);
+                                if (memberSnapshot.child("profile").hasChild("website") && mAuth != null) {
+                                    String web = memberSnapshot.child("profile").child("website").getValue(String.class);
                                     member.website = web;
                                 } else {
                                     member.website = null;
                                 }
-                                if (memberSnapshot.hasChild("online")) {
-                                    Boolean val = memberSnapshot.child("online").getValue(Boolean.class);
+                                if (memberSnapshot.child("profile").hasChild("online")) {
+                                    Boolean val = memberSnapshot.child("profile").child("online").getValue(Boolean.class);
                                     if (memberSnapshot.getKey() == mAuth.getCurrentUser().getUid()) {
                                         member.online = true;
                                     } else {
