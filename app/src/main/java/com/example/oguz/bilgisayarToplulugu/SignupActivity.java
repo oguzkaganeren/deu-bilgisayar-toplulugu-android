@@ -15,6 +15,7 @@ import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
@@ -67,7 +68,6 @@ public class SignupActivity extends AppCompatActivity {
             public void onClick(View v) {
 
                 String email = inputEmail.getText().toString().trim();
-                email+="@ceng.deu.edu.tr";
                 String password = inputPassword.getText().toString().trim();
 
                 if (TextUtils.isEmpty(email)) {
@@ -118,7 +118,11 @@ public class SignupActivity extends AppCompatActivity {
                                             });
                                 }
                             }
-                        });
+                        }).addOnFailureListener(new OnFailureListener() {
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(SignupActivity.this, "There is a problem. Maybe, the register is unable.", Toast.LENGTH_SHORT).show();
+                    }
+                });
 
 
             }

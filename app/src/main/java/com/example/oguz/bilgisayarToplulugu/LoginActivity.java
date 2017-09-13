@@ -66,7 +66,6 @@ public class LoginActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 String email = inputEmail.getText().toString();
-                email+="@ceng.deu.edu.tr";
                 final String password = inputPassword.getText().toString();
 
                 if (TextUtils.isEmpty(email)) {
@@ -99,7 +98,7 @@ public class LoginActivity extends AppCompatActivity {
                                         Toast.makeText(LoginActivity.this, "There is a wrong", Toast.LENGTH_LONG).show();
                                     }
                                 } else {
-                                    //checkIfEmailVerified();
+                                    checkIfEmailVerified();
                                     DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                                     finish();
                                     Intent i=new Intent(LoginActivity.this,MainActivity.class);

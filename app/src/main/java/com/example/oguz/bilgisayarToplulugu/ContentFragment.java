@@ -49,7 +49,7 @@ public class ContentFragment extends Fragment {
     private WebDataInfo wb;
     private WebDataAdapter myAdap;
     //veri çekilecek kaynaklar
-    private String[] myWebSource=new String[]{"https://www.cnet.com/rss/news/","http://www.techradar.com/rss/news/software","https://www.wired.com/feed/rss"};
+    private String[] myWebSource=new String[]{"http://servis.chip.com.tr/chiponline-haber.xml","https://www.cnet.com/rss/news/","http://www.techradar.com/rss/news/software","https://www.wired.com/feed/rss"};
     private int mySourceNumber=0;//endless rcyler sayesinde aşağılara inildikçe yeni kaynaktan veri çekecek, bu sayı arttıkça bir sonraki kaynağa geçer
     public ContentFragment() {
         // Required empty public constructor
@@ -112,7 +112,13 @@ public class ContentFragment extends Fragment {
                                     wb.imgSrc = xpp.getAttributeValue(null, "url");
 
                                 }
-                            } else if (xpp.getName().equalsIgnoreCase("description")) {
+                            }else if (xpp.getName().equalsIgnoreCase("image")) {
+                                if (insideItem) {
+                                    wb.imgSrc = xpp.getAttributeValue(null, "url");
+
+                                }
+                            }
+                            else if (xpp.getName().equalsIgnoreCase("description")) {
                                 if (insideItem) {
                                     wb.description = stripHtml(xpp.nextText());
                                 }
@@ -173,14 +179,13 @@ public class ContentFragment extends Fragment {
         Gson gson = new Gson();
         String json = appSharedPrefs.getString("topluveri", "");
         //internet olup olmadığı kısmı tam iyi çalışmıyor düzeltilecek
-        if(!json.isEmpty()){
-            ls=gson.fromJson(json,type);
-            myAdap=new WebDataAdapter(getActivity(),ls);
-        }
 
         if (haveInternet()){
             ParseXMLTask pars=new ParseXMLTask();
             pars.execute();
+        }else{
+            ls=gson.fromJson(json,type);
+            myAdap=new WebDataAdapter(getActivity(),ls);
         }
 
     }

@@ -49,10 +49,13 @@ public class ResetPassword extends AppCompatActivity {
             public void onClick(View v) {
 
                 String email = inputEmail.getText().toString().trim();
-                email+="@gmail.com";
                 final String lastEmail=email;
                 if (TextUtils.isEmpty(email)) {
                     Toast.makeText(getApplication(), "Enter your registered email id", Toast.LENGTH_SHORT).show();
+                    return;
+                }
+                if(!lastEmail.endsWith("@ceng.deu.edu.tr")&&!lastEmail.endsWith("@deu.edu.tr")){
+                    Toast.makeText(getApplicationContext(), "You can just use a school email such as example@ceng.deu.edu.tr or example@deu.edu.tr", Toast.LENGTH_SHORT).show();
                     return;
                 }
 

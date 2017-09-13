@@ -161,9 +161,9 @@ public class MainActivity extends AppCompatActivity {
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Starter").withIcon(R.drawable.starter_24dp);
         SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("Account").withIcon(R.drawable.account_24dp);
-        SecondaryDrawerItem item3 = new SecondaryDrawerItem().withIdentifier(2).withName("Event History").withIcon(R.drawable.event_24dp);
+        //SecondaryDrawerItem item3 = new SecondaryDrawerItem().withIdentifier(2).withName("Event History").withIcon(R.drawable.event_24dp);
         SecondaryDrawerItem item4 = new SecondaryDrawerItem().withIdentifier(2).withName("Sign Out").withIcon(R.drawable.ic_exit_to_app_black_24dp);
-        SecondaryDrawerItem item5 = new SecondaryDrawerItem().withIdentifier(2).withName("Settings").withIcon(R.drawable.setting_24dp);
+        //SecondaryDrawerItem item5 = new SecondaryDrawerItem().withIdentifier(2).withName("Settings").withIcon(R.drawable.setting_24dp);
         SecondaryDrawerItem item6 = new SecondaryDrawerItem().withIdentifier(2).withName("About Us").withIcon(R.drawable.about_24dp);
         SecondaryDrawerItem item7 = new SecondaryDrawerItem().withIdentifier(2).withName("Privacy Policy").withIcon(R.drawable.privacy_24dp);
 //create the drawer and remember the `Drawer` result object
@@ -175,10 +175,10 @@ public class MainActivity extends AppCompatActivity {
                         item1,
                         new DividerDrawerItem(),
                         item2,
-                        item3,
+                       // item3,
                         item4,
                         new DividerDrawerItem(),
-                        item5,
+                        //item5,
                         item6,
                         item7
                 )
@@ -192,8 +192,6 @@ public class MainActivity extends AppCompatActivity {
                                 MainActivity.this.startActivity(intent);
                                 break;
                             case 4:
-                                break;
-                            case 5:
                                 DatabaseReference mDatabase = FirebaseDatabase.getInstance().getReference();
                                 mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").child("online").setValue(false);
                                 mAuth.signOut();
@@ -300,6 +298,7 @@ public class MainActivity extends AppCompatActivity {
                         }
                     case 3:
                         if(mAuth.getCurrentUser() != null){
+                            //not complete
                             return myMeeting;
                         }else{
                             return null;
@@ -314,7 +313,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public int getCount() {
                 if(mAuth.getCurrentUser() != null){
-                    return 4;
+                    return 3;
                 }else{
                     return 1;
                 }

@@ -34,6 +34,7 @@ import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.vansuita.materialabout.builder.AboutBuilder;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -73,7 +74,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             Date date = format.parse(cDate);
             Calendar cal = Calendar.getInstance();
             cal.setTime(date);
-            String formatedDate = cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" +         cal.get(Calendar.YEAR);
+            String formatedDate = cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" +cal.get(Calendar.YEAR)+" "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE);
             eventsViewHolder.date.setText(formatedDate);
         } catch (ParseException e) {
             // TODO Auto-generated catch block
@@ -133,7 +134,21 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                 intent.putExtra("title",wb.title);
                 intent.putExtra("location",wb.location);
                 intent.putExtra("address",wb.address);
-                intent.putExtra("date",wb.date);
+                String cDate=wb.date.toString();
+                SimpleDateFormat format = new SimpleDateFormat("EEE MMM dd HH:mm:ss zzz yyyy", Locale.getDefault());
+                try {
+                    format.setLenient(false);
+                    Date date = format.parse(cDate);
+                    Calendar cal = Calendar.getInstance();
+                    cal.setTime(date);
+                    String formatedDate = cal.get(Calendar.DATE) + "/" + (cal.get(Calendar.MONTH) + 1) + "/" +cal.get(Calendar.YEAR)+" "+cal.get(Calendar.HOUR_OF_DAY)+":"+cal.get(Calendar.MINUTE);
+                    intent.putExtra("date",formatedDate);
+                } catch (ParseException e) {
+                    // TODO Auto-generated catch block
+                    e.printStackTrace();
+                    intent.putExtra("date",wb.date.toString());
+                }
+
                 intent.putExtra("description",wb.description);
                 intent.putExtra("eventkey",wb.eventKey);
                 intent.putExtra("uid",wb.uid);

@@ -222,6 +222,7 @@ public class AddEventActivity extends AppCompatActivity implements OnMapReadyCal
                     newEvent.title = sTitle.trim();
                     newEvent.description = sDesc.trim();
                     newEvent.createdTimestamp = ServerValue.TIMESTAMP;
+                    Log.d("aaaa", "done: "+sDate);
                     try {
                         DateFormat format = new SimpleDateFormat("dd/MM/yyyy HH:mm", Locale.ENGLISH);
                         Date dt = format.parse(sDate);
