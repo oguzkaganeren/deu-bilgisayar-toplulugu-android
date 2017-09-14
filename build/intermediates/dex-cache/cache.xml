@@ -20,15 +20,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_c4a0ad1d60b17a7a011975f542161d1736cca646.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\858ad3da2d4791f0e75e94ccf7954068b599e845\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="dbbba1fc0f6c51382c3fa1f9223d1f6f9144f359">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8e25466f7ad278c64f762a88c764fb4f5062a083\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\9c2075164125710fbecdb4f77f41d03003cee574\output\jars\classes.jar"
         jumboMode="false"
@@ -36,33 +27,6 @@
         revision="26.0.1"
         sha1="03711df0c11eb771a2115c76db9e271eddea1bb8">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_23daddd24cefb42c8a117451932dde0be3ab536c.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\48c903dd44ae4c36bb43e04bf12332dcc9b1ab36\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="4262bcd49b19d558c241bf8c68470fcc6fa1ac84">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_6b52be52e4267908c543da2533859b99cad6de6f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\828c429e19f5a4fde07e2bd42b11ff513fcdb2f2\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="86baa7d1051901fc1b8e7f596732f71f32175bde">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2a0d1c123e2d7f402d25b44fbd15556a1a16dffe\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\39cb8f024090c2e024df7718bb8847909a58dd80\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="94d358351559620a2c3d2ba3ac04d03a59a61bb3">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4d3978061c09039a00879c4d83bfd90e166bb347\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -74,24 +38,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_74ccc00ce511f5ddceaa2efe4fef1b5f68a12a9c.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\8800cd2ebf6347a75373c0f7e89efa29fbbf026f\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="611c7708cd3df0d7ae99105d4df5af8eb25c4b32">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c5130546352d26fb5aa1ea12014e237dfa8f9c19\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\7420a5316de72ebd24fbe63e2f9d2821ae428dc0\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="d3a27693b28b46af644df8ce765f4252b32c9e87">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_341f2970c89230c2d25e36ee3b90c5f3409c38b5\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\1e4329938538c22707686ef9a457590bc1806837\output\jars\classes.jar"
         jumboMode="false"
@@ -101,24 +47,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_4ec191a6850aacf570134437c904e678fd8bbecd.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\c035aee5c545750507d5abbd0a55e5449e932e06\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="6dbd313cdd1181794a956a3cb5522dd61a6ee1b6">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_fbdc5cc7a6576290a52b04bab08d05505c021d97\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\f32416764eb37f52faec7eea06ca4f4c862b5ce7\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="2737331564e0084fc0eb30ba500564a6dbe5e98f">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_0266088f0ba17eda9365c712a8e4c4c597de7bff\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\99916725719113439c451f2ec0f8e9d701746191\output\jars\classes.jar"
         jumboMode="false"
@@ -126,24 +54,6 @@
         revision="26.0.1"
         sha1="fc5624185d414a0f572bfb3df7d841ceb335aef9">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_23710538a47911fb859f30291250e161f88fa9b5.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\cde69206885dee3f89115aad9406af89e2d0ebe2\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="2c1d9fbe7d2f686b3dcdbc3f63a983a211401ca3">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_be5060a4f06cc0d7da805d9292fbcb9c47c45bb6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="3be78ebc2706b2e1fe2f12d5726887a92d6c183b">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -182,33 +92,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_856c2f8a6f1a24ac32af53ac771cf78a10cc0e8a.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\c591613df6419343b689f4fadc5b1a38b97b2f77\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f9f219b8a8acc35922ab06f4ff29769041481b4b">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bde27263a32bdca432d914edc12753b4e2f99a21\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\0f75db4c694c6829d296e972d2d67a53ea4ebfa1\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="48a969b476c5c4bd8cabfe295428ff222bc68b8e">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_267ebc703171a18c01aa32f83007aa2c04742a87\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\64305df96cf64598ee49f858c7cac03d76032071\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="28cb30c89c8e501ded77e960407731df6c54b844">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8d2bb25e4fd38f04a5ee0712d3c54419645102b2\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\d6c22a2da89e54714014b4baf1104b66d4f670d7\output\jars\classes.jar"
         jumboMode="false"
@@ -236,15 +119,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_ea96ba9c9b39641665405d8c286e4d1c31547298.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\7c2377b1cfe9ba96d97e188628fbd8132b4e6c85\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f82998f0794dfe2b65edd561ac0b34b536e7ff9a">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e022ffa14b9dbeeb3de0b8aa771061d99f5f3fa2\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\7236804b8d79e60540aa0b64b767d16d388e4170\output\jars\classes.jar"
         jumboMode="false"
@@ -263,15 +137,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_a462df8243d87748655f9644c2c6435832eabb3a.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\b3a61ded1cdc32bd34274989be3f25fc13214ecc\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="edf015b6509ac16f0ee82de7b119be7eaaa2f1d7">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_926397c364bb94235a64320be578f8a85479b64b\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\26.0.2\8b68a849722b44f584e2d68c451c5e3844c10380\support-annotations-26.0.2.jar"
         jumboMode="false"
@@ -279,24 +144,6 @@
         revision="26.0.1"
         sha1="8b68a849722b44f584e2d68c451c5e3844c10380">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\support-annotations-26.0.2_912dcc9d53277de723cecc24e60fba420e6f263b.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.google.code.gson\gson\2.6.2\f1bc476cc167b18e66c297df599b2377131a8947\gson-2.6.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f1bc476cc167b18e66c297df599b2377131a8947">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\gson-2.6.2_5a9960a352a780588010c5084e12be25894bd971\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\0f947739bbcd11105efcafc9f5f9334d1c228088\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="424e509954db08079f78b20947e2cf120c045e48">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_1ef075113a1df63857941a4c39bc7bc77a88ed19\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -326,51 +173,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_b78460b4bbfcbca5b7bf1156d5747dfd48754275.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\abed49754858af10c666110c3156cc68260ba222\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_eb22d7618877e7db574bec88a56ef337cfb52ed2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\8f2413760ee28bfc7bd83e2e6d79f2e878a71b6f\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="4e38f488b591fa8ef9dce3e21752c92bde5f6f7c">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_60b296617c1cb392a32d6cf61f0d4d0e2d530eb6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\4f5bbfcf8bb617a1b49d2312e40b2ccc018b115f\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="4802b21cc23549f7eba5edb802241091ad998b35">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_e0b2c45d633338e0a9404b494b1e942f41a0e78f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\f1ec181c40cf5b9398b6221ee4493b5e567b4bfa\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="97cd0ab3ffad045a162fc1a413fe6abc58e199c4">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_5feea2d99520b2bda5ffff4510a105b8ee14d4bc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\85d466aafbf71eb9a5dc88f214e91830292f257b\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="53762fb1daacc5e5fb9ce83c4d00365f71c10f1a">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_500a9b8173a820c019cc03fb6d765cd62572ef3d\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\4844b4442503b487e541077f25dcfbff7459f4c0\output\jars\classes.jar"
         jumboMode="false"
@@ -378,15 +180,6 @@
         revision="26.0.1"
         sha1="eef44a34be1eef845ecb4072e3692b434af05ad4">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_2a2dda79c486967d14a5bf0ce865ca63d8b41f04.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\18c300f0574dabb8fc957160221921382bf205a9\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_22e7dd5a24e593395d2c5b67fde5177ac94c4440\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -405,24 +198,6 @@
         revision="26.0.1"
         sha1="a2af9c72ccaa4c5c049b500ca6ea664a4ce1f7d4">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_22e7dd5a24e593395d2c5b67fde5177ac94c4440.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\fe9636c8f42459cb734fce10f7c844b446318d8c\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="df0c541b5406292d1c3d74fc8ea119bde14e77b0">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c4a0ad1d60b17a7a011975f542161d1736cca646\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\9c2075164125710fbecdb4f77f41d03003cee574\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="03711df0c11eb771a2115c76db9e271eddea1bb8">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_23daddd24cefb42c8a117451932dde0be3ab536c\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -470,58 +245,13 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_fbdc5cc7a6576290a52b04bab08d05505c021d97.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\9d3c6b57b9df3692da42a5d3e93bcf5002790c06\output\jars\classes.jar"
-        jumboMode="true"
+        is-multidex="false"
+        jar="C:\Users\Oguz\.android\build-cache\74aa3fa6bbc7d4df280ef5c812de0f388faf948e\output\jars\classes.jar"
+        jumboMode="false"
         optimize="true"
         revision="26.0.1"
-        sha1="2a2d9cd43adbe7599a78f2293273a77881c1909a">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_74ccc00ce511f5ddceaa2efe4fef1b5f68a12a9c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\1e4329938538c22707686ef9a457590bc1806837\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="a75637f883254acfcccf4ddb5272cd6c34305cf2">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_4ec191a6850aacf570134437c904e678fd8bbecd\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\4789d6b3577284ead682df2cfaa8ebdc9ed5f76f\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="587840a157b50a6380d814a7a5a87b76118405e2">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c0ecfe6c6997e42edf25e97a7ded33ffb8ae0a5c\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.github.bumptech.glide\glide\3.7.0\9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4\glide-3.7.0.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\glide-3.7.0_3dd7359bbe2f191181b970118cfe958fdbee52bc\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\1566efbb34e82f233c14a2ee359fff61a4bed9a5\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="02e3b866c51358c4f53456c9a4cb757b84d37ca2">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_856c2f8a6f1a24ac32af53ac771cf78a10cc0e8a\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\99916725719113439c451f2ec0f8e9d701746191\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="fc5624185d414a0f572bfb3df7d841ceb335aef9">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_23710538a47911fb859f30291250e161f88fa9b5\classes.dex" />
+        sha1="ad78a00a0f2412d5078e8a2acfa02c28faedf9ff">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_09659c6d02cdac1287aac5d32c0170fa3987e441.jar" />
     </item>
     <item
         is-multidex="false"
@@ -533,15 +263,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_0266088f0ba17eda9365c712a8e4c4c597de7bff.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\19d42950b8a07d72e03bfbdfce72f0eeee880798\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="ccb456696d352a0b28956a284d741d04ba3583ba">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_f72daad7ed8aaed18edca614ed1d153846ae596c\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\8800cd2ebf6347a75373c0f7e89efa29fbbf026f\output\jars\classes.jar"
         jumboMode="false"
@@ -551,33 +272,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_c5130546352d26fb5aa1ea12014e237dfa8f9c19.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.flaviofaria\kenburnsview\1.0.7\ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1\kenburnsview-1.0.7.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="ce4e8bba9e026dd29f8110b2f6bb1fc4ecbdd9b1">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\kenburnsview-1.0.7_db4c3f9777f7878acf455df738f926795360c1c2\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\55f15030b5550b33b1c882ed05b634e09eeafaa1\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="9e8c74e789b51b9da4070aeaed71bae36c3d244f">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3a0cbb3826d4196d557c0948e4e959a06eb6f0e6\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\50f64b51bbea2534aa93b93f9fed96c05083c9b8\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="86e2c2399cfd7f8271b535b0e7d8ec092d0c6335">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3fb67e20d87e856ca8eba9f8742d18a8801be0b7\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\cde69206885dee3f89115aad9406af89e2d0ebe2\output\jars\classes.jar"
         jumboMode="false"
@@ -585,24 +279,6 @@
         revision="26.0.1"
         sha1="2c1d9fbe7d2f686b3dcdbc3f63a983a211401ca3">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_be5060a4f06cc0d7da805d9292fbcb9c47c45bb6.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\09d34a07706a039bb3c7c433b74baf9c43999ff4\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="b4a446c110c5a9f3a62907367d5eea4d4062c36a">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_47e95e4b373285f1f02e7808d454be8424472e01\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="E:\androidWorks\Topluluk\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="b6a8d1a7e1bed05d846f27fae5089e02acc9acc6">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_b885a3d5321ad3c7de18fcdde23547d844c93053\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -632,24 +308,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_3a0cbb3826d4196d557c0948e4e959a06eb6f0e6.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\4843c4dad33b5efbeee709a2e1cd0cfb9b50e582\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="556c48ec45048746d4edf7963f9c8b2cda1a4160">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_9cdf0725b81eb77a5706347218f55ee9f7a5a681\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\50d7ebd263b3a58b27f542af618b77aa53d81211\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f6e937fc4829662d169f20da6f208e053f3714a8">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_a462df8243d87748655f9644c2c6435832eabb3a\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\64305df96cf64598ee49f858c7cac03d76032071\output\jars\classes.jar"
         jumboMode="false"
@@ -657,33 +315,6 @@
         revision="26.0.1"
         sha1="28cb30c89c8e501ded77e960407731df6c54b844">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_8d2bb25e4fd38f04a5ee0712d3c54419645102b2.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\d6c22a2da89e54714014b4baf1104b66d4f670d7\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="a71be5f29a1c1e3fd3e84472742668f101a5b936">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_032321f1272801bc6e56a0556dbd7cdbb476d52d\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\com.android.support\support-annotations\26.0.2\8b68a849722b44f584e2d68c451c5e3844c10380\support-annotations-26.0.2.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="8b68a849722b44f584e2d68c451c5e3844c10380">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\support-annotations-26.0.2_912dcc9d53277de723cecc24e60fba420e6f263b\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\8d3677f3bf1a0d81ab29974f104a95f895eeed6e\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="f260cdc1a267b17b911022919f19d568e6624229">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ea96ba9c9b39641665405d8c286e4d1c31547298\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -702,24 +333,6 @@
         revision="26.0.1"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\glide-3.7.0_3dd7359bbe2f191181b970118cfe958fdbee52bc.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\7236804b8d79e60540aa0b64b767d16d388e4170\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="bed84864149d15e9c893b68ce9994fe6093cdbf4">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c519ff99fcf11396479f3878be571941868e192f\classes.dex" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\f90509d1230364878f358dc55018a5c0310ebfcc\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="9a6350134db98fb39e212ddca5f0bad9280e8f3f">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_c48d3a5fd58b547cf8d0d5dd5b5b241a94db2d18\classes.dex" />
     </item>
     <item
         is-multidex="false"
@@ -767,15 +380,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\gson-2.6.2_5a9960a352a780588010c5084e12be25894bd971.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\dc79cd0bfab44de900c99d68b382130f01a23a34\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="138b5e3a5341bb37117b13f327de68f81f9f0669">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_b78460b4bbfcbca5b7bf1156d5747dfd48754275\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\7c2377b1cfe9ba96d97e188628fbd8132b4e6c85\output\jars\classes.jar"
         jumboMode="false"
@@ -794,15 +398,6 @@
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_500a9b8173a820c019cc03fb6d765cd62572ef3d.jar" />
     </item>
     <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\7ce63e1857b865c74eefeb2eea0c3ad2a438dc64\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="db939a450ea2a721db84e774bf108e20c44a8a1d">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ed8ec5c836f3ae5f07ed2cd975fe51f91cf1de00\classes.dex" />
-    </item>
-    <item
         is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\f1ec181c40cf5b9398b6221ee4493b5e567b4bfa\output\jars\classes.jar"
         jumboMode="false"
@@ -819,15 +414,6 @@
         revision="26.0.1"
         sha1="f9f219b8a8acc35922ab06f4ff29769041481b4b">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_bde27263a32bdca432d914edc12753b4e2f99a21.jar" />
-    </item>
-    <item
-        is-multidex="true"
-        jar="C:\Users\Oguz\.android\build-cache\4844b4442503b487e541077f25dcfbff7459f4c0\output\jars\classes.jar"
-        jumboMode="true"
-        optimize="true"
-        revision="26.0.1"
-        sha1="eef44a34be1eef845ecb4072e3692b434af05ad4">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_2a2dda79c486967d14a5bf0ce865ca63d8b41f04\classes.dex" />
     </item>
 
 </items>

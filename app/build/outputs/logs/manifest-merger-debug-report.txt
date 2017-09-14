@@ -204,6 +204,7 @@ MERGED from [com.android.support:support-core-utils:26.0.2] C:\Users\Oguz\.andro
 MERGED from [com.mikepenz:materialize:1.0.3] C:\Users\Oguz\.android\build-cache\b3a61ded1cdc32bd34274989be3f25fc13214ecc\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.mikepenz:iconics-core:2.9.1] C:\Users\Oguz\.android\build-cache\4843c4dad33b5efbeee709a2e1cd0cfb9b50e582\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.mikepenz:fastadapter:2.6.3] C:\Users\Oguz\.android\build-cache\1e4329938538c22707686ef9a457590bc1806837\output\AndroidManifest.xml:8:5-10:41
+MERGED from [com.mikepenz:crossfadedrawerlayout:1.0.0] C:\Users\Oguz\.android\build-cache\74aa3fa6bbc7d4df280ef5c812de0f388faf948e\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:recyclerview-v7:26.0.2] C:\Users\Oguz\.android\build-cache\39cb8f024090c2e024df7718bb8847909a58dd80\output\AndroidManifest.xml:20:5-44
 MERGED from [com.android.support:support-core-ui:26.0.2] C:\Users\Oguz\.android\build-cache\09d34a07706a039bb3c7c433b74baf9c43999ff4\output\AndroidManifest.xml:21:5-23:58
 MERGED from [com.android.support:support-compat:26.0.2] C:\Users\Oguz\.android\build-cache\dc79cd0bfab44de900c99d68b382130f01a23a34\output\AndroidManifest.xml:21:5-23:58

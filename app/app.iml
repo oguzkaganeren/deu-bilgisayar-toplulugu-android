@@ -137,6 +137,7 @@
     <orderEntry type="library" exported="" name="firebase-storage-common-11.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-common-11.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-11.0.2" level="project" />
+    <orderEntry type="library" exported="" name="crossfadedrawerlayout-1.0.0" level="project" />
     <orderEntry type="library" exported="" name="iconics-core-2.9.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-11.0.2" level="project" />
     <orderEntry type="library" exported="" name="gson-2.6.2" level="project" />

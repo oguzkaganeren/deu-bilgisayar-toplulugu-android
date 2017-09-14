@@ -155,7 +155,7 @@ public final class R {
         public static final int common_open_on_phone = 0x7f070021;
         public static final int common_signin_button_text = 0x7f070022;
         public static final int common_signin_button_text_long = 0x7f070023;
-        public static final int fcm_fallback_notification_channel_label = 0x7f070063;
+        public static final int fcm_fallback_notification_channel_label = 0x7f070064;
         public static final int place_autocomplete_clear_button = 0x7f070024;
         public static final int place_autocomplete_search_hint = 0x7f070025;
     }

@@ -10,9 +10,11 @@ import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
 import android.support.v4.app.FragmentStatePagerAdapter;
+import android.support.v4.view.GravityCompat;
 import android.support.v4.widget.DrawerLayout;
 import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarDrawerToggle;
+import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
@@ -25,7 +27,11 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
+import android.webkit.WebView;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
@@ -44,11 +50,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.gson.Gson;
+import com.mikepenz.crossfadedrawerlayout.view.CrossfadeDrawerLayout;
 import com.mikepenz.iconics.IconicsDrawable;
 import com.mikepenz.materialdrawer.AccountHeader;
 import com.mikepenz.materialdrawer.AccountHeaderBuilder;
 import com.mikepenz.materialdrawer.Drawer;
 import com.mikepenz.materialdrawer.DrawerBuilder;
+import com.mikepenz.materialdrawer.MiniDrawer;
+import com.mikepenz.materialdrawer.interfaces.ICrossfader;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
@@ -59,6 +68,7 @@ import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerUIUtils;
+import com.mikepenz.materialize.util.UIUtils;
 
 import java.util.ArrayList;
 
@@ -160,14 +170,14 @@ public class MainActivity extends AppCompatActivity {
 
         //if you want to update the items at a later time it is recommended to keep it in a variable
         PrimaryDrawerItem item1 = new PrimaryDrawerItem().withIdentifier(1).withName("Starter").withIcon(R.drawable.starter_24dp);
-        SecondaryDrawerItem item2 = new SecondaryDrawerItem().withIdentifier(2).withName("Account").withIcon(R.drawable.account_24dp);
+        PrimaryDrawerItem item2 = new PrimaryDrawerItem().withIdentifier(2).withName("Account").withIcon(R.drawable.account_24dp);
         //SecondaryDrawerItem item3 = new SecondaryDrawerItem().withIdentifier(2).withName("Event History").withIcon(R.drawable.event_24dp);
-        SecondaryDrawerItem item4 = new SecondaryDrawerItem().withIdentifier(2).withName("Sign Out").withIcon(R.drawable.ic_exit_to_app_black_24dp);
+        PrimaryDrawerItem item4 = new PrimaryDrawerItem().withIdentifier(2).withName("Sign Out").withIcon(R.drawable.ic_exit_to_app_black_24dp);
         //SecondaryDrawerItem item5 = new SecondaryDrawerItem().withIdentifier(2).withName("Settings").withIcon(R.drawable.setting_24dp);
-        SecondaryDrawerItem item6 = new SecondaryDrawerItem().withIdentifier(2).withName("About Us").withIcon(R.drawable.about_24dp);
-        SecondaryDrawerItem item7 = new SecondaryDrawerItem().withIdentifier(2).withName("Privacy Policy").withIcon(R.drawable.privacy_24dp);
+        PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(2).withName("About Us").withIcon(R.drawable.about_24dp);
+        PrimaryDrawerItem item7 = new PrimaryDrawerItem().withIdentifier(2).withName("Privacy Policy").withIcon(R.drawable.privacy_24dp);
 //create the drawer and remember the `Drawer` result object
-        Drawer left = new DrawerBuilder()
+       final Drawer left = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
                 .withAccountHeader(headerResult)
@@ -199,9 +209,36 @@ public class MainActivity extends AppCompatActivity {
                                 setDrawerState(false);
                                 Toast.makeText(MainActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
                                 break;
-                            case 7:
+                            case 6:
+                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
+                                dialogBuilder.setTitle("DEU Bilgisayar Topluluğu");
+                                View about =  getLayoutInflater().inflate(R.layout.view_aboutus, null);
+                                ((TextView)about.findViewById(R.id.txt_aboutus))
+                                        .setText(" Bu hayatta iki tip insan olduğuna inanıyoruz :" +
+                                                " Yükselmek için etrafındakileri bastırıp yüksekleri " +
+                                                "hedefleyenler, etrafındakilerle birlikte yükselmek için" +
+                                                " emek harcayanlar. Eğer sen de bu ikinci kategoride kendini " +
+                                                "görüyorsan ve aramıza katılmak istiyorsan lütfen kayıt ol." +
+                                                " \n\nSeni aramızda görmek istiyoruz Öncelikle kafanda " +
+                                                "\"Ya ben fazla bir şey bilmiyorum nasıl yardımcı olabilirim ki? \"" +
+                                                " gibi bir düşünce varsa lütfen onlardan kurtul. Dünya çapındaki büyük," +
+                                                " özgür yazılım projelerine destek olmayı, içimizdeki bilgi paylaşımını " +
+                                                "doruklara ulaştırmayı planlıyoruz. Çünkü biliyoruz ki dünya çapında \"zilyon\"" +
+                                                " programcı, mühendis var. Bir fark yaratmak istiyoruz.");
+                                dialogBuilder.setIcon(R.mipmap.logo);
+                                dialogBuilder.setView(about);
+                                dialogBuilder.show();
                                 break;
-                            case 8:
+                            case 7:
+                                LinearLayout ln = new LinearLayout(MainActivity.this);
+                                ln.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
+                                ln.setOrientation(LinearLayout.VERTICAL);
+                                WebView web=new WebView(getApplicationContext());
+                                web.loadUrl("file:///android_asset/privacy_policy.html");
+                                ln.addView(web);
+                                AlertDialog.Builder dialogBuilderP = new AlertDialog.Builder(MainActivity.this);
+                                dialogBuilderP.setView(ln);
+                                dialogBuilderP.show();
                                 break;
                             case 9:
                                 break;
@@ -212,6 +249,7 @@ public class MainActivity extends AppCompatActivity {
                 })
                 .withSavedInstance(savedInstanceState)
                 .build();
+
         drawerLayout = left.getDrawerLayout();
         actionBarDrawerToggle=  new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.material_drawer_open, R.string.material_drawer_close);
         if (mAuth.getCurrentUser() != null) {
