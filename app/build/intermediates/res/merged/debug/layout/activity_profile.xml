@@ -40,7 +40,7 @@
                 android:contextClickable="true"
                 android:scaleType="fitXY"
                 android:background="@drawable/editor_pencil"
-                android:src="@drawable/ic_edit_black_24dp"
+                android:src="@drawable/edit_black_24dp"
                 android:layout_alignRight="@id/user_profile_name"
                 android:layout_alignBottom="@id/user_profile_name"/>
             <TextView
@@ -63,7 +63,7 @@
                 android:contextClickable="true"
                 android:scaleType="fitXY"
                 android:background="@drawable/editor_pencil"
-                android:src="@drawable/ic_edit_black_24dp"
+                android:src="@drawable/edit_black_24dp"
                 android:layout_alignRight="@id/user_profile_short_bio"
                 android:layout_marginRight="25dp"
                 android:layout_alignBottom="@id/user_profile_short_bio"/>
@@ -101,7 +101,7 @@
             android:scaleType="fitXY"
             android:layout_marginLeft="30dp"
             android:background="@drawable/editor_pencil"
-            android:src="@drawable/ic_photo_library_black_24dp"
+            android:src="@drawable/photo_library_black_24dp"
             android:elevation="5dp"
             android:layout_alignRight="@id/user_profile_photo"/>
         <RelativeLayout
@@ -131,7 +131,7 @@
                 android:elevation="4dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/editor_pencil"
-                android:src="@drawable/ic_edit_black_24dp"
+                android:src="@drawable/edit_black_24dp"
                 android:layout_alignBottom="@id/txt_changepass"
                 android:layout_alignRight="@id/txt_changepass"
                 />
@@ -158,7 +158,7 @@
                 android:elevation="4dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/editor_pencil"
-                android:src="@drawable/ic_edit_black_24dp"
+                android:src="@drawable/edit_black_24dp"
                 android:layout_alignBottom="@id/txt_github"
                 android:layout_alignRight="@id/txt_github"
                 />
@@ -184,7 +184,7 @@
                 android:elevation="4dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/editor_pencil"
-                android:src="@drawable/ic_edit_black_24dp"
+                android:src="@drawable/edit_black_24dp"
                 android:layout_alignBottom="@id/txt_linkedin"
                 android:layout_alignRight="@id/txt_linkedin"
                 />
@@ -210,7 +210,7 @@
                 android:elevation="4dp"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/editor_pencil"
-                android:src="@drawable/ic_edit_black_24dp"
+                android:src="@drawable/edit_black_24dp"
                 android:layout_alignBottom="@id/txt_website"
                 android:layout_alignRight="@id/txt_website"
                 />

@@ -1,39 +1,19 @@
 [
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_people_white_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_people_white_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_sort_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_sort_black_24dp.png"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\events_add_white.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\events_add_white.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_close_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_close_black_24dp.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\account_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\account_24dp.png"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_keyboard_backspace_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_keyboard_backspace_black_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_photo_library_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_photo_library_black_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_edit_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_edit_black_24dp.png"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\privacy_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\privacy_24dp.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\close_gray_24.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\close_gray_24.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_user.png",
@@ -44,55 +24,35 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\self_white_24dp.png"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\setting_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\setting_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_directions_run_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_directions_run_black_24dp.png"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\exit_to_app_black_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\exit_to_app_black_24dp.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\starter_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\starter_24dp.png"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\edit_black_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\edit_black_24dp.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\about_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\about_24dp.png"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_notifications_none_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_notifications_none_black_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_recent_actors_white_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_recent_actors_white_24dp.png"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\photo_library_black_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\photo_library_black_24dp.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\done_white_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\done_white_24dp.png"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\login_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\login_24dp.png"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\people_white_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\people_white_24dp.png"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_event_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_event_black_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\person_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\person_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_exit_to_app_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_exit_to_app_black_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\ic_hearing_black_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\ic_hearing_black_24dp.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\event_24dp.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\event_24dp.png"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xhdpi\\login_white_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xhdpi\\login_white_24dp.png"
     }
 ]

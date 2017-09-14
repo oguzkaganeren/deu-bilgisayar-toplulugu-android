@@ -49,7 +49,7 @@ public class ContentFragment extends Fragment {
     private WebDataInfo wb;
     private WebDataAdapter myAdap;
     //veri çekilecek kaynaklar
-    private String[] myWebSource=new String[]{"https://www.cnet.com/rss/news/","https://www.wired.com/feed/rss","http://www.techradar.com/rss/news/software"};
+    private String[] myWebSource=new String[]{"https://www.infoworld.com/news/index.rss","https://www.cnet.com/rss/news/","https://www.wired.com/feed/rss","http://www.techradar.com/rss/news/software"};
     private int mySourceNumber=0;//endless rcyler sayesinde aşağılara inildikçe yeni kaynaktan veri çekecek, bu sayı arttıkça bir sonraki kaynağa geçer
     public ContentFragment() {
         // Required empty public constructor

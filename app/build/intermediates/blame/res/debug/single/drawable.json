@@ -16,10 +16,6 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\edit_text_bottom_border.xml",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\edit_text_bottom_border.xml"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_icon_dark_normal.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\9d3c6b57b9df3692da42a5d3e93bcf5002790c06\\output\\res\\drawable\\common_google_signin_btn_icon_dark_normal.xml"
     },
@@ -82,10 +78,6 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_go_search_api_material.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\drawable\\abc_ic_go_search_api_material.xml"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\loading.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\loading.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\common_google_signin_btn_text_light_focused.xml",
@@ -204,10 +196,6 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\custom_cursor.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\progress_animation.xml",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\progress_animation.xml"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\drawable\\abc_ic_search_api_material.xml"
     },
@@ -282,10 +270,6 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_colored_material.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\drawable\\abc_btn_colored_material.xml"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\textview_border_pencil.xml",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\textview_border_pencil.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_indicator_material.xml",

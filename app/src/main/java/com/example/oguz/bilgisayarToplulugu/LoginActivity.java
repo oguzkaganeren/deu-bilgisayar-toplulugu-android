@@ -105,7 +105,6 @@ public class LoginActivity extends AppCompatActivity {
                                     Intent i=new Intent(LoginActivity.this,MainActivity.class);
                                     i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK |Intent.FLAG_ACTIVITY_CLEAR_TASK);
                                     startActivity(i);
-                                    mDatabase.child("users").child(auth.getCurrentUser().getUid()).child("profile").child("online").setValue(true);
                                 }
                             }
                         });
