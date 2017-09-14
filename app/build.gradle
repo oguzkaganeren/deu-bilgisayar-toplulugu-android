@@ -47,7 +47,6 @@ dependencies {
     compile('com.mikepenz:materialdrawer:5.9.5@aar') {
         transitive = true
     }
-    compile "com.mikepenz:crossfadedrawerlayout:1.0.0@aar"
     // RecyclerView
     compile 'com.android.support:recyclerview-v7:26.0.+'
     testCompile 'junit:junit:4.12'
