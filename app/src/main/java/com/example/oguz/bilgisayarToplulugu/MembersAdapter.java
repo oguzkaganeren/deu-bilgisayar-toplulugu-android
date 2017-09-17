@@ -1,5 +1,6 @@
 package com.example.oguz.bilgisayarToplulugu;
 
+import android.app.Activity;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -53,13 +54,13 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             }
         }
         if(wb.imgSrc==null){
-            Glide.with(context)
+            Glide.with(((Activity) context).getApplication().getApplicationContext())
                     .load(R.mipmap.logo)
                     .centerCrop()
                     .fitCenter()
                     .into(membersViewHolder.imgSrc);
         }else{
-            Glide.with(context)
+            Glide.with(((Activity) context).getApplication().getApplicationContext())
                     .load(wb.imgSrc)
                     .centerCrop()
                     .fitCenter()
@@ -95,7 +96,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
                     dialogBuilder.show();
                 }else{
                     Glide
-                            .with(context)
+                            .with(((Activity) context).getApplication().getApplicationContext())
                             .load(swb.imgSrc)
                             .asBitmap()
                             .into(new SimpleTarget<Bitmap>(96, 96) {

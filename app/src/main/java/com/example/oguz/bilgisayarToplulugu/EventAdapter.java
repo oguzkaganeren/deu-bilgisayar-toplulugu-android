@@ -9,6 +9,7 @@ import android.net.Uri;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.view.ContextThemeWrapper;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -82,12 +83,12 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             eventsViewHolder.date.setText(wb.date.toString());
         }
         //--------------------------------------
-        Glide.with(context)
+        Glide.with(((Activity) context).getApplication().getApplicationContext())
                 .load(R.drawable.event)
                 .centerCrop()
                 .into(eventsViewHolder.image);
         //event kartının üzerine tıklandığında google maps açılıp locationı gösterecek
-        eventsViewHolder.theCard.setOnClickListener(new View.OnClickListener() {
+        eventsViewHolder.theView.setOnClickListener(new View.OnClickListener() {
             @Override public void onClick(View v) {
                 String[] loc=wb.location.split("-");
                 Uri gmmIntentUri = Uri.parse("geo:<" + loc[0]  + ">,<" + loc[1] + ">?q=<" + loc[0]  + ">,<" + loc[1] + ">(" + wb.title + ")");
@@ -111,7 +112,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                                 mDatabase.child("events").child(wb.eventKey).child("hide").setValue(true);
                                 Activity activity = (Activity) context;
                                 ExplosionField explosionField=ExplosionField.attach2Window(activity);
-                                explosionField.explode(eventsViewHolder.theCard);
+                                explosionField.explode(eventsViewHolder.theView);
                                 break;
 
                             case DialogInterface.BUTTON_NEGATIVE:
@@ -166,11 +167,11 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Glide.with(context).load(uri).centerCrop().into(eventsViewHolder.userImage);
+                Glide.with(((Activity) context).getApplication().getApplicationContext()).load(uri).centerCrop().into(eventsViewHolder.userImage);
             }}).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                Glide.with(context).load(R.drawable.ic_user).centerCrop().into(eventsViewHolder.userImage);
+                Glide.with(((Activity) context).getApplication().getApplicationContext()).load(R.drawable.ic_user).centerCrop().into(eventsViewHolder.userImage);
             }
         });
         //resmin üzerine tıklanınca verileri gözükecek bu kısım başka bir yerde daha kullanılıdı class veya fonksiyona çevirmeli
@@ -222,7 +223,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                                             @Override
                                             public void onSuccess(Uri uri) {
                                                 Glide
-                                                        .with(context)
+                                                        .with(((Activity) context).getApplication().getApplicationContext())
                                                         .load(uri.toString())
                                                         .asBitmap()
                                                         .into(new SimpleTarget<Bitmap>(96, 96) {
@@ -406,8 +407,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
         protected ImageView image;
         protected ImageView userImage;
         protected Button join;
-        protected View theCard;
+        protected View theView;
         protected Button edit;
+        protected CardView card;
         protected Button delete;
         public EventsViewHolder(View v) {
             super(v);
@@ -420,7 +422,9 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
             join=(Button)v.findViewById(R.id.btn_join);
             edit=(Button)v.findViewById(R.id.btn_edit_event);
             delete=(Button)v.findViewById(R.id.btn_delete_event);
-            theCard= v;
+            card=(CardView)v.findViewById(R.id.card_view_event);
+            card.setVisibility(View.VISIBLE);
+            theView= v;
 
         }
 

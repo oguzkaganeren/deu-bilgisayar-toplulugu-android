@@ -4,7 +4,7 @@
     <string name="firebase_database_url" translatable="false">https://deu-topluluk.firebaseio.com</string>
     <string name="gcm_defaultSenderId" translatable="false">248810399514</string>
     <string name="google_api_key" translatable="false">AIzaSyBSGPBOmCTEddZ26MbKeZYbnnNElbkLje0</string>
-    <string name="google_app_id" translatable="false">1:248810399514:android:0db215601ba4f207</string>
+    <string name="google_app_id" translatable="false">1:248810399514:android:12985369b719e93a</string>
     <string name="google_crash_reporting_api_key" translatable="false">AIzaSyBSGPBOmCTEddZ26MbKeZYbnnNElbkLje0</string>
     <string name="google_storage_bucket" translatable="false">deu-topluluk.appspot.com</string>
     <string name="project_id" translatable="false">deu-topluluk</string>

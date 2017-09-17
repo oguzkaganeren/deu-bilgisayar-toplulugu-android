@@ -60,7 +60,7 @@ public class InnerActivity  extends AppCompatActivity {
                 done.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        if(editTxt.length()>6&&editTxt.length()<50){
+                        if(editTxt.getText().length()>6&&editTxt.getText().length()<50){
                             user.updatePassword(editTxt.getText().toString().trim())
                                     .addOnCompleteListener(new OnCompleteListener<Void>() {
                                         @Override
@@ -88,7 +88,7 @@ public class InnerActivity  extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("name-surname")){
-                            editTxt.setHint(snapshot.child("name-surname").getValue().toString());
+                            editTxt.setText(snapshot.child("name-surname").getValue().toString());
                         }
                     }
                     @Override
@@ -114,7 +114,7 @@ public class InnerActivity  extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("status")){
-                            editTxt.setHint(snapshot.child("status").getValue().toString());
+                            editTxt.setText(snapshot.child("status").getValue().toString());
                         }
                     }
                     @Override
@@ -140,7 +140,7 @@ public class InnerActivity  extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("github")){
-                            editTxt.setHint(snapshot.child("github").getValue().toString());
+                            editTxt.setText(snapshot.child("github").getValue().toString());
                         }
                     }
                     @Override
@@ -172,7 +172,7 @@ public class InnerActivity  extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("linkedin")){
-                            editTxt.setHint(snapshot.child("linkedin").getValue().toString());
+                            editTxt.setText(snapshot.child("linkedin").getValue().toString());
                         }
                     }
                     @Override
@@ -204,7 +204,7 @@ public class InnerActivity  extends AppCompatActivity {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
                         if(snapshot.hasChild("website")){
-                            editTxt.setHint(snapshot.child("website").getValue().toString());
+                            editTxt.setText(snapshot.child("website").getValue().toString());
                         }
                     }
                     @Override

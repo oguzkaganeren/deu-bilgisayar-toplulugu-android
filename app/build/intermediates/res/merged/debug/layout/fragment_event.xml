@@ -23,6 +23,7 @@
         android:layout_marginTop="@dimen/cardMarginVertical"
         app:cardCornerRadius="2dp"
         app:cardElevation="2dp"
+        android:visibility="gone"
         app:cardPreventCornerOverlap="false"
         app:contentPadding="0dp">
         <RelativeLayout

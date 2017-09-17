@@ -3,6 +3,7 @@ package com.example.oguz.bilgisayarToplulugu;
 /**
  * Created by Oguz on 21-Jun-17.
  */
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
@@ -45,7 +46,7 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         contentViewHolder.description.setText(wb.description);
         contentViewHolder.urlS=wb.link;
         contentViewHolder.source.setText("Source:"+wb.source);
-        Glide.with(context)
+        Glide.with(((Activity) context).getApplication().getApplicationContext())
                 .load(wb.imgSrc)
                 .centerCrop()
                 .into(contentViewHolder.imgSrc);
