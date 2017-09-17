@@ -4,13 +4,19 @@ package com.example.oguz.bilgisayarToplulugu;
  * Created by Oguz on 21-Jun-17.
  */
 import android.app.Activity;
+import android.content.ComponentName;
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.BitmapFactory;
 import android.net.Uri;
+import android.support.customtabs.CustomTabsIntent;
+import android.support.v7.widget.CardView;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -41,7 +47,7 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
 
     @Override
     public void onBindViewHolder(final ContentViewHolder contentViewHolder, int i) {
-        WebDataInfo wb = dataList.get(i);
+        final WebDataInfo wb = dataList.get(i);
         contentViewHolder.title.setText(wb.title);
         contentViewHolder.description.setText(wb.description);
         contentViewHolder.urlS=wb.link;
@@ -64,7 +70,30 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
             e.printStackTrace();
             contentViewHolder.date.setText(wb.date);
         }
+        contentViewHolder.theCard.setOnClickListener(new View.OnClickListener() {
+            @Override public void onClick(View v) {
+                   /*Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlS));
+                    v.getContext().startActivity(myIntent);*/
+                //there is a problem
 
+                /*WebView mWebView =new WebView(context);
+                mWebView.getSettings().setJavaScriptEnabled(true);
+                mWebView.loadUrl(wb.link);*/
+                String url = wb.link;
+                CustomTabsIntent.Builder builder = new CustomTabsIntent.Builder();
+                builder.enableUrlBarHiding();
+                builder.setShowTitle(true);
+                builder.setCloseButtonIcon(BitmapFactory.decodeResource(context.getResources(), R.drawable.arrow_back_black_24dp));
+                builder.setToolbarColor(context.getResources().getColor(R.color.md_yellow_500));
+                builder.setStartAnimations(context, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                builder.setExitAnimations(context, android.R.anim.slide_in_left, android.R.anim.slide_out_right);
+                CustomTabsIntent customTabsIntent = builder.build();
+                customTabsIntent.intent.setFlags(Intent.FLAG_ACTIVITY_NO_HISTORY |  Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_SINGLE_TOP);
+                customTabsIntent.launchUrl(context, Uri.parse(url));
+
+
+            }
+        });
 
     }
 
@@ -83,6 +112,7 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
         protected ImageView imgSrc;
         protected String urlS;
         protected TextView source;
+        protected CardView theCard;
         public ContentViewHolder(View v) {
             super(v);
             title =  (TextView) v.findViewById(R.id.title);
@@ -90,18 +120,8 @@ public class WebDataAdapter extends RecyclerView.Adapter<WebDataAdapter.ContentV
             date = (TextView) v.findViewById(R.id.date);
             imgSrc=(ImageView)v.findViewById(R.id.thumbnail);
             source=(TextView)v.findViewById(R.id.source);
-            v.setOnClickListener(new View.OnClickListener() {
-                @Override public void onClick(View v) {
-                   Intent myIntent = new Intent(Intent.ACTION_VIEW, Uri.parse(urlS));
-                    v.getContext().startActivity(myIntent);
-                    //there is a problem
-                 /* WebView mWebView =new WebView(MainActivity.getContext());
-                    mWebView.loadUrl("http://www.google.com");*/
+            theCard=(CardView)v.findViewById(R.id.card_view);
 
-
-
-                }
-            });
         }
 
     }

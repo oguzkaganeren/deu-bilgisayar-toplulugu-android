@@ -44,6 +44,7 @@ dependencies {
     compile 'com.flaviofaria:kenburnsview:1.0.7'
     compile 'com.jpardogo.materialtabstrip:library:1.1.0'
     compile 'tyrantgit:explosionfield:1.0.1'
+    compile 'com.android.support:customtabs:26.0.2'
     compile('com.mikepenz:materialdrawer:5.9.5@aar') {
         transitive = true
     }
