@@ -1,6 +1,7 @@
 package com.example.oguz.bilgisayarToplulugu;
 
 import android.app.Activity;
+import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
@@ -70,6 +71,9 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             @Override
             public boolean onLongClick(View v) {
                 // TODO Auto-generated method stub
+                final ProgressDialog dialog = new ProgressDialog(context);
+                dialog.setMessage("Loading");
+                dialog.show();
                final AboutBuilder ab = AboutBuilder.with(context) .setLinksAnimated(true)
                        .setShowAsCard(false).addFiveStarsAction().setWrapScrollView(true).setAppName(R.string.app_name).addShareAction(R.string.app_name);
                 ab.setCover(R.drawable.profilebackground);
@@ -108,7 +112,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
                                     AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
                                     dialogBuilder.setView(view);
                                     dialogBuilder.show();
-
+                                    dialog.dismiss();
                                 }
                             });
                 }

@@ -139,6 +139,9 @@ public class ProfileActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 DatabaseReference mDatabase=FirebaseDatabase.getInstance().getReference();
+                final ProgressDialog dialog = new ProgressDialog(ProfileActivity.this);
+                dialog.setMessage("Loading");
+                dialog.show();
                 mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").addValueEventListener(new ValueEventListener() {
                     @Override
                     public void onDataChange(DataSnapshot snapshot) {
@@ -178,6 +181,7 @@ public class ProfileActivity extends AppCompatActivity {
                                                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
                                                 dialogBuilder.setView(view);
                                                 dialogBuilder.show();
+                                                dialog.dismiss();
 
                                             }
                                         });
@@ -189,6 +193,7 @@ public class ProfileActivity extends AppCompatActivity {
                                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
                                 dialogBuilder.setView(view);
                                 dialogBuilder.show();
+                                dialog.dismiss();
                             }
                         });
 
