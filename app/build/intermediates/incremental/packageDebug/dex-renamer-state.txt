@@ -1,4 +1,4 @@
-#Sun Sep 17 21:25:58 EEST 2017
+#Mon Sep 18 09:58:21 EEST 2017
 base.0=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10000\\instant-run_7016b853e8b528ebd1e614f4aa8aa3a9e30a5222
 renamed.1=classes2.dex
 renamed.0=classes.dex

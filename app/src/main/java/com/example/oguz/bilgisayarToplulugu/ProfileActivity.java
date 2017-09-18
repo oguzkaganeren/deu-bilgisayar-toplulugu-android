@@ -1,5 +1,6 @@
 package com.example.oguz.bilgisayarToplulugu;
 
+import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
 import android.content.Intent;
@@ -169,7 +170,7 @@ public class ProfileActivity extends AppCompatActivity {
                             @Override
                             public void onSuccess(Uri uri) {
                                 Glide
-                                        .with(ProfileActivity.this)
+                                        .with(getApplication().getApplicationContext())
                                         .load(uri)
                                         .asBitmap()
                                         .into(new SimpleTarget<Bitmap>(96, 96) {
@@ -178,9 +179,13 @@ public class ProfileActivity extends AppCompatActivity {
                                                 // Do something with bitmap here.
                                                 ab.setPhoto(bitmap);
                                                 View view=ab.build();
-                                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
-                                                dialogBuilder.setView(view);
-                                                dialogBuilder.show();
+                                                if(!((Activity) ProfileActivity.this).isFinishing())
+                                                {
+                                                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
+                                                    dialogBuilder.setView(view);
+                                                    dialogBuilder.show();
+                                                }
+
                                                 dialog.dismiss();
 
                                             }
