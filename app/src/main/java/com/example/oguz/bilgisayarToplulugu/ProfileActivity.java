@@ -8,13 +8,19 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.view.animation.Animation;
+import android.view.animation.LinearInterpolator;
+import android.view.animation.RotateAnimation;
+import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -40,16 +46,14 @@ import java.io.File;
  * Created by Oguz on 19-Jul-17.
  */
 
-public class ProfileActivity extends AppCompatActivity {
+public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private StorageReference storageRef;
-    private ImageButton changePass;
     private ImageButton profilePhoto;
     private ImageButton nameSurname;
     private ImageButton status;
-    private ImageButton gitAdr;
-    private ImageButton linkedinAdr;
-    private ImageButton websiteAdr;
+    private Integer[] settingImg={R.id.profile_password,R.id.profile_github,R.id.profile_googleplay,R.id.profile_appstore,R.id.profile_website,R.id.profile_whattsapp,R.id.profile_slack,R.id.profile_linkedin,R.id.profile_skype,R.id.profile_skype,R.id.profile_facebook,R.id.profile_instagram,R.id.profile_snapchat,R.id.profile_twitter,R.id.profile_youtube};
+    private ImageView[] imageViews;
     private FirebaseStorage myStorage;
     private ImageView userProfilePhoto;
     private ImageButton selfAbout;
@@ -61,32 +65,38 @@ public class ProfileActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
         myStorage=FirebaseStorage.getInstance();
         storageRef= myStorage.getReference();
+        imageViews=new ImageView[15];
+        final RotateAnimation anim = new RotateAnimation(0.0f, 360.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+        anim.setInterpolator(new LinearInterpolator());
+        anim.setRepeatCount(Animation.ABSOLUTE);
+        anim.setDuration(500);
         if (mAuth.getCurrentUser() == null) {
             finish();
 
         }
+        for(int i=0;i<settingImg.length;i++){
+            imageViews[i]=(ImageView)findViewById(settingImg[i]);
+            imageViews[i].setOnClickListener(this);
+        }
         selfAbout=(ImageButton)findViewById(R.id.self_about);
         profilePhoto=(ImageButton)findViewById(R.id.edit_profileImage);
-        changePass=(ImageButton)findViewById(R.id.edit_password);
         nameSurname=(ImageButton)findViewById(R.id.edit_namesurname);
         status=(ImageButton)findViewById(R.id.edit_status);
-        gitAdr=(ImageButton)findViewById(R.id.edit_github);
-        linkedinAdr=(ImageButton)findViewById(R.id.edit_linkedin);
-        websiteAdr=(ImageButton)findViewById(R.id.edit_website);
         userProfilePhoto=(ImageView)findViewById(R.id.user_profile_photo);
 
 
         pd = new ProgressDialog(this);
         pd.setMessage("Uploading...");
         loadDataOnFirebase();
-        changePass.setOnClickListener(new View.OnClickListener() {
+       /* changePass.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
+                changePass.startAnimation(anim);
+             /*  Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
                 intent.putExtra("which","change");
-                                    startActivity(intent);
-            }
-        });
+                                    startActivity(intent);*/
+          /*  }*/
+       /* });*/
         nameSurname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -100,30 +110,6 @@ public class ProfileActivity extends AppCompatActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
                 intent.putExtra("which","status");
-                startActivity(intent);
-            }
-        });
-        gitAdr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
-                intent.putExtra("which","github");
-                startActivity(intent);
-            }
-        });
-        linkedinAdr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
-                intent.putExtra("which","linkedin");
-                startActivity(intent);
-            }
-        });
-        websiteAdr.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
-                intent.putExtra("which","website");
                 startActivity(intent);
             }
         });
@@ -216,6 +202,69 @@ public class ProfileActivity extends AppCompatActivity {
         });
 
 
+    }
+    @Override
+    public void onClick(View v) {
+        final EditText input = new EditText(ProfileActivity.this);
+        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
+                LinearLayout.LayoutParams.MATCH_PARENT,
+                LinearLayout.LayoutParams.MATCH_PARENT);
+        input.setLayoutParams(lp);
+        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
+        //dialogBuilder.setTitle("DEU Bilgisayar Topluluğu");
+        dialogBuilder.setView(input);
+        switch (v.getId()) {
+
+
+
+            case R.id.profile_password:
+                // do your code
+                dialogBuilder.show();
+                break;
+
+            case R.id.profile_github:
+                // do your code
+                break;
+
+            case R.id.profile_googleplay:
+                // do your code
+                break;
+            case R.id.profile_appstore:
+                // do your code
+                break;
+            case R.id.profile_linkedin:
+                // do your code
+                break;
+            case R.id.profile_instagram:
+                // do your code
+                break;
+            case R.id.profile_mail:
+                // do your code
+                break;
+            case R.id.profile_skype:
+                // do your code
+                break;
+            case R.id.profile_slack:
+                // do your code
+                break;
+            case R.id.profile_snapchat:
+                // do your code
+                break;
+            case R.id.profile_twitter:
+                // do your code
+                break;
+            case R.id.profile_website:
+                // do your code
+                break;
+            case R.id.profile_whattsapp:
+                // do your code
+                break;
+            case R.id.profile_youtube:
+                // do your code
+                break;
+            default:
+                break;
+        }
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

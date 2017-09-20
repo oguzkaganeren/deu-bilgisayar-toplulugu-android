@@ -51,6 +51,7 @@
                 android:layout_alignRight="@+id/user_profile_name"
                 android:layout_marginTop="55dp"
                 android:layout_marginLeft="15dp"
+                android:layout_centerHorizontal="true"
                 android:text="Your Status"
                 android:textColor="#fff"
                 android:textSize="14sp" />
@@ -104,116 +105,110 @@
             android:src="@drawable/photo_library_black_24dp"
             android:elevation="5dp"
             android:layout_alignRight="@id/user_profile_photo"/>
-        <RelativeLayout
-            android:layout_width="fill_parent"
+        <TableLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@+id/user_profile_photo"
-            android:layout_marginTop="5dp"
-            android:orientation="vertical">
-            <TextView
-                android:id="@+id/txt_changepass"
-                android:layout_width="fill_parent"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="Change your password"
-                />
-            <ImageButton
-                android:id="@+id/edit_password"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:padding="4dp"
-                android:scaleType="fitXY"
-                android:elevation="4dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/editor_pencil"
-                android:src="@drawable/edit_black_24dp"
-                android:layout_alignBottom="@id/txt_changepass"
-                android:layout_alignRight="@id/txt_changepass"
-                />
-
-            <TextView
-                android:id="@+id/txt_github"
-                android:layout_width="fill_parent"
-                android:layout_below="@id/txt_changepass"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="Your github or gitlab address"
-                />
-            <ImageButton
-                android:id="@+id/edit_github"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:padding="4dp"
-                android:scaleType="fitXY"
-                android:elevation="4dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/editor_pencil"
-                android:src="@drawable/edit_black_24dp"
-                android:layout_alignBottom="@id/txt_github"
-                android:layout_alignRight="@id/txt_github"
-                />
-            <TextView
-                android:id="@+id/txt_linkedin"
-                android:layout_width="fill_parent"
-                android:layout_below="@id/txt_github"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="Your linkedin address"
-                />
-            <ImageButton
-                android:id="@+id/edit_linkedin"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:padding="4dp"
-                android:scaleType="fitXY"
-                android:elevation="4dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/editor_pencil"
-                android:src="@drawable/edit_black_24dp"
-                android:layout_alignBottom="@id/txt_linkedin"
-                android:layout_alignRight="@id/txt_linkedin"
-                />
-            <TextView
-                android:id="@+id/txt_website"
-                android:layout_width="fill_parent"
-                android:layout_below="@id/txt_linkedin"
-                android:layout_height="wrap_content"
-                android:layout_margin="5dp"
-                android:background="#fff"
-                android:clickable="true"
-                android:elevation="4dp"
-                android:padding="20dp"
-                android:text="Your website address"
-                />
-            <ImageButton
-                android:id="@+id/edit_website"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:clickable="true"
-                android:padding="4dp"
-                android:scaleType="fitXY"
-                android:elevation="4dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/editor_pencil"
-                android:src="@drawable/edit_black_24dp"
-                android:layout_alignBottom="@id/txt_website"
-                android:layout_alignRight="@id/txt_website"
-                />
-        </RelativeLayout>
+            android:layout_marginTop="5dp">
+            <TableRow android:weightSum="5"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_password"
+                    android:src="@mipmap/password"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:id="@+id/profile_mail"
+                android:src="@mipmap/mail"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:id="@+id/profile_github"
+                android:src="@mipmap/githubpage"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:id="@+id/profile_googleplay"
+                android:src="@mipmap/googleplay"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_appstore"
+                    android:src="@mipmap/appstore"/>
+            </TableRow>
+            <TableRow android:weightSum="5"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_website"
+                    android:src="@mipmap/websitepage"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:id="@+id/profile_whattsapp"
+                android:src="@mipmap/whatsapppage"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:id="@+id/profile_slack"
+                android:src="@mipmap/slack"/>
+            <ImageView
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:adjustViewBounds="true"
+                android:id="@+id/profile_linkedin"
+                android:src="@mipmap/linkedinpage"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_skype"
+                    android:src="@mipmap/skypepage"/>
+            </TableRow>
+            <TableRow android:weightSum="5"
+                android:gravity="center_horizontal">
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_facebook"
+                    android:src="@mipmap/facebookpage"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_instagram"
+                    android:src="@mipmap/instagrampage"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_snapchat"
+                    android:src="@mipmap/snapchat"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_twitter"
+                    android:src="@mipmap/twitterpage"/>
+                <ImageView
+                    android:layout_width="60dp"
+                    android:layout_height="60dp"
+                    android:adjustViewBounds="true"
+                    android:id="@+id/profile_youtube"
+                    android:src="@mipmap/youtubepage"/>
+            </TableRow>
+        </TableLayout >
     </RelativeLayout>
 </ScrollView>
