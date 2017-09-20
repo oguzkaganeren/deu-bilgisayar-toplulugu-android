@@ -45,6 +45,11 @@ dependencies {
     compile 'com.jpardogo.materialtabstrip:library:1.1.0'
     compile 'tyrantgit:explosionfield:1.0.1'
     compile 'com.android.support:customtabs:26.0.2'
+    //depend
+    compile 'com.afollestad.material-dialogs:core:0.9.4.7'
+    compile 'com.android.support:support-v4:26.0.2'
+    compile 'com.android.support:support-v13:26.0.2'
+    //--
     compile('com.mikepenz:materialdrawer:5.9.5@aar') {
         transitive = true
     }

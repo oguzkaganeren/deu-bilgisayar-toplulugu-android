@@ -3,6 +3,7 @@ package com.example.oguz.bilgisayarToplulugu;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
@@ -13,17 +14,26 @@ import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
+import android.support.v7.view.ContextThemeWrapper;
+import android.text.InputType;
+import android.util.Log;
 import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.StackingBehavior;
+import com.afollestad.materialdialogs.Theme;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
@@ -58,6 +68,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private ImageView userProfilePhoto;
     private ImageButton selfAbout;
     private Uri filePath;
+    private final RotateAnimation anim = new RotateAnimation(0.0f, 360.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
     private ProgressDialog pd;
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -66,7 +77,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         myStorage=FirebaseStorage.getInstance();
         storageRef= myStorage.getReference();
         imageViews=new ImageView[15];
-        final RotateAnimation anim = new RotateAnimation(0.0f, 360.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
+
         anim.setInterpolator(new LinearInterpolator());
         anim.setRepeatCount(Animation.ABSOLUTE);
         anim.setDuration(500);
@@ -88,15 +99,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         pd = new ProgressDialog(this);
         pd.setMessage("Uploading...");
         loadDataOnFirebase();
-       /* changePass.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                changePass.startAnimation(anim);
-             /*  Intent intent = new Intent(ProfileActivity.this, InnerActivity.class);
-                intent.putExtra("which","change");
-                                    startActivity(intent);*/
-          /*  }*/
-       /* });*/
         nameSurname.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -205,21 +207,38 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     }
     @Override
     public void onClick(View v) {
-        final EditText input = new EditText(ProfileActivity.this);
-        LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(
-                LinearLayout.LayoutParams.MATCH_PARENT,
-                LinearLayout.LayoutParams.MATCH_PARENT);
-        input.setLayoutParams(lp);
-        AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
-        //dialogBuilder.setTitle("DEU Bilgisayar Topluluğu");
-        dialogBuilder.setView(input);
+        MaterialDialog.Builder dialog = new MaterialDialog.Builder(this)
+                .negativeText("Cancel")
+                .theme(Theme.LIGHT)
+                .titleColor(getResources().getColor(R.color.md_dark_dialogs))
+                .widgetColor(getResources().getColor(R.color.md_dark_dialogs))
+                .positiveColor(getResources().getColor(R.color.md_black_1000))
+                .negativeColor(getResources().getColor(R.color.md_dark_dialogs))
+                .positiveText("Done");
+
+        v.startAnimation(anim);
         switch (v.getId()) {
-
-
-
             case R.id.profile_password:
                 // do your code
-                dialogBuilder.show();
+                dialog.title("Change your password");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                            @Override
+                            public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                                // TODO
+                            }
+                });
+                dialog.inputRangeRes(6, 60, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD)
+                    .input("Password", "", new MaterialDialog.InputCallback() {
+                    @Override
+                    public void onInput(MaterialDialog dialog, CharSequence input) {
+                        // Do something
+                    }
+                }).show();
                 break;
 
             case R.id.profile_github:
@@ -265,6 +284,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             default:
                 break;
         }
+
     }
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
