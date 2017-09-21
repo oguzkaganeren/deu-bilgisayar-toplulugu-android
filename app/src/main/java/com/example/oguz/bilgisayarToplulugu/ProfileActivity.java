@@ -62,7 +62,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
     private ImageButton profilePhoto;
     private ImageButton nameSurname;
     private ImageButton status;
-    private Integer[] settingImg={R.id.profile_password,R.id.profile_github,R.id.profile_googleplay,R.id.profile_appstore,R.id.profile_website,R.id.profile_whattsapp,R.id.profile_slack,R.id.profile_linkedin,R.id.profile_skype,R.id.profile_skype,R.id.profile_facebook,R.id.profile_instagram,R.id.profile_snapchat,R.id.profile_twitter,R.id.profile_youtube};
+    private Integer[] settingImg={R.id.profile_password,R.id.profile_mail,R.id.profile_github,R.id.profile_googleplay,R.id.profile_appstore,R.id.profile_website,R.id.profile_whattsapp,R.id.profile_slack,R.id.profile_linkedin,R.id.profile_skype,R.id.profile_facebook,R.id.profile_instagram,R.id.profile_snapchat,R.id.profile_twitter,R.id.profile_youtube};
     private ImageView[] imageViews;
     private FirebaseStorage myStorage;
     private ImageView userProfilePhoto;
@@ -242,44 +242,303 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 break;
 
             case R.id.profile_github:
-                // do your code
+                dialog.title("Change your github account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 38, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+                                if (input.toString().matches("(/^[a-z\\d](?:[a-z\\d]|-(?=[a-z\\d])){0,38}$/i)")) {
+                                    //It's valid
+                                }else{
+                                    dialog.getInputEditText().setError("Please enter a valid account");
+                                }
+                            }
+                        }).show();
                 break;
 
             case R.id.profile_googleplay:
-                // do your code
+                dialog.title("Change your google play account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_appstore:
                 // do your code
+                dialog.title("Change your app store account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_linkedin:
                 // do your code
+                dialog.title("Change your linkedin account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_instagram:
                 // do your code
+                dialog.title("Change your instagram account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_mail:
                 // do your code
+                dialog.title("Your Mail");
+                dialog.onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).show();
                 break;
             case R.id.profile_skype:
                 // do your code
+                dialog.title("Change your skype account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_slack:
                 // do your code
+                dialog.title("Change your slack account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_snapchat:
                 // do your code
+                dialog.title("Change your snapchat account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_twitter:
                 // do your code
+                dialog.title("Change your twitter account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_website:
                 // do your code
+                dialog.title("Change your website");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("your website", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_whattsapp:
                 // do your code
+                dialog.title("Change your whatsapp account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("phone number", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             case R.id.profile_youtube:
                 // do your code
+                dialog.title("Change your youtube account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
+                break;
+            case R.id.profile_facebook:
+                // do your code
+                dialog.title("Change your facebook account");
+                dialog.onPositive(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                }).onNegative(new MaterialDialog.SingleButtonCallback() {
+                    @Override
+                    public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
+                        // TODO
+                    }
+                });
+                dialog.inputRangeRes(0, 80, R.color.md_red_500).inputType(InputType.TYPE_CLASS_TEXT)
+                        .input("username", "", new MaterialDialog.InputCallback() {
+                            @Override
+                            public void onInput(MaterialDialog dialog, CharSequence input) {
+
+                            }
+                        }).show();
                 break;
             default:
                 break;
