@@ -48,6 +48,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="6931c60cbdc65fb8dfffde8520b7c8528bcf0a76">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_913d7f21c6215a1fcff759918b76ab51dbea2d03.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\1e4329938538c22707686ef9a457590bc1806837\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"

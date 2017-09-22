@@ -24,24 +24,28 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\d054effd619b8ebe10f8f9303c98c2105e1718fc\\output\\res\\layout\\md_listitem_singlechoice.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_view_pager_pagertitlestrip_standard.xml",
-        "source": "C:\\Users\\Oguz\\.android\\build-cache\\7236804b8d79e60540aa0b64b767d16d388e4170\\output\\res\\layout\\material_view_pager_pagertitlestrip_standard.xml"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tedbottompicker_grid_item.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\\output\\res\\layout\\tedbottompicker_grid_item.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_search_dropdown_item_icons_2line.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
-        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dc79cd0bfab44de900c99d68b382130f01a23a34\\output\\res\\layout\\notification_action_tombstone.xml"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_view_pager_pagertitlestrip_standard.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\7236804b8d79e60540aa0b64b767d16d388e4170\\output\\res\\layout\\material_view_pager_pagertitlestrip_standard.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_drawer_header.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\1566efbb34e82f233c14a2ee359fff61a4bed9a5\\output\\res\\layout\\material_drawer_header.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_drawer_item_divider.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\1566efbb34e82f233c14a2ee359fff61a4bed9a5\\output\\res\\layout\\material_drawer_item_divider.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_drawer_header.xml",
-        "source": "C:\\Users\\Oguz\\.android\\build-cache\\1566efbb34e82f233c14a2ee359fff61a4bed9a5\\output\\res\\layout\\material_drawer_header.xml"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dc79cd0bfab44de900c99d68b382130f01a23a34\\output\\res\\layout\\notification_action_tombstone.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_view_pager_layout.xml",
@@ -68,12 +72,12 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\85d466aafbf71eb9a5dc88f214e91830292f257b\\output\\res\\layout\\design_navigation_item_header.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
-        "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\layout\\abc_screen_content_include.xml"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_expanded_menu_layout.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\layout\\abc_expanded_menu_layout.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_content_include.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\layout\\abc_screen_content_include.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_drawer_item_secondary.xml",
@@ -100,6 +104,10 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\85d466aafbf71eb9a5dc88f214e91830292f257b\\output\\res\\layout\\design_bottom_sheet_dialog.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tedbottompicker_content_view.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\\output\\res\\layout\\tedbottompicker_content_view.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\md_dialog_progress.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\d054effd619b8ebe10f8f9303c98c2105e1718fc\\output\\res\\layout\\md_dialog_progress.xml"
     },
@@ -120,20 +128,20 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\layout\\abc_action_mode_close_item_material.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow_custom.xml",
-        "source": "C:\\Users\\Oguz\\.android\\build-cache\\0f75db4c694c6829d296e972d2d67a53ea4ebfa1\\output\\res\\layout\\notification_template_big_media_narrow_custom.xml"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\activity_profile_inner.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\activity_profile_inner.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\xab_each_link.xml",
-        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dd523e1a66c7e3ca0fe89336a8f24230953a8d0a\\output\\res\\layout\\xab_each_link.xml"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\notification_template_big_media_narrow_custom.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\0f75db4c694c6829d296e972d2d67a53ea4ebfa1\\output\\res\\layout\\notification_template_big_media_narrow_custom.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_screen_toolbar.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\layout\\abc_screen_toolbar.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\xab_each_link.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dd523e1a66c7e3ca0fe89336a8f24230953a8d0a\\output\\res\\layout\\xab_each_link.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\md_dialog_progress_indeterminate.xml",
@@ -374,6 +382,10 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_drawer_slider.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\1566efbb34e82f233c14a2ee359fff61a4bed9a5\\output\\res\\layout\\material_drawer_slider.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tedbottompicker_selected_item.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\\output\\res\\layout\\tedbottompicker_selected_item.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tools_list_item_card_big.xml",
