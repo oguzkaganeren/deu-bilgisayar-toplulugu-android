@@ -1,16 +1,13 @@
 package com.example.oguz.bilgisayarToplulugu;
 
 import android.app.Activity;
-import android.app.Dialog;
 import android.app.ProgressDialog;
 import android.content.Context;
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
-import android.os.SystemClock;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -22,16 +19,11 @@ import android.view.View;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
 import android.view.animation.RotateAnimation;
-import android.widget.Button;
-import android.widget.EditText;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.afollestad.materialdialogs.DialogAction;
+import com.afollestad.materialdialogs.GravityEnum;
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.StackingBehavior;
 import com.afollestad.materialdialogs.Theme;
@@ -51,10 +43,14 @@ import com.google.firebase.database.ValueEventListener;
 import com.google.firebase.storage.FirebaseStorage;
 import com.google.firebase.storage.StorageReference;
 import com.google.firebase.storage.UploadTask;
+import com.romainpiel.shimmer.Shimmer;
+import com.romainpiel.shimmer.ShimmerTextView;
 import com.vansuita.materialabout.builder.AboutBuilder;
 
 import java.io.File;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 import id.zelory.compressor.Compressor;
 
@@ -65,15 +61,15 @@ import id.zelory.compressor.Compressor;
 public class ProfileActivity extends AppCompatActivity implements View.OnClickListener{
     private FirebaseAuth mAuth;
     private StorageReference storageRef;
-    private ImageButton profilePhoto;
-    private ImageButton nameSurname;
-    private ImageButton status;
+    private ShimmerTextView nameSurname;
+    private ShimmerTextView status;
+    private ImageView selfImg;
     private Integer[] settingImg={R.id.profile_password,R.id.profile_mail,R.id.profile_github,R.id.profile_googleplay,R.id.profile_appstore,R.id.profile_website,R.id.profile_whattsapp,R.id.profile_slack,R.id.profile_linkedin,R.id.profile_skype,R.id.profile_facebook,R.id.profile_instagram,R.id.profile_snapchat,R.id.profile_twitter,R.id.profile_youtube};
     private ImageView[] imageViews;
     private FirebaseStorage myStorage;
     private DatabaseReference mDatabase;
+    final MembersInfo member = new MembersInfo();
     private ImageView userProfilePhoto;
-    private ImageButton selfAbout;
     private Uri filePath;
     private final RotateAnimation anim = new RotateAnimation(0.0f, 360.0f, Animation.RELATIVE_TO_SELF, 0.5f, Animation.RELATIVE_TO_SELF, 0.5f);
     private ProgressDialog pd;
@@ -85,7 +81,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         myStorage=FirebaseStorage.getInstance();
         storageRef= myStorage.getReference();
         imageViews=new ImageView[15];
-
+        selfImg=(ImageView)findViewById(R.id.profile_self);
         anim.setInterpolator(new LinearInterpolator());
         anim.setRepeatCount(Animation.ABSOLUTE);
         anim.setDuration(500);
@@ -97,10 +93,16 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             imageViews[i]=(ImageView)findViewById(settingImg[i]);
             imageViews[i].setOnClickListener(this);
         }
-        selfAbout=(ImageButton)findViewById(R.id.self_about);
-        profilePhoto=(ImageButton)findViewById(R.id.edit_profileImage);
-        nameSurname=(ImageButton)findViewById(R.id.edit_namesurname);
-        status=(ImageButton)findViewById(R.id.edit_status);
+        nameSurname=(ShimmerTextView) findViewById(R.id.user_profile_name);
+        status=(ShimmerTextView) findViewById(R.id.user_profile_status);
+        Shimmer shimmer = new Shimmer();
+        shimmer.setDuration(2000)
+                .setStartDelay(100);
+        shimmer.start(nameSurname);
+        Shimmer shimmerTwo = new Shimmer();
+        shimmer.setDuration(2000)
+                .setStartDelay(400);
+        shimmer.start(status);
         userProfilePhoto=(ImageView)findViewById(R.id.user_profile_photo);
         final MaterialDialog.Builder dialogUp = new MaterialDialog.Builder(ProfileActivity.this)
                 .negativeText("Cancel")
@@ -128,97 +130,24 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 loadDialog(dialogUp,"status");
             }
         });
-        profilePhoto.setOnClickListener(new View.OnClickListener() {
+        userProfilePhoto.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-              /*  Intent intent = new Intent();
-                intent.setType("image/*");
-                intent.setAction(Intent.ACTION_PICK);
-                startActivityForResult(Intent.createChooser(intent, "Select Image"),111);*/
                 Intent pickPhoto = new Intent(Intent.ACTION_PICK,
                         android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
                 startActivityForResult(pickPhoto , 111);//one can be replaced with any action code
 
             }
         });
-        selfAbout.setOnClickListener(new View.OnClickListener() {
+        selfImg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DatabaseReference mDatabase=FirebaseDatabase.getInstance().getReference();
-                final ProgressDialog dialog = new ProgressDialog(ProfileActivity.this);
-                dialog.setMessage("Loading");
-                dialog.show();
-                mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").addValueEventListener(new ValueEventListener() {
-                    @Override
-                    public void onDataChange(DataSnapshot snapshot) {
-                        final AboutBuilder ab = AboutBuilder.with(ProfileActivity.this) .setLinksAnimated(true)
-                                .setShowAsCard(false).addFiveStarsAction().setWrapScrollView(true).setAppName(R.string.app_name).addShareAction(R.string.app_name);
-                        ab.setCover(R.drawable.profilebackground);
-                        if(snapshot.hasChild("name-surname")){
-                            ab.setName(snapshot.child("name-surname").getValue().toString());
-                        }
-                        if(snapshot.hasChild("status")){
-                            ab.setSubTitle(snapshot.child("status").getValue().toString());
-                        }
-                        if(snapshot.hasChild("github")&&!snapshot.child("github").getValue().toString().trim().isEmpty()){
-                            ab.addGitHubLink(snapshot.child("github").getValue().toString());
-                        }
-                        if(snapshot.hasChild("website")&&!snapshot.child("website").getValue().toString().trim().isEmpty()){
-                            ab.addWebsiteLink(snapshot.child("website").getValue().toString());
-                        }
-                        if(snapshot.hasChild("linkedin")&&!snapshot.child("linkedin").getValue().toString().trim().isEmpty()){
-                            ab.addLinkedInLink(snapshot.child("linkedin").getValue().toString());
-                        }
-                        StorageReference image = storageRef.child("images/profiles/"+mAuth.getCurrentUser().getUid());
-
-                        image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-                            @Override
-                            public void onSuccess(Uri uri) {
-                                Glide
-                                        .with(getApplication().getApplicationContext())
-                                        .load(uri)
-                                        .asBitmap()
-                                        .into(new SimpleTarget<Bitmap>(96, 96) {
-                                            @Override
-                                            public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-                                                // Do something with bitmap here.
-                                                ab.setPhoto(bitmap);
-                                                View view=ab.build();
-                                                if(!((Activity) ProfileActivity.this).isFinishing())
-                                                {
-                                                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
-                                                    dialogBuilder.setView(view);
-                                                    dialogBuilder.show();
-                                                }
-
-                                                dialog.dismiss();
-
-                                            }
-                                        });
-                            }}).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                ab.setPhoto(R.mipmap.logo);
-                                View view=ab.build();
-                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(ProfileActivity.this);
-                                dialogBuilder.setView(view);
-                                dialogBuilder.show();
-                                dialog.dismiss();
-                            }
-                        });
-
-                    }
-                    @Override
-                    public void onCancelled(DatabaseError databaseError) {
-                        if(mAuth!=null){
-                            Toast.makeText(ProfileActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
-                        }
-
-                    }
-                });
+                AboutPage aboutPage=new AboutPage(ProfileActivity.this,member);
 
             }
         });
+
+
 
 
     }
@@ -298,6 +227,8 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             case R.id.profile_mail:
                 // do your code
                 dialog.title("Your Mail");
+                dialog.content(mAuth.getCurrentUser().getEmail().toString());
+                dialog.contentGravity(GravityEnum.CENTER);
                 dialog.onNegative(new MaterialDialog.SingleButtonCallback() {
                     @Override
                     public void onClick(@NonNull MaterialDialog dialog, @NonNull DialogAction which) {
@@ -496,17 +427,134 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             }
         });
     }
+
     public void loadDataOnFirebase(){
 
         mDatabase.child("users").child(mAuth.getCurrentUser().getUid()).child("profile").addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot snapshot) {
-                if(snapshot.hasChild("name-surname")){
-                    ((TextView)findViewById(R.id.user_profile_name)).setText(snapshot.child("name-surname").getValue().toString());
+
+
+
+                if (snapshot.hasChild("name-surname") && mAuth != null) {
+                    member.nameSurname = snapshot.child("name-surname").getValue(String.class);
+                    nameSurname.setText(member.nameSurname);
+                } else {
+                    member.nameSurname = "Computer Society Member";
                 }
-                if(snapshot.hasChild("status")){
-                    ((TextView)findViewById(R.id.user_profile_short_bio)).setText(snapshot.child("status").getValue().toString());
+                if (snapshot.hasChild("status") && mAuth != null) {
+                    member.status = snapshot.child("status").getValue(String.class);
+                    status.setText(member.status);
+                } else {
+                    member.status = "-";
                 }
+                if(snapshot.hasChild("last-online-date")){
+                    Long val = snapshot.child("last-online-date").getValue(Long.class);
+                    Date date=new Date(val);
+                    SimpleDateFormat df2 = new SimpleDateFormat("dd/MM/yy HH:mm");
+                    String dateText = df2.format(date);
+                    member.last_login=dateText;
+                    member.uid=snapshot.getKey().toString();
+                }else{
+                    member.last_login="-";
+                    member.uid=snapshot.getKey().toString();
+                }
+                if (snapshot.hasChild("github") && mAuth != null) {
+                    String git = snapshot.child("github").getValue(String.class);
+                    member.github = git;
+                } else {
+                    member.github = null;
+                }
+                if (snapshot.hasChild("google-play-developer") && mAuth != null) {
+                    String googlePlay = snapshot.child("google-play-developer").getValue(String.class);
+                    member.googlePlay = googlePlay;
+                } else {
+                    member.googlePlay = null;
+                }
+                if (snapshot.hasChild("appstore-developer") && mAuth != null) {
+                    String appStore = snapshot.child("appstore-developer").getValue(String.class);
+                    member.appStore = appStore;
+                } else {
+                    member.appStore = null;
+                }
+                if (snapshot.hasChild("skype") && mAuth != null) {
+                    String skype = snapshot.child("skype").getValue(String.class);
+                    member.skype = skype;
+                } else {
+                    member.skype = null;
+                }
+                if (snapshot.hasChild("slack") && mAuth != null) {
+                    String slack = snapshot.child("slack").getValue(String.class);
+                    member.slack = slack;
+                } else {
+                    member.slack = null;
+                }
+                if (snapshot.hasChild("snapchat") && mAuth != null) {
+                    String snapchat = snapshot.child("snapchat").getValue(String.class);
+                    member.snap = snapchat;
+                } else {
+                    member.snap = null;
+                }
+                if (snapshot.hasChild("twitter") && mAuth != null) {
+                    String twitter = snapshot.child("twitter").getValue(String.class);
+                    member.twitter = twitter;
+                } else {
+                    member.twitter = null;
+                }
+                if (snapshot.hasChild("facebook") && mAuth != null) {
+                    String facebook = snapshot.child("facebook").getValue(String.class);
+                    member.facebook = facebook;
+                } else {
+                    member.facebook = null;
+                }
+                if (snapshot.hasChild("whatsapp") && mAuth != null) {
+                    String whatsapp = snapshot.child("whatsapp").getValue(String.class);
+                    member.whatsapp = whatsapp;
+                } else {
+                    member.whatsapp = null;
+                }
+                if (snapshot.hasChild("youtube") && mAuth != null) {
+                    String youtube = snapshot.child("youtube").getValue(String.class);
+                    member.youtube = youtube;
+                } else {
+                    member.youtube = null;
+                }
+                if (snapshot.hasChild("linkedin") && mAuth != null) {
+                    String linkedin = snapshot.child("linkedin").getValue(String.class);
+                    member.linkedin = linkedin;
+                } else {
+                    member.linkedin = null;
+                }
+                if (snapshot.hasChild("website") && mAuth != null) {
+                    String web = snapshot.child("website").getValue(String.class);
+                    member.website = web;
+                } else {
+                    member.website = null;
+                }
+                if (snapshot.hasChild("online")) {
+                    Boolean val = snapshot.child("online").getValue(Boolean.class);
+                    if (snapshot.getKey() == mAuth.getCurrentUser().getUid()) {
+                        member.online = true;
+                    } else {
+                        member.online = val;
+                    }
+
+                }
+                StorageReference image = storageRef.child("images/profiles/" + mAuth.getCurrentUser().getUid().toString());
+                image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
+                    @Override
+                    public void onSuccess(Uri uri) {
+                        Glide.with(getApplicationContext()).load(uri).centerCrop().into(userProfilePhoto);
+                        member.imgSrc = uri.toString();
+
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception exception) {
+                        member.imgSrc = null;
+                        Glide.with(getApplicationContext()).load(R.drawable.ic_user).centerCrop().into(userProfilePhoto);
+                    }
+                });
 
             }
             @Override
@@ -515,18 +563,6 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     Toast.makeText(ProfileActivity.this, "There is a problem/n Please try again", Toast.LENGTH_SHORT).show();
                 }
 
-            }
-        });
-        StorageReference image = storageRef.child("images/profiles/"+mAuth.getCurrentUser().getUid());
-
-        image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
-            @Override
-            public void onSuccess(Uri uri) {
-                Glide.with(getApplicationContext()).load(uri).centerCrop().into(userProfilePhoto);
-            }}).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception exception) {
-                Glide.with(getApplicationContext()).load(R.drawable.ic_user).centerCrop().into(userProfilePhoto);
             }
         });
 

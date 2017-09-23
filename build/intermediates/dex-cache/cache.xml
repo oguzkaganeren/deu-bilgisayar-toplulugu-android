@@ -219,12 +219,12 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Oguz\.android\build-cache\3f39faadd594c7f62e5a1d21df8de65ce612778c\output\jars\classes.jar"
+        jar="C:\Users\Oguz\.android\build-cache\d3cca040206da2ebc69677890712836dc4555630\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
         revision="26.0.1"
-        sha1="c5908b18e51277294cbc18d609254b87df60d4ac">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_e2b76eb7d3ccf1b75118c53b1fb8d6ea9e534447.jar" />
+        sha1="605019d3e4be636f5dd74c83d05198994e3a2ce9">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_a5fd6b2a0cc62a68a6f66b9ef2485b3554f93c02.jar" />
     </item>
     <item
         is-multidex="false"

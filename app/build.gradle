@@ -50,6 +50,7 @@ dependencies {
     compile 'com.android.support:support-v4:26.0.2'
     compile 'com.android.support:support-v13:26.0.2'
     //--
+    compile 'com.romainpiel.shimmer:library:1.4.0@aar'
     compile 'id.zelory:compressor:2.1.0'
     compile('com.mikepenz:materialdrawer:5.9.5@aar') {
         transitive = true

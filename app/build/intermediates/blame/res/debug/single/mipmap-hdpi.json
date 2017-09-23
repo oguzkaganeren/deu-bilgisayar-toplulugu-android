@@ -52,6 +52,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\slack.png"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\self.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\self.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\youtubepage.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\youtubepage.png"
     },
