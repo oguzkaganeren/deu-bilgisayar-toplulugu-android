@@ -1,9 +1,9 @@
 <resources>
-    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
+    <style name="OurMaterialTheme" parent="OurMaterialTheme.Base">
 
     </style>
     <!-- Base application theme. -->
-    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+    <style name="OurMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
         <!-- Customize your theme here. -->
 
         <item name="windowNoTitle">true</item>

@@ -20,6 +20,10 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\dd523e1a66c7e3ca0fe89336a8f24230953a8d0a\\output\\res\\anim\\expand_in.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\anim\\slide_in_bottom.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\3f39faadd594c7f62e5a1d21df8de65ce612778c\\output\\res\\anim\\slide_in_bottom.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\anim\\design_bottom_sheet_slide_out.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\85d466aafbf71eb9a5dc88f214e91830292f257b\\output\\res\\anim\\design_bottom_sheet_slide_out.xml"
     },

@@ -491,9 +491,6 @@
     <color name="switch_thumb_disabled_material_light">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_dark">#ffbdbdbd</color>
     <color name="switch_thumb_normal_material_light">#fff1f1f1</color>
-    <color name="tedbottompicker_camera">#000</color>
-    <color name="tedbottompicker_gallery">#ccc</color>
-    <color name="tedbottompicker_selected">#f0f0f0</color>
     <color name="tooltip_background_dark">#e6616161</color>
     <color name="tooltip_background_light">#e6FFFFFF</color>
     <color name="viewBg">#f1f5f8</color>
@@ -906,8 +903,6 @@
             <enum name="fill" value="0"/>
             <enum name="center" value="1"/>
         </attr><attr format="dimension" name="tabMinWidth"/><attr format="dimension" name="tabMaxWidth"/><attr format="reference" name="tabTextAppearance"/><attr format="color" name="tabTextColor"/><attr format="color" name="tabSelectedTextColor"/><attr format="dimension" name="tabPaddingStart"/><attr format="dimension" name="tabPaddingTop"/><attr format="dimension" name="tabPaddingEnd"/><attr format="dimension" name="tabPaddingBottom"/><attr format="dimension" name="tabPadding"/></declare-styleable>
-    <declare-styleable name="TedBottomPickerImageView"><attr format="reference" name="foreground"/><attr format="string" name="fit_mode"/></declare-styleable>
-    <declare-styleable name="TedBottomPickerSquareView"><attr format="boolean" name="matchHeightToWidth"/><attr format="boolean" name="matchWidthToHeight"/></declare-styleable>
     <declare-styleable name="TextAppearance"><attr name="android:textSize"/><attr name="android:textColor"/><attr name="android:textColorHint"/><attr name="android:textColorLink"/><attr name="android:textStyle"/><attr name="android:typeface"/><attr name="android:fontFamily"/><attr name="fontFamily"/><attr name="textAllCaps"/><attr name="android:shadowColor"/><attr name="android:shadowDy"/><attr name="android:shadowDx"/><attr name="android:shadowRadius"/></declare-styleable>
     <declare-styleable name="TextInputLayout"><attr format="reference" name="hintTextAppearance"/><attr name="android:hint"/><attr format="boolean" name="hintEnabled"/><attr format="boolean" name="errorEnabled"/><attr format="reference" name="errorTextAppearance"/><attr format="boolean" name="counterEnabled"/><attr format="integer" name="counterMaxLength"/><attr format="reference" name="counterTextAppearance"/><attr format="reference" name="counterOverflowTextAppearance"/><attr name="android:textColorHint"/><attr format="boolean" name="hintAnimationEnabled"/><attr format="boolean" name="passwordToggleEnabled"/><attr format="reference" name="passwordToggleDrawable"/><attr format="string" name="passwordToggleContentDescription"/><attr format="color" name="passwordToggleTint"/><attr name="passwordToggleTintMode">
             
@@ -1250,8 +1245,6 @@
     <dimen name="tab_label">14sp</dimen>
     <dimen name="tab_max_width">264dp</dimen>
     <dimen name="tab_padding_bottom">16dp</dimen>
-    <dimen name="tedbottompicker_grid_layout_margin">1dp</dimen>
-    <dimen name="tedbottompicker_selected_image_height">90dp</dimen>
     <dimen name="tool_bar_top_padding">0dp</dimen>
     <dimen name="tooltip_corner_radius">2dp</dimen>
     <dimen name="tooltip_horizontal_padding">16dp</dimen>
@@ -1396,7 +1389,6 @@
     <string name="define_materialdrawer">year;owner</string>
     <string name="define_materialize">year;owner</string>
     <string name="donate">Donate</string>
-    <string name="done">Done</string>
     <string name="doneaddevent">done</string>
     <string name="dribbble">Dribbble</string>
     <string name="email">Email</string>
@@ -1498,7 +1490,6 @@
     <string name="nav_settings">Settings</string>
     <string name="nav_signout">Signout</string>
     <string name="nav_start">Starter</string>
-    <string name="no_image">No Image</string>
     <string name="openDrawer">open_drawer</string>
     <string name="password_toggle_content_description">Toggle password visibility</string>
     <string name="path_password_eye" translatable="false">M12,4.5C7,4.5 2.73,7.61 1,12c1.73,4.39 6,7.5 11,7.5s9.27,-3.11 11,-7.5c-1.73,-4.39 -6,-7.5 -11,-7.5zM12,17c-2.76,0 -5,-2.24 -5,-5s2.24,-5 5,-5 5,2.24 5,5 -2.24,5 -5,5zM12,9c-1.66,0 -3,1.34 -3,3s1.34,3 3,3 3,-1.34 3,-3 -1.34,-3 -3,-3z</string>
@@ -1513,8 +1504,6 @@
     <string name="rate_five_stars">Rate this app 5 stars</string>
     <string name="remove_ads">Remove ads</string>
     <string name="search_menu_title">Search</string>
-    <string name="select_max_count">Already %1$d images selected</string>
-    <string name="select_min_count">You have to choice %1$d images</string>
     <string name="share_app">Share this app</string>
     <string name="skype">Skype</string>
     <string name="status_bar_notification_info_overflow">999+</string>
@@ -1522,7 +1511,6 @@
     <string name="tabOne">İçerik</string>
     <string name="tabThree">Etkinlik</string>
     <string name="tabTwo">Duyuru</string>
-    <string name="tedbottompicker_title">Select Image</string>
     <string name="twitter">Twitter</string>
     <string name="update_app">Update this app</string>
     <string name="uri_add_contact">tell:%s</string>
@@ -3104,20 +3092,6 @@
     <style name="MaterialTheme.Light.TranslucentStatus" parent="MaterialTheme.Light"/>
     <style name="MaterialTheme.TranslucentStatus" parent="MaterialTheme"/>
     <style name="MaterialTheme.TranslucentStatus.DayNight" parent="MaterialTheme.Light.TranslucentStatus"/>
-    <style name="MyMaterialTheme" parent="MyMaterialTheme.Base">
-
-    </style>
-    <style name="MyMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
-        <!-- Customize your theme here. -->
-
-        <item name="windowNoTitle">true</item>
-        <item name="windowActionBar">false</item>
-        <item name="colorPrimary">@color/colorPrimary</item>
-        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
-        <item name="colorAccent">@color/colorAccent</item>
-        <item name="android:textColorHint">@color/hint</item>
-
-    </style>
     <style name="MyTabLayoutTextAppearance" parent="TextAppearance.AppCompat.Widget.ActionBar.Title.Inverse">
         <item name="android:textSize">13sp</item>
         <item name="android:textAllCaps">true</item>
@@ -3127,6 +3101,20 @@
         <item name="android:textStyle">bold</item>
         <item name="android:textSize">21sp</item>
         <item name="android:textColor">?android:textColorPrimary</item>
+    </style>
+    <style name="OurMaterialTheme" parent="OurMaterialTheme.Base">
+
+    </style>
+    <style name="OurMaterialTheme.Base" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- Customize your theme here. -->
+
+        <item name="windowNoTitle">true</item>
+        <item name="windowActionBar">false</item>
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+        <item name="android:textColorHint">@color/hint</item>
+
     </style>
     <style name="Platform.AppCompat" parent="android:Theme">
         <item name="android:windowNoTitle">true</item>

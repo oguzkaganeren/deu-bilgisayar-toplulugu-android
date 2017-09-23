@@ -24,8 +24,20 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\whatsapppage.png"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\appstoremini.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\appstoremini.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\githubpage.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\githubpage.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\slackmini.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\slackmini.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\snapchatmini.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\snapchatmini.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\googleplay.png",

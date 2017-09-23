@@ -120,6 +120,60 @@ public class MembersFragment  extends Fragment {
                                 } else {
                                     member.github = null;
                                 }
+                                if (memberSnapshot.child("profile").hasChild("google-play-developer") && mAuth != null) {
+                                    String googlePlay = memberSnapshot.child("profile").child("google-play-developer").getValue(String.class);
+                                    member.googlePlay = googlePlay;
+                                } else {
+                                    member.googlePlay = null;
+                                }
+                                if (memberSnapshot.child("profile").hasChild("appstore-developer") && mAuth != null) {
+                                    String appStore = memberSnapshot.child("profile").child("appstore-developer").getValue(String.class);
+                                    member.appStore = appStore;
+                                } else {
+                                    member.appStore = null;
+                                }
+                                if (memberSnapshot.child("profile").hasChild("skype") && mAuth != null) {
+                                    String skype = memberSnapshot.child("profile").child("skype").getValue(String.class);
+                                    member.skype = skype;
+                                } else {
+                                    member.skype = null;
+                                }
+                                if (memberSnapshot.child("profile").hasChild("slack") && mAuth != null) {
+                                    String slack = memberSnapshot.child("profile").child("slack").getValue(String.class);
+                                    member.slack = slack;
+                                } else {
+                                    member.slack = null;
+                                }
+                                if (memberSnapshot.child("profile").hasChild("snapchat") && mAuth != null) {
+                                    String snapchat = memberSnapshot.child("profile").child("snapchat").getValue(String.class);
+                                    member.snap = snapchat;
+                                } else {
+                                    member.snap = null;
+                                }
+                                if (memberSnapshot.child("profile").hasChild("twitter") && mAuth != null) {
+                                    String twitter = memberSnapshot.child("profile").child("twitter").getValue(String.class);
+                                    member.twitter = twitter;
+                                } else {
+                                    member.twitter = null;
+                                }
+                                if (memberSnapshot.child("profile").hasChild("facebook") && mAuth != null) {
+                                    String facebook = memberSnapshot.child("profile").child("facebook").getValue(String.class);
+                                    member.facebook = facebook;
+                                } else {
+                                    member.facebook = null;
+                                }
+                                if (memberSnapshot.child("profile").hasChild("whatsapp") && mAuth != null) {
+                                    String whatsapp = memberSnapshot.child("profile").child("whatsapp").getValue(String.class);
+                                    member.whatsapp = whatsapp;
+                                } else {
+                                    member.whatsapp = null;
+                                }
+                                if (memberSnapshot.child("profile").hasChild("youtube") && mAuth != null) {
+                                    String youtube = memberSnapshot.child("profile").child("youtube").getValue(String.class);
+                                    member.youtube = youtube;
+                                } else {
+                                    member.youtube = null;
+                                }
                                 if (memberSnapshot.child("profile").hasChild("linkedin") && mAuth != null) {
                                     String linkedin = memberSnapshot.child("profile").child("linkedin").getValue(String.class);
                                     member.linkedin = linkedin;

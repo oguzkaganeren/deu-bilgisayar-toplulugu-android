@@ -11,6 +11,16 @@ public class MembersInfo implements Comparable<MembersInfo>{
     protected String last_login;
     protected String github;
     protected String linkedin;
+    protected String googlePlay;
+    protected String appStore;
+    protected String instagram;
+    protected String skype;
+    protected String slack;
+    protected String snap;
+    protected String twitter;
+    protected String whatsapp;
+    protected String youtube;
+    protected String facebook;
     protected String email;
     protected String uid;
     protected String website;

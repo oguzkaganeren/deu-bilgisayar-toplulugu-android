@@ -74,49 +74,8 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
                 final ProgressDialog dialog = new ProgressDialog(context);
                 dialog.setMessage("Loading");
                 dialog.show();
-               final AboutBuilder ab = AboutBuilder.with(context) .setLinksAnimated(true)
-                       .setShowAsCard(false).addFiveStarsAction().setWrapScrollView(true).setAppName(R.string.app_name).addShareAction(R.string.app_name);
-                ab.setCover(R.drawable.profilebackground);
-                if(swb.nameSurname!=null){
-                    ab.setName(swb.nameSurname);
-                }
-                if(swb.status!=null){
-                    ab.setSubTitle(swb.status);
-                }
-                if(swb.github!=null&&!swb.github.trim().isEmpty()){
-                    ab.addGitHubLink(swb.github);
-                }
-                if(swb.website!=null&&!swb.website.trim().isEmpty()){
-                    ab.addWebsiteLink(swb.website);
-                }
-                if(swb.linkedin!=null&&!swb.linkedin.trim().isEmpty()){
-                    ab.addLinkedInLink(swb.linkedin);
-                }
-                if(swb.imgSrc==null){
-                    ab.setPhoto(R.mipmap.logo);
-                    View view=ab.build();
-                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
-                    dialogBuilder.setView(view);
-                    dialogBuilder.show();
-                }else{
-                    Glide
-                            .with(((Activity) context).getApplication().getApplicationContext())
-                            .load(swb.imgSrc)
-                            .asBitmap()
-                            .into(new SimpleTarget<Bitmap>(96, 96) {
-                                @Override
-                                public void onResourceReady(Bitmap bitmap, GlideAnimation anim) {
-                                    // Do something with bitmap here.
-                                    ab.setPhoto(bitmap);
-                                    View view=ab.build();
-                                    AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
-                                    dialogBuilder.setView(view);
-                                    dialogBuilder.show();
-                                    dialog.dismiss();
-                                }
-                            });
-                }
-
+                AboutPage myAbout=new AboutPage(context,swb);
+                dialog.dismiss();
                 return true;
             }
         });

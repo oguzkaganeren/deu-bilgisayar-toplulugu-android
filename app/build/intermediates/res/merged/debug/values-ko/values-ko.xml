@@ -40,7 +40,6 @@
     <string msgid="3441753203274453993" name="common_signin_button_text">"로그인"</string>
     <string msgid="669893613918351210" name="common_signin_button_text_long">"Google 계정으로 로그인"</string>
     <string name="donate">기부하기</string>
-    <string name="done">완료</string>
     <string name="dribbble">드리블</string>
     <string name="email">이메일</string>
     <string name="error">에러</string>
@@ -56,19 +55,15 @@
     <string name="introduce_app">앱 소개하기</string>
     <string name="linkedin">링크드인</string>
     <string name="more_apps">더 많은 앱 보기</string>
-    <string name="no_image">이미지가 선택되지 않았습니다</string>
     <string msgid="1303870564366209730" name="place_autocomplete_clear_button">"검색어 지우기"</string>
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"검색"</string>
     <string name="privacy">개인정보 정책</string>
     <string name="rate_five_stars">별점 남기기</string>
     <string name="remove_ads">광고 제거</string>
     <string msgid="146198913615257606" name="search_menu_title">"검색"</string>
-    <string name="select_max_count">%1$d개까지 선택 가능합니다</string>
-    <string name="select_min_count">%1$d개이상 선택하셔야 합니다</string>
     <string name="share_app">앱 추천하기</string>
     <string name="skype">스카이프</string>
     <string msgid="2869576371154716097" name="status_bar_notification_info_overflow">"999+"</string>
-    <string name="tedbottompicker_title">사진 선택</string>
     <string name="twitter">트위터</string>
     <string name="update_app">업데이트 체크</string>
     <string name="version">버전 %s</string>

@@ -54,8 +54,9 @@ import com.google.firebase.storage.UploadTask;
 import com.vansuita.materialabout.builder.AboutBuilder;
 
 import java.io.File;
+import java.io.IOException;
 
-import gun0912.tedbottompicker.TedBottomPicker;
+import id.zelory.compressor.Compressor;
 
 /**
  * Created by Oguz on 19-Jul-17.
@@ -134,57 +135,10 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                 intent.setType("image/*");
                 intent.setAction(Intent.ACTION_PICK);
                 startActivityForResult(Intent.createChooser(intent, "Select Image"),111);*/
-                TedBottomPicker tedBottomPicker = new TedBottomPicker.Builder(ProfileActivity.this)
-                        .setOnImageSelectedListener(new TedBottomPicker.OnImageSelectedListener() {
-                            @Override
-                            public void onImageSelected(Uri uri) {
-                                filePath = uri;
-                                File file=new File(getRealPathFromURI(ProfileActivity.this,uri));
-                                long size=file.length();
-                                //image boyutu 3 mb'dan az olmalı
-                                if(file.length()<3 * 1024 * 1024) {
+                Intent pickPhoto = new Intent(Intent.ACTION_PICK,
+                        android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                startActivityForResult(pickPhoto , 111);//one can be replaced with any action code
 
-                                    try {
-                                        //getting image from gallery
-                                        Bitmap bitmap = MediaStore.Images.Media.getBitmap(getContentResolver(), filePath);
-                                        //Setting image to ImageView
-                                        userProfilePhoto.setImageBitmap(bitmap);
-
-                                    } catch (Exception e) {
-                                        e.printStackTrace();
-                                    }
-                                    if (filePath != null) {
-                                        pd.show();
-
-                                        StorageReference childRef = storageRef.child("images/profiles/" + mAuth.getCurrentUser().getUid());
-
-                                        //uploading the image
-                                        UploadTask uploadTask = childRef.putFile(filePath);
-
-                                        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                                            @Override
-                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                                pd.dismiss();
-                                                Toast.makeText(ProfileActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
-                                            }
-                                        }).addOnFailureListener(new OnFailureListener() {
-                                            @Override
-                                            public void onFailure(@NonNull Exception e) {
-                                                pd.dismiss();
-                                                Toast.makeText(ProfileActivity.this, "Upload Failed -> " + e + "/n Please try again", Toast.LENGTH_SHORT).show();
-                                            }
-                                        });
-                                    } else {
-                                        Toast.makeText(ProfileActivity.this, "Select an image or less than 3mb", Toast.LENGTH_SHORT).show();
-                                    }
-                                }else{
-                                    Toast.makeText(ProfileActivity.this, "The image should be less than 3mb", Toast.LENGTH_SHORT).show();
-                                }
-                            }
-                        })
-                        .create();
-
-                tedBottomPicker.show(getSupportFragmentManager());
             }
         });
         selfAbout.setOnClickListener(new View.OnClickListener() {
@@ -403,7 +357,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
 
         if (requestCode == 111 && resultCode == RESULT_OK && data != null && data.getData() != null) {
             filePath = data.getData();
-            File file=new File(getRealPathFromURI(this,data.getData()));
+            File file=new File(getRealPathFromURI(ProfileActivity.this,data.getData()));
             long size=file.length();
             //image boyutu 3 mb'dan az olmalı
             if(file.length()<3 * 1024 * 1024) {
@@ -423,21 +377,30 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     StorageReference childRef = storageRef.child("images/profiles/" + mAuth.getCurrentUser().getUid());
 
                     //uploading the image
-                    UploadTask uploadTask = childRef.putFile(filePath);
 
-                    uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                        @Override
-                        public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                            pd.dismiss();
-                            Toast.makeText(ProfileActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
-                        }
-                    }).addOnFailureListener(new OnFailureListener() {
-                        @Override
-                        public void onFailure(@NonNull Exception e) {
-                            pd.dismiss();
-                            Toast.makeText(ProfileActivity.this, "Upload Failed -> " + e + "/n Please try again", Toast.LENGTH_SHORT).show();
-                        }
-                    });
+                    try {
+                        Bitmap compressedImageBitmap = new Compressor(getApplicationContext()).compressToBitmap(file);
+                        String path = MediaStore.Images.Media.insertImage(ProfileActivity.this.getContentResolver(), compressedImageBitmap, mAuth.getCurrentUser().getUid(), null);
+                        Uri compressedUri = Uri.parse(path);
+                        UploadTask uploadTask = childRef.putFile(compressedUri);
+
+                        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                            @Override
+                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                pd.dismiss();
+                                Toast.makeText(ProfileActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
+                            }
+                        }).addOnFailureListener(new OnFailureListener() {
+                            @Override
+                            public void onFailure(@NonNull Exception e) {
+                                pd.dismiss();
+                                Toast.makeText(ProfileActivity.this, "Upload Failed -> " + e + "/n Please try again", Toast.LENGTH_SHORT).show();
+                            }
+                        });
+                    } catch (IOException e) {
+                        e.printStackTrace();
+                    }
+
                 } else {
                     Toast.makeText(ProfileActivity.this, "Select an image or less than 3mb", Toast.LENGTH_SHORT).show();
                 }
@@ -559,11 +522,11 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
         image.getDownloadUrl().addOnSuccessListener(new OnSuccessListener<Uri>() {
             @Override
             public void onSuccess(Uri uri) {
-                Glide.with(ProfileActivity.this).load(uri).centerCrop().into(userProfilePhoto);
+                Glide.with(getApplicationContext()).load(uri).centerCrop().into(userProfilePhoto);
             }}).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                Glide.with(ProfileActivity.this).load(R.drawable.ic_user).centerCrop().into(userProfilePhoto);
+                Glide.with(getApplicationContext()).load(R.drawable.ic_user).centerCrop().into(userProfilePhoto);
             }
         });
 

@@ -1,6 +1,6 @@
 -- Merging decision tree log ---
 manifest
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:2:1-43:12
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:2:1-42:12
 	package
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:3:5-51
 		INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml
@@ -37,11 +37,10 @@ MERGED from [com.google.android.gms:play-services-maps:11.0.2] C:\Users\Oguz\.an
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:6:22-64
 uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:7:5-81
-MERGED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:11:5-81
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:7:22-78
 application
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:8:5-41:19
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:8:5-40:19
 MERGED from [com.google.firebase:firebase-core:11.0.2] C:\Users\Oguz\.android\build-cache\82d95ea84e2129c0ffb0c58d03e1b7ce7dfbc037\output\AndroidManifest.xml:5:5-20
 MERGED from [com.google.firebase:firebase-analytics:11.0.2] C:\Users\Oguz\.android\build-cache\f90509d1230364878f358dc55018a5c0310ebfcc\output\AndroidManifest.xml:24:5-34:19
 MERGED from [com.google.firebase:firebase-analytics-impl:11.0.2] C:\Users\Oguz\.android\build-cache\cde69206885dee3f89115aad9406af89e2d0ebe2\output\AndroidManifest.xml:24:5-28:19
@@ -65,7 +64,6 @@ MERGED from [tyrantgit:explosionfield:1.0.1] C:\Users\Oguz\.android\build-cache\
 MERGED from [com.android.support:customtabs:26.0.2] C:\Users\Oguz\.android\build-cache\fca4fc6a5e0b5a6bab64fed34c2e492ae1e534d4\output\AndroidManifest.xml:22:5-26:19
 MERGED from [com.afollestad.material-dialogs:core:0.9.4.7] C:\Users\Oguz\.android\build-cache\d054effd619b8ebe10f8f9303c98c2105e1718fc\output\AndroidManifest.xml:13:5-20
 MERGED from [com.android.support:support-v13:26.0.2] C:\Users\Oguz\.android\build-cache\0d0154f0c10e425bb83422e45f0d9f78a33f5500\output\AndroidManifest.xml:25:5-29:19
-MERGED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:13:5-23:19
 MERGED from [com.android.support:design:26.0.2] C:\Users\Oguz\.android\build-cache\85d466aafbf71eb9a5dc88f214e91830292f257b\output\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.0.2] C:\Users\Oguz\.android\build-cache\64305df96cf64598ee49f858c7cac03d76032071\output\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:animated-vector-drawable:26.0.2] C:\Users\Oguz\.android\build-cache\8f2413760ee28bfc7bd83e2e6d79f2e878a71b6f\output\AndroidManifest.xml:22:5-26:19
@@ -89,7 +87,7 @@ MERGED from [com.android.support:support-compat:26.0.2] C:\Users\Oguz\.android\b
 	android:largeHeap
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:9:9-33
 	android:theme
-		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:14:9-47
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:14:9-48
 activity#com.example.oguz.bilgisayarToplulugu.MainActivity
 ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:15:9-20:20
 	android:label
@@ -150,24 +148,18 @@ ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:34:9-85
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:34:19-51
 	android:name
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:34:52-83
-activity#com.example.oguz.bilgisayarToplulugu.InnerActivity
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:35:9-83
+activity#com.example.oguz.bilgisayarToplulugu.AddEventActivity
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:35:9-86
 	android:label
 		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:35:19-51
 	android:name
-		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:35:52-81
-activity#com.example.oguz.bilgisayarToplulugu.AddEventActivity
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:36:9-86
-	android:label
-		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:36:19-51
-	android:name
-		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:36:52-84
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:35:52-84
 meta-data#com.google.android.geo.API_KEY
-ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:38:9-40:70
+ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:37:9-39:70
 	android:value
-		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:40:13-68
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:39:13-68
 	android:name
-		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:39:13-58
+		ADDED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:38:13-58
 uses-sdk
 INJECTED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml reason: use-sdk injection requested
 MERGED from [com.google.firebase:firebase-core:11.0.2] C:\Users\Oguz\.android\build-cache\82d95ea84e2129c0ffb0c58d03e1b7ce7dfbc037\output\AndroidManifest.xml:4:5-43
@@ -200,7 +192,7 @@ MERGED from [com.android.support:customtabs:26.0.2] C:\Users\Oguz\.android\build
 MERGED from [com.afollestad.material-dialogs:core:0.9.4.7] C:\Users\Oguz\.android\build-cache\d054effd619b8ebe10f8f9303c98c2105e1718fc\output\AndroidManifest.xml:8:5-11:75
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.1] C:\Users\Oguz\.android\build-cache\e17a5618f956f1363891546d603610919c337585\output\AndroidManifest.xml:12:5-14:41
 MERGED from [com.android.support:support-v13:26.0.2] C:\Users\Oguz\.android\build-cache\0d0154f0c10e425bb83422e45f0d9f78a33f5500\output\AndroidManifest.xml:21:5-23:55
-MERGED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:7:5-9:41
+MERGED from [id.zelory:compressor:2.1.0] C:\Users\Oguz\.android\build-cache\4493b5c22d5380a5dd20d13ace012dfef569d339\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.mikepenz:materialdrawer:5.9.5] C:\Users\Oguz\.android\build-cache\1566efbb34e82f233c14a2ee359fff61a4bed9a5\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:design:26.0.2] C:\Users\Oguz\.android\build-cache\85d466aafbf71eb9a5dc88f214e91830292f257b\output\AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:appcompat-v7:26.0.2] C:\Users\Oguz\.android\build-cache\64305df96cf64598ee49f858c7cac03d76032071\output\AndroidManifest.xml:21:5-23:78
@@ -377,21 +369,3 @@ ADDED from [com.google.android.gms:play-services-basement:11.0.2] C:\Users\Oguz\
 		ADDED from [com.google.android.gms:play-services-basement:11.0.2] C:\Users\Oguz\.android\build-cache\d6c22a2da89e54714014b4baf1104b66d4f670d7\output\AndroidManifest.xml:20:66-119
 	android:name
 		ADDED from [com.google.android.gms:play-services-basement:11.0.2] C:\Users\Oguz\.android\build-cache\d6c22a2da89e54714014b4baf1104b66d4f670d7\output\AndroidManifest.xml:20:20-65
-provider#android.support.v4.content.FileProvider
-ADDED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:14:9-22:20
-	android:authorities
-		ADDED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:16:13-60
-	android:grantUriPermissions
-		ADDED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:18:13-47
-	android:exported
-		ADDED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:17:13-37
-	android:name
-		ADDED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:15:13-67
-meta-data#android.support.FILE_PROVIDER_PATHS
-ADDED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:19:13-21:58
-	android:resource
-		ADDED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:21:17-55
-	android:name
-		ADDED from [gun0912.ted:tedbottompicker:1.0.12] C:\Users\Oguz\.android\build-cache\59ecabc5c2a745d4afd01b75c0028e5f8485eb25\output\AndroidManifest.xml:20:17-67
-uses-permission#android.permission.READ_EXTERNAL_STORAGE
-IMPLIED from E:\androidWorks\Topluluk\app\src\main\AndroidManifest.xml:2:1-43:12 reason: gun0912.tedbottompicker requested WRITE_EXTERNAL_STORAGE
