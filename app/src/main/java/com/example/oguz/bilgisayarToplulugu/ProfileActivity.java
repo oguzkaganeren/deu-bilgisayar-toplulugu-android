@@ -8,6 +8,7 @@ import android.database.Cursor;
 import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.support.annotation.NonNull;
 import android.support.v7.app.AlertDialog;
@@ -47,12 +48,12 @@ import com.romainpiel.shimmer.Shimmer;
 import com.romainpiel.shimmer.ShimmerTextView;
 import com.vansuita.materialabout.builder.AboutBuilder;
 
+import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 
-import id.zelory.compressor.Compressor;
 
 /**
  * Created by Oguz on 19-Jul-17.
@@ -299,41 +300,35 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     //Setting image to ImageView
                     userProfilePhoto.setImageBitmap(bitmap);
 
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-                if (filePath != null) {
+
                     pd.show();
 
-                    StorageReference childRef = storageRef.child("images/profiles/" + mAuth.getCurrentUser().getUid());
+                   StorageReference childRef = storageRef.child("images/profiles/" + mAuth.getCurrentUser().getUid().toString());
 
                     //uploading the image
+                    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+                    bitmap.compress(Bitmap.CompressFormat.JPEG, 20, baos);
+                    byte[] theData = baos.toByteArray();
+                                        UploadTask uploadTask = childRef.putBytes(theData);
 
-                    try {
-                        Bitmap compressedImageBitmap = new Compressor(getApplicationContext()).compressToBitmap(file);
-                        String path = MediaStore.Images.Media.insertImage(ProfileActivity.this.getContentResolver(), compressedImageBitmap, mAuth.getCurrentUser().getUid(), null);
-                        Uri compressedUri = Uri.parse(path);
-                        UploadTask uploadTask = childRef.putFile(compressedUri);
+                                        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                            @Override
+                                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                                pd.dismiss();
+                                                Toast.makeText(ProfileActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
+                                            }
+                                        }).addOnFailureListener(new OnFailureListener() {
+                                            @Override
+                                            public void onFailure(@NonNull Exception e) {
+                                                pd.dismiss();
+                                                Toast.makeText(ProfileActivity.this, "Upload Failed -> " + e + "/n Please try again", Toast.LENGTH_SHORT).show();
+                                            }
+                                        });
 
-                        uploadTask.addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                pd.dismiss();
-                                Toast.makeText(ProfileActivity.this, "Upload successful", Toast.LENGTH_SHORT).show();
-                            }
-                        }).addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception e) {
-                                pd.dismiss();
-                                Toast.makeText(ProfileActivity.this, "Upload Failed -> " + e + "/n Please try again", Toast.LENGTH_SHORT).show();
-                            }
-                        });
-                    } catch (IOException e) {
-                        e.printStackTrace();
-                    }
 
-                } else {
-                    Toast.makeText(ProfileActivity.this, "Select an image or less than 3mb", Toast.LENGTH_SHORT).show();
+
+                } catch (Exception e) {
+                    e.printStackTrace();
                 }
             }else{
                 Toast.makeText(ProfileActivity.this, "The image should be less than 3mb", Toast.LENGTH_SHORT).show();

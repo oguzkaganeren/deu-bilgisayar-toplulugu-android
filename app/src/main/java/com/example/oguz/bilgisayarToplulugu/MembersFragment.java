@@ -1,5 +1,6 @@
 package com.example.oguz.bilgisayarToplulugu;
 
+import android.animation.Animator;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;

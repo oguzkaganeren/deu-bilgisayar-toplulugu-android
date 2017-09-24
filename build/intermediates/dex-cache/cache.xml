@@ -30,6 +30,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Oguz\.android\build-cache\8c232b6e87afb31d7033fcc8ddc714f7155f1197\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="b15a5205adc6c12f4b9139e4042203f6deccd30e">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_cd7bc68a8594517377da8f284886f56d1d2a8d32.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\fca4fc6a5e0b5a6bab64fed34c2e492ae1e534d4\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -54,15 +63,6 @@
         revision="26.0.1"
         sha1="a75637f883254acfcccf4ddb5272cd6c34305cf2">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_4ec191a6850aacf570134437c904e678fd8bbecd.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Oguz\.android\build-cache\4493b5c22d5380a5dd20d13ace012dfef569d339\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="6b1555196d65ffa1174f6f49efb2f278905f537a">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_1d152d555178a9014e4f7c9bf8bd0ecff003c6dc.jar" />
     </item>
     <item
         is-multidex="false"
@@ -135,15 +135,6 @@
         revision="26.0.1"
         sha1="f260cdc1a267b17b911022919f19d568e6624229">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_ea96ba9c9b39641665405d8c286e4d1c31547298.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\org.reactivestreams\reactive-streams\1.0.0\14b8c877d98005ba3941c9257cfe09f6ed0e0d74\reactive-streams-1.0.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="14b8c877d98005ba3941c9257cfe09f6ed0e0d74">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\reactive-streams-1.0.0_480586f38e4650948e47f809d563c3953a53feff.jar" />
     </item>
     <item
         is-multidex="false"
@@ -441,15 +432,6 @@
         revision="26.0.1"
         sha1="f82998f0794dfe2b65edd561ac0b34b536e7ff9a">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_e022ffa14b9dbeeb3de0b8aa771061d99f5f3fa2.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\Oguz\.gradle\caches\modules-2\files-2.1\io.reactivex.rxjava2\rxjava\2.1.0\2fdf84dedcaaeabb9d70cde9dbb8aad4eccb80a1\rxjava-2.1.0.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="2fdf84dedcaaeabb9d70cde9dbb8aad4eccb80a1">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\rxjava-2.1.0_6b78803b42001046df14828cb84a099882660240.jar" />
     </item>
     <item
         is-multidex="false"

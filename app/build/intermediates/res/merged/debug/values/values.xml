@@ -867,6 +867,29 @@
 <enum name="auto" value="2"/>
 
 </attr><attr format="reference|string" name="scopeUris"/></declare-styleable>
+    <declare-styleable name="Skeleton"><attr format="boolean" name="SK_autoStartAnimation"/><attr format="boolean" name="SK_isShowSkeleton"/><attr format="boolean" name="SK_isHoldTouchEventsFromChildren"/><attr format="color" name="SK_backgroundMainColor"/><attr format="color" name="SK_BackgroundViewsColor"/><attr format="color" name="SK_highLightColor"/><attr format="boolean" name="SK_animationAutoStart"/><attr format="integer" name="SK_animationDuration"/><attr format="integer" name="SK_animationDirection">
+            <enum name="LTR" value="1"/>
+            <enum name="RTL" value="2"/>
+            <enum name="TTB" value="3"/>
+            <enum name="BTT" value="4"/>
+        </attr><attr format="integer" name="SK_animationNormalType">
+            <enum name="none" value="0"/>
+            <enum name="alpha" value="1"/>
+            <enum name="gradient" value="2"/>
+        </attr><attr format="integer" name="SK_animationFinishType">
+            <enum name="none" value="0"/>
+            <enum name="alpha" value="1"/>
+            <enum name="gradient" value="2"/>
+        </attr><attr format="dimension" name="SK_cornerRadius"/><attr format="dimension" name="SK_cornerRadiusTopLeft"/><attr format="dimension" name="SK_cornerRadiusTopRight"/><attr format="dimension" name="SK_cornerRadiusBottomLeft"/><attr format="dimension" name="SK_cornerRadiusBottomLRight"/><attr format="dimension" name="SK_padding"/><attr format="dimension" name="SK_paddingTop"/><attr format="dimension" name="SK_paddingRight"/><attr format="dimension" name="SK_paddingLeft"/><attr format="dimension" name="SK_paddingBottom"/><attr format="integer" name="SK_shapeType">
+            <enum name="rect" value="1"/>
+            <enum name="oval" value="2"/>
+            <enum name="text" value="3"/>
+        </attr><attr format="integer" name="SK_textLineNumber"/><attr format="integer" name="SK_textLineLastWidth">
+            <enum name="full" value="1"/>
+            <enum name="threeQuarters" value="2"/>
+            <enum name="half" value="3"/>
+            <enum name="quarter" value="4"/>
+        </attr><attr format="dimension" name="SK_textLineHeight"/><attr format="dimension" name="SK_textLineSpaceVertical"/></declare-styleable>
     <declare-styleable name="SnackbarLayout"><attr name="android:maxWidth"/><attr name="elevation"/><attr format="dimension" name="maxActionInlineWidth"/></declare-styleable>
     <declare-styleable name="Spinner"><attr name="android:prompt"/><attr name="popupTheme"/><attr name="android:popupBackground"/><attr name="android:dropDownWidth"/><attr name="android:entries"/></declare-styleable>
     <declare-styleable name="SwitchCompat"><attr name="android:thumb"/><attr format="color" name="thumbTint"/><attr name="thumbTintMode">

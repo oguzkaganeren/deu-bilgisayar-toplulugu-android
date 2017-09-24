@@ -1,5 +1,6 @@
 package com.example.oguz.bilgisayarToplulugu;
 
+import android.animation.Animator;
 import android.app.Activity;
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -14,6 +15,8 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.animation.ViewPropertyAnimation;
@@ -21,6 +24,8 @@ import com.bumptech.glide.request.target.SimpleTarget;
 import com.vansuita.materialabout.builder.AboutBuilder;
 
 import java.util.List;
+
+import io.rmiri.skeleton.SkeletonGroup;
 
 /**
  * Created by Oguz on 07-Aug-17.
@@ -41,6 +46,9 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
     @Override
     public void onBindViewHolder(final MembersAdapter.MembersViewHolder membersViewHolder, int i) {
         MembersInfo wb = dataList.get(i);
+
+        membersViewHolder.skeletonGroup.setShowSkeleton(false);
+        membersViewHolder.skeletonGroup.finishAnimation();
         final MembersInfo swb=dataList.get(i);
         membersViewHolder.name_surname.setText(wb.nameSurname);
         membersViewHolder.status.setText(wb.status);
@@ -79,15 +87,32 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
                 return true;
             }
         });
+        membersViewHolder.imgSrc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                LayoutInflater inflater = (LayoutInflater) context
+                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
+                View view = inflater.inflate(R.layout.member_photo,null);
+                ((ImageView)view.findViewById(R.id.thumbnail_mf)).setImageDrawable(context.getResources().getDrawable(R.drawable.about_24dp));
+
+                final MaterialDialog.Builder dialog = new MaterialDialog.Builder(context)
+                        .theme(Theme.LIGHT)
+                        .customView(R.layout.member_photo,false);
+                dialog.show();
+            }
+        });
 
 
     }
 
     @Override
     public MembersAdapter.MembersViewHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
+
         View itemView = LayoutInflater.
                 from(viewGroup.getContext()).
                 inflate(R.layout.fragment_members, viewGroup, false);
+
         return new MembersAdapter.MembersViewHolder(itemView);
     }
     public static class MembersViewHolder extends RecyclerView.ViewHolder {
@@ -95,13 +120,16 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
         protected TextView status;
         protected ImageView online;
         protected ImageView imgSrc;
+        protected SkeletonGroup skeletonGroup;
+        protected View view;
         public MembersViewHolder(View v) {
             super(v);
             name_surname =  (TextView) v.findViewById(R.id.right_name_surname);
             status = (TextView)  v.findViewById(R.id.right_status);
             online = (ImageView) v.findViewById(R.id.right_online);
             imgSrc=(ImageView)v.findViewById(R.id.right_profile_picture);
-
+            skeletonGroup = (SkeletonGroup) itemView.findViewById(R.id.skeletonGroup);
+            view=v;
         }
 
     }
