@@ -244,6 +244,10 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\d054effd619b8ebe10f8f9303c98c2105e1718fc\\output\\res\\layout\\md_dialog_basic.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_default_item_skeleton.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\15d7ff0a9091c4a6e3261a5b6213bd13e8aaa558\\output\\res\\layout\\layout_default_item_skeleton.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\design_navigation_item.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\85d466aafbf71eb9a5dc88f214e91830292f257b\\output\\res\\layout\\design_navigation_item.xml"
     },
@@ -286,6 +290,10 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_alert_dialog_button_bar_material.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\layout\\abc_alert_dialog_button_bar_material.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\layout_shimmer.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\15d7ff0a9091c4a6e3261a5b6213bd13e8aaa558\\output\\res\\layout\\layout_shimmer.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_drawer_item_profile.xml",
@@ -358,6 +366,10 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tools_list_items.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\7236804b8d79e60540aa0b64b767d16d388e4170\\output\\res\\layout\\tools_list_items.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\dialog_rating.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\91bbd602640defcd2e37e3caca313f46095c5db9\\output\\res\\layout\\dialog_rating.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_action_bar_title_item.xml",

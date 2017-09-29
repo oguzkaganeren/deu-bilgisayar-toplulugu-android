@@ -29,6 +29,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.Date;
 
+
 /**
  * Created by Oguz on 12-Aug-17.
  */
@@ -68,9 +69,6 @@ public class MembersFragment  extends Fragment {
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
                 mLinearLayoutManager.getOrientation());
         mRecyclerView.addItemDecoration(dividerItemDecoration);
-        if (mRecyclerView.getAdapter()==null){
-            mRecyclerView.setAdapter(ourMembersAdapter);
-        }
         return v;
     }
     public void loadMembers(){

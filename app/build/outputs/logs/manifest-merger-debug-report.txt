@@ -65,7 +65,6 @@ MERGED from [com.android.support:customtabs:26.0.2] C:\Users\Oguz\.android\build
 MERGED from [com.afollestad.material-dialogs:core:0.9.4.7] C:\Users\Oguz\.android\build-cache\d054effd619b8ebe10f8f9303c98c2105e1718fc\output\AndroidManifest.xml:13:5-20
 MERGED from [com.android.support:support-v13:26.0.2] C:\Users\Oguz\.android\build-cache\0d0154f0c10e425bb83422e45f0d9f78a33f5500\output\AndroidManifest.xml:25:5-29:19
 MERGED from [com.romainpiel.shimmer:library:1.4.0] C:\Users\Oguz\.android\build-cache\d3cca040206da2ebc69677890712836dc4555630\output\AndroidManifest.xml:11:5-20
-MERGED from [com.github.rasoulmiri:Skeleton:v1.0.3] C:\Users\Oguz\.android\build-cache\8c232b6e87afb31d7033fcc8ddc714f7155f1197\output\AndroidManifest.xml:11:5-20
 MERGED from [com.android.support:design:26.0.2] C:\Users\Oguz\.android\build-cache\85d466aafbf71eb9a5dc88f214e91830292f257b\output\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:appcompat-v7:26.0.2] C:\Users\Oguz\.android\build-cache\64305df96cf64598ee49f858c7cac03d76032071\output\AndroidManifest.xml:25:5-29:19
 MERGED from [com.android.support:animated-vector-drawable:26.0.2] C:\Users\Oguz\.android\build-cache\8f2413760ee28bfc7bd83e2e6d79f2e878a71b6f\output\AndroidManifest.xml:22:5-26:19
@@ -195,7 +194,7 @@ MERGED from [com.afollestad.material-dialogs:core:0.9.4.7] C:\Users\Oguz\.androi
 MERGED from [me.zhanghai.android.materialprogressbar:library:1.4.1] C:\Users\Oguz\.android\build-cache\e17a5618f956f1363891546d603610919c337585\output\AndroidManifest.xml:12:5-14:41
 MERGED from [com.android.support:support-v13:26.0.2] C:\Users\Oguz\.android\build-cache\0d0154f0c10e425bb83422e45f0d9f78a33f5500\output\AndroidManifest.xml:21:5-23:55
 MERGED from [com.romainpiel.shimmer:library:1.4.0] C:\Users\Oguz\.android\build-cache\d3cca040206da2ebc69677890712836dc4555630\output\AndroidManifest.xml:7:5-9:41
-MERGED from [com.github.rasoulmiri:Skeleton:v1.0.3] C:\Users\Oguz\.android\build-cache\8c232b6e87afb31d7033fcc8ddc714f7155f1197\output\AndroidManifest.xml:7:5-9:41
+MERGED from [com.codemybrainsout.rating:ratingdialog:1.0.8] C:\Users\Oguz\.android\build-cache\91bbd602640defcd2e37e3caca313f46095c5db9\output\AndroidManifest.xml:7:5-9:41
 MERGED from [com.mikepenz:materialdrawer:5.9.5] C:\Users\Oguz\.android\build-cache\1566efbb34e82f233c14a2ee359fff61a4bed9a5\output\AndroidManifest.xml:8:5-10:41
 MERGED from [com.android.support:design:26.0.2] C:\Users\Oguz\.android\build-cache\85d466aafbf71eb9a5dc88f214e91830292f257b\output\AndroidManifest.xml:21:5-23:62
 MERGED from [com.android.support:appcompat-v7:26.0.2] C:\Users\Oguz\.android\build-cache\64305df96cf64598ee49f858c7cac03d76032071\output\AndroidManifest.xml:21:5-23:78

@@ -292,7 +292,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
             File file=new File(getRealPathFromURI(ProfileActivity.this,data.getData()));
             long size=file.length();
             //image boyutu 3 mb'dan az olmalı
-            if(file.length()<3 * 1024 * 1024) {
+            if(file.length()<10 * 1024 * 1024) {
 
                 try {
                     //getting image from gallery
@@ -331,7 +331,7 @@ public class ProfileActivity extends AppCompatActivity implements View.OnClickLi
                     e.printStackTrace();
                 }
             }else{
-                Toast.makeText(ProfileActivity.this, "The image should be less than 3mb", Toast.LENGTH_SHORT).show();
+                Toast.makeText(ProfileActivity.this, "The image should be less than 10mb", Toast.LENGTH_SHORT).show();
             }
         }
         }

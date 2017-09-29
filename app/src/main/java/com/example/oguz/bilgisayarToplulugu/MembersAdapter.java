@@ -6,6 +6,8 @@ import android.app.ProgressDialog;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.graphics.Color;
+import android.graphics.drawable.BitmapDrawable;
+import android.graphics.drawable.Drawable;
 import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.widget.RecyclerView;
@@ -13,11 +15,13 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.afollestad.materialdialogs.MaterialDialog;
 import com.afollestad.materialdialogs.Theme;
 import com.bumptech.glide.Glide;
+import com.bumptech.glide.load.resource.bitmap.GlideBitmapDrawable;
 import com.bumptech.glide.request.animation.GlideAnimation;
 import com.bumptech.glide.request.animation.ViewPropertyAnimation;
 import com.bumptech.glide.request.target.SimpleTarget;
@@ -25,7 +29,6 @@ import com.vansuita.materialabout.builder.AboutBuilder;
 
 import java.util.List;
 
-import io.rmiri.skeleton.SkeletonGroup;
 
 /**
  * Created by Oguz on 07-Aug-17.
@@ -46,9 +49,6 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
     @Override
     public void onBindViewHolder(final MembersAdapter.MembersViewHolder membersViewHolder, int i) {
         MembersInfo wb = dataList.get(i);
-
-        membersViewHolder.skeletonGroup.setShowSkeleton(false);
-        membersViewHolder.skeletonGroup.finishAnimation();
         final MembersInfo swb=dataList.get(i);
         membersViewHolder.name_surname.setText(wb.nameSurname);
         membersViewHolder.status.setText(wb.status);
@@ -91,15 +91,26 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             @Override
             public void onClick(View v) {
                 // TODO Auto-generated method stub
-                LayoutInflater inflater = (LayoutInflater) context
-                        .getSystemService(Context.LAYOUT_INFLATER_SERVICE);
-                View view = inflater.inflate(R.layout.member_photo,null);
-                ((ImageView)view.findViewById(R.id.thumbnail_mf)).setImageDrawable(context.getResources().getDrawable(R.drawable.about_24dp));
+                ImageView img=new ImageView(context);
+                if(swb.imgSrc==null){
+                    Glide.with(((Activity) context).getApplication().getApplicationContext())
+                            .load(R.mipmap.logo)
+                            .centerCrop()
+                            .fitCenter()
+                            .into(img);
 
+                }else{
+                    Glide.with(((Activity) context).getApplication().getApplicationContext())
+                            .load(swb.imgSrc)
+                            .centerCrop()
+                            .fitCenter()
+                            .into(img);
+                }
                 final MaterialDialog.Builder dialog = new MaterialDialog.Builder(context)
                         .theme(Theme.LIGHT)
-                        .customView(R.layout.member_photo,false);
+                        .customView(img,false);
                 dialog.show();
+
             }
         });
 
@@ -120,7 +131,6 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
         protected TextView status;
         protected ImageView online;
         protected ImageView imgSrc;
-        protected SkeletonGroup skeletonGroup;
         protected View view;
         public MembersViewHolder(View v) {
             super(v);
@@ -128,7 +138,6 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
             status = (TextView)  v.findViewById(R.id.right_status);
             online = (ImageView) v.findViewById(R.id.right_online);
             imgSrc=(ImageView)v.findViewById(R.id.right_profile_picture);
-            skeletonGroup = (SkeletonGroup) itemView.findViewById(R.id.skeletonGroup);
             view=v;
         }
 

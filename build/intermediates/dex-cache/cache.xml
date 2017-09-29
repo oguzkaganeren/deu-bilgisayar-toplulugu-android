@@ -30,15 +30,6 @@
     </item>
     <item
         is-multidex="false"
-        jar="C:\Users\Oguz\.android\build-cache\8c232b6e87afb31d7033fcc8ddc714f7155f1197\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="26.0.1"
-        sha1="b15a5205adc6c12f4b9139e4042203f6deccd30e">
-        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_cd7bc68a8594517377da8f284886f56d1d2a8d32.jar" />
-    </item>
-    <item
-        is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\fca4fc6a5e0b5a6bab64fed34c2e492ae1e534d4\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"
@@ -378,6 +369,15 @@
         revision="26.0.1"
         sha1="9e9eeaf9948ee4d6c3ab354e8dc14368f16994a4">
         <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\glide-3.7.0_3dd7359bbe2f191181b970118cfe958fdbee52bc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\Oguz\.android\build-cache\91bbd602640defcd2e37e3caca313f46095c5db9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="74835f93f856481946e9c2ef5d5ba1295a164e7b">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_210b7783eaf0932d33d0c44cd9340d104c258c9e.jar" />
     </item>
     <item
         is-multidex="false"

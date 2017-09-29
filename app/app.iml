@@ -139,6 +139,7 @@
     <orderEntry type="library" exported="" name="firebase-storage-common-11.0.2" level="project" />
     <orderEntry type="library" exported="" name="firebase-common-11.0.2" level="project" />
     <orderEntry type="library" exported="" name="play-services-tasks-11.0.2" level="project" />
+    <orderEntry type="library" exported="" name="ratingdialog-1.0.8" level="project" />
     <orderEntry type="library" exported="" name="iconics-core-2.9.1" level="project" />
     <orderEntry type="library" exported="" name="play-services-basement-11.0.2" level="project" />
     <orderEntry type="library" exported="" name="gson-2.6.2" level="project" />
@@ -156,7 +157,6 @@
     <orderEntry type="library" exported="" scope="TEST" name="espresso-core-2.2.2" level="project" />
     <orderEntry type="library" exported="" name="support-compat-26.0.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="rules-0.5" level="project" />
-    <orderEntry type="library" exported="" name="Skeleton-v1.0.3" level="project" />
     <orderEntry type="library" exported="" name="play-services-safetynet-11.0.2" level="project" />
     <orderEntry type="library" exported="" scope="TEST" name="javax.inject-1" level="project" />
     <orderEntry type="library" exported="" name="support-fragment-26.0.2" level="project" />

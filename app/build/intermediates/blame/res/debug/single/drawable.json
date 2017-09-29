@@ -80,6 +80,10 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\9d3c6b57b9df3692da42a5d3e93bcf5002790c06\\output\\res\\drawable\\common_google_signin_btn_text_light.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\edittext_background.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\91bbd602640defcd2e37e3caca313f46095c5db9\\output\\res\\drawable\\edittext_background.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_seekbar_tick_mark_material.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\drawable\\abc_seekbar_tick_mark_material.xml"
     },
@@ -234,6 +238,10 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\custom_cursor.xml",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\custom_cursor.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\rounded_rectangle.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\91bbd602640defcd2e37e3caca313f46095c5db9\\output\\res\\drawable\\rounded_rectangle.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_search_api_material.xml",

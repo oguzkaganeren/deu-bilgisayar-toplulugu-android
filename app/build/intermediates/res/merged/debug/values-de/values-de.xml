@@ -48,6 +48,13 @@
     <string msgid="2809095107724486040" name="place_autocomplete_search_hint">"Suche"</string>
     <string name="privacy">Datenschutz-Bestimmungen</string>
     <string name="rate_five_stars">Bewerte die App mit 5 Sternen</string>
+    <string name="rating_dialog_cancel">Abbrechen</string>
+    <string name="rating_dialog_experience">Wie finden Sie unsere App?</string>
+    <string name="rating_dialog_feedback_title">Feedback</string>
+    <string name="rating_dialog_maybe_later">Vielleicht später</string>
+    <string name="rating_dialog_never">Niemals</string>
+    <string name="rating_dialog_submit">Abschicken</string>
+    <string name="rating_dialog_suggestions">Sagen Sie uns was Ihnen nicht gefällt und wir arbeiten daran!</string>
     <string name="remove_ads">Werbung entfernen</string>
     <string msgid="146198913615257606" name="search_menu_title">"Suchen"</string>
     <string name="share_app">Teile die App</string>

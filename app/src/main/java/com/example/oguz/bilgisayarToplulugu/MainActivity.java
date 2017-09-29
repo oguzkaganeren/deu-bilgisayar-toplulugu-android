@@ -30,6 +30,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.bumptech.glide.Glide;
+import com.codemybrainsout.ratingdialog.RatingDialog;
 import com.github.florent37.materialviewpager.MaterialViewPager;
 import com.github.florent37.materialviewpager.header.HeaderDesign;
 import com.google.android.gms.tasks.OnFailureListener;
@@ -110,6 +111,17 @@ public class MainActivity extends AppCompatActivity {
             actionBar.setDisplayUseLogoEnabled(false);
             actionBar.setHomeButtonEnabled(true);
         }
+        final RatingDialog ratingDialog = new RatingDialog.Builder(this)
+                .threshold(3)
+                .session(7)
+                .onRatingBarFormSumbit(new RatingDialog.Builder.RatingDialogFormListener() {
+                    @Override
+                    public void onFormSubmitted(String feedback) {
+
+                    }
+                }).build();
+
+        ratingDialog.show();
         navigationViewRight=(NavigationView) findViewById(R.id.nav_viewTwo);
         fab=(FloatingActionButton)findViewById(R.id.fab);
         fab.setVisibility(View.GONE);
