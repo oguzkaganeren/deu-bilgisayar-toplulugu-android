@@ -44,6 +44,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\googleplay.png"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\logomate32.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\logomate32.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\logo.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\logo.png"
     },

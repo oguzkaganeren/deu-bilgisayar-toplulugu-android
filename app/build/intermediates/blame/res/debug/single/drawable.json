@@ -220,6 +220,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\gradient_backcolor.xml"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\splash.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable\\splash.xml"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable\\md_btn_selected_dark.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\d054effd619b8ebe10f8f9303c98c2105e1718fc\\output\\res\\drawable\\md_btn_selected_dark.xml"
     },
