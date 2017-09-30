@@ -64,6 +64,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\drawable-hdpi\\event.png"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\send_black_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\send_black_24dp.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\edit_black_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-hdpi\\edit_black_24dp.png"
     },

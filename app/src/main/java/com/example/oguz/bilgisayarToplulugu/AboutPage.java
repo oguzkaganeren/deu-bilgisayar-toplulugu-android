@@ -118,7 +118,7 @@ public class AboutPage {
         }
 
         if(mi.imgSrc==null){
-            ab.setPhoto(R.mipmap.logo);
+            ab.setPhoto(R.mipmap.logomate32);
             View view=ab.build();
             AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
             dialogBuilder.setView(view);

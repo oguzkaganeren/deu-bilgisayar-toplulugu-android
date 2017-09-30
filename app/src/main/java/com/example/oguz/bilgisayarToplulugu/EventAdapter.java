@@ -242,7 +242,7 @@ public class EventAdapter extends RecyclerView.Adapter<EventAdapter.EventsViewHo
                                         }).addOnFailureListener(new OnFailureListener() {
                                             @Override
                                             public void onFailure(@NonNull Exception exception) {
-                                                ab.setPhoto(R.mipmap.logo);
+                                                ab.setPhoto(R.mipmap.logomate32);
                                                 View view=ab.build();
                                                 AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(context);
                                                 dialogBuilder.setView(view);

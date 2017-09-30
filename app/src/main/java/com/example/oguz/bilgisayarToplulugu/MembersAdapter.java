@@ -64,7 +64,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
         }
         if(wb.imgSrc==null){
             Glide.with(((Activity) context).getApplication().getApplicationContext())
-                    .load(R.mipmap.logo)
+                    .load(R.mipmap.logomate32)
                     .centerCrop()
                     .fitCenter()
                     .into(membersViewHolder.imgSrc);
@@ -94,7 +94,7 @@ public class MembersAdapter extends RecyclerView.Adapter<MembersAdapter.MembersV
                 ImageView img=new ImageView(context);
                 if(swb.imgSrc==null){
                     Glide.with(((Activity) context).getApplication().getApplicationContext())
-                            .load(R.mipmap.logo)
+                            .load(R.mipmap.logomate32)
                             .centerCrop()
                             .fitCenter()
                             .into(img);

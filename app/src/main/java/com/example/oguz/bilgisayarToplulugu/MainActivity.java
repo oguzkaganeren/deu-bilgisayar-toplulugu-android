@@ -225,7 +225,7 @@ public class MainActivity extends AppCompatActivity {
                                                 " özgür yazılım projelerine destek olmayı, içimizdeki bilgi paylaşımını " +
                                                 "doruklara ulaştırmayı planlıyoruz. Çünkü biliyoruz ki dünya çapında \"zilyon\"" +
                                                 " programcı, mühendis var. Bir fark yaratmak istiyoruz.");
-                                dialogBuilder.setIcon(R.mipmap.logo);
+                                dialogBuilder.setIcon(R.mipmap.logomate32);
                                 dialogBuilder.setView(about);
                                 dialogBuilder.show();
                                 break;
@@ -492,7 +492,7 @@ public class MainActivity extends AppCompatActivity {
 
             //members kısmı
             if (fragmentClass == null && fragment == null) {
-                fragmentClass = MembersFragment.class;
+                fragmentClass = RightDrawerFragment.class;
                 try {
                     fragment = (Fragment) fragmentClass.newInstance();
                 } catch (Exception e) {
@@ -541,7 +541,7 @@ public class MainActivity extends AppCompatActivity {
             }}).addOnFailureListener(new OnFailureListener() {
             @Override
             public void onFailure(@NonNull Exception exception) {
-                profile.withIcon(R.mipmap.logo);
+                profile.withIcon(R.mipmap.logomate32);
                 headerResult.updateProfile(profile);
             }
         });

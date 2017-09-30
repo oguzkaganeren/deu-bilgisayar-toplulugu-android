@@ -4,7 +4,9 @@ import android.animation.Animator;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.view.ViewPager;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
@@ -40,6 +42,9 @@ public class MembersFragment  extends Fragment {
     private FirebaseAuth mAuth;
     private MembersAdapter ourMembersAdapter;
     private ArrayList<MembersInfo> membersList;
+    private TabLayout tabLayout;
+    private ViewPager viewPager;
+
     public MembersFragment() {
         // Required empty public constructor
     }

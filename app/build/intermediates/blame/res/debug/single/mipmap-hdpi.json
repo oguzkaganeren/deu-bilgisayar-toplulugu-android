@@ -1,23 +1,7 @@
 [
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\websitepage.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\websitepage.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\facebookpage.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\facebookpage.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\alpha.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\alpha.png"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\appstore.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\appstore.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\instagrampage.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\instagrampage.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\whatsapppage.png",
@@ -26,14 +10,6 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\appstoremini.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\appstoremini.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\githubpage.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\githubpage.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\slackmini.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\slackmini.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\snapchatmini.png",
@@ -46,6 +22,42 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\logomate32.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\logomate32.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\logomate128.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\logomate128.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\mail.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\mail.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\linkedinpage.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\linkedinpage.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\websitepage.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\websitepage.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\facebookpage.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\facebookpage.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\alpha.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\alpha.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\instagrampage.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\instagrampage.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\githubpage.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\githubpage.png"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\slackmini.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\slackmini.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\logo.png",
@@ -72,23 +84,15 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\skypepage.png"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\bg_mheader.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\bg_mheader.png"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\snapchat.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\snapchat.png"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\mail.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\mail.png"
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\bg_mheader.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\bg_mheader.png"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\twitterpage.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\twitterpage.png"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\mipmap-hdpi\\linkedinpage.png",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\mipmap-hdpi\\linkedinpage.png"
     }
 ]

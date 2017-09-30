@@ -39,7 +39,7 @@ public class OurFirebaseMessagingService extends FirebaseMessagingService {
                 .setDefaults(Notification.DEFAULT_ALL)
                 .setWhen(System.currentTimeMillis())
                 .setTicker("D.E.U Bilgisayar Topluluğu")
-                .setSmallIcon(R.mipmap.logo)
+                .setSmallIcon(R.mipmap.logomate32)
                 .setContentTitle("D.E.U Notification")
                 .setContentText(remoteMessage.getNotification().getBody())
                 .setDefaults(Notification.DEFAULT_LIGHTS| Notification.DEFAULT_SOUND)

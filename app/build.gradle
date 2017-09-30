@@ -6,8 +6,8 @@ android {
         applicationId "com.deu.oguz.bilgisayarToplulugu"
         minSdkVersion 19
         targetSdkVersion 26
-        versionCode 4
-        versionName "1.0.0.4"
+        versionCode 5
+        versionName "1.0.0.5"
         testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
     }
     buildTypes {
@@ -51,6 +51,7 @@ dependencies {
     compile 'com.android.support:support-v13:26.0.2'
     //--
     compile 'com.romainpiel.shimmer:library:1.4.0@aar'
+    compile 'com.github.stfalcon:chatkit:0.2.2'
     compile 'com.codemybrainsout.rating:ratingdialog:1.0.8'
     compile('com.mikepenz:materialdrawer:5.9.5@aar') {
         transitive = true
