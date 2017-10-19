@@ -65,18 +65,18 @@ public final class R {
         public static final int notification_top_pad_large_text = 0x7f080121;
     }
     public static final class drawable {
-        public static final int notification_action_background = 0x7f02009b;
-        public static final int notification_bg = 0x7f02009c;
-        public static final int notification_bg_low = 0x7f02009d;
-        public static final int notification_bg_low_normal = 0x7f02009e;
-        public static final int notification_bg_low_pressed = 0x7f02009f;
-        public static final int notification_bg_normal = 0x7f0200a0;
-        public static final int notification_bg_normal_pressed = 0x7f0200a1;
-        public static final int notification_icon_background = 0x7f0200a2;
-        public static final int notification_template_icon_bg = 0x7f0200b7;
-        public static final int notification_template_icon_low_bg = 0x7f0200b8;
-        public static final int notification_tile_bg = 0x7f0200a3;
-        public static final int notify_panel_notification_icon_bg = 0x7f0200a4;
+        public static final int notification_action_background = 0x7f02009c;
+        public static final int notification_bg = 0x7f02009d;
+        public static final int notification_bg_low = 0x7f02009e;
+        public static final int notification_bg_low_normal = 0x7f02009f;
+        public static final int notification_bg_low_pressed = 0x7f0200a0;
+        public static final int notification_bg_normal = 0x7f0200a1;
+        public static final int notification_bg_normal_pressed = 0x7f0200a2;
+        public static final int notification_icon_background = 0x7f0200a3;
+        public static final int notification_template_icon_bg = 0x7f0200b8;
+        public static final int notification_template_icon_low_bg = 0x7f0200b9;
+        public static final int notification_tile_bg = 0x7f0200a4;
+        public static final int notify_panel_notification_icon_bg = 0x7f0200a5;
     }
     public static final class id {
         public static final int action_container = 0x7f0d014e;

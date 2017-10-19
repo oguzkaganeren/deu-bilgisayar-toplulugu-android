@@ -309,6 +309,15 @@
     </item>
     <item
         is-multidex="false"
+        jar="C:\Users\Oguz\.android\build-cache\30e36d67b1b2d615f180c80c88390af06ba24d57\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="26.0.1"
+        sha1="605adac17952fdaae48cce3d9fd24c536ec7e5db">
+        <dex dex="E:\androidWorks\Topluluk\app\build\intermediates\pre-dexed\debug\classes_3f7f75d9ce3e076be5c28cd3450091c3e99cc224.jar" />
+    </item>
+    <item
+        is-multidex="false"
         jar="C:\Users\Oguz\.android\build-cache\cde69206885dee3f89115aad9406af89e2d0ebe2\output\jars\classes.jar"
         jumboMode="false"
         optimize="true"

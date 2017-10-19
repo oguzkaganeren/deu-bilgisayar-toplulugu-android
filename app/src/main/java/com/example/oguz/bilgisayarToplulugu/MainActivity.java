@@ -23,12 +23,16 @@ import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
 import android.view.View;
+import android.view.ViewGroup;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.afollestad.materialdialogs.GravityEnum;
+import com.afollestad.materialdialogs.MaterialDialog;
+import com.afollestad.materialdialogs.Theme;
 import com.bumptech.glide.Glide;
 import com.codemybrainsout.ratingdialog.RatingDialog;
 import com.github.florent37.materialviewpager.MaterialViewPager;
@@ -53,6 +57,7 @@ import com.mikepenz.materialdrawer.DrawerBuilder;
 import com.mikepenz.materialdrawer.model.DividerDrawerItem;
 import com.mikepenz.materialdrawer.model.PrimaryDrawerItem;
 import com.mikepenz.materialdrawer.model.ProfileDrawerItem;
+import com.mikepenz.materialdrawer.model.SectionDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IDrawerItem;
 import com.mikepenz.materialdrawer.model.interfaces.IProfile;
 import com.mikepenz.materialdrawer.util.AbstractDrawerImageLoader;
@@ -60,6 +65,7 @@ import com.mikepenz.materialdrawer.util.DrawerImageLoader;
 import com.mikepenz.materialdrawer.util.DrawerUIUtils;
 
 import java.util.ArrayList;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -128,6 +134,7 @@ public class MainActivity extends AppCompatActivity {
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         viewPager = mViewPager.getViewPager();
         loadTabs();
+
         //account builder'ın ierisinde image loader olmadığı için aşağıdaki init'i ekledik
         DrawerImageLoader.init(new AbstractDrawerImageLoader() {
             @Override
@@ -176,7 +183,9 @@ public class MainActivity extends AppCompatActivity {
         //SecondaryDrawerItem item5 = new SecondaryDrawerItem().withIdentifier(2).withName("Settings").withIcon(R.drawable.setting_24dp);
         PrimaryDrawerItem item6 = new PrimaryDrawerItem().withIdentifier(2).withName("About Us").withIcon(R.drawable.about_24dp);
         PrimaryDrawerItem item7 = new PrimaryDrawerItem().withIdentifier(2).withName("Privacy Policy").withIcon(R.drawable.privacy_24dp);
+        PrimaryDrawerItem item8 = new PrimaryDrawerItem().withIdentifier(3).withName("About The Application").withIcon(R.drawable.ic_rowing_black_24dp);
 //create the drawer and remember the `Drawer` result object
+        final  MaterialDialog.Builder mt= new MaterialDialog.Builder(MainActivity.this);
        final Drawer left = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
@@ -190,7 +199,8 @@ public class MainActivity extends AppCompatActivity {
                         new DividerDrawerItem(),
                         //item5,
                         item6,
-                        item7
+                        item7,
+                        item8
                 )
                 .withOnDrawerItemClickListener(new Drawer.OnDrawerItemClickListener() {
                     @Override
@@ -210,11 +220,9 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
                                 break;
                             case 6:
-                                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(MainActivity.this);
-                                dialogBuilder.setTitle("DEU Bilgisayar Topluluğu");
-                                View about =  getLayoutInflater().inflate(R.layout.view_aboutus, null);
-                                ((TextView)about.findViewById(R.id.txt_aboutus))
-                                        .setText(" Bu hayatta iki tip insan olduğuna inanıyoruz :" +
+
+                                mt.title("DEU Bilgisayar Topluluğu")
+                                        .content(" Bu hayatta iki tip insan olduğuna inanıyoruz :" +
                                                 " Yükselmek için etrafındakileri bastırıp yüksekleri " +
                                                 "hedefleyenler, etrafındakilerle birlikte yükselmek için" +
                                                 " emek harcayanlar. Eğer sen de bu ikinci kategoride kendini " +
@@ -224,10 +232,14 @@ public class MainActivity extends AppCompatActivity {
                                                 " gibi bir düşünce varsa lütfen onlardan kurtul. Dünya çapındaki büyük," +
                                                 " özgür yazılım projelerine destek olmayı, içimizdeki bilgi paylaşımını " +
                                                 "doruklara ulaştırmayı planlıyoruz. Çünkü biliyoruz ki dünya çapında \"zilyon\"" +
-                                                " programcı, mühendis var. Bir fark yaratmak istiyoruz.");
-                                dialogBuilder.setIcon(R.mipmap.logo);
-                                dialogBuilder.setView(about);
-                                dialogBuilder.show();
+                                                " programcı, mühendis var. Bir fark yaratmak istiyoruz.")
+                                        .contentGravity(GravityEnum.START)
+                                        .iconRes(R.mipmap.logo)
+                                        .maxIconSizeRes(R.dimen.icon_size)
+                                        .theme(Theme.DARK)
+                                        .dividerColor(getResources().getColor(R.color.red))
+                                        .show();
+
                                 break;
                             case 7:
                                 LinearLayout ln = new LinearLayout(MainActivity.this);
@@ -236,11 +248,29 @@ public class MainActivity extends AppCompatActivity {
                                 WebView web=new WebView(getApplicationContext());
                                 web.loadUrl("file:///android_asset/privacy_policy.html");
                                 ln.addView(web);
-                                AlertDialog.Builder dialogBuilderP = new AlertDialog.Builder(MainActivity.this);
-                                dialogBuilderP.setView(ln);
-                                dialogBuilderP.show();
+                                mt.title("DEU Bilgisayar Topluluğu")
+                                        .customView(ln,false)
+                                        .contentGravity(GravityEnum.START)
+                                        .iconRes(R.mipmap.logo)
+                                        .maxIconSizeRes(R.dimen.icon_size)
+                                        .theme(Theme.DARK)
+                                        .dividerColor(getResources().getColor(R.color.red))
+                                        .show();
                                 break;
-                            case 9:
+                            case 8:
+                                LinearLayout lnr = new LinearLayout(MainActivity.this);
+                                lnr.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
+                                lnr.setOrientation(LinearLayout.VERTICAL);
+                                WebView webTwo=new WebView(getApplicationContext());
+                                webTwo.loadUrl("file:///android_asset/application.html");
+                                lnr.addView(webTwo);
+                                mt.title("The Application")
+                                        .customView(webTwo,false)
+                                        .iconRes(R.mipmap.logo)
+                                        .maxIconSizeRes(R.dimen.icon_size)
+                                        .theme(Theme.DARK)
+                                        .dividerColor(getResources().getColor(R.color.red))
+                                        .show();
                                 break;
 
                         }

@@ -44,6 +44,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\privacy_24dp.png"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\ic_rowing_black_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\ic_rowing_black_24dp.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-mdpi\\self_white_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-mdpi\\self_white_24dp.png"
     },

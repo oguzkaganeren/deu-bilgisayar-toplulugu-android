@@ -44,6 +44,10 @@
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\photo_library_black_24dp.png"
     },
     {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\ic_rowing_black_24dp.png",
+        "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\ic_rowing_black_24dp.png"
+    },
+    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\drawable-xxxhdpi\\arrow_back_black_24dp.png",
         "source": "E:\\androidWorks\\Topluluk\\app\\build\\generated\\res\\pngs\\debug\\drawable-xxxhdpi\\arrow_back_black_24dp.png"
     },
