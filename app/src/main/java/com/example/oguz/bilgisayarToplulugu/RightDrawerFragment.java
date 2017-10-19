@@ -36,6 +36,7 @@ public class RightDrawerFragment extends Fragment{
                              Bundle savedInstanceState) {
         View v = inflater.inflate(R.layout.right_drawer, container, false);
         viewPager = (ViewPager) v.findViewById(R.id.viewpager_right);
+
         setupViewPager(viewPager);
 
         tabLayout = (TabLayout) v.findViewById(R.id.tabs_right);
@@ -49,7 +50,7 @@ public class RightDrawerFragment extends Fragment{
     }
     private void setupViewPager(ViewPager viewPager) {
         ViewPagerAdapter adapter = new ViewPagerAdapter(myContext.getSupportFragmentManager());
-       // adapter.addFragment((Fragment) new MembersFragment(), "Members");
+        adapter.addFragment((Fragment) new MembersFragment(), "Members");
         adapter.addFragment((Fragment) new DialogsFragment(), "Dialogs");
         viewPager.setAdapter(adapter);
     }

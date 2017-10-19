@@ -492,10 +492,6 @@
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\1566efbb34e82f233c14a2ee359fff61a4bed9a5\\output\\res\\layout\\material_drawer_item_secondary_toggle.xml"
     },
     {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\message_main.xml",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\message_main.xml"
-    },
-    {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\tools_material_view_pager_pagertitlestrip.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\7236804b8d79e60540aa0b64b767d16d388e4170\\output\\res\\layout\\tools_material_view_pager_pagertitlestrip.xml"
     },
@@ -602,10 +598,6 @@
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\material_drawer_item_toggle.xml",
         "source": "C:\\Users\\Oguz\\.android\\build-cache\\1566efbb34e82f233c14a2ee359fff61a4bed9a5\\output\\res\\layout\\material_drawer_item_toggle.xml"
-    },
-    {
-        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\message.xml",
-        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\layout\\message.xml"
     },
     {
         "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\debug\\layout\\abc_activity_chooser_view_list_item.xml",

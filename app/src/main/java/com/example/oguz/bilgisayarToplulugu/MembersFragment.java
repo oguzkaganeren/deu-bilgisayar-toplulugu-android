@@ -15,6 +15,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.github.florent37.materialviewpager.header.MaterialViewPagerHeaderDecorator;
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
@@ -70,6 +71,8 @@ public class MembersFragment  extends Fragment {
         v.findViewById(R.id.right_profile_picture).setDrawingCacheEnabled(true);
         mLinearLayoutManager = new LinearLayoutManager(getActivity());
         mRecyclerView = (RecyclerView) v.findViewById(R.id.rcmembers);
+        mRecyclerView.setLayoutManager(mLinearLayoutManager);
+        mRecyclerView.setHasFixedSize(true);
         mRecyclerView.setLayoutManager(mLinearLayoutManager);
         DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(mRecyclerView.getContext(),
                 mLinearLayoutManager.getOrientation());
