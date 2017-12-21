@@ -1,5 +1,9 @@
 # D.E.U Bilgisayar Topluluğu
 It's android project for DEU Computer Society.[Deu Bilgisayar Topluluğu](https://play.google.com/store/apps/details?id=com.deu.oguz.bilgisayarToplulugu&hl=en) on the Google Play.
+### To do list
+* All strings value have to move Values->String.xml,
+* After editing classes, pass the kotlin,
+* Update Content side, it should be more smarter,
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 ### Prerequisites
