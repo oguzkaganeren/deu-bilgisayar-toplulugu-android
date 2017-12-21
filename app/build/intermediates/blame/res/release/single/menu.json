@@ -1,0 +1,10 @@
+[
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\menu\\right.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\menu\\right.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\menu\\done_addevent.xml",
+        "source": "E:\\androidWorks\\Topluluk\\app\\src\\main\\res\\menu\\done_addevent.xml"
+    }
+]

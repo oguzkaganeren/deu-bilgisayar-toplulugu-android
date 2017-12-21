@@ -1,0 +1,22 @@
+[
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\place_autocomplete_fragment.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\9c2075164125710fbecdb4f77f41d03003cee574\\output\\res\\layout-v21\\place_autocomplete_fragment.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_action.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dc79cd0bfab44de900c99d68b382130f01a23a34\\output\\res\\layout-v21\\notification_action.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_template_icon_group.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dc79cd0bfab44de900c99d68b382130f01a23a34\\output\\res\\layout-v21\\notification_template_icon_group.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_template_custom_big.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dc79cd0bfab44de900c99d68b382130f01a23a34\\output\\res\\layout-v21\\notification_template_custom_big.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\layout-v21\\notification_action_tombstone.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dc79cd0bfab44de900c99d68b382130f01a23a34\\output\\res\\layout-v21\\notification_action_tombstone.xml"
+    }
+]

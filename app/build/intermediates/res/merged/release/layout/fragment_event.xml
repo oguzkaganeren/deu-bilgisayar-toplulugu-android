@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/myContainerEvent"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginBottom="15dp">
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/rcview_event_frag"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        />
+    <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/card_view_event"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/cardMarginVertical"
+        android:layout_marginLeft="@dimen/cardMarginHorizontal"
+        android:layout_marginRight="@dimen/cardMarginHorizontal"
+        android:layout_marginTop="@dimen/cardMarginVertical"
+        app:cardCornerRadius="2dp"
+        app:cardElevation="2dp"
+        android:visibility="gone"
+        app:cardPreventCornerOverlap="false"
+        app:contentPadding="0dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <ImageView
+                android:id="@+id/thumbnail_event_frag"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/album_cover_height"
+                android:background="?attr/selectableItemBackgroundBorderless"
+                android:scaleType="fitXY" />
+            <RelativeLayout
+                android:id="@+id/relativelayout02"
+                android:layout_height="wrap_content"
+                android:layout_width="wrap_content"
+                android:layout_below="@id/thumbnail_event_frag"
+                android:layout_marginTop="-75dp">
+                <Button
+                    android:id="@+id/btn_edit_event"
+                    android:layout_width="48dp"
+                    android:layout_height="36dp"
+                    android:textSize="5pt"
+                    android:visibility="gone"
+                    android:background="@color/lime"
+                    android:layout_alignParentLeft="true"
+                    android:text="Edit">
+                </Button>
+                <Button
+                    android:id="@+id/btn_delete_event"
+                    android:layout_width="48dp"
+                    android:layout_height="36dp"
+                    android:textSize="5pt"
+                    android:visibility="gone"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/md_white_1000"
+                    android:background="@color/md_red_600"
+                    android:text="Delete">
+                </Button>
+            </RelativeLayout>
+            <TextView
+                android:id="@+id/title_event_frag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/thumbnail_event_frag"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:textStyle="bold"
+                android:textColor="@color/card_title"
+                android:textSize="@dimen/album_title" />
+
+            <TextView
+                android:id="@+id/date_event_frag"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:paddingRight="@dimen/album_title_padding"
+                android:textStyle="italic"
+                android:layout_alignParentRight="true"
+                android:textSize="@dimen/songs_count" />
+            <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:padding="6dip"
+                android:clickable="true"
+                android:layout_marginTop="143dp"
+                android:layout_alignParentEnd="true">
+
+                <de.hdodenhof.circleimageview.CircleImageView
+                    xmlns:app="http://schemas.android.com/apk/res-auto"
+                    android:id="@+id/profile_picture_event"
+                    android:layout_width="25dp"
+                    android:layout_height="25dp"
+                    android:padding="0dp"
+                    android:background="@drawable/profile_circular"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentEnd="true"
+                    android:elevation="5dp"
+                    app:civ_border_color="#FF000000"/>
+            </RelativeLayout>
+
+            <TextView
+                android:id="@+id/description_event_frag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/title_event_frag"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:textSize="@dimen/songs_count"
+                android:paddingBottom="10dp"
+                />
+            <ImageView
+                android:id="@+id/overflow"
+                android:layout_width="@dimen/ic_album_overflow_width"
+                android:layout_height="@dimen/ic_album_overflow_height"
+                android:layout_alignParentRight="true"
+                android:layout_below="@id/thumbnail_event_frag"
+                android:layout_marginTop="@dimen/ic_album_overflow_margin_top"
+                android:scaleType="centerCrop" />
+            <TextView
+                android:id="@+id/address_event_frag"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/description_event_frag"
+                android:paddingLeft="@dimen/album_title_padding"
+                android:paddingRight="@dimen/album_title_padding"
+                android:paddingTop="@dimen/album_title_padding"
+                android:textSize="@dimen/songs_count"
+                android:paddingBottom="10dp"
+                />
+            <Button style="@style/Widget.AppCompat.Button.Colored"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Join"
+                android:background="@color/green"
+                android:layout_marginRight="10dp"
+                android:id="@+id/btn_join"
+                android:enabled="true" />
+        </RelativeLayout>
+
+
+    </android.support.v7.widget.CardView>
+
+</LinearLayout>

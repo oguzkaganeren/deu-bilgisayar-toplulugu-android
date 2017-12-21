@@ -1,0 +1,50 @@
+[
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\notification_action_background.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\dc79cd0bfab44de900c99d68b382130f01a23a34\\output\\res\\drawable-v21\\notification_action_background.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_edit_text_material.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\drawable-v21\\abc_edit_text_material.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\md_btn_selector_ripple_dark.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\d054effd619b8ebe10f8f9303c98c2105e1718fc\\output\\res\\drawable-v21\\md_btn_selector_ripple_dark.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_btn_colored_material.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\drawable-v21\\abc_btn_colored_material.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\avd_show_password.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\85d466aafbf71eb9a5dc88f214e91830292f257b\\output\\res\\drawable-v21\\avd_show_password.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\md_btn_selector_ripple.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\d054effd619b8ebe10f8f9303c98c2105e1718fc\\output\\res\\drawable-v21\\md_btn_selector_ripple.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\psts_background_tab.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\8800cd2ebf6347a75373c0f7e89efa29fbbf026f\\output\\res\\drawable-v21\\psts_background_tab.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\avd_hide_password.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\85d466aafbf71eb9a5dc88f214e91830292f257b\\output\\res\\drawable-v21\\avd_hide_password.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\abc_action_bar_item_background_material.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\64305df96cf64598ee49f858c7cac03d76032071\\output\\res\\drawable-v21\\abc_action_bar_item_background_material.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\md_btn_shape.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\d054effd619b8ebe10f8f9303c98c2105e1718fc\\output\\res\\drawable-v21\\md_btn_shape.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\design_bottom_navigation_item_background.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\85d466aafbf71eb9a5dc88f214e91830292f257b\\output\\res\\drawable-v21\\design_bottom_navigation_item_background.xml"
+    },
+    {
+        "merged": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\res\\merged\\release\\drawable-v21\\design_password_eye.xml",
+        "source": "C:\\Users\\Oguz\\.android\\build-cache\\85d466aafbf71eb9a5dc88f214e91830292f257b\\output\\res\\drawable-v21\\design_password_eye.xml"
+    }
+]

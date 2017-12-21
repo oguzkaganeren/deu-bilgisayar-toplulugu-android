@@ -1,0 +1,26 @@
+[
+    {
+        "outputFile": "E:\\androidWorks\\Topluluk\\app\\build\\intermediates\\incremental\\mergeDebugResources\\merged.dir\\values-sw720dp-land-v13\\values-sw720dp-land-v13.xml",
+        "map": [
+            {
+                "to": {
+                    "startLine": 2,
+                    "startColumn": 4,
+                    "startOffset": 55,
+                    "endColumn": 51,
+                    "endOffset": 102
+                },
+                "from": {
+                    "file": "C:\\Users\\Oguz\\.android\\build-cache\\d054effd619b8ebe10f8f9303c98c2105e1718fc\\output\\res\\values-sw720dp-land-v13\\values-sw720dp-land-v13.xml",
+                    "position": {
+                        "startLine": 2,
+                        "startColumn": 4,
+                        "startOffset": 55,
+                        "endColumn": 51,
+                        "endOffset": 102
+                    }
+                }
+            }
+        ]
+    }
+]

@@ -1,0 +1,4 @@
+#Fri Oct 20 23:07:27 EEST 2017
+base.0=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main
+renamed.0=classes.dex
+file.0=E\:\\androidWorks\\Topluluk\\app\\build\\intermediates\\transforms\\dex\\release\\folders\\1000\\1f\\main\\classes.dex
