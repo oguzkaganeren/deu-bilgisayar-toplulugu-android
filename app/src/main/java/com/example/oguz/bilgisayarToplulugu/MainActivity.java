@@ -185,7 +185,7 @@ public class MainActivity extends AppCompatActivity {
         PrimaryDrawerItem item7 = new PrimaryDrawerItem().withIdentifier(2).withName("Privacy Policy").withIcon(R.drawable.privacy_24dp);
         PrimaryDrawerItem item8 = new PrimaryDrawerItem().withIdentifier(3).withName("About The Application").withIcon(R.drawable.ic_rowing_black_24dp);
 //create the drawer and remember the `Drawer` result object
-        final  MaterialDialog.Builder mt= new MaterialDialog.Builder(MainActivity.this);
+
        final Drawer left = new DrawerBuilder()
                 .withActivity(this)
                 .withToolbar(toolbar)
@@ -220,7 +220,7 @@ public class MainActivity extends AppCompatActivity {
                                 Toast.makeText(MainActivity.this, "Signout successful", Toast.LENGTH_SHORT).show();
                                 break;
                             case 6:
-
+                                final  MaterialDialog.Builder  mt= new MaterialDialog.Builder(MainActivity.this);
                                 mt.title("DEU Bilgisayar Topluluğu")
                                         .content(" Bu hayatta iki tip insan olduğuna inanıyoruz :" +
                                                 " Yükselmek için etrafındakileri bastırıp yüksekleri " +
@@ -235,41 +235,43 @@ public class MainActivity extends AppCompatActivity {
                                                 " programcı, mühendis var. Bir fark yaratmak istiyoruz.")
                                         .contentGravity(GravityEnum.START)
                                         .iconRes(R.mipmap.logo)
-                                        .maxIconSizeRes(R.dimen.icon_size)
+                                        .maxIconSizeRes(R.dimen.material_mini_drawer_item_icon)
                                         .theme(Theme.DARK)
-                                        .dividerColor(getResources().getColor(R.color.red))
+                                        .dividerColor(getResources().getColor(R.color.md_deep_orange_600))
                                         .show();
 
                                 break;
                             case 7:
+                                final  MaterialDialog.Builder  mtTwo= new MaterialDialog.Builder(MainActivity.this);
                                 LinearLayout ln = new LinearLayout(MainActivity.this);
                                 ln.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
                                 ln.setOrientation(LinearLayout.VERTICAL);
                                 WebView web=new WebView(getApplicationContext());
                                 web.loadUrl("file:///android_asset/privacy_policy.html");
                                 ln.addView(web);
-                                mt.title("DEU Bilgisayar Topluluğu")
+                                mtTwo.title("DEU Bilgisayar Topluluğu")
                                         .customView(ln,false)
                                         .contentGravity(GravityEnum.START)
                                         .iconRes(R.mipmap.logo)
-                                        .maxIconSizeRes(R.dimen.icon_size)
+                                        .maxIconSizeRes(R.dimen.material_mini_drawer_item_icon)
                                         .theme(Theme.DARK)
-                                        .dividerColor(getResources().getColor(R.color.red))
+                                        .dividerColor(getResources().getColor(R.color.md_deep_orange_600))
                                         .show();
                                 break;
                             case 8:
+                                final  MaterialDialog.Builder  mtThree= new MaterialDialog.Builder(MainActivity.this);
                                 LinearLayout lnr = new LinearLayout(MainActivity.this);
                                 lnr.setLayoutParams(new LinearLayout.LayoutParams(LinearLayout.LayoutParams.FILL_PARENT, LinearLayout.LayoutParams.FILL_PARENT));
                                 lnr.setOrientation(LinearLayout.VERTICAL);
                                 WebView webTwo=new WebView(getApplicationContext());
                                 webTwo.loadUrl("file:///android_asset/application.html");
                                 lnr.addView(webTwo);
-                                mt.title("The Application")
+                                mtThree.title("The Application")
                                         .customView(webTwo,false)
                                         .iconRes(R.mipmap.logo)
-                                        .maxIconSizeRes(R.dimen.icon_size)
+                                        .maxIconSizeRes(R.dimen.material_mini_drawer_item_icon)
                                         .theme(Theme.DARK)
-                                        .dividerColor(getResources().getColor(R.color.red))
+                                        .dividerColor(getResources().getColor(R.color.md_deep_orange_600))
                                         .show();
                                 break;
 
@@ -338,6 +340,7 @@ public class MainActivity extends AppCompatActivity {
                 }
             }
         });
+
     }
     private void loadTabs(){
         final ContentFragment myContents=new ContentFragment();
