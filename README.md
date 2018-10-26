@@ -1,3 +1,10 @@
+
+
+:exclamation: This repo has been archived. Our code is now hosted at
+
+https://gitlab.com/oguzkaganeren/DEU-Bilgisayar-Toplulugu-Android
+
+See you there!
 # D.E.U Bilgisayar Topluluğu
 It's android project for DEU Computer Society.[Deu Bilgisayar Topluluğu](https://play.google.com/store/apps/details?id=com.deu.oguz.bilgisayarToplulugu&hl=en) on the Google Play.
 ### To do list
